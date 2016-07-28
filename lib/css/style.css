@@ -1,0 +1,60 @@
+body {
+	background-color: black;
+	background-image: url(img/index.jpg);
+	background-attachment:fixed;
+	background-position:center;
+	background-repeat: no-repeat;
+    background-size: cover;
+	position: fixed;
+}
+.login {
+	position: fixed;
+	top: 10px;
+	right: 0px;
+	width: 420px;
+}
+#username, #password {
+	width: 120px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+	background-color: rgba(200,200,200,0.75);
+	border: 0;
+	height: 25px;
+	color: #cccccc;
+}
+
+#connect {
+	width: 120px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+	background-color: rgba(240,240,240,0.75);
+	border: 0;
+	height: 25px;
+	font-weight: bold;
+	color: #222222;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: #cccccc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #cccccc;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #cccccc;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #cccccc;
+}
+
+#title-img {
+	position: fixed;
+	left: 50%;
+	top: -10px;
+	width: 400px;
+	margin-left: -200px;
+}
