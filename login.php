@@ -17,8 +17,11 @@ if(!isset($_POST['username'])||!isset($_POST['password'])) {
 	$err++; 
 }
 else {
-	$username = (string) $_POST['username'];
-	$password = (string) $_POST['password'];
+	foreach($_POST as $key => $value) {
+    $variablesPost[htmlspecialchars(trim($key), ENT_QUOTES | ENT_HTML5, "UTF-8")] = htmlspecialchars(trim($value), ENT_QUOTES | ENT_HTML5, "UTF-8");
+	}
+	$username = (string) $variablesPost['username'];
+	$password = (string) $variablesPost['password'];
 
 	$mongo = new MongoClient();
 	$c = $mongo->spacegame->users;

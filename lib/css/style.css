@@ -1,11 +1,11 @@
 body {
 	background-color: black;
-	background-image: url(img/index.jpg);
+	background-image: url(../../img/index.jpg);
 	background-attachment:fixed;
 	background-position:center;
 	background-repeat: no-repeat;
     background-size: cover;
-	position: fixed;
+	font-family: Segoe UI Light;
 }
 .login {
 	position: fixed;
@@ -13,27 +13,24 @@ body {
 	right: 0px;
 	width: 420px;
 }
-#username, #password {
+.login input {
 	width: 120px;
 	margin-left: 5px;
 	margin-right: 5px;
 	padding: 5px;
-	background-color: rgba(200,200,200,0.75);
 	border: 0;
-	height: 25px;
+	height: 15px;
+}
+#username, #password {
+	background-color: rgba(200,200,200,0.75);
 	color: #cccccc;
 }
 
 #connect {
-	width: 120px;
-	margin-left: 5px;
-	margin-right: 5px;
-	padding: 5px;
 	background-color: rgba(240,240,240,0.75);
-	border: 0;
-	height: 25px;
 	font-weight: bold;
 	color: #222222;
+	height: 25px;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -57,4 +54,90 @@ body {
 	top: -10px;
 	width: 400px;
 	margin-left: -200px;
+}
+
+/* Choix Serveur */
+.server-choice {
+    width: 430px;
+    height: 400px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -215px;
+	margin-top: -200px;
+	background-image: url(../../img/server-list.png);
+	color: #DDDDDD;
+	border-radius: 5px;
+    padding: 5px;
+    padding-right: 35px;
+	text-align: center;
+}
+.server-choice table {
+	width: 100%;
+}
+.server-online {
+	color: green;
+}
+.server-offline {
+	color: red;
+}
+.server-maintenance {
+	color: orange;
+}
+.server-choice table tr td a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #EEEEEE;
+}
+.server-choice table tr td a:hover {
+	text-decoration: underline;
+	color: #CCCCCC;
+}
+
+/* Pics Changelogs */
+.images {
+	width: 80%;
+	margin-left: 10%;
+	color: white;
+	text-align: center;
+	padding: 0;
+}
+.images ul {
+	display: block;
+	width: 100%;
+	padding: 0;
+}
+.images li {
+	display: inline-block;
+	width: 30%;
+	padding: 1.5%;
+}
+.images li img {
+	display: block;
+	width: 100%;
+}
+
+/* Full screen container */
+#image-full-div {
+	position: fixed;
+	display: none;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.6);
+	z-index: 1234;
+}
+#image-full {
+	display: block;
+	max-height: 90%;
+	max-width: 90%;
+    width: auto;
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
 }
