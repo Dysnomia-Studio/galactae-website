@@ -7,14 +7,15 @@
 						<li><a href="medias#gameEvolution"><?php echo MEDIAS_EVOLUTION; ?></a></li>
 						<li><a href="medias#backgrounds"><?php echo MEDIAS_BACKGROUNDS; ?></a></li>
 						<li><a href="blog"><?php echo MENU_BLOG; ?></a></li>
-						<li><a href="https://forum.***REMOVED***/"><?php echo MENU_FORUM; ?></a></li>
+						<li><a href="http://bugs.elanis.eu"><?php echo MENU_BUGTRACKER; ?></a></li>
+						<li><a href="https://forum.galacte.elanis.eu/"><?php echo MENU_FORUM; ?></a></li>
 					</ul>
 				</td>
 				<td>
 					<ul>
 						<li><h3><?php echo LEGAL_NOTICES; ?></h3></li>
-						<li><a href="cgu.pdf"><?php echo LEGAL_NOTICES_CGU; ?></a></li>
-						<li><a href="cgv.pdf"><?php echo LEGAL_NOTICES_CGV; ?></a></li>
+						<li><a href="https://***REMOVED***/website/pdf/cgu.pdf"><?php echo LEGAL_NOTICES_CGU; ?></a></li>
+						<li><a href="https://***REMOVED***/website/pdf/cgv.pdf"><?php echo LEGAL_NOTICES_CGV; ?></a></li>
 						<li><a href="faq"><?php echo LEGAL_NOTICES_FAQ; ?></a></li>
 						<li><a href="contact"><?php echo LEGAL_NOTICES_CONTACT; ?></a></li>
 					</ul>
@@ -22,9 +23,9 @@
 				<td>
 					<ul>
 						<li><h3><?php echo SOCIAL_NETWORKS; ?></h3></li>
-						<li><a href="https://www.facebook.com/elanisgaming/">Facebook</a></li>
-						<li><a href="https://twitter.com/ElanisGaming">Twitter</a></li>
-						<li><a href="https://www.youtube.com/user/ElanisGaming">Youtube</a></li>
+						<li><a href="redir/facebook.php">Facebook</a></li>
+						<li><a href="redir/twitter.php">Twitter</a></li>
+						<li><a href="redir/youtube.php">Youtube</a></li>
 					</ul>
 				</td>
 				<td>
@@ -39,7 +40,7 @@
 		</table>
 		<table>
 			<tr class="second-footer">
-				<td>Galactae: Space Age Rising - <?php echo COPYRIGHT_NOTICE_01; ?> - Copyright 2016-<?php echo date('Y'); ?> - <?php echo COPYRIGHT_NOTICE_02; ?></td>
+				<td>Galactae: Space Age Dawn - <?php echo COPYRIGHT_NOTICE_01; ?> - Copyright 2016-<?php echo date('Y'); ?> - <?php echo COPYRIGHT_NOTICE_02; ?></td>
 			</tr>
 		</table>
 	</footer>

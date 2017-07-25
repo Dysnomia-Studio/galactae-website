@@ -1,60 +1,62 @@
 <?php
 include_once('./basefiles/header.php');
 
-if((isset($_COOKIE['galactae-account-username']) && 
-	$_COOKIE['galactae-account-username']!="" && 
-	isset($_COOKIE['galactae-account-bid']) && 
-	$_COOKIE['galactae-account-bid']!="" &&
-	isset($_COOKIE['galactae-account-id']) && 
-	$_COOKIE['galactae-account-id']!=0) ||
-	(isset($_SESSION['username']) &&
+if(isset($_SESSION['username']) &&
 	$_SESSION['username'] != "" &&
 	isset($_SESSION['id']) &&
 	$_SESSION['id'] !=0 &&
 	isset($_SESSION['game_id']) &&
-	$_SESSION['game_id'] != "")) {
+	$_SESSION['game_id'] != "") { // Already Connected
 
 	header('Location: portal');
 }
 ?>
 <body class="login-page">
 	<ul>
-		<li style="text-align: center;"><a href="index.html" style="color: white; text-decoration: none; font-weight: bold;">GALACTAE: SPACE AGE RISING</a></li>
+		<li style="text-align: center;"><a href="index.html" style="color: white; text-decoration: none; font-weight: bold;"><img src="https://***REMOVED***/website/img/logo-large-white.png" style="max-height: 6em;"></a></li>
 	</ul>
 
 	<script type="text/javascript">
 		window.addEventListener('load',function() {
-			function register() {
-					/* Buttons Colors */
-					document.getElementById('login-td').className = "";
-					document.getElementById('register-td').className = "active";
+			function active(div) {
+				document.getElementById(div+'-section').className = "login-onglet active-onglet";
 
-					/* Onglets */
-					document.getElementById('register-section').className = "login-onglet active-onglet";
-					document.getElementById('login-section').className = "login-onglet";
+				if(div=="forgot-pass") { div="login"; }
+				document.getElementById(div+'-td').className = "active";
 			}
+			function desactive(div) {
+				document.getElementById(div+'-section').className = "login-onglet";
 
-			function login() {
-					/* Buttons Colors */
-					document.getElementById('register-td').className = "";
-					document.getElementById('login-td').className = "active";
-
-					/* Onglets */
-					document.getElementById('login-section').className = "login-onglet active-onglet";
-					document.getElementById('register-section').className = "login-onglet";
+				if(div=="forgot-pass") { div="login"; }
+				document.getElementById(div+'-td').className = "";
 			}
-
 
 			document.getElementById('login-button').addEventListener('click', function() {
-				login();
+				desactive("register");
+				desactive("forgot-pass");
+
+				active("login");
 			});
+
+			function register() {
+				desactive("login");
+				desactive("forgot-pass");
+
+				active("register");
+			}
 			document.getElementById('register-button').addEventListener('click', function() {
 				register();
 			});
-
 			if(window.location.hash=="#register"){
 				register();
 			}
+
+			document.getElementById('forgot-pass-button').addEventListener('click', function() {
+				desactive("login");
+				desactive("register");
+
+				active("forgot-pass");
+			});
 		});
 	</script>
 
@@ -67,14 +69,24 @@ if((isset($_COOKIE['galactae-account-username']) &&
 		</table>
 
 		<div id="login-section" class="login-onglet active-onglet">
-			<form method="post" action="https://galactae.elanis.eu/logconfirm">
+			<form method="post" action="logconfirm">
 				<input type="text" name="username" id="username" placeholder="<?php echo LOGIN_USERMAIL; ?>">
 				<input type="password" name="password" id="password" placeholder="<?php echo LOGIN_PASSWORD; ?>">
 				<input type="submit" value="<?php echo LOGIN_LOGIN; ?>">
 			</form>
+			<a href="#forgotmypass" id="forgot-pass-button"><?php echo LOGIN_FORGOTPASS; ?></a>
 		</div>
+
+		<div id="forgot-pass-section" class="login-onglet">
+			<form method="post" action="forgotmypass">
+				<?php echo LOGIN_FORGOTPASS; ?><br/>
+				<input type="text" name="username" id="username" placeholder="<?php echo LOGIN_USERMAIL; ?>">
+				<input type="submit" value="<?php echo LOGIN_FORGOT_SUBMIT; ?>">
+			</form>
+		</div>
+
 		<div id="register-section" class="login-onglet">
-			<form method="post" action="https://galactae.elanis.eu/regconfirm">
+			<form method="post" action="regconfirm">
 				<input type="text" name="username" id="username" placeholder="<?php echo LOGIN_USERNAME; ?>" required>
 				<input type="text" name="mail" id="mail" placeholder="<?php echo LOGIN_MAIL; ?>" required>
 				<input type="password" name="password" id="password" placeholder="<?php echo LOGIN_PASSWORD; ?>" required>

@@ -1,7 +1,7 @@
-	<img id="hamburger" src="img/hamburger.png" alt="menu">
+	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
 
 	<ul <?php if($currentname!="index") { echo "class=\"no-background\""; } ?> id="menu">
-		<li class="menu-logo"><a href="index">GALACTAE: SPACE AGE RISING</a></li>
+		<li class="menu-logo"><a href="index">GALACTAE: SPACE AGE DAWN</a></li>
 		<li class="hamSpace"></li> <!-- Necessaire uniquement sur le menu hamburger -->
 		<li><a href="login" class="menu-link menu-button"><?php echo MENU_PLAY_NOW; ?></a></li>
 		<li><a href="medias" class="menu-link"><?php echo MENU_PICS; ?></a></li>

@@ -64,8 +64,8 @@ function LoadIt() {
 <meta name="keywords" content="<?php echo META_KEYS; ?>">
 <meta name="description" content="<?php echo META_DESC; ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/png" href="./img/favicon.png"/>
-<link rel="stylesheet" media="screen" type="text/css" title="Design" href="./lib/css/style.css"/>
+<link rel="shortcut icon" type="image/png" href="https://***REMOVED***/website/img/favicon.png"/>
+<link rel="stylesheet" media="screen" type="text/css" title="Design" href="https://***REMOVED***/website/css/style.css"/>
 <?php
 echo $config['website_custom_head'];
 ?>

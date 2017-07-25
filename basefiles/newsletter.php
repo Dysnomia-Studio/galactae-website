@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Newsletter Galactae: Space Age Rising</title>
+    <title>Newsletter Galactae: Space Age Dawn</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
     <style type="text/css">
@@ -36,11 +36,9 @@
 <body style="margin:0px; padding:0px; -webkit-text-size-adjust:none;">
 
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tbody>
             <tr>
                 <td align="center" bgcolor="#1D1D1D">
                     <table  cellpadding="0" cellspacing="0" border="0">
-                        <tbody>                            
                             <tr>
                                 <td class="w640"  width="640" height="10"></td>
                             </tr>
@@ -54,17 +52,15 @@
                             <tr class="pagetoplogo">
                                 <td class="w640"  width="640">
                                     <table  class="w640"  width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#1D1D1D" style="color: #ffffff">
-                                        <tbody>
                                             <tr>
                                                 <td class="w30"  width="30"></td>
                                                 <td  class="w580"  width="580" valign="middle" align="left">
                                                     <div class="pagetoplogo-content">
-                                                        <h2><b>GALACTAE: SPACE AGE RISING</b></h2>
+                                                        <img src="https://***REMOVED***/img/website/officialPosts/banner.jpg" style="width: 100%;">
                                                     </div>
                                                 </td> 
                                                 <td class="w30"  width="30"></td>
                                             </tr>
-                                        </tbody>
                                     </table>
                                 </td>
                             </tr>
@@ -73,18 +69,16 @@
                             <tr class="content">
                                 <td class="w640" class="w640"  width="640">
                                     <table class="w640"  width="640" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
                                             <tr>
                                                 <td  class="w30"  width="30"></td>
                                                 <td  class="w580"  width="580">
                                                     <!-- une zone de contenu -->
                                                     <table class="w580"  width="580" cellpadding="0" cellspacing="0" border="0">
-                                                        <tbody>                                                            
-                                                            <tr>
+                                                        <tr>
                                                                 <td class="w580"  width="580">
                                                                     <div align="left" class="article-content" style="color: #dddddd;">
                                                                         <p align="center">Bonjour à tous !</p>
-                                                                        <p>Il y a déjà 2 mois, la version 0.2.0 de <a href="https://***REMOVED***/login"><b>Galactae: Space Age Rising</b></a> etait dévoliée. Il est maintenant l'heure de rendre public les changelogs de la nouvelle version 0.3.0 ! Voici donc la liste des nouveautés:</p>
+                                                                        <p>Il y a déjà 2 mois, la version 0.2.0 de <a href="https://***REMOVED***/login"><b>Galactae: Space Age Dawn</b></a> etait dévoliée. Il est maintenant l'heure de rendre public les changelogs de la nouvelle version 0.3.0 ! Voici donc la liste des nouveautés:</p>
                                                                         <ul>
                                                                             <li>Site Web:<br/>
                                                                                 <ul>
@@ -154,15 +148,13 @@
                                                                         </ul>
 
                                                                         <p>En cas de problème n'hesitez pas à nous contacter par mail ! Bon jeu à tous,</p>
-                                                                        L'equipe de dévelopement de Galactae: Space Age Rising<br/>
+                                                                        L'equipe de dévelopement de Galactae: Space Age Dawn<br/>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                        </tbody>
                                                     </table>
                                                 </td>
                                             </tr>
-                                        </tbody>
                                     </table>
                                 </td>
                             </tr>
@@ -175,25 +167,21 @@
                             <tr class="content">
                                 <td class="w640" class="w640"  width="640">
                                     <table class="w640"  width="640" cellpadding="0" cellspacing="0" border="0">
-                                        <tbody>
                                             <tr>
                                                 <td  class="w30"  width="30"></td>
                                                 <td  class="w580"  width="580"  style="">
                                                     <!-- une zone de contenu -->
                                                     <table class="w580"  width="580" cellpadding="0" cellspacing="0" border="0">
-                                                        <tbody>                                                            
-                                                            <tr>
+                                                        <tr>
                                                                 <td class="w580"  width="580">
                                                             <tr>
                                                                 <div align="center" class="article-content">
                                                                     <h3><a href="https://***REMOVED***/login" style="color: #00b0ff; text-decoration: none; font-size: 26px;">Jouer maintenant !</a></h3>
                                                                 </div>
                                                             </tr>
-                                                        </tbody>
                                                     </table>
                                                 </td>
                                             </tr>
-                                        </tbody>
                                     </table>
                                 </td>
                             </tr>
@@ -207,22 +195,20 @@
                             <tr>
                                 <td class="w640"  width="640" height="60"></td>
                             </tr>
-                            <td align="center" class="w640"  width="640" height="20" style="font-size:13px; color: #dddddd;">Galactae: Space Age Rising - Crée par <a href="https://elanis.eu/">Elanis</a> - Copyright 2016-2017 - Tout droits reservés</td>
+                            <td align="center" class="w640"  width="640" height="20" style="font-size:13px; color: #dddddd;">Galactae: Space Age Dawn - Crée par <a href="https://elanis.eu/">Elanis</a> - Copyright 2016-2017 - Tout droits reservés</td>
                             </tr>
                             <tr>
                                 <td class="w640"  width="640" height="10"></td>
                             </tr>
                             <tr>
-                            <td align="center" class="w640"  width="640" height="20" style="font-size:12px; color: #dddddd;"> Vous recevez ce mail car vous êtes inscrit à la newsletter de <a href="https://***REMOVED***/blog">Galactae: Space Age Rising</a> si vous souhaitez ne plus recevoir de nouvelles de notre part, veuillez modifier vos preferences dans votre <a href="https://***REMOVED***/blog">profil utilisateur</a>.</td>
+                            <td align="center" class="w640"  width="640" height="20" style="font-size:12px; color: #dddddd;"> Vous recevez ce mail car vous êtes inscrit à la newsletter de <a href="https://***REMOVED***/blog">Galactae: Space Age Dawn</a> si vous souhaitez ne plus recevoir de nouvelles de notre part, veuillez modifier vos preferences dans votre <a href="https://***REMOVED***/blog">profil utilisateur</a>.</td>
                             </tr>
                             <tr>
                                 <td class="w640"  width="640" height="10"></td>
                             </tr>
-                        </tbody>
                     </table>
                 </td>
             </tr>
-        </tbody>
     </table>
 </body>
 </html>

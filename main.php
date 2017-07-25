@@ -1,5 +1,11 @@
 <?php
+ini_set('session.cookie_domain', '.galactae.elanis.eu' );
+ini_set('session.cookie_lifetime ', 2678400); // Set expiration to 1 month
+ini_set('session.gc_maxlifetime', 2678400); // Set expiration to 1 month
+
 include('./lib/init.php');
+
+setcookie("galactae-phpsessid",session_id(),time()+2678400,'/','.galactae.elanis.eu'); 
 
 $currentpage = explode("?",$_SERVER['REQUEST_URI'])[0];
 // Strtolower

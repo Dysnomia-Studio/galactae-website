@@ -80,7 +80,7 @@ include_once('./basefiles/menu.php');
 		</ul>
 	</section>
 	
-	<script type="text/javascript" src="lib/medias-pictureShow.js"></script>
+	<script type="text/javascript" src="https://***REMOVED***/website/js/medias-pictureShow.js"></script>
 <?php
 include_once('./basefiles/footer.php');
 ?>
