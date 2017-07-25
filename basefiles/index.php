@@ -4,43 +4,57 @@ include_once('./basefiles/menu.php');
 ?>
 	<section class="top-image" id="top-image">
 		<div id="above-top-image">
-			<p id="top-images-punchlines">Choose your own government system and control the Universe !</p>
+			<p id="top-images-punchlines"></p>
 			<div id="join">
-				<a href="login.html#register">Join our alpha test for free !</a>
+				<a href="login.html#register"><?php echo ALPHA_TEST; ?></a>
 			</div>
 		</div>
 	</section>
 	<section class="index-desc">
-		<table>
+		<table class="computer-table">
 			<tr>
-				<td><h2>Choisissez comment gouverner</h2></td>
-				<td><h2>Creez vos propres flottes</h2></td>
-				<td><h2>Battez vous pour le controle de la galaxie</h2></td>
+				<td><h2><?php echo INDEX_TITLE_1; ?></h2></td>
+				<td><h2><?php echo INDEX_TITLE_2; ?></h2></td>
+				<td><h2><?php echo INDEX_TITLE_3; ?></h2></td>
 			</tr>
 			<tr>
-				<td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350×200&w=350&h=200" alt="desc1"></td>
-				<td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350×200&w=350&h=200" alt="desc2"></td>
-				<td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350×200&w=350&h=200" alt="desc3"></td>
+				<td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="how to govern"></td>
+				<td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="create your own fleet"></td>
+				<td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="beat for galaxy control"></td>
 			</tr>
 			<tr>
-				<td><p>Empereur, PDG ou President elu "democratiquement" ? Vous pouvez chosir comment gouverner votre peuple, et c'est de cette decision que decoulera le fonctionnement de votre empire ...</p></td>
-				<td><p>Controlez et formez vos flottes afin de defendre vos planetes et attaquer les autres empires !</p></td>
-				<td><p>Il faut toujours etendre votre domination chez vos voisins, et pour cela, il va falloir se battre !</p></td>
+				<td><p><?php echo INDEX_DESC_1; ?></p></td>
+				<td><p><?php echo INDEX_DESC_2; ?></p></td>
+				<td><p><?php echo INDEX_DESC_3; ?></p></td>
 			</tr>
+		</table>
+
+		<table class="mobile-table">
+			<tr><td><h2><?php echo INDEX_TITLE_1; ?></h2></td></tr>
+			<tr><td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="how to govern"></td></tr>
+			<tr><td><p><?php echo INDEX_DESC_1; ?></p></td></tr>
+		</table>
+		<table class="mobile-table">
+			<tr><td><h2><?php echo INDEX_TITLE_2; ?></h2></td></tr>
+			<tr><td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="create your own fleet"></td></tr>
+			<tr><td><p><?php echo INDEX_DESC_2; ?></p></td></tr>
+		</table>
+		<table class="mobile-table">
+			<tr><td><h2><?php echo INDEX_TITLE_3; ?></h2></td></tr>
+			<tr><td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="beat for galaxy control"></td></tr>
+			<tr><td><p><?php echo INDEX_DESC_3; ?></p></td></tr>
 		</table>
 	</section>
 	<script type="text/javascript">
+		var count=0;
 		// Script pour texte aleatoire dans la "top-image"
-		window.addEventListener("load",function() {
-			var count= 1; //Pour eviter d'avoir pendant 10 secondes la phrase de départ
-			var phrases = ["Choose your own government system and control the Universe !","Fight your ennemies throught the galaxies !","Expand your empire to make other fear you !"];
-
-			setInterval(function() {
-				document.getElementById('top-images-punchlines').innerHTML = phrases[count];
+		function changePunchline() {
+			document.getElementById('top-images-punchlines').innerHTML = indexPunchlines[count];
 				count++;
-				if(count>phrases.length - 1) { count = 0; }
-			},5000);
-		});
+				if(count>indexPunchlines.length - 1) { count = 0; }
+		}
+		window.addEventListener("load",function() {	setInterval(function() { changePunchline(); },5000); });
+		changePunchline();
 	</script>
 <?php
 include_once('./basefiles/footer.php');

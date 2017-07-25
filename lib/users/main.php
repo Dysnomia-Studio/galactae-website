@@ -5,7 +5,7 @@ class User
 	private $id;
 	private $username = "Mr. Smith";
 	private $level = 1;
-	private $levels = [BANNED, VISITOR, MEMBER, MODERATOR, ADMINISTRATOR];
+	private $levels = [BANNED, VISITOR, MEMBER, MODERATOR, ADMINISTRATOR, OWNER];
 	private $avatar;
 	private $langue;
 

@@ -1,12 +1,14 @@
 <?php
-setcookie ( "galactae-account-username", $_SESSION['username'], time()+60*60*24*7,"/", ".***REMOVED***",true, false);
-setcookie ( "galactae-account-username", $_SESSION['username'], time()+60*60*24*7,"/", "***REMOVED***",true, false);
-setcookie ( "galactae-account-id", $_SESSION['game_id'], time()+60*60*24*7,"/", ".***REMOVED***",true, false);
-setcookie ( "galactae-account-id", $_SESSION['game_id'], time()+60*60*24*7,"/", "***REMOVED***",true, false);
-setcookie ( "galactae-account-bid", $_SESSION['id'], time()+60*60*24*7,"/", ".***REMOVED***",true, false);
-setcookie ( "galactae-account-bid", $_SESSION['id'], time()+60*60*24*7,"/", "***REMOVED***",true, false);
+if(!isset($_COOKIE['galactae-account-username'])) {
+setcookie ( "galactae-account-username", $_SESSION['username'], time()+60*60*24*7,"/", ".galactae.elanis.eu",true, false);
+setcookie ( "galactae-account-username", $_SESSION['username'], time()+60*60*24*7,"/", "galactae.elanis.eu",true, false);
+setcookie ( "galactae-account-id", $_SESSION['game_id'], time()+60*60*24*7,"/", ".galactae.elanis.eu",true, false);
+setcookie ( "galactae-account-id", $_SESSION['game_id'], time()+60*60*24*7,"/", "galactae.elanis.eu",true, false);
+setcookie ( "galactae-account-bid", $_SESSION['id'], time()+60*60*24*7,"/", ".galactae.elanis.eu",true, false);
+setcookie ( "galactae-account-bid", $_SESSION['id'], time()+60*60*24*7,"/", "galactae.elanis.eu",true, false);
+}
 
-if(!isset($_SESSION['username']) || !isset($_SESSION['id'])) {
+if((!isset($_SESSION['username']) || !isset($_SESSION['id']))&&(!isset($_COOKIE['galactae-account-username']) ||$_COOKIE['galactae-account-username']=="" || !isset($_COOKIE['galactae-account-bid']) ||$_COOKIE['galactae-account-bid']=="")) {
 	header('Location: ../index.php');
 }
 
@@ -19,10 +21,10 @@ include_once('./basefiles/header.php');
 
 	<?php
 	$servers = [
-		["addr"=>"01-srv.***REMOVED***", "port"=>34269, "name"=>"[EU] ".MILKY_WAY, "link"=>"https://01-milkyway.***REMOVED***"],
-		["addr"=>"02-srv.***REMOVED***", "port"=>44269, "name"=>"[NA] ".ANDROMEDA, "link"=>"https://02-andromeda.***REMOVED***"],
-		//["addr"=>"03-srv.***REMOVED***", "port"=>54269, "name"=>MAGELLAN, "link"=>"https://03-magellan.***REMOVED***"],
-		//["addr"=>"04-srv.***REMOVED***", "port"=>64269, "name"=>PEGASUS, "link"=>"https://04-pegasus.***REMOVED***"],
+		["addr"=>"01-srv.galactae.elanis.eu", "port"=>42690, "name"=>MILKYWAY, "link"=>"https://01-milkyway.galactae.elanis.eu"],
+		["addr"=>"02-srv.galactae.elanis.eu", "port"=>42691, "name"=>ANDROMEDA, "link"=>"https://02-andromeda.galactae.elanis.eu"],
+		["addr"=>"03-srv.galactae.elanis.eu", "port"=>42692, "name"=>MAGELLAN, "link"=>"https://03-magellan.galactae.elanis.eu"],
+		["addr"=>"04-srv.galactae.elanis.eu", "port"=>42693, "name"=>PEGASUS, "link"=>"https://04-pegasus.galactae.elanis.eu"]
 	];
 
 	echo'<div class="server-choice">

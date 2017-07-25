@@ -1,7 +1,8 @@
 <?php
-	define('MILKY_WAY','Milky Way');
-	define('ANDROMEDA','Andromeda');
-	define('MAGELLAN','Magellan');
+	define('MILKYWAY','[EU] Milky Way');
+	define('ANDROMEDA','[NA] Andromeda');
+	define('MAGELLAN','[?] Magellan');
+	define('PEGASUS','[?] Pegasus');
 
 	//Autre
 	define('WELCOME_MESSAGE','Welcome ! Please choose your galaxy:');

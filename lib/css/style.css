@@ -58,12 +58,6 @@ footer table, footer table tr {
 .second-footer {
 	text-align: center;
 }
-/* Pour un bon placement ... */
-.contact, .faq, .partners, .theteam {
-	min-height: calc(100vh - 8em - 8em); /* Page height - padding - ~footer size */
-	width: 960px;
-	margin: 4em auto;
-}
 
 /* SCROLLBAR CUSTOM */
 ::-webkit-scrollbar {
@@ -283,7 +277,7 @@ footer table, footer table tr {
 	font-family: 'Montserrat', sans-serif;
 	background-color: rgba(200,200,200,0.25);
 	text-transform: uppercase;
-	width: 250px;
+	width: 300px;
 	padding: 1.25em;
 	font-size: 0.8em;
 }
@@ -307,9 +301,33 @@ footer table, footer table tr {
 	width: 100%;
 }
 .index-desc table tr td {
-	width: 33%;
 	padding: 0em 2em;
 	vertical-align: top;
+}
+@media all and (orientation: landscape) {
+	.index-desc table tr td {
+		width: calc((1/3 * 100%) - 4em);
+		display: inline-block;
+		min-height: 3em;
+	 }
+	 .index-desc .computer-table {
+	 	display: block;
+	 }
+	 .index-desc .mobile-table {
+	 	display: none;
+	 }
+}
+@media all and (orientation: portrait) {
+	.index-desc table tr td {
+		width: calc(100% - 4em);
+		display: block;
+	 }
+	 .index-desc .computer-table {
+	 	display: none;
+	 }
+	 .index-desc .mobile-table {
+	 	display: block;
+	 }
 }
 .index-desc img {
 	width: 95%;
@@ -400,13 +418,13 @@ footer table, footer table tr {
 }
 
 /* DevBlog */
-.devblog {
+.devblog, .theteam {
 	width: 100%;
 	max-width: 960px;
 	margin: 0 auto;
 	margin-top: 4em;
 }
-.devblog article {
+.devblog article, .theteam article {
 	background-color: #EEEEEE;
 	margin: 3em 0em;
 	padding: 1.5em;
@@ -422,6 +440,21 @@ footer table, footer table tr {
 .devblog-description img {
 	float: left;
 	margin: 0.7em;
+}
+/* PARTENAIRES */
+/* Pour un bon placement ... */
+.contact, .faq, .partners, .theteam {
+	min-height: calc(100vh - 8em - 8em); /* Page height - padding - ~footer size */
+	width: 960px;
+	max-width: 100%;
+	margin: 4em auto;
+}
+.partners article {
+	width: calc(100% - 3em);
+	max-width: 960px;
+	margin: 4em auto;
+	padding: 1.5em;
+	background-color: #EEEEEE;
 }
 
 /* CONTACT US */
@@ -450,16 +483,9 @@ footer table, footer table tr {
 	max-width: 297px;
 	margin: 0.4em auto;
 }
-
-/* PARTENAIRES */
-.partners article {
-	width: 100%;
-	max-width: 960px;
-	margin: 4em auto;
-	padding: 1.5em;
-	background-color: #EEEEEE;
+.g-recaptcha div {
+	width: auto !important;
 }
-
 /* LOGIN & REGISTER */
 .login-page {
 	background-image: url(../../img/backtop.jpg);

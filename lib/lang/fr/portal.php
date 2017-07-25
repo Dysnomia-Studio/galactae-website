@@ -1,7 +1,8 @@
 <?php
-	define('MILKY_WAY','Voie Lactée');
-	define('ANDROMEDA','Andromède');
-	define('MAGELLAN','Magellan');
+	define('MILKYWAY','[EU] Voie Lactée');
+	define('ANDROMEDA','[NA] Andromède');
+	define('MAGELLAN','[?] Magellan');
+	define('PEGASUS','[?] Pegase');
 
 	//Autre
 	define('WELCOME_MESSAGE','Bienvenue ! Veuillez choisir votre galaxie:');

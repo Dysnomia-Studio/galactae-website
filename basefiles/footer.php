@@ -30,7 +30,7 @@
 				<td>
 					<ul>
 						<li><h3><?php echo OTHER_LINKS; ?></h3></li>
-						<li><a href="https://elanistudio.eu">Elanis</a></li>
+						<li><a href="https://elanis.eu">Elanis</a></li>
 						<li><a href="partners"><?php echo OTHER_LINKS_PARTNERS; ?></a></li>
 						<li><a href="theteam"><?php echo OTHER_LINKS_THETEAM; ?></a></li>
 					</ul>

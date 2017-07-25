@@ -1,5 +1,5 @@
 <?php
-include('./lib/config.php');
+include('./lib/init.php');
 
 $currentpage = explode("?",$_SERVER['REQUEST_URI'])[0];
 // Strtolower
@@ -15,8 +15,11 @@ if($currentname=="") {
 }
 
 // Cache preparation
-$cache = 'cache/'.$currentname.'-'.$_SESSION['lang'].'.html';
-$expire = time()-86400 ; // valable un jour
+$_SESSION['lang'] = (isset($_SESSION['lang']))?$_SESSION['lang']:'en';
+$_GET['page'] = (isset($_GET['page']))?$_GET['page']:1;
+
+$cache = 'cache/'.$currentname.'-'.$_SESSION['lang'].'-'.$_GET['page'].'.html';
+$expire = time()-$config['cache_time']; // valable un jour
 
 // Commandes Get
 $cached = 1;
@@ -27,7 +30,10 @@ if(isset($_GET['cache']) && $_GET['cache']==0) {
     $cached = 0;
 }
 
-if(file_exists($cache) && filemtime($cache) > $expire && array_search($currentname,$blacklist)===false && $cached==1) { // Fichier existant ET temps depuis dernier cache inferieur a l'expiration ET pas dans la blacklist
+$blacklist = $config['cache_blacklist'];
+
+// Fichier existant ET temps depuis dernier cache inferieur a l'expiration ET pas dans la blacklist
+if(file_exists($cache) && filemtime($cache) > $expire && $config['cache_activated'] && array_search($currentname,$blacklist)===false && $cached==1) { 
     readfile($cache);
 }
 elseif(array_search($currentname,$blacklist)!==false) {
@@ -35,7 +41,7 @@ elseif(array_search($currentname,$blacklist)!==false) {
 }
 else {
     if(!file_exists('basefiles/'.$currentname.'.php')) {
-        include_once('errors/404.php');
+        include_once('errors/404.html');
     } else {    
         ob_start(); // ouverture du tampon
  

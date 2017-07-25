@@ -67,14 +67,14 @@ if((isset($_COOKIE['galactae-account-username']) &&
 		</table>
 
 		<div id="login-section" class="login-onglet active-onglet">
-			<form method="post" action="https://***REMOVED***/logconfirm">
+			<form method="post" action="https://galactae.elanis.eu/logconfirm">
 				<input type="text" name="username" id="username" placeholder="<?php echo LOGIN_USERMAIL; ?>">
 				<input type="password" name="password" id="password" placeholder="<?php echo LOGIN_PASSWORD; ?>">
 				<input type="submit" value="<?php echo LOGIN_LOGIN; ?>">
 			</form>
 		</div>
 		<div id="register-section" class="login-onglet">
-			<form method="post" action="https://***REMOVED***/regconfirm">
+			<form method="post" action="https://galactae.elanis.eu/regconfirm">
 				<input type="text" name="username" id="username" placeholder="<?php echo LOGIN_USERNAME; ?>" required>
 				<input type="text" name="mail" id="mail" placeholder="<?php echo LOGIN_MAIL; ?>" required>
 				<input type="password" name="password" id="password" placeholder="<?php echo LOGIN_PASSWORD; ?>" required>
