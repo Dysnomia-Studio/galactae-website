@@ -18,7 +18,7 @@ if(!isset($_POST['username'])||!isset($_POST['password'])) {
 }
 else {
 	foreach($_POST as $key => $value) {
-    $variablesPost[htmlspecialchars(trim($key), ENT_QUOTES | ENT_HTML5, "UTF-8")] = htmlspecialchars(trim($value), ENT_QUOTES | ENT_HTML5, "UTF-8");
+		$variablesPost[htmlspecialchars(trim($key), ENT_QUOTES | ENT_HTML5, "UTF-8")] = htmlspecialchars(trim($value), ENT_QUOTES | ENT_HTML5, "UTF-8");
 	}
 	$username = (string) $variablesPost['username'];
 	$password = (string) $variablesPost['password'];
