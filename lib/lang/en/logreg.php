@@ -9,6 +9,8 @@ define('LOGIN_USERNAME','Username');
 define('LOGIN_MAIL','Mail');
 define('LOGIN_CPASSWORD','Confirm Password');
 define('LOGIN_CG','I agree to <a href="cgu.pdf">Terms of use/a> and <a href="cgv.pdf">Terms of sale</a>.');
+define('LOGIN_NEWS_UPDATE','I accept to recieve mails about major updates ( Approximately every two months )');
+define('LOGIN_NEWS_MISC','I accept to recieve mails about minor updates, events and marketing mails.');
 
 define('LOGIN_FORGOTPASS','Forgot my password ?');
 define('LOGIN_PASS_RESET','Password reset');

@@ -9,6 +9,8 @@ define('LOGIN_USERNAME','Nom d\'utilisateur');
 define('LOGIN_MAIL','Mail');
 define('LOGIN_CPASSWORD','Confirmer mot de passe');
 define('LOGIN_CG','En cochant cette case, j\'accepte les <a href="cgu.pdf">Conditions générales d\'utilisation</a> et les <a href="cgv.pdf">Conditions générales de vente</a>');
+define('LOGIN_NEWS_UPDATE','J\'accepte de recevoir des mails rapportant les mises à jour majeures du jeu ( Environ tout les 2 mois ).');
+define('LOGIN_NEWS_MISC','J\'accepte de recevoir des mails pour les nouveautés mineures, les événements en cours et des mails promotionels.');
 
 define('LOGIN_FORGOTPASS','Mot de passe oublié ?');
 define('LOGIN_PASS_RESET','Reinitialistation de mot de passe');
