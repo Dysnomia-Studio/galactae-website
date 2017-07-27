@@ -85,6 +85,19 @@ $user_passwd = htmlentities(htmlspecialchars($_POST['password']));
 $user_confpasswd = htmlentities(htmlspecialchars($_POST['confpassword']));
 $user_encpasswd = encrypt($user_passwd);
 
+if(!isset($_POST['newsletter_miscellaneous']) || $_POST['newsletter_miscellaneous']!="checked") {
+	$user_news_misc = 0;
+} else {
+	$user_news_misc = 1;
+}
+
+if(!isset($_POST['newsletter_update']) || $_POST['newsletter_update']!="checked") {
+	$user_news_updates = 0;
+} else {
+	$user_news_updates = 1;
+}
+
+
 /* Verifications */
 if(empty($user_name) ||
 	empty($user_passwd) ||
@@ -131,7 +144,9 @@ if($message=="") {
 	$db->addContent('users',[
 		["user_name",$user_name,"str"],
 		["user_mail",$user_mail,"str"],
-		["user_passwd",$user_encpasswd,"str"]
+		["user_passwd",$user_encpasswd,"str"],
+		["newsletter_misc",$user_news_misc,"int"],
+		["newsletter_updates",$user_news_updates,"int"],
 	]);
 
     $data = $db->getCondContent("users",[
