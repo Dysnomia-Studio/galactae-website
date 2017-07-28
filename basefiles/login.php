@@ -4,9 +4,7 @@ include_once('./basefiles/header.php');
 if(isset($_SESSION['username']) &&
 	$_SESSION['username'] != "" &&
 	isset($_SESSION['id']) &&
-	$_SESSION['id'] !=0 &&
-	isset($_SESSION['game_id']) &&
-	$_SESSION['game_id'] != "") { // Already Connected
+	$_SESSION['id'] !=0) { // Already Connected
 
 	header('Location: portal');
 }
