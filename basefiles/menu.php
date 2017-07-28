@@ -1,3 +1,5 @@
+	<img id="logo" style="display: none;" src="https://***REMOVED***/website/img/bannersAndLogos/galactae-logo-512.jpg">
+
 	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
 
 	<ul <?php if($currentname!="index") { echo "class=\"no-background\""; } ?> id="menu">
