@@ -1,3 +1,3 @@
 <?php
-header('Location: https://twitter.com/ElanisGaming');
+header('Location: https://twitter.com/GalactaeSAD');
 ?>
