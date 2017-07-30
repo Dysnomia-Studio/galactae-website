@@ -36,7 +36,7 @@ if($userData!=false && isset($userData[0])) {
 	];
 
 	echo'<div class="server-choice">
-		<p>'.WELCOME_MESSAGE.' :</p>
+		<p>'.WELCOME_MESSAGE.'</p>
 
 		<table>
 			<tr>
