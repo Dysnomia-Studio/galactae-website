@@ -24,7 +24,7 @@ $mail[1] = '</title>
 				<table width="600" style="border-collapse: collapse;">
 					<tr height="134">
 						<td>
-							<img alt="logo" class="banner" src="https://***REMOVED***/website/img/officialPosts/banner.jpg" width="600"  alt="Galactae: Space Age Dawn">
+							<img alt="logo" class="banner" src="https://***REMOVED***/website/img/bannersAndLogos/banner.jpg" width="600"  alt="Galactae: Space Age Dawn">
 						</td>
 					</tr>
 					<tr style="line-height: 0.5em;"><td>&nbsp;</td></tr>
