@@ -28,11 +28,11 @@ if($userData!=false && isset($userData[0])) {
 
 	<?php
 	$servers = [
-		["addr"=>"00-srv.galactae.elanis.eu", "port"=>42690, "name"=>DEV, "link"=>"https://00-dev.galactae.elanis.eu"],
-		["addr"=>"01-srv.galactae.elanis.eu", "port"=>42691, "name"=>MILKYWAY, "link"=>"https://01-milkyway.galactae.elanis.eu"],
-		["addr"=>"02-srv.galactae.elanis.eu", "port"=>42692, "name"=>ANDROMEDA, "link"=>"https://02-andromeda.galactae.elanis.eu"],
-		["addr"=>"03-srv.galactae.elanis.eu", "port"=>42693, "name"=>PEGASUS, "link"=>"https://03-pegasus.galactae.elanis.eu"],
-		//["addr"=>"04-srv.galactae.elanis.eu", "port"=>42694, "name"=>MAGELLAN, "link"=>"https://04-magellan.galactae.elanis.eu"]
+		["addr"=>"00-srv.galactae.eu", "port"=>42690, "name"=>DEV, "link"=>"https://00-dev.galactae.eu"],
+		["addr"=>"01-srv.galactae.eu", "port"=>42691, "name"=>MILKYWAY, "link"=>"https://01-milkyway.galactae.eu"],
+		["addr"=>"02-srv.galactae.eu", "port"=>42692, "name"=>ANDROMEDA, "link"=>"https://02-andromeda.galactae.eu"],
+		["addr"=>"03-srv.galactae.eu", "port"=>42693, "name"=>PEGASUS, "link"=>"https://03-pegasus.galactae.eu"],
+		//["addr"=>"04-srv.galactae.eu", "port"=>42694, "name"=>MAGELLAN, "link"=>"https://04-magellan.galactae.eu"]
 	];
 
 	echo'<div class="server-choice">
