@@ -74,7 +74,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 				echo '
 					<div id="login-section" class="login-onglet active-onglet" style="padding: 5px;">
 						<p style="text-align: center;">'.$error.'</p>
-						<form method="post" action="https://galactae.elanis.eu/changepassword">
+						<form method="post" action="https://galactae.eu/changepassword">
 							<input type="password" name="password" id="password" placeholder="'.LOGIN_PASSWORD.'">
 							<input type="password" name="confpassword" id="confpassword" placeholder="'.LOGIN_CPASSWORD.'">
 							<input type="hidden" name="pid" id="pid" value="'.$uid.'">
@@ -111,7 +111,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 			if($data!=false && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
 				echo '
 					<div id="login-section" class="login-onglet active-onglet" style="padding: 5px;">
-						<form method="post" action="https://galactae.elanis.eu/changepassword">
+						<form method="post" action="https://galactae.eu/changepassword">
 							<input type="password" name="password" id="password" placeholder="'.LOGIN_PASSWORD.'">
 							<input type="password" name="confpassword" id="confpassword" placeholder="'.LOGIN_CPASSWORD.'">
 							<input type="hidden" name="pid" id="pid" value="'.$uid.'">

@@ -52,7 +52,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 				// Draw message
 				echo '<div id="login-section" class="login-onglet active-onglet" style="padding: 5px;">
 					<p style="text-align: center;">'.ACCOUNT_ACTIVATED.'</p>
-					<form method="post" action="https://galactae.elanis.eu/logconfirm">
+					<form method="post" action="https://galactae.eu/logconfirm">
 						<input type="text" name="username" id="username" placeholder="'.LOGIN_USERMAIL.'">
 						<input type="password" name="password" id="password" placeholder="'.LOGIN_PASSWORD.'">
 						<input type="submit" value="'.LOGIN_LOGIN.'">

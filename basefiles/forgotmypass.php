@@ -45,13 +45,13 @@ $mail[3] = '		</td>
 					<tr style="line-height: 2em;"><td>&nbsp;</td></tr>
 					<tr align="center">
 						<td>
-						<a href="https://galactae.elanis.eu/redir/facebook.php">
+						<a href="https://galactae.eu/redir/facebook.php">
 							<img src="https://***REMOVED***/website/img/logos/facebook.png" alt="Facebook">
 						</a> 
-						<a href="https://galactae.elanis.eu/redir/twitter.php">
+						<a href="https://galactae.eu/redir/twitter.php">
 							<img src="https://***REMOVED***/website/img/logos/twitter.png" alt="Twitter">
 						</a>
-						<a href="https://galactae.elanis.eu/redir/youtube.php">
+						<a href="https://galactae.eu/redir/youtube.php">
 							<img src="https://***REMOVED***/website/img/logos/youtube.png" alt="Youtube">
 						</a>
 						</td>
@@ -97,7 +97,7 @@ if($data!=false && isset($data["user_name"])) {
 		["passforgot_time",time(),"int"],
 	]);
 
-	$passwd_link = "https://galactae.elanis.eu/changepassword?pid=".$passwd_link."&username=".$data["user_name"];
+	$passwd_link = "https://galactae.eu/changepassword?pid=".$passwd_link."&username=".$data["user_name"];
 
 	require_once './lib/swiftmailer/swift_required.php';
 

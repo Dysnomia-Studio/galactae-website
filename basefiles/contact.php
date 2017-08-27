@@ -12,8 +12,8 @@ include_once('./basefiles/menu.php');
 			<p>Vous pouvez nous contacter ...</p>
 			<div class="contact-part">
 				<h4>Par les reseaux sociaux</h4>
-				<a href="https://www.facebook.com/elanisgaming/">Facebook</a> - 
-				<a href="https://twitter.com/ElanisGaming">Twitter</a> - 
+				<a href="https://www.facebook.com/galactaeSAD/">Facebook</a> - 
+				<a href="https://twitter.com/GalactaeSAD">Twitter</a> - 
 				<a href="https://www.youtube.com/user/ElanisGaming">Youtube</a>
 				<br /><br />
 			</div>
