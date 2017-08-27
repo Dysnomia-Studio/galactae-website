@@ -9,11 +9,11 @@ if(!(isset($_SESSION['username']) &&
 
 include_once('./basefiles/header.php');
 
-$db->updateContent('users',
+$sqlDB->updateContent('users',
 	[ ["session_id",session_id(),"str"] ],
 	[ ["user_id",$_SESSION['id'],"str"] ]);
 
-$userData = $db->getCondContent("users",[
+$userData = $sqlDB->getCondContent("users",[
 	["user_name",$_SESSION['username'],"int"],
 	],0,1,"user_id");
 

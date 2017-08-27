@@ -8,7 +8,7 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['id'])) {
 $admin_user = "***REMOVED***";
 $admin_passwd = "***REMOVED***";
 
-$data = $db->getCondContent("users",[
+$data = $sqlDB->getCondContent("users",[
 	["user_name",strtolower($_SESSION['username']),"str"],
 	["user_id",intval($_SESSION['id']),"int"]
 	],0,1,"user_id");

@@ -249,7 +249,7 @@ include_once('./basefiles/header.php');
 </body>
 </html>';
 
-	$data = $db->getContent('users',0,1000000,"user_id");
+	$data = $sqlDB->getContent('users',0,1000000,"user_id");
 
     $dest = array();
 

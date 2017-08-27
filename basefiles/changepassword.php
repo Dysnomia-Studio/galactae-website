@@ -43,7 +43,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 			} elseif(preg_match('/[^a-zA-Z_\-0-9]/i', $password)) { // Password Format
 				$error.= ERR_NOT_VALID_PASS;
 			} elseif($password==$confpassword) {
-				$data = $db->getCondContent("passforgot",[
+				$data = $sqlDB->getCondContent("passforgot",[
 					["passforgot_uid",$uid,"str"]
 				],0,1,"user_id");
 
@@ -53,11 +53,11 @@ if((isset($_COOKIE['galactae-account-username']) &&
 
 				if($data!=false && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
 					// Set db
-					/*$data = $db->removeContent("passforgot",[
+					/*$data = $sqlDB->removeContent("passforgot",[
 						["user_id",$data["user_id"],"int"]
 					]);*/
 
-					$data = $db->updateContent("users",[
+					$data = $sqlDB->updateContent("users",[
 						["user_passwd",$encpassword,"str"],	
 					],[
 						["user_id",$data["user_id"],"int"]
@@ -99,7 +99,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 			}
 			$mintime = time() - (24*60*60);
 
-			$data = $db->getCondContent("passforgot",[
+			$data = $sqlDB->getCondContent("passforgot",[
 				["passforgot_uid",$uid,"str"]
 			],0,1,"user_id");
 

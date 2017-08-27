@@ -10,12 +10,12 @@ foreach($_POST as $key => $value) {
 if(empty($_POST['username']) || empty($_POST['password']) ) {
 	$message = ERR_FIELD. ' '.CLICK_BACK;
 } else { // Check du couple pseudo/mdp
-    $data = $db->getCondContent("users",[
+    $data = $sqlDB->getCondContent("users",[
     	["user_name",$variablesPost['username'],"str"],
     	],0,1,"user_id");
 
     if($data==false) { // Test avec le mail
-	    $data = $db->getCondContent("users",[
+	    $data = $sqlDB->getCondContent("users",[
 	    	["user_mail",$variablesPost['username'],"str"],
 	    	],0,1,"user_id");
     }

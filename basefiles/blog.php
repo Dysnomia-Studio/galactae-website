@@ -4,7 +4,7 @@ include_once('./basefiles/menu.php');
 
 echo "<section class=\"devblog\">";
 
-$data = $db->getContent("devblog",0,10,"blog_time DESC");
+$data = $sqlDB->getContent("devblog",0,10,"blog_time DESC");
 
 foreach ($data as $key => $value) {
  	echo "<article>
