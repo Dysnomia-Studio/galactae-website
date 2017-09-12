@@ -40,11 +40,11 @@ if((isset($_COOKIE['galactae-account-username']) &&
 
 			if($data!=false && isset($data["user_name"]) && $data["user_name"]==$username) {
 				// Activate account
-				$data = $sqlDB->removeContent("mailconfirm",[
+				$sqlDB->removeContent("mailconfirm",[
 					["user_id",$data["user_id"],"int"]
 				]);
 
-				$data = $sqlDB->updateContent("users",[
+				$sqlDB->updateContent("users",[
 					["activated",1,"int"],	
 				],[
 					["user_id",$data["user_id"],"int"]
