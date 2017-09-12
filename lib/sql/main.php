@@ -197,13 +197,6 @@ class sqlInterface {
 			}
 
 			$query = $this->bd->prepare('UPDATE '.$table.' SET '.$set_cond.' WHERE '.$where_cond);
-			echo '<!-- DEBUG: UPDATE '.$table.' SET '.$set_cond.' WHERE '.$where_cond;
-			echo ' ';
-			var_dump($data);
-			echo ' ';
-			var_dump($where);
-			echo ' ';
-			echo '-->';
 
 			for($i=0; $i<sizeof($data); $i++) {
 				if($data[$i][2]=="int") {
