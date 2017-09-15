@@ -1,2 +1,2 @@
 <p>En construction</p>
-<a href="https://***REMOVED***">Retour au site</a>
+<a href="https://galactae.eu">Retour au site</a>
