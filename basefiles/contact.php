@@ -32,9 +32,7 @@ include_once('./basefiles/menu.php');
 			else {
 				$reCaptcha = new ReCaptcha("***REMOVED***");
 
-				if(isset($_POST['g-recaptcha-response'])){
-				    echo verify($_POST['g-recaptcha-response']);
-				}
+				var_dump($_POST);
 
 				$resp = $reCaptcha->verifyResponse(
 					$_SERVER["REMOTE_ADDR"],
