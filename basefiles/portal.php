@@ -26,6 +26,7 @@ $gameData = $sqlDB->getCondContent("game_id",[
 	],0,1000,"server_name");
 ?>
 <body class="portal-body login-page"">
+	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
 	<ul id="menu">
 		<li class="menu-logo">
 			<a href="index">GALACTAE: SPACE AGE DAWN</a>
