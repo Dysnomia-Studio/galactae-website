@@ -1,7 +1,7 @@
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <?php
 function DrawCaptcha($publicKey) {
-	echo'<div class="g-recaptcha" data-sitekey="'.$publicKey.'"></div>';
+    echo'<div class="g-recaptcha" data-sitekey="'.$publicKey.'"></div>';
 }
 
 /**                   RECAPTCHA LIB
