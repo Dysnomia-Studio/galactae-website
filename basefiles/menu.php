@@ -13,6 +13,7 @@
 		<li><form action="<?php echo $currentname; ?>.php" method="post" id="language-form">
 	        <div id="language-list"></div>
 	        <input type="text" id="selected-language" name="selected-language">
+	    </form>
 		</li>
 	</ul>
 	<?php 
