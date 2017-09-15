@@ -54,7 +54,7 @@ $gameData = $sqlDB->getCondContent("game_id",[
 	}
 
 	foreach ($gameData as $key => $value) {
-		$serverid = (int) explode($value['server_name'])[1];
+		$serverid = (int) explode("-",$value['server_name'])[1];
 
 		$servers[$serverid]["playing"] = true;
 	}
