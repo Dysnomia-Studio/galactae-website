@@ -34,7 +34,7 @@ $gameData = $sqlDB->getCondContent("game_id",[
 		<li><a href="forum" class="menu-link">Forum</a></li>
 		<li><a href="profil" class="menu-link">Profil</a></li>
 		<li><a href="support" class="menu-link">Support</a></li>
-		<li><a href="disconnect" class="menu-link">Deconnexion</a></li>
+		<li><a href="deconnexion" class="menu-link">Deconnexion</a></li>
 	</ul>
 	<ul id="server-list">
 		<li class="title">Galaxies où vous êtes present</li>
