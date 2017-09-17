@@ -5,4 +5,9 @@ define('MENU_BLOG',"Dev Blog");
 define('MENU_FORUM',"Forum");
 define('MENU_CONTACT',"Contact");
 define('MENU_BUGTRACKER',"Bug Tracker");
+
+define('SUPPORT','Support');
+define('FORUM','Forum');
+define('PROFIL','Profil');
+define('DISCONNECT','Déconnexion');
 ?>

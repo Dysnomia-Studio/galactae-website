@@ -32,10 +32,10 @@ $gameData = $sqlDB->getCondContent("game_id",[
 			<a href="index">GALACTAE: SPACE AGE DAWN</a>
 		</li>
 		<li class="hamSpace"></li>
-		<li><a href="forum" class="menu-link">Forum</a></li>
-		<li><a href="profil" class="menu-link">Profil</a></li>
-		<li><a href="support" class="menu-link">Support</a></li>
-		<li><a href="deconnexion" class="menu-link">Deconnexion</a></li>
+		<li><a href="forum" class="menu-link"><?php echo FORUM; ?></a></li>
+		<li><a href="profil" class="menu-link"><?php echo PROFIL; ?></a></li>
+		<li><a href="support" class="menu-link"><?php echo SUPPORT; ?></a></li>
+		<li><a href="deconnexion" class="menu-link"><?php echo DISCONNECT; ?></a></li>
 	</ul>
 	<ul id="server-list">
 		<li class="title">Galaxies où vous êtes present</li>
@@ -68,7 +68,7 @@ $gameData = $sqlDB->getCondContent("game_id",[
 
 		$server_status = ($servers[$i]['status'])?'server_on':'server_off';
 
-		$server_connect = ($servers[$i]['status'])?'<a class="connect" href="'.$servers[$i]['link'].'">'.CONNECT.'</a></li>':'';
+		$server_connect = ($servers[$i]['status'])?'<a class="connect" href="'.$servers[$i]['link'].'">'.CONNECT.'</a></li>':OFFLINE;
 
 
 		if($servers[$i]["playing"]) {
