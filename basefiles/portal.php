@@ -68,7 +68,7 @@ $gameData = $sqlDB->getCondContent("game_id",[
 
 		$server_status = ($servers[$i]['status'])?'server_on':'server_off';
 
-		$server_connect = ($servers[$i]['status'])?'<a class="connect" href="'.$servers[$i]['link'].'">'.CONNECT.'</a></li>':OFFLINE;
+		$server_connect = ($servers[$i]['status'])?'<a class="connect" href="'.$servers[$i]['link'].'">'.CONNECT.'</a></li>':'<span class="connect">'.OFFLINE.'</span>';
 
 
 		if($servers[$i]["playing"]) {
