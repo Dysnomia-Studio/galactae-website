@@ -81,11 +81,11 @@ $gameData = $sqlDB->getCondContent("game_id",[
 	$content_playing = ($content_playing=="")?'<li>'.NO_PLAYING_SERVERS.'</li>':$content_playing;
 	$content_not_playing = ($content_not_playing=="")?'<li>'.ALL_PLAYING_SERVERS.'</li>':$content_not_playing;
 
-	echo '<li class="title">'.ALREADY_PLAYING_SERVERS'</li>';
+	echo '<li class="title">'.ALREADY_PLAYING_SERVERS.'</li>';
 
 	echo $content_playing;
 
-	echo '<li class="title">'.OTHER_SERVERS'</li>';
+	echo '<li class="title">'.OTHER_SERVERS.'</li>';
 
 	echo $content_not_playing;
 
