@@ -22,7 +22,7 @@ if($userData!=false && isset($userData[0])) {
 }
 
 $gameData = $sqlDB->getCondContent("user_game_id",[
-	["id",$userData['user_id'],"int"],
+	["user_id",$userData['user_id'],"int"],
 	],0,1000,"server_name");
 ?>
 <body class="portal-body login-page"">
