@@ -72,12 +72,12 @@ $mail[3] = '		</td>
 $user_name = htmlentities(htmlspecialchars($_POST['username']));
 
 // Account exists ?
-$data = $sqlDB->getCondContent("users",[
+$data = $sqlDB->getCondContent("user_list",[
 ["user_name",$user_name,"str"],
 ],0,1,"user_id");
 
 if($data==false) { //Test with mail
-	$data = $sqlDB->getCondContent("users",[
+	$data = $sqlDB->getCondContent("user_list",[
 	["user_mail",$user_name,"str"],
 	],0,1,"user_id");
 } 
@@ -90,7 +90,7 @@ if($data!=false && isset($data["user_name"])) {
 	// Send mail
 	$passwd_link = encrypt(time().$user_name);
 
-	$sqlDB->addContent('passforgot',[
+	$sqlDB->addContent('user_passforgot',[
 		["user_id",$data["user_id"],"int"],
 		["user_name",$data["user_name"],"str"],
 		["passforgot_uid",$passwd_link,"str"],

@@ -122,12 +122,12 @@ if(empty($user_name) ||
 	$message = ERR_NOT_VALID_PASS.' '.CLICK_BACK;
 } else {
 	// Account exists ?
-	$data = $sqlDB->getCondContent("users",[
+	$data = $sqlDB->getCondContent("user_list",[
 	["user_name",$user_name,"str"],
 	],0,1,"user_id");
 
 	if($data==false) { //Test with mail
-		$data = $sqlDB->getCondContent("users",[
+		$data = $sqlDB->getCondContent("user_list",[
 		["user_mail",$user_mail,"str"],
 		],0,1,"user_id");
 	} 
@@ -141,7 +141,7 @@ if(empty($user_name) ||
 // Draw message
 if($message=="") {
 	// Add user
-	$sqlDB->addContent('users',[
+	$sqlDB->addContent('user_list',[
 		["user_name",$user_name,"str"],
 		["user_mail",$user_mail,"str"],
 		["user_passwd",$user_encpasswd,"str"],
@@ -149,7 +149,7 @@ if($message=="") {
 		["newsletter_updates",$user_news_updates,"int"],
 	]);
 
-    $data = $sqlDB->getCondContent("users",[
+    $data = $sqlDB->getCondContent("user_list",[
     	["user_name",$user_name,"str"],
     ],0,1,"user_id");
 
@@ -157,7 +157,7 @@ if($message=="") {
 
 	$conf_link = encrypt(time().$user_name);
 
-	$sqlDB->addContent('mailconfirm',[
+	$sqlDB->addContent('user_mailconfirm',[
 		["user_id",$data["user_id"],"int"],
 		["user_name",$data["user_name"],"str"],
 		["mailconfirm_uid",$conf_link,"str"],

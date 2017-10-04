@@ -9,11 +9,11 @@ if(!(isset($_SESSION['username']) &&
 
 include_once('./basefiles/header.php');
 
-$sqlDB->updateContent('users',
+$sqlDB->updateContent('user_list',
 	[ ["session_id",session_id(),"str"] ],
 	[ ["user_id",$_SESSION['id'],"str"] ]);
 
-$userData = $sqlDB->getCondContent("users",[
+$userData = $sqlDB->getCondContent("user_list",[
 	["user_name",$_SESSION['username'],"int"],
 	],0,1,"user_id");
 
@@ -21,7 +21,7 @@ if($userData!=false && isset($userData[0])) {
 	$userData = $userData[0];
 }
 
-$gameData = $sqlDB->getCondContent("game_id",[
+$gameData = $sqlDB->getCondContent("user_game_id",[
 	["id",$userData['user_id'],"int"],
 	],0,1000,"server_name");
 ?>
