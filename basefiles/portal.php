@@ -15,10 +15,10 @@ $sess_data = $sqlDB->getCondContent("user_session",[
 
 var_dump($sess_data);
 
-if(isset($session_data['user_id']) && $session_data['user_session_expiration'] > time()) {
+if(isset($session_data['user_id']) && isset($session_data['user_session_expiration']) && ((int) $session_data['user_session_expiration'] > time())) {
 	$sqlDB->updateContent('user_session',
 		[ ["user_session_expiration",time()+2678400,"int"] ],
-		[ ["user_id",$_SESSION['id'],"str"] ]);
+		[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]);
 } else {
 	$sqlDB->addContent('user_session',[
 			["user_id",$_SESSION['id'],"int"],
