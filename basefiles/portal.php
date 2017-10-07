@@ -9,7 +9,7 @@ if(!(isset($_SESSION['username']) &&
 
 include_once('./basefiles/header.php');
 
-$sess_data = $db->getCondContent("user_list",[
+$sess_data = $sqlDB->getCondContent("user_list",[
 	["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"]
 	],0,1,"user_id");
 
