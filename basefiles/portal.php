@@ -22,9 +22,22 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 		[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]);
 } else {
 	echo "ELSE";
-	echo isset($sess_data['user_id']);
-	echo isset($sess_data['user_session_expiration']);
-	echo (((int) $sess_data['user_session_expiration']) > time());
+	if(isset($sess_data['user_id'])) {
+		echo "ISSET USER_ID";
+	} else {
+		echo "NOT ISSET USER_ID";
+	}
+	if(isset($sess_data['user_session_expiration'])) {
+		echo "ISSET user_session_expiration";
+		if(((int) $sess_data['user_session_expiration']) > time()) {
+			echo "user_session_expiration > time";
+		} else {
+			echo "user_session_expiration < time";
+		}
+	} else {
+		echo "NOT ISSET user_session_expiration";
+	}
+
 	$sqlDB->addContent('user_session',[
 			["user_id",$_SESSION['id'],"int"],
 			["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"],
