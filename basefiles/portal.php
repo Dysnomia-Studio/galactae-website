@@ -9,9 +9,23 @@ if(!(isset($_SESSION['username']) &&
 
 include_once('./basefiles/header.php');
 
-$sqlDB->updateContent('user_list',
-	[ ["session_id",session_id(),"str"] ],
-	[ ["user_id",$_SESSION['id'],"str"] ]);
+$sess_data = $db->getCondContent("user_list",[
+	["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"]
+	],0,1,"user_id");
+
+if(isset($session_data['user_id']) && $session_data['user_session_expiration'] > time()) {
+	$sqlDB->updateContent('user_list',
+		[ ["user_session_expiration",time()+2678400,"str"] ],
+		[ ["user_id",$_SESSION['id'],"str"] ]);
+} else {
+	$sqlDB->addContent('user_list',
+		[
+			["user_id",$_SESSION['id']],
+			["user_session_uid",$_COOKIE['galactae-phpsessid']],
+			["user_session_expiration",time()+2678400],
+		]
+	);
+}
 
 $userData = $sqlDB->getCondContent("user_list",[
 	["user_name",$_SESSION['username'],"int"],
