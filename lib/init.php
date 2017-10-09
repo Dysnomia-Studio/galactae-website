@@ -59,11 +59,6 @@ function LoadIt() {
 		$_SESSION['default-maxperpage'] = $config['website_default-maxperpage'];
 	}
 
-	/* Cookies prevention panel */
-	if($config['module_cookies']) {
-		drawCookiePreventionPanel();
-	}
-
 	echo "<title>".$config['website_name']."</title>";
 
 	if(!isset($config['website_css']) || $config['website_css']=="") {
@@ -87,6 +82,10 @@ echo $config['website_custom_head'];
 </head>
 <body>
 <?php
+	/* Cookies prevention panel */
+	if($config['module_cookies']) {
+		drawCookiePreventionPanel();
+	}
 }
 
 LoadIt();
