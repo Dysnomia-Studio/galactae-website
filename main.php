@@ -3,13 +3,12 @@ ini_set('session.cookie_domain', '.galactae.eu' );
 ini_set('session.cookie_lifetime ', 2678400); // Set expiration to 1 month
 ini_set('session.gc_maxlifetime', 2678400); // Set expiration to 1 month
 
-include('./lib/init.php');
-
 if(isset($_COOKIE['galactae-phpsessid']) && $_COOKIE['galactae-phpsessid'] != "") {
     session_id($_COOKIE['galactae-phpsessid']);
 }
 setcookie("galactae-phpsessid",session_id(),time()+2678400,'/','.galactae.eu');
 
+include('./lib/init.php');
 
 $currentpage = explode("?",$_SERVER['REQUEST_URI'])[0];
 // Strtolower

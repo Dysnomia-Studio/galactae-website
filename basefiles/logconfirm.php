@@ -33,10 +33,12 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 	        $message = ERR_BAN;
 	    } 
 	    else //Sinon c'est ok, on se connecte 
-	    { 
-	        $_SESSION['username'] = $data['user_name']; 
-	        $_SESSION['level'] = $data['user_lvl']; 
-	        $_SESSION['id'] = $data['user_id'];
+	    {
+	        $sqlDB->addContent('user_session',[
+				["user_id",$data['user_id'],"int"],
+				["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"],
+				["user_session_expiration",time()+2678400,"int"],
+			]);
 	          
 	        $message = CONNECTED.' '.CLICK_GAME; 
 	        header("Location: portal.php"); 

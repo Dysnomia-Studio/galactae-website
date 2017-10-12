@@ -1,45 +1,6 @@
 <?php
-if(!(isset($_SESSION['username']) &&
-	$_SESSION['username'] != "" &&
-	isset($_SESSION['id']) &&
-	$_SESSION['id'] !=0)) { // Not Connected
-
-	header('Location: index');
-}
-
+include_once('./basefiles/connectCheck.php');
 include_once('./basefiles/header.php');
-
-$sess_data = $sqlDB->getCondContent("user_session",[
-	["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"]
-	],0,1,"user_id");
-
-if($sess_data!=false && isset($sess_data[0])) {
-	$sess_data = $sess_data[0];
-}
-
-var_dump($sess_data);
-
-die();
-
-if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
-	$sqlDB->updateContent('user_session',
-		[ ["user_session_expiration",time()+2678400,"int"] ],
-		[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]);
-} else {
-	$sqlDB->addContent('user_session',[
-			["user_id",$_SESSION['id'],"int"],
-			["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"],
-			["user_session_expiration",time()+2678400,"int"],
-		]);
-}
-
-$userData = $sqlDB->getCondContent("user_list",[
-	["user_id",$_SESSION['id'],"int"],
-	],0,1,"user_id");
-
-if($userData!=false && isset($userData[0])) {
-	$userData = $userData[0];
-}
 
 $gameData = $sqlDB->getCondContent("user_game_id",[
 	["user_id",$userData['user_id'],"int"],
