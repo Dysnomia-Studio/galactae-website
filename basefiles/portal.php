@@ -17,6 +17,10 @@ if($sess_data!=false && isset($sess_data[0])) {
 	$sess_data = $sess_data[0];
 }
 
+var_dump($sess_data);
+
+die();
+
 if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
 	$sqlDB->updateContent('user_session',
 		[ ["user_session_expiration",time()+2678400,"int"] ],
