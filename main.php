@@ -6,8 +6,8 @@ ini_set('session.gc_maxlifetime', 2678400); // Set expiration to 1 month
 if(isset($_COOKIE['galactae-phpsessid']) && $_COOKIE['galactae-phpsessid'] != "") {
     session_id($_COOKIE['galactae-phpsessid']);
 }
-setcookie ( "galactae-phpsessid", session_id(), time()+2678400,"/", ".galactae.eu",true, false);
-setcookie ( "galactae-phpsessid", session_id(), time()+2678400,"/", "galactae.eu",true, false);
+setcookie ( "galactae-phpsessid", session_id(), time()+2678400,"/", ".galactae.eu");
+setcookie ( "galactae-phpsessid", session_id(), time()+2678400,"/", "galactae.eu");
 
 include('./lib/init.php');
 
