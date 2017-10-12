@@ -6,5 +6,5 @@ $sqlDB->removeContent("user_session",[
 
 session_destroy();
 
-header('Location: index.php');
+header('Location: index');
 ?>
