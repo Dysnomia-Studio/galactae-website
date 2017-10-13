@@ -33,13 +33,9 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 	["server_name","galactae-00","str"]
 	],0,1000,"server_name");
 
-	var_dump($devPrivileges);
-	echo "
-		".isset($devPrivileges['user_whitelist'])."
-	";
-	echo "
-		".((int) $devPrivileges['user_whitelist']==1)."
-	";
+	if($devPrivileges!=false && isset($devPrivileges[0])) {
+		$devPrivileges = $devPrivileges[0];
+	}
 
 	if(isset($devPrivileges['user_whitelist']) && ((int) $devPrivileges['user_whitelist']==1)) {
 		$firstServer=0;
