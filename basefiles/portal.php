@@ -21,11 +21,11 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 	<ul id="server-list">
 	<?php
 	$servers = [
-		["addr"=>"00-srv.galactae.eu", "port"=>42690, "name"=>DEV, "link"=>"https://00-dev.galactae.eu", "playing"=>false],
-		["addr"=>"01-srv.galactae.eu", "port"=>42691, "name"=>MILKYWAY, "link"=>"https://01-milkyway.galactae.eu", "playing"=>false],
-		["addr"=>"02-srv.galactae.eu", "port"=>42692, "name"=>ANDROMEDA, "link"=>"https://02-andromeda.galactae.eu", "playing"=>false],
-		["addr"=>"03-srv.galactae.eu", "port"=>42693, "name"=>PEGASUS, "link"=>"https://03-pegasus.galactae.eu", "playing"=>false],
-		//["addr"=>"04-srv.galactae.eu", "port"=>42694, "name"=>MAGELLAN, "link"=>"https://04-magellan.galactae.eu"]
+		["addr"=>"00-srv.galactae.eu", "port"=>42690, "name"=>DEV, "link"=>"https://00-dev.galactae.eu", "playing"=>false, "server_name" => "galactae-00"],
+		["addr"=>"01-srv.galactae.eu", "port"=>42691, "name"=>MILKYWAY, "link"=>"https://01-milkyway.galactae.eu", "playing"=>false, "server_name" => "galactae-01"],
+		["addr"=>"02-srv.galactae.eu", "port"=>42692, "name"=>ANDROMEDA, "link"=>"https://02-andromeda.galactae.eu", "playing"=>false, "server_name" => "galactae-02"],
+		["addr"=>"03-srv.galactae.eu", "port"=>42693, "name"=>PEGASUS, "link"=>"https://03-pegasus.galactae.eu", "playing"=>false, "server_name" => "galactae-03"],
+		//["addr"=>"04-srv.galactae.eu", "port"=>42694, "name"=>MAGELLAN, "link"=>"https://04-magellan.galactae.eu", "playing"=>false, "server_name" => "galactae-04"]
 	];
 
 	$devPrivileges = $sqlDB->getCondContent("user_privileges",[
@@ -56,6 +56,37 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 		$servers[$i]['status'] = @fsockopen($servers[$i]["addr"], $servers[$i]["port"], $errno, $errstr, 0.1);
 
 		$server_status = ($servers[$i]['status'])?'server_on':'server_off';
+
+		if($servers[$i]['status']) {
+				$srv_data = $db->getCondContent("server_list",[
+					["server_name", $servers[$i]['server_name'], "str"]
+				],0,1,"server_name");
+
+				if($srv_data!=false && isset($srv_data[0])) {
+					$srv_data = $srv_data[0];
+				}
+
+				$userPrivileges = $db->getCondContent("user_privileges",[
+					["user_id",$userData['user_id'],"int"],
+					["server_name", $servers[$i]['server_name'],"str"]
+				],0,1000,"server_name");
+
+				if($userPrivileges!=false && isset($userPrivileges[0])) {
+					$userPrivileges = $userPrivileges[0];
+				}
+
+				if((!isset($srv_data['server_maintenance']) || $srv_data['server_maintenance']==1) && (!isset($userPrivileges['user_whitelist']) || ((int) $userPrivileges['user_whitelist']!=1))) {
+					$server_status = 'server_maintenance';
+					$server_connect = '<span class="connect">'.MAINTENANCE.'</span>';
+				} else {
+					$server_status = 'server_on';
+					$server_connect = '<a class="connect" href="'.$servers[$i]['link'].'">'.CONNECT.'</a></li>';
+				}
+
+		} else {
+			$server_status = 'server_off';
+			$server_connect = '<span class="connect">'.OFFLINE.'</span>';
+		}
 
 		$server_connect = ($servers[$i]['status'])?'<a class="connect" href="'.$servers[$i]['link'].'">'.CONNECT.'</a></li>':'<span class="connect">'.OFFLINE.'</span>';
 
