@@ -27,12 +27,7 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 	if(isset($data['user_passwd']) && $data['user_passwd']  == encrypt($_POST['password'])) { // Acces OK ! 	
 	    if(isset($data['activated']) && $data['activated']!=1) { // Compte non-activé
 			$message = ERR_NOT_ACTIVATED.' '.CLICK_BACK;
-		} elseif(isset($data['whitelisted']) && $data['whitelisted']!=1) { // Compte non-activé
-			$message = ERR_NOT_WHITELISTED.' '.CLICK_BACK;
-		} elseif ($data['user_lvl'] == 0) { //Le membre est banni 
-	        $message = ERR_BAN;
-	    } 
-	    else //Sinon c'est ok, on se connecte 
+		} else //Sinon c'est ok, on se connecte 
 	    {
 	        $sqlDB->addContent('user_session',[
 				["user_id",$data['user_id'],"int"],
