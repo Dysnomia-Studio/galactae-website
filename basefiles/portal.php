@@ -35,7 +35,7 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 
 	var_dump($devPrivileges);
 
-	if(isset($devPrivileges['user_whitelist']) && $devPrivileges['user_whitelist']) {
+	if(isset($devPrivileges['user_whitelist']) && ((int) $devPrivileges['user_whitelist']==1)) {
 		$firstServer=0;
 	} else {
 		$firstServer=1;
