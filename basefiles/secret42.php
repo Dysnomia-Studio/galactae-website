@@ -31,7 +31,6 @@ $userData = $sqlDB->getCondContent("user_list",[
 if($userData!=false && isset($userData[0])) {
 	$userData = $userData[0];
 }
-	var_dump($userData);
 
 if(!isset($userData['user_name']) || !isset($userData['user_id'])) {
 	http_response_code(404);
