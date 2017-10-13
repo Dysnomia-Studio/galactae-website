@@ -13,5 +13,5 @@
 
 	define('OFFLINE','Offline');
 	define('CONNECT','Connect');
-	define('MAINTENANCE','Maintenance');
+	define('MAINTENANCE','Under maintenance');
 ?>
