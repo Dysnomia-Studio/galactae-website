@@ -8,8 +8,8 @@ if(!isset($userData['user_name']) || !isset($userData['user_id'])) {
 }
 
 $data = $sqlDB->getCondContent("user_list",[
-	["user_name",strtolower($_SESSION['username']),"str"],
-	["user_id",intval($_SESSION['id']),"int"]
+	["user_name",strtolower($userData['user_name']),"str"],
+	["user_id",intval($userData['user_id']),"int"]
 	],0,1,"user_id");
 
 if($data!=false&&isset($data[0])) {
