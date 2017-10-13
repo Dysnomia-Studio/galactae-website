@@ -58,7 +58,7 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 		$server_status = ($servers[$i]['status'])?'server_on':'server_off';
 
 		if($servers[$i]['status']) {
-				$srv_data = $db->getCondContent("server_list",[
+				$srv_data = $sqlDB->getCondContent("server_list",[
 					["server_name", $servers[$i]['server_name'], "str"]
 				],0,1,"server_name");
 
@@ -66,7 +66,7 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 					$srv_data = $srv_data[0];
 				}
 
-				$userPrivileges = $db->getCondContent("user_privileges",[
+				$userPrivileges = $sqlDB->getCondContent("user_privileges",[
 					["user_id",$userData['user_id'],"int"],
 					["server_name", $servers[$i]['server_name'],"str"]
 				],0,1000,"server_name");
