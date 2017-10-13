@@ -1,12 +1,11 @@
 <?php
-if(!isset($_SESSION['username']) || !isset($_SESSION['id'])) {
+include_once('./basefiles/connectCheck.php');
+
+if(!isset($userData['user_name']) || !isset($userData['user_id'])) {
 	http_response_code(404);
 	include_once('errors/404.html');
 	die();
 }
-
-$admin_user = "***REMOVED***";
-$admin_passwd = "***REMOVED***";
 
 $data = $sqlDB->getCondContent("user_list",[
 	["user_name",strtolower($_SESSION['username']),"str"],
@@ -17,11 +16,14 @@ if($data!=false&&isset($data[0])) {
 	$data = $data[0];
 }
 
-if(!isset($data['user_lvl']) || $data['user_lvl']<5) {
+if(!isset($data['user_adminPanelAccess']) || $data['user_adminPanelAccess']!=1) {
 	http_response_code(404);
 	include_once('errors/404.html');
 	die();
 }
+
+$admin_user = "***REMOVED***";
+$admin_passwd = "***REMOVED***";
 
 $serverList = [
 	["addr"=>"00-srv.galactae.eu", "port"=>42690, "name"=>DEV, "link"=>"https://00-dev.galactae.eu"],

@@ -28,10 +28,14 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 		//["addr"=>"04-srv.galactae.eu", "port"=>42694, "name"=>MAGELLAN, "link"=>"https://04-magellan.galactae.eu"]
 	];
 
-	if(isset($userData['whitelisted']) && $userData['whitelisted']) {
-		$dev=0;
+	$devPrivileges = $sqlDB->getCondContent("user_privileges",[
+	["user_id",$userData['user_id'],"int"],
+	],0,1000,"server_name");
+
+	if(isset($devPrivileges['user_whitelist']) && $devPrivileges['user_whitelist']) {
+		$firstServer=0;
 	} else {
-		$dev=1;
+		$firstServer=1;
 	}
 
 	foreach ($gameData as $key => $value) {
@@ -43,7 +47,7 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 	$content_playing = "";
 	$content_not_playing = "";
 
-	for($i=$dev; $i<count($servers); $i++) {
+	for($i=$firstServer; $i<count($servers); $i++) {
 		$servers[$i]['status'] = @fsockopen($servers[$i]["addr"], $servers[$i]["port"], $errno, $errstr, 0.1);
 
 		$server_status = ($servers[$i]['status'])?'server_on':'server_off';
