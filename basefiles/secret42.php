@@ -87,47 +87,16 @@ $serverList = [
 	}
 
 	#server-list {
-		width: 14vw;
-		height: calc(100vh - 3em);
-		list-style: none;
-		margin: 0;
-		padding: 0;
-
 		position: fixed;
 		left: 0;
 		bottom: 0;
 
-		background-color: #0f1416;
-		border-right: 1px solid #0EC6C6;
+		width: 13vw;
+		/* 100% (Window) - 3.5em (Top) - 1em (Padding) - 2px (Border) */
+		height: calc(100vh - 4.5em - 2px) !important;
+		max-height: calc(100vh - 4.5em - 2px) !important;
+	}
 
-		overflow-x: auto;
-	}
-	#server-list li {
-		padding: 0.8em;
-		padding-top: 0;
-		color: #93fcfb;	
-		cursor: pointer;
-	}
-	#server-list li .server_on, #server-list li .server_off, #server-list li .server_maintenance, #server-list li .server_unknown {
-		font-size: 2em;
-		position: relative;
-		bottom: -0.15em;
-	}
-	#server-list li .server_on {
-		color: green;
-	}
-	#server-list li .server_off {
-		color: red;
-	}
-	#server-list li .server_maintenance {
-		color: orange;
-	}
-	#server-list li .server_unknown {
-		color: grey;
-	}		
-	#server-list li:hover {
-		background-color: #1f2426;
-	}
 	#server-infos {
 		position: fixed;
 		top: 3em;
@@ -162,10 +131,74 @@ $serverList = [
 	}
 	#server-panel {
 		position: fixed;
-		top: 0;
+		bottom: 0;
 		right: 0;
-		width: 22%;
-		height: 100vh;
+
+		border: 1px solid #0EC6C6;
+		color: #93fcfb;
+
+		padding: 0.5em;
+
+		width: calc(22% - 1.5em);	
+		/* 100% (Window) - 3.5em (Top) - 1em (Padding) - 2px (Border) */
+		height: calc(100vh - 4.5em - 2px) !important;
+		max-height: calc(100vh - 4.5em - 2px) !important;
+	}
+	#server-panel img {
+		max-width: calc(((100% - 1.5em) / 3) - 0.5em); /* (Width of parent - margin of parent) / 3 - padding of img */
+		max-height: 2em;
+		margin: 1em 0.25em;
+
+		cursor: pointer;
+	}
+
+	/* The switch - the box around the slider */
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 55px;
+		height: 30px;
+	}
+	/* Hide default HTML checkbox */
+	.switch input { display:none; }
+	/* The slider */
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #0B1012;
+		-webkit-transition: .4s;
+		transition: .4s;
+		border: 2px solid #0EC6C6;
+	}
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 18px;
+		width: 18px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	input:checked + .slider {
+		background-color: #0EC6C6;
+	}
+	input:checked + .slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 25px;
+	}
+	.slider.round:before {
+		border-radius: 50%;
 	}
 </style>
 <script type="text/javascript">
@@ -230,7 +263,6 @@ $serverList = [
 			});	
 
 			socketList[id].on('server-log', function(msg) {
-				console.log("MESSAGE: " + msg);
 				if(id==currServer) {
 					$('#server-infos-logs').append('<li>' + msg + '</li>');
 					$('#server-infos-logs').scrollTop($('#server-infos-logs').height());
@@ -244,15 +276,37 @@ $serverList = [
 
 	$(document).ready(function() {
 		$('#server-list li').click(function() {
-			loadServerUI($(this).attr('id'));
+			if($(this).attr('id')!=currServer) {
+				loadServerUI($(this).attr('id'));
+			}
 		});
 
 		connectAllSockets();
-	});	
+
+		// Server Admin Commands
+		$("#server-start").click(function() {
+			socketList[currServer].emit('admin-request-cmd', { cmd: "start" });
+		});
+		$("#server-stop").click(function() {
+			socketList[currServer].emit('admin-request-cmd', { cmd: "stop" });
+		});
+		$("#server-restart").click(function() {
+			socketList[currServer].emit('admin-request-cmd', { cmd: "restart" });
+		});
+		$("#server-maintenance").click(function() {
+			if($("#server-maintenance").is(':checked')) {
+				socketList[currServer].emit('admin-request-cmd', { cmd: "maintenanceOn" });
+			} else {
+				socketList[currServer].emit('admin-request-cmd', { cmd: "maintenanceOff" });
+			}
+		});
+	});
 </script>
 <section>
 	<ul id="tool-list">
 		<li><img id="tool-console" alt="console" src="https://***REMOVED***/website/img/icons/console.png"></li>
+		<li><img id="tool-privileges" alt="privileges" src="https://***REMOVED***/website/img/icons/privileges.png"></li>
+		<li><img id="tool-bans" alt="bans" src="https://***REMOVED***/website/img/icons/bans.png"></li>
 		<li><img id="tool-news" alt="news" src="https://***REMOVED***/website/img/icons/news.png"></li>
 	</ul>
 	<ul id="server-list">
@@ -269,6 +323,16 @@ $serverList = [
 		<input id="server-infos-cmd" type="text">
 	</div>
 	<div id="server-panel">
-
+		<p style="text-align: center;">Status<br/>
+			<img id="server-start"	 alt="start"	 src="https://***REMOVED***/website/img/icons/start.png">
+			<img id="server-stop"		alt="stop"		src="https://***REMOVED***/website/img/icons/stop.png">
+			<img id="server-restart" alt="restart" src="https://***REMOVED***/website/img/icons/restart.png">
+		</p>
+		<p style="text-align: center;">Maintenance<br/><br/>
+			<label class="switch">
+				<input id="server-maintenance" type="checkbox">
+				<span class="slider round"></span>
+			</label>
+		</p>
 	</div>
 </section>
