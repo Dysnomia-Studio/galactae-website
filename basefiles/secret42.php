@@ -44,9 +44,6 @@ if(!isset($userData['user_adminPanelAccess']) || $userData['user_adminPanelAcces
 	die();
 }
 
-var_dump($sess_data);
-var_dump($userData);
-
 $admin_user = "***REMOVED***";
 $admin_passwd = "***REMOVED***";
 
