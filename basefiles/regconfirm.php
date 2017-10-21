@@ -194,6 +194,7 @@ if($message=="") {
     hyphens: auto;
     display: inline-block; 
     max-width: 600px; "><td><a style="color: white;" href="'.$conf_link.'">'.$conf_link.'</a></td></tr><tr><td>'.REGISTER_MAIL_TEXT_2.$mail[2].MAIL_NOREPLY.$mail[3], 'text/html')
+	  ->addPart(REGISTER_MAIL_TEXT_1.'\n'.$conf_link.'\n'.REGISTER_MAIL_TEXT_2.'\n'.MAIL_NOREPLY,'text/plain')
 	  ;
 
 	// Send the message
