@@ -153,7 +153,9 @@ if($message=="") {
     	["user_name",$user_name,"str"],
     ],0,1,"user_id");
 
-    $data = $data[0];
+    if($data!=false && isset($data[0])) {
+		$data = $data[0];
+	}
 
 	$conf_link = encrypt(time().$user_name);
 
