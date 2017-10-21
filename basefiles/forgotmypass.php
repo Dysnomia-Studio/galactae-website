@@ -126,6 +126,11 @@ if($data!=false && isset($data["user_name"])) {
     hyphens: auto;
     display: inline-block; 
     max-width: 600px; "><td><a style="color: white;" href="'.$passwd_link.'">'.$passwd_link.'</a></td></tr><tr><td>'.PASS_MAIL_2.$mail[2].MAIL_NOREPLY.$mail[3], 'text/html')
+	  ->addPart(LOGIN_PASS_RESET.'
+'.PASS_MAIL_1.'
+'.$passwd_link.'
+'.PASS_MAIL_2.'
+'.MAIL_NOREPLY,'text/plain')
 	  ;
 
 	// Send the message
