@@ -79,12 +79,6 @@ $config['name-maxsize'] = 20;
 $config['pass-minsize'] = 8;
 $config['pass-maxsize'] = 20;
 
-$user_name = htmlentities(htmlspecialchars($_POST['username']));
-$user_mail = htmlentities(htmlspecialchars($_POST['mail']));
-$user_passwd = htmlentities(htmlspecialchars($_POST['password']));
-$user_confpasswd = htmlentities(htmlspecialchars($_POST['confpassword']));
-$user_encpasswd = encrypt($user_passwd);
-
 if(!isset($_POST['newsletter_miscellaneous']) || $_POST['newsletter_miscellaneous']!="checked") {
 	$user_news_misc = 0;
 } else {
@@ -97,9 +91,19 @@ if(!isset($_POST['newsletter_update']) || $_POST['newsletter_update']!="checked"
 	$user_news_updates = 1;
 }
 
-
 /* Verifications */
-if(empty($user_name) ||
+if(isset($_POST[''])) {
+$user_name = htmlentities(htmlspecialchars($_POST['username']));
+$user_mail = htmlentities(htmlspecialchars($_POST['mail']));
+$user_passwd = htmlentities(htmlspecialchars($_POST['password']));
+$user_confpasswd = htmlentities(htmlspecialchars($_POST['confpassword']));
+$user_encpasswd = encrypt($user_passwd);
+} else {
+	$message = ERR_FIELD.' '.CLICK_BACK;
+}
+
+if(!isset($user_name) || 
+	empty($user_name) ||
 	empty($user_passwd) ||
 	empty($user_mail)) { // No input empty
 
