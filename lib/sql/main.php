@@ -131,7 +131,7 @@ class sqlInterface {
 	 */
 	public function addContent($table,$data) {
 
-			$content = "(";
+			$content = " (";
 
 			for($i=0; $i<sizeof($data); $i++) {
 				$content .= $data[$i][0];
@@ -151,6 +151,8 @@ class sqlInterface {
 			$content .= ' )';
 
 			$query = $this->bd->prepare('INSERT INTO '.$table.$content);
+
+			echo 'INSERT INTO '.$table.$content;
 
 			for($i=0; $i<sizeof($data); $i++) {
 				if($data[$i][2]=="int") {

@@ -91,8 +91,6 @@ if(!isset($_POST['newsletter_update']) || $_POST['newsletter_update']!="checked"
 	$user_news_updates = 1;
 }
 
-var_dump($_POST);
-
 /* Verifications */
 if(isset($_POST['username']) &&
 	isset($_POST['mail']) &&
