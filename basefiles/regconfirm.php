@@ -153,7 +153,7 @@ if($message=="") {
     	["user_name",$user_name,"str"],
     ],0,1,"user_id");
 
-    if($data!=false && isset($data[0])) {
+    if($data!=false && isset($data[0]) && isset($data[0]['user_id'])) {
 		$data = $data[0];
 	}
 
