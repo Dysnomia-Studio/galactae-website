@@ -152,8 +152,6 @@ class sqlInterface {
 
 			$query = $this->bd->prepare('INSERT INTO '.$table.$content);
 
-			echo 'INSERT INTO '.$table.$content;
-
 			for($i=0; $i<sizeof($data); $i++) {
 				if($data[$i][2]=="int") {
 					$query->bindValue(':'.$data[$i][0],$data[$i][1],PDO::PARAM_INT);
