@@ -94,7 +94,10 @@ if(!isset($_POST['newsletter_update']) || $_POST['newsletter_update']!="checked"
 var_dump($_POST);
 
 /* Verifications */
-if(isset($_POST[''])) {
+if(isset($_POST['username']) &&
+	isset($_POST['mail']) &&
+	isset($_POST['password']) &&
+	isset($_POST['confpassword'])) {
 $user_name = htmlentities(htmlspecialchars($_POST['username']));
 $user_mail = htmlentities(htmlspecialchars($_POST['mail']));
 $user_passwd = htmlentities(htmlspecialchars($_POST['password']));
