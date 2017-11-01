@@ -4,7 +4,9 @@ include_once('./basefiles/menu.php');
 
 echo "<section class=\"devblog\">";
 
-$data = $sqlDB->getContent("devblog",0,10,"blog_time DESC");
+$data = $sqlDB->getCondContent("announces",[
+    	["onBlog",1,"int"],
+    	],0,10,"blog_time DESC");
 
 foreach ($data as $key => $value) {
  	echo "<article>
