@@ -38,9 +38,9 @@ abstract class Mail {
 		"spamfree24.org"
 	];
 
-	public function isBlackListed($mail) {
+	static public function isBlackListed($mail) {
 		// On decoupe par le @, recupere la seconde partie, et verifie si celle ci n'est pas blacklist
-		return ( array_search(split("@", $mail)[1], $this->blacklistedDomains) !== false);
+		return ( array_search(explode("@", $mail)[1], $this->blacklistedDomains) !== false);
 	}
 }
 ?>
