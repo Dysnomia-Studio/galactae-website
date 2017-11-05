@@ -1,7 +1,7 @@
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <?php
 function DrawCaptcha($publicKey) {
-    echo'<div class="g-recaptcha" data-sitekey="'.$publicKey.'"></div>';
+	echo'<div class="g-recaptcha" data-sitekey="'.$publicKey.'"></div>';
 }
 
 /**                   RECAPTCHA LIB
@@ -56,7 +56,7 @@ class ReCaptcha
      *
      * @param string $secret shared secret between site and ReCAPTCHA server.
      */
-    function ReCaptcha($secret)
+    function _construct($secret)
     {
         if ($secret == null || $secret == "") {
             die("To use reCAPTCHA you must get an API key from <a href='"

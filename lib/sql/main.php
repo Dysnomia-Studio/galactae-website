@@ -15,7 +15,7 @@ class sqlInterface {
 	 * @param      string  $id        The username
 	 * @param      string  $password  The password
 	 */
-	private function connect($host,$db,$id,$password) {
+	private function connect($host,$db,$id,$password,$port=3306) {
 		if($host=="") { $host="localhost"; }
 
 		if($id==""||!isset($id)||$db==""||!isset($db)||$password==""||!isset($password)) { //Wrong Use !
@@ -24,15 +24,15 @@ class sqlInterface {
 		}
 
 		try {
-			$this->bd = new PDO('mysql:host='.$host.';dbname='.$db,$id,$password);
+			$this->bd = new PDO('mysql:host='.$host.';port='.$port.';dbname='.$db,$id,$password);
 		}
 		catch (Exception $e) {
-		        die('Erreur : ' . $e->getMessage());
+			die('Erreur : ' . $e->getMessage());
 		}
 	}
 
 	/**
-	 * construct
+	 * constructor
 	 *
 	 * @param      string  $host      The host
 	 * @param      string  $db        The database
@@ -44,8 +44,7 @@ class sqlInterface {
     }
 
 	/**
-	 * getContent
-	 * Gets the content.
+	 * Gets the content of a table
 	 *
 	 * @param      table           $table  The table name
 	 * @param      integer		   $min    The minimum index
@@ -74,7 +73,7 @@ class sqlInterface {
 	}
 
 	/**
-	 * Gets content depends on specified conditions.
+	 * Gets content of a table depends on specified conditions.
 	 *
 	 * @param      array           $table  The table name
 	 * @param      array           $where  The condition
@@ -131,7 +130,7 @@ class sqlInterface {
 	 */
 	public function addContent($table,$data) {
 
-			$content = " (";
+			$content = "(";
 
 			for($i=0; $i<sizeof($data); $i++) {
 				$content .= $data[$i][0];
@@ -291,6 +290,78 @@ class sqlInterface {
 	 */
 	public function count($table) {
 		return $this->bd->query("SELECT COUNT(*) FROM ".$table)->fetchColumn();
+	}
+
+	/**
+	 * Query to select with complexe SQL setences
+	 *
+	 * @param      <type>         $query      The query the sql server will read
+	 * @param      <type>         $bindValue  The binded value
+	 * @param      boolean        $oneResult  Does we echo only one result ?
+	 *
+	 * @return     array|boolean  ( description_of_the_return_value )
+	 */
+	public function selectQuery($query,$bindValue,$oneResult=false) {
+
+		if(is_string($query)&&is_array($bindValue)&&is_bool($oneResult)) {
+
+			$query = $this->bd->prepare($query);
+
+			foreach($bindValue as $name => $value) {
+				if(is_int($value) && is_bool($value)) {
+					$pdoType = PDO::PARAM_INT;
+				} else {
+					$pdoType = PDO::PARAM_STR;
+				}
+
+				$query->bindValue(':'.$name,$value,$pdoType);
+			}
+
+			if($oneResult) {
+				$data = $query->fetch();
+				$query->CloseCursor();
+				return $data;
+			} else {
+				$query->execute();
+				$data = array();
+				$i = 0;
+				while($data1 = $query->fetch()) {
+					$data[$i] = $data1;
+					$i++;
+				}
+				$query->CloseCursor();
+
+				return $data;	
+			}
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Update database content via a custom query
+	 *
+	 * @param      <type>  $query      The custom query
+	 * @param      <type>  $bindValue  The binded value
+	 */
+	public function updateQuery($query,$bindValue) {
+		if(is_string($query)&&is_array($bindValue)) {
+
+			$query = $this->bd->prepare($query);
+
+			foreach($bindValue as $name => $value) {
+				if(is_int($value) && is_bool($value)) {
+					$pdoType = PDO::PARAM_INT;
+				} else {
+					$pdoType = PDO::PARAM_STR;
+				}
+
+				$query->bindValue(':'.$name,$value,$pdoType);
+			}
+
+			$query->execute();
+			$query->CloseCursor();
+		}
 	}
 }
 ?>

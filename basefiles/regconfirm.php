@@ -115,7 +115,7 @@ if(!isset($user_name) ||
 	$message = ERR_CG.' '.CLICK_BACK;
 } elseif($user_passwd!=$user_confpasswd) { // Same Passwords
 	$message = ERR_NOT_SAME_PASSWD.' '.CLICK_BACK;
-} elseif(!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $user_mail)) { // Mail Format
+} elseif(!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $user_mail) || Mail::isBlacklisted($user_mail)) { // Mail Format
 	$message = ERR_NOT_VALID_MAIL.' '.CLICK_BACK;
 } elseif(strlen($user_name)<$config['name-minsize'] || 
 	strlen($user_name)>$config['name-maxsize']) { // Username size
