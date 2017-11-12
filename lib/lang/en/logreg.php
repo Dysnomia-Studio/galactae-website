@@ -4,6 +4,7 @@ define('LOGIN_LOGIN','Login');
 define('LOGIN_REG','Register');
 define('LOGIN_USERMAIL','Username or mail');
 define('LOGIN_PASSWORD','Password');
+define('LOGIN_REMEMBER','Remember me');
 
 define('LOGIN_USERNAME','Username');
 define('LOGIN_MAIL','Mail');

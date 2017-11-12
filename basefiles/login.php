@@ -81,7 +81,7 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 
 
 			document.getElementById('rememberMe').addEventListener("change", function() {
-				setCookie('rememberMe',document.getElementById('rememberMe').value,30);
+				setCookie('rememberMe',(document.getElementById('rememberMe').value == "on"),30);
 			});
 		});
 	</script>
@@ -98,12 +98,10 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 			<form method="post" action="logconfirm">
 				<input type="text" name="username" id="username" placeholder="<?php echo LOGIN_USERMAIL; ?>">
 				<input type="password" name="password" id="password" placeholder="<?php echo LOGIN_PASSWORD; ?>">
-				<input type="checkbox" name="rememberMe" id="rememberMe" placeholder="<?php echo LOGIN_REMEMBER; ?>"
-				<?php
-				if(isset($_COOKIE['rememberMe']) && $_COOKIE['rememberMe'] != true) {
-					echo " checked";
-				}
-				?>>
+				<span class="login-checkbox">
+					<input type="checkbox" name="rememberMe" id="rememberMe">
+					<?php echo LOGIN_REMEMBER; ?>
+				</span>
 				<input type="submit" value="<?php echo LOGIN_LOGIN; ?>">
 			</form>
 			<a href="#forgotmypass" id="forgot-pass-button"><?php echo LOGIN_FORGOTPASS; ?></a>
