@@ -78,6 +78,11 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 
 				active("forgot-pass");
 			});
+
+
+			document.getElementById('rememberMe').onchange(function() {
+				setCookie('rememberMe',document.getElementById('rememberMe').value,30);
+			});
 		});
 	</script>
 
@@ -93,6 +98,12 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 			<form method="post" action="logconfirm">
 				<input type="text" name="username" id="username" placeholder="<?php echo LOGIN_USERMAIL; ?>">
 				<input type="password" name="password" id="password" placeholder="<?php echo LOGIN_PASSWORD; ?>">
+				<input type="checkbox" name="rememberMe" id="rememberMe" placeholder="<?php echo LOGIN_REMEMBER; ?>"
+				<?php
+				if(isset($_COOKIE['rememberMe']) && $_COOKIE['rememberMe'] != true) {
+					echo " checked";
+				}
+				?>>
 				<input type="submit" value="<?php echo LOGIN_LOGIN; ?>">
 			</form>
 			<a href="#forgotmypass" id="forgot-pass-button"><?php echo LOGIN_FORGOTPASS; ?></a>
