@@ -116,8 +116,11 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 	if(isset($_GET['kickmsg']) && !empty($_GET['kickmsg']) && $_GET['kickmsg']!="") {
 		echo '<div class="system-message" id="kickmsg">'.htmlentities(htmlspecialchars($_GET['kickmsg'])).'</div>';
 		?>
+
+		<script type="text/javascript" src="https://***REMOVED***/website/js/jquery.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready( function() {
+				$("#kickmsg").fadeIn(1000);
 				setTimeout(function() {
 					$("#kickmsg").fadeOut(1000);
 				}, 1000 + 100*$("#kickmsg").text().length);	
