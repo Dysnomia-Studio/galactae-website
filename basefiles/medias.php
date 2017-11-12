@@ -16,7 +16,7 @@ include_once('./basefiles/menu.php');
  				$name = str_replace(".png", "", $files['files'][0][$i]);
 
  				echo "<li><h3>".$name."</h3>
- 					<img src=\"img/backgrounds/".$name."-min.jpg\" onclick=\"FullPictureShow(this.src)\" alt=\"backgrounds ".$name."\">
+ 					<img src=\"https://***REMOVED***/website/img/backgrounds/".$name."-min.jpg\" onclick=\"FullPictureShow(this.src)\" alt=\"backgrounds ".$name."\">
  					</li>";
  			}
  			?>
@@ -31,7 +31,7 @@ include_once('./basefiles/menu.php');
  				$name = str_replace(".png", "", $files['files'][0][$i]);
 
  				echo "<li><h3>".$name."</h3>
- 					<img src=\"img/archives/planet/".$name."-min.jpg\" onclick=\"FullPictureShow(this.src)\" alt=\"planet ".$name."\">
+ 					<img src=\"https://***REMOVED***/website/img/archives/planet/".$name."-min.jpg\" onclick=\"FullPictureShow(this.src)\" alt=\"planet ".$name."\">
  					</li>";
  			}
  			?>
@@ -45,7 +45,7 @@ include_once('./basefiles/menu.php');
  				$name = str_replace(".png", "", $files['files'][0][$i]);
  				
  				echo "<li><h3>".$name."</h3>
- 					<img src=\"img/archives/solar-system/".$name."-min.jpg\" onclick=\"FullPictureShow(this.src)\" alt=\"solar-system ".$name."\">
+ 					<img src=\"https://***REMOVED***/website/img/archives/solar-system/".$name."-min.jpg\" onclick=\"FullPictureShow(this.src)\" alt=\"solar-system ".$name."\">
  					</li>";
  			}
  			?>
@@ -59,7 +59,7 @@ include_once('./basefiles/menu.php');
  				$name = str_replace(".png", "", $files['files'][0][$i]);
  				
  				echo "<li><h3>".$name."</h3>
- 					<img src=\"img/archives/connectedScreen/".$name."-min.jpg\" onclick=\"FullPictureShow(this.src)\" alt=\"connectedScreen ".$name."\">
+ 					<img src=\"https://***REMOVED***/website/img/archives/connectedScreen/".$name."-min.jpg\" onclick=\"FullPictureShow(this.src)\" alt=\"connectedScreen ".$name."\">
  					</li>";
  			}
  			?>
@@ -73,7 +73,7 @@ include_once('./basefiles/menu.php');
  				$name = str_replace(".png", "", $files['files'][0][$i]);
  				
  				echo "<li><h3>".$name."</h3>
- 					<img src=\"img/archives/index/".$name."-min.jpg\" onclick=\"FullPictureShow(this.src)\" alt=\"index ".$name."\">
+ 					<img src=\"https://***REMOVED***/website/img/archives/index/".$name."-min.jpg\" onclick=\"FullPictureShow(this.src)\" alt=\"index ".$name."\">
  					</li>";
  			}
  			?>
