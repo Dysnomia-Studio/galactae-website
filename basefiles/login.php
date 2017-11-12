@@ -80,7 +80,7 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 			});
 
 
-			document.getElementById('rememberMe').onchange(function() {
+			document.getElementById('rememberMe').addEventListener("change", function() {
 				setCookie('rememberMe',document.getElementById('rememberMe').value,30);
 			});
 		});
