@@ -99,7 +99,13 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 				<input type="text" name="username" id="username" placeholder="<?php echo LOGIN_USERMAIL; ?>">
 				<input type="password" name="password" id="password" placeholder="<?php echo LOGIN_PASSWORD; ?>">
 				<span class="login-checkbox">
-					<input type="checkbox" name="rememberMe" id="rememberMe">
+					<input type="checkbox" name="rememberMe" id="rememberMe"
+					<?php
+					if(isset($_COOKIE['rememberMe']) && $_COOKIE['rememberMe'] != false) {
+						echo "checked";
+					}
+					?>
+					>
 					<?php echo LOGIN_REMEMBER; ?>
 				</span>
 				<input type="submit" value="<?php echo LOGIN_LOGIN; ?>">
