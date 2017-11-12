@@ -101,7 +101,6 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 				<span class="login-checkbox">
 					<input type="checkbox" name="rememberMe" id="rememberMe"
 					<?php
-					var_dump($_COOKIE['rememberMe']);
 					if(!isset($_COOKIE['rememberMe']) || ($_COOKIE['rememberMe'] != false && $_COOKIE['rememberMe'] != "false")) {
 						echo "checked";
 					}
