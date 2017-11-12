@@ -81,7 +81,7 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 
 
 			document.getElementById('rememberMe').addEventListener("change", function() {
-				setCookie('rememberMe',(document.getElementById('rememberMe').value == "on"),30);
+				setCookie('rememberMe',document.getElementById('rememberMe').checked,30);
 			});
 		});
 	</script>
