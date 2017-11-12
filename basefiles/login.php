@@ -13,24 +13,26 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 	}
 
 	if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
-		$sqlDB->updateContent('user_session',
-			[ ["user_session_expiration",time()+2678400,"int"] ],
-			[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]);
+		if(isset($sess_data['user_agent']) && $sess_data['user_agent'] == $_SERVER['HTTP_USER_AGENT']) {
+				$sqlDB->updateContent('user_session',
+					[ ["user_session_expiration",time()+2678400,"int"] ],
+					[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]);
 
-		$userData = $sqlDB->getCondContent("user_list",[
-			["user_id",$sess_data['user_id'],"int"],
-		],0,1,"user_id");
+				$userData = $sqlDB->getCondContent("user_list",[
+					["user_id",$sess_data['user_id'],"int"],
+				],0,1,"user_id");
 
-		if($userData!=false && isset($userData[0])) {
-			$userData = $userData[0];
-		}
+				if($userData!=false && isset($userData[0])) {
+					$userData = $userData[0];
+				}
 
-		if(isset($userData["user_id"])) {
-			header('Location: portal');
-			exit();
+				if(isset($userData["user_id"])) {
+					header('Location: portal');
+					exit();
+				}
+			}
 		}
 	}
-}
 ?>
 <body class="login-page">
 	<ul>
