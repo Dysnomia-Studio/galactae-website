@@ -33,6 +33,7 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 				["user_id",$data['user_id'],"int"],
 				["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"],
 				["user_session_expiration",time()+2678400,"int"],
+				["user_agent",$_SERVER['HTTP_USER_AGENT'],"str"]
 			]);
 	          
 	        $message = CONNECTED.' '.CLICK_GAME; 

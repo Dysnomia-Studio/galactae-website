@@ -15,6 +15,12 @@ if($sess_data!=false && isset($sess_data[0])) {
 }
 
 if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
+	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $_SERVER['HTTP_USER_AGENT']) {
+		http_response_code(404);
+		include_once('errors/404.html');
+		die();
+	}
+
 	$sqlDB->updateContent('user_session',
 		[ ["user_session_expiration",time()+2678400,"int"] ],
 		[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]);
