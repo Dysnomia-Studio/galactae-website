@@ -20,13 +20,24 @@ abstract class Mail {
 			"vmani.com",
 			"wimsg.com",
 			// getairmail.com
+<<<<<<< HEAD
+=======
+			"getairmail.com",
+>>>>>>> 7f7a52037a5c50ca4971a906e4abf64218d95294
 			"eelmail.com",
 			"boximail.com",
 			"vomoto.com",
 			"tafmail.com",
 			"clrmail.com",
+<<<<<<< HEAD
 			// mohmal.com
 			"mailna.biz",
+=======
+			"imgof.com",
+			// mohmal.com
+			"mailna.biz",
+			"emailo.pro",
+>>>>>>> 7f7a52037a5c50ca4971a906e4abf64218d95294
 			// 10minutemail.com
 			"mvrht.net",
 			// jetable.org
