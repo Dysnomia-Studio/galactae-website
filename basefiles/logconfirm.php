@@ -24,11 +24,10 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 		$data = $data[0];
 	}
 
-	if(isset($data['user_passwd']) && $data['user_passwd']  == encrypt($_POST['password'])) { // Acces OK ! 	
-	    if(isset($data['activated']) && $data['activated']!=1) { // Compte non-activé
-			$message = ERR_NOT_ACTIVATED.' '.CLICK_BACK;
-		} else //Sinon c'est ok, on se connecte 
-	    {
+    if(isset($data['activated']) && $data['activated']!=1) { // Compte non-activé
+		$message = ERR_NOT_ACTIVATED.' '.CLICK_BACK;
+	} else {
+		if(isset($data['user_passwd']) && $data['user_passwd']  == encrypt($_POST['password'])) { // Acces OK ! 	
 	        $sqlDB->addContent('user_session',[
 				["user_id",$data['user_id'],"int"],
 				["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"],
@@ -38,12 +37,10 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 	          
 	        $message = CONNECTED.' '.CLICK_GAME; 
 	        header("Location: portal.php"); 
-	    } 
+		} else { // Acces pas OK ! 
+	        $message = ERR_BAD_LOGIN. ' '.CLICK_BACK;
+	    }
 	}
-    else // Acces pas OK ! 
-    { 
-        $message = ERR_BAD_LOGIN. ' '.CLICK_BACK;
-    }
 }
 ?>
 <body class="login-page">
