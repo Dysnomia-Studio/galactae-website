@@ -21,7 +21,9 @@ define('PASS_MAIL_SEND','Un e-mail vient de vous être envoyé afin de reinitali
 define('PASS_MAIL_1','Bonjour !<br/></br>
 				Vous avez demandé un lien de reinitalisation de votre mot de passe, afin de continuer cette démarche, veuillez cliquer sur le lien suivant');
 define('PASS_MAIL_2','Vous pouvez aussi copier-coller le lien complet dans la barre d\'adresse de votre navigateur. Si vous n\'êtes pas à l\'origine de cette demande, vous pouvez ignorer ce mail.</br></br>
-				Bon jeu à vous !');
+				Bon jeu à vous !<br/></br>
+				L\'equipe de Galactae: Space Age Dawn');
+
 define('PASS_SUBMIT','Changer le mot de passe');
 define('PASS_INVALID_LINK','Lien non-valide');
 define('PASS_CHANGED','Votre mot de passe a bien été modifié.');

@@ -21,15 +21,14 @@ define('PASS_MAIL_SEND','A mail has just been sended to reset your password.');
 define('PASS_MAIL_1','Hello !<br/></br>
 				You just asked to get a link to reset your password, please click on the following link to continue');
 define('PASS_MAIL_2','You can also copy and past the entire link to address bar of your browser. If you didn\'t ask to reset your password, you can ignore that mail;</br></br>
-				Bon jeu à vous !<br/></br>
-				L\'equipe de Galactae: Space Age Dawn');
+				Have fun !<br/></br>
+				Galactae: Space Age Dawn Team');
 
 define('PASS_SUBMIT','Set new password');
 define('PASS_INVALID_LINK','Invalid link');
 define('PASS_CHANGED','Your password has been changed.');
 
 define('MAIL_NOREPLY','This is an automatic mail, the sender is a machine without any intelligence, so he can\'t answer if you mail it.');
-
 
 define('REGISTER_MAIL_TEXT_1','Welcome !<br/></br>
 				Last action before taking control of your state, please click on the following link to activate your account');
