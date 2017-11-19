@@ -32,7 +32,7 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 				["user_id",$data['user_id'],"int"],
 				["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"],
 				["user_session_expiration",time()+$expTime,"int"],
-				["user_session_lang",$sess_data['lang'],"str"],
+				["user_session_lang",$lang->getLanguage(),"str"],
 				["user_agent",$_SERVER['HTTP_USER_AGENT'],"str"]
 			]);
 	          
