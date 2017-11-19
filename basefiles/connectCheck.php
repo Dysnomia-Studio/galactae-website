@@ -19,9 +19,20 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 		exit();
 	}
 
-	$sqlDB->updateContent('user_session',
-		[ ["user_session_expiration",time()+2678400,"int"] ],
-		[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]);
+	if($lang->getLanguage() != $sess_data['lang']) {
+		$sqlDB->updateContent('user_session',
+			[
+			 	["user_session_expiration",time()+$expTime,"int"],
+				["user_session_lang",$sess_data['lang'],"str"] 
+			],
+			[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]
+		);
+	} else {
+		$sqlDB->updateContent('user_session',
+			[ ["user_session_expiration",time()+$expTime,"int"] ],
+			[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]);
+	}
+
 } else {
 	header('Location: index');
 	exit();
@@ -38,5 +49,9 @@ if($userData!=false && isset($userData[0])) {
 if(!isset($userData["user_id"])) {
 	header('Location: index');
 	exit();
+}
+
+if(!isset($_SESSION['lang'])) {
+	$_SESSION['lang'] = $sess_data['lang'];
 }
 ?>
