@@ -21,11 +21,11 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 		die();
 	}
 
-	if($lang->getLanguage() != $sess_data['lang']) {
+	if($lang->getLanguage() != $sess_data['user_session_lang']) {
 		$sqlDB->updateContent('user_session',
 			[
 			 	["user_session_expiration",time()+$expTime,"int"],
-				["user_session_lang",$sess_data['lang'],"str"] 
+				["user_session_lang",$sess_data['user_session_lang'],"str"] 
 			],
 			[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]
 		);
@@ -61,7 +61,7 @@ if(!isset($userData['user_adminPanelAccess']) || $userData['user_adminPanelAcces
 }
 
 if(!isset($_SESSION['lang'])) {
-	$_SESSION['lang'] = $sess_data['lang'];
+	$_SESSION['lang'] = $sess_data['user_session_lang'];
 }
 
 $admin_user = "***REMOVED***";
