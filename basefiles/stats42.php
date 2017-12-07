@@ -81,7 +81,7 @@ $servers = [
 	"galactae-00"
 ];
 
-$results = new Array();
+$results = [];
 
 foreach ($servers as $key => $server) {
 	$cursor = $manager->executeQuery($server.'.stats', $query);
