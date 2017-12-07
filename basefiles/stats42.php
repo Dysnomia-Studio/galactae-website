@@ -88,8 +88,16 @@ foreach ($servers as $key => $server) {
 	$results[$server] = $cursor->toArray();
 }
 ?>
+<select id="days-range" onchange="genReport(parseInt($('#days-range').val()));" style="width: 200px; margin: 0 auto;">
+	<option value="7">7 derniers jours</option>
+	<option value="30" selected>30 derniers jours</option>
+	<option value="90">3 derniers mois</option>
+	<option value="183">6 derniers mois</option>
+	<option value="365">12 derniers mois</option>
+	<option value="100000">Toute la periode</option>
+</select>
 
-<div id="visits" class="graphs"></div>
+<div id="stats" class="graphs"></div>
 
 <script src="https://***REMOVED***/website/js/chartkick.js"></script>
 <script src="https://***REMOVED***/website/js/jquery.min.js"></script>
@@ -104,24 +112,37 @@ foreach ($servers as $key => $server) {
 		return [pad(d.getFullYear()), pad(d.getMonth()+1), d.getDate()].join('-') + ' ' + [pad(d.getHours()), pad(d.getMinutes()), d.getSeconds()].join(':');
 	}
 
-	for(var server in rawStats) {
-		outStats[server] = [];
-		for(var i=0; i<rawStats[server].length; i++) {
-			if(rawStats[server][i-1] == undefined || 
-				rawStats[server][i+1] == undefined || 
-				rawStats[server][i-1].plCount != rawStats[server][i].plCount ||
-				rawStats[server][i+1].plCount != rawStats[server][i].plCount) {
 
-				outStats[server].push([convertDate(rawStats[server][i].time),rawStats[server][i].plCount]);
+	function genReport(dTime) {
+		var minDate = Date.now() - (dTime * 24 * 60 * 1000);
+
+		for(var server in rawStats) {
+			outStats[server] = [];
+			for(var i=0; i<rawStats[server].length; i++) {
+				if(rawStats[server][i].time < minDate) { continue; } // Keep only what we need
+
+				if(rawStats[server][i-1] == undefined || 
+					rawStats[server][i+1] == undefined || 
+					rawStats[server][i-1].plCount != rawStats[server][i].plCount ||
+					rawStats[server][i+1].plCount != rawStats[server][i].plCount) {
+
+					outStats[server].push([convertDate(rawStats[server][i].time),rawStats[server][i].plCount]);
+				}
 			}
 		}
+
+		var data4Charts = [];
+
+		// Each server
+		for(var i in outStats) {
+			data4Charts.push({name: i, data: outStats[i]});
+		}
+
+		// Then generate full report
+		// @ADD: sum
+
+		var visitsChart = new Chartkick.AreaChart("stats", data4Charts);
 	}
 
-	var data4Charts = [];
-
-	for(var i in outStats) {
-		data4Charts.push({name: i, data: outStats[i]});
-	}
-
-	var visitsChart = new Chartkick.AreaChart("visits", data4Charts);
+	genReport(7);
 </script>

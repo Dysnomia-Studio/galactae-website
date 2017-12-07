@@ -325,34 +325,37 @@ $serverList = [
 <section>
 	<ul id="tool-list">
 		<li><img id="tool-console" alt="console" src="https://***REMOVED***/website/img/icons/console.png"></li>
+		<li><img id="tool-stats" alt="stats" src="https://***REMOVED***/website/img/icons/stats.png"></li>
 		<li><img id="tool-privileges" alt="privileges" src="https://***REMOVED***/website/img/icons/privileges.png"></li>
 		<li><img id="tool-bans" alt="bans" src="https://***REMOVED***/website/img/icons/bans.png"></li>
 		<li><img id="tool-news" alt="news" src="https://***REMOVED***/website/img/icons/news.png"></li>
 	</ul>
-	<ul id="server-list">
-		<?php 
-		for($i=0; $i<count($serverList); $i++) {
-			echo '<li id="'.$i.'"><span  id="'.$i.'-status" class="server_unknown">•</span> '.$serverList[$i]['name'].'</li>';
-		}
-		?>
-	</ul>
-	<div id="server-infos">
-		<ul id="server-infos-logs">
-			
+	<div id="server-console">
+		<ul id="server-list">
+			<?php 
+			for($i=0; $i<count($serverList); $i++) {
+				echo '<li id="'.$i.'"><span  id="'.$i.'-status" class="server_unknown">•</span> '.$serverList[$i]['name'].'</li>';
+			}
+			?>
 		</ul>
-		<input id="server-infos-cmd" type="text">
-	</div>
-	<div id="server-panel">
-		<p style="text-align: center;">Status<br/>
-			<img id="server-start"	 alt="start"	 src="https://***REMOVED***/website/img/icons/start.png">
-			<img id="server-stop"		alt="stop"		src="https://***REMOVED***/website/img/icons/stop.png">
-			<img id="server-restart" alt="restart" src="https://***REMOVED***/website/img/icons/restart.png">
-		</p>
-		<p style="text-align: center;">Maintenance<br/><br/>
-			<label class="switch">
-				<input id="server-maintenance" type="checkbox">
-				<span class="slider round"></span>
-			</label>
-		</p>
+		<div id="server-infos">
+			<ul id="server-infos-logs">
+				
+			</ul>
+			<input id="server-infos-cmd" type="text">
+		</div>
+		<div id="server-panel">
+			<p style="text-align: center;">Status<br/>
+				<img id="server-start"	 alt="start"	 src="https://***REMOVED***/website/img/icons/start.png">
+				<img id="server-stop"		alt="stop"		src="https://***REMOVED***/website/img/icons/stop.png">
+				<img id="server-restart" alt="restart" src="https://***REMOVED***/website/img/icons/restart.png">
+			</p>
+			<p style="text-align: center;">Maintenance<br/><br/>
+				<label class="switch">
+					<input id="server-maintenance" type="checkbox">
+					<span class="slider round"></span>
+				</label>
+			</p>
+		</div>
 	</div>
 </section>
