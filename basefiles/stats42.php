@@ -95,6 +95,33 @@ foreach ($servers as $key => $server) {
 <script src="https://***REMOVED***/website/js/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 <script type="text/javascript">
-	var stats = <?php echo json_encode($results); ?>;
-	var visitsChart = new Chartkick.AreaChart("visits", [ { name: "Visites", data: stats } ]);
+	var rawStats = <?php echo json_encode($results); ?>;
+	var outStats = [];
+
+	function convertDate(inputFormat) {
+		function pad(s) { return (s < 10) ? '0' + s : s; }
+		var d = new Date(inputFormat);
+		return [pad(d.getFullYear()), pad(d.getMonth()+1), d.getDate()].join('-') + ' ' + [pad(d.getHours()), pad(d.getMinutes()), d.getSeconds()].join(':');
+	}
+
+	for(var server in rawStats) {
+		outStats[server] = [];
+		for(var i=0; i<rawStats[server].length; i++) {
+			if(rawStats[server][i-1] == undefined || 
+				rawStats[server][i+1] == undefined || 
+				rawStats[server][i-1].plCount != rawStats[server][i].plCount ||
+				rawStats[server][i+1].plCount != rawStats[server][i].plCount) {
+
+				outStats[server].push([convertDate(rawStats[server][i].time),rawStats[server][i].plCount]);
+			}
+		}
+	}
+
+	var data4Charts = [];
+
+	for(var i in outStats) {
+		data4Charts.push({name: i, data: outStats[i]});
+	}
+
+	var visitsChart = new Chartkick.AreaChart("visits", data4Charts);
 </script>
