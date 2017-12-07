@@ -318,6 +318,10 @@ $serverList = [
 			}
 		});
 
+		setInterval(function() {
+			document.getElementById("tab-stats-iframe").contentDocument.location.reload(true);
+		},1000000) // Refresh each 1000s (~16min)
+
 		$('#tool-list li').click(function() {
 			$(".tab").css('display','none');
 			console.log("#tab-" + $(this).attr('id').split('-')[1]);
@@ -382,7 +386,7 @@ $serverList = [
 		</div>
 	</div>
 	<div id="tab-stats" class="tab">
-		<iframe src="stats42"></iframe>
+		<iframe id="tab-stats-iframe" src="stats42"></iframe>
 	</div>
 	<div id="tab-privileges" class="tab">
 
