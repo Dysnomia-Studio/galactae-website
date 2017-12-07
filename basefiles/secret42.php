@@ -301,6 +301,11 @@ $serverList = [
 			}
 		});
 
+		$('#tool-list li').click(function() {
+			$(".tab").css('display','block');
+			$("#tab-" + $(this).attr('id').split('-')[1]).css('display','block');
+		});
+
 		connectAllSockets();
 
 		// Server Admin Commands
@@ -324,13 +329,13 @@ $serverList = [
 </script>
 <section>
 	<ul id="tool-list">
-		<li><img id="tool-console" alt="console" src="https://***REMOVED***/website/img/icons/console.png"></li>
-		<li><img id="tool-stats" alt="stats" src="https://***REMOVED***/website/img/icons/stats.png"></li>
-		<li><img id="tool-privileges" alt="privileges" src="https://***REMOVED***/website/img/icons/privileges.png"></li>
-		<li><img id="tool-bans" alt="bans" src="https://***REMOVED***/website/img/icons/bans.png"></li>
-		<li><img id="tool-news" alt="news" src="https://***REMOVED***/website/img/icons/news.png"></li>
+		<li id="tool-console"><img alt="console" src="https://***REMOVED***/website/img/icons/console.png"></li>
+		<li id="tool-stats"><img alt="stats" src="https://***REMOVED***/website/img/icons/stats.png"></li>
+		<li id="tool-privileges"><img alt="privileges" src="https://***REMOVED***/website/img/icons/privileges.png"></li>
+		<li id="tool-bans"><img alt="bans" src="https://***REMOVED***/website/img/icons/bans.png"></li>
+		<li id="tool-news"><img alt="news" src="https://***REMOVED***/website/img/icons/news.png"></li>
 	</ul>
-	<div id="server-console">
+	<div id="tab-console" class="tab">
 		<ul id="server-list">
 			<?php 
 			for($i=0; $i<count($serverList); $i++) {
@@ -357,5 +362,17 @@ $serverList = [
 				</label>
 			</p>
 		</div>
+	</div>
+	<div id="tab-stats" class="tab">
+		<iframe src="stats42"></iframe>
+	</div>
+	<div id="tab-privileges" class="tab">
+
+	</div>
+	<div id="tab-bans" class="tab">
+
+	</div>
+	<div id="tab-news" class="tab">
+
 	</div>
 </section>
