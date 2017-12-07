@@ -172,6 +172,15 @@ $serverList = [
 		cursor: pointer;
 	}
 
+	.tab {
+		width: 100%;
+		height: calc(100vh - 3em);
+		display: none;
+	}
+	#tab-console {
+		display: block;
+	}
+
 	/* The switch - the box around the slider */
 	.switch {
 		position: relative;
@@ -303,6 +312,7 @@ $serverList = [
 
 		$('#tool-list li').click(function() {
 			$(".tab").css('display','block');
+			console.log("#tab-" + $(this).attr('id').split('-')[1]);
 			$("#tab-" + $(this).attr('id').split('-')[1]).css('display','block');
 		});
 
