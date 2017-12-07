@@ -173,9 +173,17 @@ $serverList = [
 	}
 
 	.tab {
+		position: fixed;
+		bottom: 0;
+		right: 0;
+
 		width: 100%;
 		height: calc(100vh - 3em);
 		display: none;
+	}
+	.tab iframe {
+		width: 100%;
+    	height: 100%;
 	}
 	#tab-console {
 		display: block;
@@ -311,7 +319,7 @@ $serverList = [
 		});
 
 		$('#tool-list li').click(function() {
-			$(".tab").css('display','block');
+			$(".tab").css('display','none');
 			console.log("#tab-" + $(this).attr('id').split('-')[1]);
 			$("#tab-" + $(this).attr('id').split('-')[1]).css('display','block');
 		});
