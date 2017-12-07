@@ -88,7 +88,7 @@ foreach ($servers as $key => $server) {
 	$results[$server] = $cursor->toArray();
 }
 ?>
-<select id="days-range" onchange="genReport(parseInt($('#days-range').val()));" style="width: 200px; margin: 0 auto;">
+<select id="days-range" onchange="genReport(parseInt($('#days-range').val()));" style="width: 200px; margin: 0 auto; display: block;">
 	<option value="7">7 derniers jours</option>
 	<option value="30" selected>30 derniers jours</option>
 	<option value="90">3 derniers mois</option>
@@ -114,7 +114,7 @@ foreach ($servers as $key => $server) {
 
 
 	function genReport(dTime) {
-		var minDate = Date.now() - (dTime * 24 * 60 * 1000);
+		var minDate = Date.now() - (dTime * 24 * 60 * 60 * 1000);
 
 		for(var server in rawStats) {
 			outStats[server] = [];
