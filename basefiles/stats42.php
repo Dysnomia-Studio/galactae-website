@@ -89,6 +89,12 @@ foreach ($servers as $key => $server) {
 }
 ?>
 
+<div id="visits" class="graphs"></div>
+
+<script src="https://***REMOVED***/website/js/chartkick.js"></script>
+<script src="https://***REMOVED***/website/js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 <script type="text/javascript">
 	var stats = <?php echo json_encode($results); ?>;
+	var visitsChart = new Chartkick.AreaChart("visits", [ { name: "Visites", data: stats } ]);
 </script>
