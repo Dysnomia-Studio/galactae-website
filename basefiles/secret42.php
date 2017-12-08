@@ -324,7 +324,6 @@ $serverList = [
 
 		$('#tool-list li').click(function() {
 			$(".tab").css('display','none');
-			console.log("#tab-" + $(this).attr('id').split('-')[1]);
 			$("#tab-" + $(this).attr('id').split('-')[1]).css('display','block');
 		});
 

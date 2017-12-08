@@ -89,6 +89,7 @@ foreach ($servers as $key => $server) {
 }
 ?>
 <select id="days-range" onchange="genReport(parseInt($('#days-range').val()));" style="width: 200px; margin: 0 auto; display: block;">
+	<option value="1">Dernieres 24h</option>
 	<option value="7" selected>7 derniers jours</option>
 	<option value="30">30 derniers jours</option>
 	<option value="90">3 derniers mois</option>
