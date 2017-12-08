@@ -124,6 +124,7 @@ foreach ($servers as $key => $server) {
 
 				if(rawStats[server][i-1] == undefined || 
 					rawStats[server][i+1] == undefined || 
+					rawStats[server][i-1].time < minDate || 
 					rawStats[server][i-1].plCount != rawStats[server][i].plCount ||
 					rawStats[server][i+1].plCount != rawStats[server][i].plCount) {
 
