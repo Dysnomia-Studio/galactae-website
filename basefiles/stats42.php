@@ -122,11 +122,11 @@ foreach ($servers as $key => $server) {
 			for(var i=0; i<rawStats[server].length; i++) {
 				if(rawStats[server][i].time < minDate) { continue; } // Keep only what we need
 
-				if(rawStats[server][i-1] == undefined || 
-					rawStats[server][i+1] == undefined || 
-					rawStats[server][i-1].time < minDate || 
-					rawStats[server][i-1].plCount != rawStats[server][i].plCount ||
-					rawStats[server][i+1].plCount != rawStats[server][i].plCount) {
+				if(rawStats[server][i-1] == undefined || // Ajoute le premier (total)
+					rawStats[server][i+1] == undefined || // Ajoute le dernier
+					rawStats[server][i+1].time < minDate || // Ajoute le premier (selon l'intervalle)
+					rawStats[server][i-1].plCount != rawStats[server][i].plCount || // Ajoute le debut d'un changement
+					rawStats[server][i+1].plCount != rawStats[server][i].plCount) { // Ajoute la fin d'in changement
 
 					outStats[server].push([convertDate(rawStats[server][i].time),rawStats[server][i].plCount]);
 				}
