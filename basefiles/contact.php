@@ -2,6 +2,9 @@
 include_once('./basefiles/header.php');
 include_once('./basefiles/menu.php');
 ?>
+<script type="text/javascript">
+	document.querySelector('meta[name="description"]').setAttribute("content", "Different ways to contact galactae staff, support and/or developpement team.");
+</script>
 <section class="contact">
 	<article>
 		<?php
