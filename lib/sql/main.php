@@ -248,7 +248,9 @@ class sqlInterface {
 				}
 			}
 
-			$query->execute();
+			echo 'DELETE FROM '.$table.' WHERE '.$where_cond;
+			var_dump($where);
+			//$query->execute();
 			$query->CloseCursor();
 		}
 	}
