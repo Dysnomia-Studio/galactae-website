@@ -30,7 +30,7 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 		if(isset($data['user_passwd']) && $data['user_passwd']  == encrypt($_POST['password'])) { // Acces OK ! 	
 	        $sqlDB->removeContent('user_session',[
 				["user_id",$data['user_id'],"int"],
-				["user_agent",$_SERVER['HTTP_USER_AGENT'],"str"]
+				["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"]
 			]);
 
 	        $sqlDB->addContent('user_session',[
