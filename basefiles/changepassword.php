@@ -2,7 +2,6 @@
 include_once('./basefiles/header.php');
 
 $config['pass-minsize'] = 8;
-$config['pass-maxsize'] = 20;
 
 if((isset($_COOKIE['galactae-account-username']) && 
 	$_COOKIE['galactae-account-username']!="" && 
@@ -37,8 +36,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 			$mintime = time() - (24*60*60);
 			$error = "";
 
-			if(strlen($password)<$config['pass-minsize'] || 
-				strlen($password)>$config['pass-maxsize']) { // Password size
+			if(strlen($password)<$config['pass-minsize']) { // Password size
 				$error.= ERR_TOO_LONG_SHORT_PASS;
 			} elseif(preg_match('/[^a-zA-Z_\-0-9]/i', $password)) { // Password Format
 				$error.= ERR_NOT_VALID_PASS;
