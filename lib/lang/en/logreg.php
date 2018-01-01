@@ -46,7 +46,7 @@ define('ERR_FIELD','Error: One or multiple fields are empty.');
 define('ERR_BAN','Error: You\'re banned.');
 define('ERR_BAD_LOGIN','Error: Username and/or password wrong.');
 define('ERR_TOO_LONG_SHORT_USERNAME','Error: Your username is too short/long.');
-define('ERR_TOO_LONG_SHORT_PASS','Error: Your password is too short/long.');
+define('ERR_TOO_LONG_SHORT_PASS','Error: Your password is too short (8 char min.).');
 define('ERR_NOT_VALID_MAIL','Error: Your mail is invalid.');
 define('ERR_NOT_VALID_USERNAME','Error: Your username is invalid.');
 define('ERR_NOT_VALID_PASS','Error: Your password is invalid.');

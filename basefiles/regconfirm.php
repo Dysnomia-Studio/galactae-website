@@ -77,7 +77,6 @@ $config['name-minsize'] = 3;
 $config['name-maxsize'] = 20;
 
 $config['pass-minsize'] = 8;
-$config['pass-maxsize'] = 20;
 
 if(!isset($_POST['newsletter_miscellaneous']) || $_POST['newsletter_miscellaneous']!="checked") {
 	$user_news_misc = 0;
@@ -122,8 +121,7 @@ if(!isset($user_name) ||
 	$message = ERR_TOO_LONG_SHORT_USERNAME.' '.CLICK_BACK;
 } elseif(preg_match('/[^a-zA-Z_\-0-9]/i', $user_name)) { // Username Format
 	$message = ERR_NOT_VALID_USERNAME.' '.CLICK_BACK;
-} elseif(strlen($user_passwd)<$config['pass-minsize'] || 
-	strlen($user_passwd)>$config['pass-maxsize']) { // Password size
+} elseif(strlen($user_passwd)<$config['pass-minsize']) { // Password size
 	$message = ERR_TOO_LONG_SHORT_PASS.' '.CLICK_BACK;
 } elseif(preg_match('/[^a-zA-Z_\-0-9&@$%!=+]/i', $user_passwd)) { // Password Format
 	$message = ERR_NOT_VALID_PASS.' '.CLICK_BACK;

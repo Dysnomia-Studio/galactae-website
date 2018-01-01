@@ -46,7 +46,7 @@ define('ERR_FIELD','Erreur: Un champ ou plus est vide.');
 define('ERR_BAN','Erreur: Vous êtes banni.');
 define('ERR_BAD_LOGIN','Erreur: Couple nom/mot de passe incorrect.');
 define('ERR_TOO_LONG_SHORT_USERNAME','Erreur: Votre nom d\'utilisateur est trop court ou trop long');
-define('ERR_TOO_LONG_SHORT_PASS','Erreur: Votre mot de passe est trop court ou trop long');
+define('ERR_TOO_LONG_SHORT_PASS','Erreur: Votre mot de passe est trop court (8 caracteres minimum).');
 define('ERR_NOT_VALID_MAIL','Erreur: Votre mail est invalide');
 define('ERR_NOT_VALID_USERNAME','Erreur: Votre nom d\'utilisateur est invalide');
 define('ERR_NOT_VALID_PASS','Erreur: Votre mot de passe est invalide');
