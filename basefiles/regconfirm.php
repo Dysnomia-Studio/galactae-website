@@ -78,6 +78,13 @@ $config['name-maxsize'] = 20;
 
 $config['pass-minsize'] = 8;
 
+$reCaptcha = new ReCaptcha("***REMOVED***");
+
+$resp = $reCaptcha->verifyResponse(
+	$_SERVER["REMOTE_ADDR"],
+	$_POST["g-recaptcha-response"]
+	);
+
 if(!isset($_POST['newsletter_miscellaneous']) || $_POST['newsletter_miscellaneous']!="checked") {
 	$user_news_misc = 0;
 } else {
@@ -104,10 +111,12 @@ $user_encpasswd = encrypt($user_passwd);
 	$message = ERR_FIELD.' '.CLICK_BACK;
 }
 
-if(!isset($user_name) || 
+if ($resp == null || 
+	!$resp->success || 
+	!isset($user_name) || 
 	empty($user_name) ||
 	empty($user_passwd) ||
-	empty($user_mail)) { // No input empty
+	empty($user_mail)) { // One of input empty
 
 	$message = ERR_FIELD.' '.CLICK_BACK;
 } elseif(!isset($_POST['cg']) || $_POST['cg']!="checked") {
