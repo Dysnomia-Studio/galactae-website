@@ -132,7 +132,8 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 				<span class="login-checkbox"><input type="checkbox" name="cg" id="cg" value="checked" required><?php echo LOGIN_CG; ?></span>
 				<span class="login-checkbox"><input type="checkbox" name="newsletter_update" id="newsletter_update" value="checked" checked><?php echo LOGIN_NEWS_UPDATE; ?></span>
 				<span class="login-checkbox"><input type="checkbox" name="newsletter_miscellaneous" id="newsletter_miscellaneous" value="checked"><?php echo LOGIN_NEWS_MISC; ?></span>
-				<div class="g-recaptcha" data-sitekey="***REMOVED***"></div>
+				<br />
+				<!--<div class="g-recaptcha" data-sitekey="***REMOVED***"></div>-->
 				<input type="submit" value="<?php echo LOGIN_REG; ?>">
 			</form>
 		</div>

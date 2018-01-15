@@ -111,8 +111,8 @@ $user_encpasswd = encrypt($user_passwd);
 	$message = ERR_FIELD.' '.CLICK_BACK;
 }
 
-if ($resp == null || 
-	!$resp->success || 
+if (/*$resp == null || 
+	!$resp->success || */
 	!isset($user_name) || 
 	empty($user_name) ||
 	empty($user_passwd) ||
