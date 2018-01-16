@@ -56,7 +56,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 
 					$data = $mongoDB->updateContent("galactae","users",
 						["_id" => $data["_id"],
-						["user_passwd" => $encpassword]
+						["$set" => ["user_passwd" => $encpassword]]
 					);
 				} else { // Invalid data
 					$error.= PASS_INVALID_LINK.CLICK_HOME;

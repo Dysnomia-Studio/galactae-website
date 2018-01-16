@@ -23,7 +23,7 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 
 	$mongoDB->updateContent("galactae","sessions",
 		["user_session_uid" => $_COOKIE['galactae-phpsessid']],
-		[ "$set": [
+		["$set" => [
 			 	"user_session_expiration" => (time()+$expTime),
 				"user_session_lang" => $lang->getLanguage()
 			]

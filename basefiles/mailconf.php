@@ -46,7 +46,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 
 				$mongoDB->updateContent("galactae","users",
 					["_id" => $data["_id"]],
-					["activated" => 1],	
+					["$set" => ["activated" => 1]],	
 				);
 
 				// Draw message
