@@ -137,12 +137,12 @@ if (/*$resp == null ||
 } else {
 	// Account exists ?
 	$data = $mongoDB->getCondContent('galactae','users',[
-	'user_name' => $user_name
+	'user_name' => new MongoRegex('/'.$user_name.'/i')
 	]);
 
 	if(count($data) == 0) { //Test with mail
 		$data = $mongoDB->getCondContent('galactae','users',[
-		'user_mail' => $user_mail
+		'user_name' => new MongoRegex('/'.$user_mail.'/i')
 		]);
 	} 
 

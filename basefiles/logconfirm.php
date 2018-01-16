@@ -11,12 +11,12 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 	$message = ERR_FIELD. ' '.CLICK_BACK;
 } else { // Check du couple pseudo/mdp
 	$data = $mongoDB->getCondContent('galactae','users',
-		['user_name' => $variablesPost['username']]
+		['user_name' => new MongoRegex('/'.$variablesPost['username'].'/i')]
 	);
 
     if(count($data)==0) { // Test avec le mail
 		$data = $mongoDB->getCondContent('galactae','users',
-			['user_mail' => $variablesPost['username']]
+			['user_mail' => new MongoRegex('/'.$variablesPost['username'].'/i')]
 		);
     }
     
