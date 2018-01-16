@@ -13,7 +13,7 @@ if(count($sess_data) > 0 && isset($sess_data[0])) {
 	$sess_data = (array) $sess_data[0];
 }
 
-if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
+if(isset($sess_data['_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
 	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $_SERVER['HTTP_USER_AGENT']) {
 		echo "1";
 		//header('Location: index');
@@ -34,14 +34,14 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 }
 
 $userData = $mongoDB->getCondContent("galactae","users",
-	["user_id" => $sess_data['user_id']]
+	["_id" => $sess_data['_id']]
 );
 
 if(count($userData) > 0 && isset($userData[0])) {
 	$userData = (array) $userData[0];
 }
 
-if(!isset($userData["user_id"])) {
+if(!isset($userData["_id"])) {
 	echo "3";
 	//header('Location: index');
 	exit();

@@ -91,7 +91,7 @@ if(count($data) > 0 && isset($data["user_name"])) {
 	$passwd_link = encrypt(time().$user_name);
 
 	$mongoDB->addContent("galactae","recoverpasses",[
-		"user_id" => $data["user_id"],
+		"_id" => $data["_id"],
 		"user_name" => $data["user_name"],
 		"passforgot_uid" => $passwd_link,
 		"passforgot_time" => time()

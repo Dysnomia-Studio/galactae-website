@@ -3,7 +3,7 @@ include_once('./basefiles/connectCheck.php');
 include_once('./basefiles/header.php');
 
 $gameData = $mongoDB->getCondContent("galactae","game_ids",
-	["user_id" => $userData['user_id']]
+	["_id" => $userData['_id']]
 );
 ?>
 <body class="portal-body login-page"">
@@ -29,7 +29,7 @@ $gameData = $mongoDB->getCondContent("galactae","game_ids",
 	];
 
 	$devPrivileges = $mongoDB->getCondContent("galactae","privileges",[
-		"user_id" => $userData['user_id'],
+		"_id" => $userData['_id'],
 		"server_name" => "galactae-00"
 	]);
 
@@ -68,7 +68,7 @@ $gameData = $mongoDB->getCondContent("galactae","game_ids",
 				}
 
 				$userPrivileges = $mongoDB->getCondContent("galactae","privileges",[
-					"user_id" => $userData['user_id'],
+					"_id" => $userData['_id'],
 					"server_name" => $servers[$i]['server_name']
 				]);
 

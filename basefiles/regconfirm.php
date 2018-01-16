@@ -167,14 +167,14 @@ if($message=="") {
 		"user_name" => $user_name
 	]);
 
-    if(count($data) > 0 && isset($data[0]) && isset($data[0]['user_id'])) {
+    if(count($data) > 0 && isset($data[0]) && isset($data[0]['_id'])) {
 		$data = (array) $data[0];
 	}
 
 	$conf_link = encrypt(time().$user_name);
 
 	$mongoDB->addContent('galactae','mailconfirmations',[
-		"user_id" => $data["user_id"],
+		"_id" => $data["_id"],
 		"user_name" => $data["user_name"],
 		"mailconfirm_uid" => $conf_link
 	]);
