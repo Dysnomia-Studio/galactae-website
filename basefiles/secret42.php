@@ -6,12 +6,12 @@ if(!(isset($_COOKIE['galactae-phpsessid']) &&
 	die();
 }
 
-$sess_data = $sqlDB->getCondContent("user_session",[
-	["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"]
-	],0,1,"user_id");
+$sess_data = $mongoDB->getCondContent("galactae","sessions",
+	["user_session_uid" => $_COOKIE['galactae-phpsessid']]
+);
 
-if($sess_data!=false && isset($sess_data[0])) {
-	$sess_data = $sess_data[0];
+if(size($sess_data) > 0 && isset($sess_data[0])) {
+	$sess_data = (array) $sess_data[0];
 }
 
 if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
@@ -21,31 +21,25 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 		die();
 	}
 
-	if($lang->getLanguage() != $sess_data['user_session_lang']) {
-		$sqlDB->updateContent('user_session',
-			[
-			 	["user_session_expiration",time()+$expTime,"int"],
-				["user_session_lang",$sess_data['user_session_lang'],"str"] 
-			],
-			[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]
-		);
-	} else {
-		$sqlDB->updateContent('user_session',
-			[ ["user_session_expiration",time()+$expTime,"int"] ],
-			[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]);
-	}
+	$mongoDB->updateContent("galactae","sessions",
+		["user_session_uid" => $_COOKIE['galactae-phpsessid']],
+		[
+		 	"user_session_expiration" => (time()+$expTime),
+			"user_session_lang" => $lang->getLanguage()
+		]		
+	);
 } else {
 	http_response_code(404);
 	include_once('errors/404.html');
 	die();
 }
 
-$userData = $sqlDB->getCondContent("user_list",[
-	["user_id",$sess_data['user_id'],"int"],
-	],0,1,"user_id");
+$userData = $mongoDB->getCondContent("galactae","users",
+	["user_id" => $sess_data['user_id']]
+);
 
-if($userData!=false && isset($userData[0])) {
-	$userData = $userData[0];
+if(size($userData) > 0 && isset($userData[0])) {
+	$userData = (array) $userData[0];
 }
 
 if(!isset($userData['user_name']) || !isset($userData['user_id'])) {

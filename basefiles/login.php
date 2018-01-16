@@ -4,26 +4,27 @@ include_once('./basefiles/header.php');
 if(isset($_COOKIE['galactae-phpsessid']) &&
 	$_COOKIE['galactae-phpsessid'] != "") { // Connected ?
 
-	$sess_data = $sqlDB->getCondContent("user_session",[
-		["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"]
-		],0,1,"user_id");
+	$sess_data = $mongoDB->getCondContent("galactae","sessions",[
+		"user_session_uid" => $_COOKIE['galactae-phpsessid']
+	]);
 
-	if($sess_data!=false && isset($sess_data[0])) {
-		$sess_data = $sess_data[0];
+	if(size($sess_data) > 0 && isset($sess_data[0])) {
+		$sess_data = (array) $sess_data[0];
 	}
 
 	if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
 		if(isset($sess_data['user_agent']) && $sess_data['user_agent'] == $_SERVER['HTTP_USER_AGENT']) {
-				$sqlDB->updateContent('user_session',
-					[ ["user_session_expiration",time()+2678400,"int"] ],
-					[ ["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"] ]);
+				$mongoDB->updateContent("galactae","sessions",
+					["user_session_uid" => $_COOKIE['galactae-phpsessid']],
+					["user_session_expiration" => time()+2678400],
+				]);
 
-				$userData = $sqlDB->getCondContent("user_list",[
-					["user_id",$sess_data['user_id'],"int"],
-				],0,1,"user_id");
+				$userData = $mongoDB->getCondContent("galactae","users",[
+					"user_id" => $sess_data['user_id']
+				]);
 
-				if($userData!=false && isset($userData[0])) {
-					$userData = $userData[0];
+				if(size($userData) > 0 && isset($userData[0])) {
+					$userData = (array) $userData[0];
 				}
 
 				if(isset($userData["user_id"])) {

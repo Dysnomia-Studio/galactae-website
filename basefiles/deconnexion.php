@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-$sqlDB->removeContent("user_session",[
-	["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"]]);
+$mongoDB->removeContent("galactae","sessions",
+	["user_session_uid" => $_COOKIE['galactae-phpsessid']]
+);
 
 session_destroy();
 

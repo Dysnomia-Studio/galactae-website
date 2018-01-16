@@ -30,25 +30,25 @@ if((isset($_COOKIE['galactae-account-username']) &&
 			$uid = htmlentities(htmlspecialchars($_GET['mid']));
 			$username = htmlentities(htmlspecialchars($_GET['username']));
 
-			$data = $sqlDB->getCondContent("user_mailconfirm",[
-				["mailconfirm_uid",$uid,"str"]
-			],0,1,"user_id");
+			$data = $mongoDB->getCondContent("galactae","mailconfirmations",[
+				"mailconfirm_uid" => $uid
+			]);
 
-			if($data!=false && isset($data[0])) {
-				$data = $data[0];
+			if(size($data) > 0 && isset($data[0])) {
+				$data = (array) $data[0];
 			}
 
-			if($data!=false && isset($data["user_name"]) && $data["user_name"]==$username) {
+			if(size($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username) {
 				// Activate account
-				$sqlDB->removeContent("user_mailconfirm",[
-					["user_id",$data["user_id"],"int"]
+				$mongoDB->removeContent("galactae","mailconfirmations",[
+					"user_id" => $data["user_id"]
 				]);
 
-				$sqlDB->updateContent("user_list",[
-					["activated",1,"int"],	
-				],[
-					["user_id",$data["user_id"],"int"]
-				]);
+				$mongoDB->updateContent("galactae","users",
+					["user_id" => $data["user_id"]],
+					["activated" => 1],	
+				);
+
 				// Draw message
 				echo '<div id="login-section" class="login-onglet active-onglet" style="padding: 5px;">
 					<p style="text-align: center;">'.ACCOUNT_ACTIVATED.'</p>

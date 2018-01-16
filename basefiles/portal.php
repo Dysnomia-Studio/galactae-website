@@ -2,9 +2,9 @@
 include_once('./basefiles/connectCheck.php');
 include_once('./basefiles/header.php');
 
-$gameData = $sqlDB->getCondContent("user_game_id",[
-	["user_id",$userData['user_id'],"int"],
-	],0,1000,"server_name");
+$gameData = $mongoDB->getCondContent("galactae","game_ids",
+	["user_id" => $userData['user_id']],
+);
 ?>
 <body class="portal-body login-page"">
 	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
@@ -28,13 +28,13 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 		//["addr"=>"04-srv.galactae.eu", "port"=>42694, "name"=>MAGELLAN, "link"=>"https://04-magellan.galactae.eu", "playing"=>false, "server_name" => "galactae-04"]
 	];
 
-	$devPrivileges = $sqlDB->getCondContent("user_privileges",[
-	["user_id",$userData['user_id'],"int"],
-	["server_name","galactae-00","str"]
-	],0,1000,"server_name");
+	$devPrivileges = $mongoDB->getCondContent("galactae","privileges",[
+		"user_id" => $userData['user_id'],
+		"server_name" => "galactae-00"
+	]);
 
-	if($devPrivileges!=false && isset($devPrivileges[0])) {
-		$devPrivileges = $devPrivileges[0];
+	if(size($devPrivileges) > 0 && isset($devPrivileges[0])) {
+		$devPrivileges = (array) $devPrivileges[0];
 	}
 
 	if(isset($devPrivileges['user_whitelist']) && ((int) $devPrivileges['user_whitelist']==1)) {
@@ -44,6 +44,7 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 	}
 
 	foreach ($gameData as $key => $value) {
+		$value = (array) $value;
 		$serverid = (int) explode("-",$value['server_name'])[1];
 
 		$servers[$serverid]["playing"] = true;
@@ -58,21 +59,21 @@ $gameData = $sqlDB->getCondContent("user_game_id",[
 		$server_status = ($servers[$i]['status'])?'server_on':'server_off';
 
 		if($servers[$i]['status']) {
-				$srv_data = $sqlDB->getCondContent("server_list",[
-					["server_name", $servers[$i]['server_name'], "str"]
-				],0,1,"server_name");
+				$srv_data = $mongoDB->getCondContent("galactae","servers",[
+					"server_name" => $servers[$i]['server_name']
+				]);
 
-				if($srv_data!=false && isset($srv_data[0])) {
-					$srv_data = $srv_data[0];
+				if(size($srv_data) > 0 && isset($srv_data[0])) {
+					$srv_data = (array) $srv_data[0];
 				}
 
-				$userPrivileges = $sqlDB->getCondContent("user_privileges",[
-					["user_id",$userData['user_id'],"int"],
-					["server_name", $servers[$i]['server_name'],"str"]
-				],0,1000,"server_name");
+				$userPrivileges = $mongoDB->getCondContent("galactae","privileges",[
+					"user_id" => $userData['user_id'],
+					"server_name" => $servers[$i]['server_name']
+				]);
 
-				if($userPrivileges!=false && isset($userPrivileges[0])) {
-					$userPrivileges = $userPrivileges[0];
+				if(size($userPrivileges) > 0 && isset($userPrivileges[0])) {
+					$userPrivileges = (array) $userPrivileges[0];
 				}
 
 				if((!isset($srv_data['server_maintenance']) || $srv_data['server_maintenance']==1) && (!isset($userPrivileges['user_whitelist']) || ((int) $userPrivileges['user_whitelist']!=1))) {

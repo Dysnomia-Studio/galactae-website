@@ -41,25 +41,23 @@ if((isset($_COOKIE['galactae-account-username']) &&
 			} elseif(preg_match('/[^a-zA-Z_\-0-9]/i', $password)) { // Password Format
 				$error.= ERR_NOT_VALID_PASS;
 			} elseif($password==$confpassword) {
-				$data = $sqlDB->getCondContent("user_passforgot",[
-					["passforgot_uid",$uid,"str"]
-				],0,1,"user_id");
+				$data = $mongoDB->getCondContent("galactae","recoverpasses",
+					["passforgot_uid" => $uid]
+				);
 
-				if($data!=false && isset($data[0])) {
-					$data = $data[0];
+				if(size($data) > 0 && isset($data[0])) {
+					$data = (array) $data[0];
 				}
 
-				if($data!=false && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
+				if(size($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
 					// Set db
-					/*$data = $sqlDB->removeContent("passforgot",[
-						["user_id",$data["user_id"],"int"]
-					]);*/
+					$data = $mongoDB->removeContent("galactae","recoverpasses",
+						["user_id" => $data["user_id"]);
 
-					$data = $sqlDB->updateContent("user_list",[
-						["user_passwd",$encpassword,"str"],	
-					],[
-						["user_id",$data["user_id"],"int"]
-					]);
+					$data = $mongoDB->updateContent("galactae","users",
+						["user_id" => $data["user_id"],
+						["user_passwd" => $encpassword]
+					);
 				} else { // Invalid data
 					$error.= PASS_INVALID_LINK.CLICK_HOME;
 					exit(0);
@@ -96,17 +94,16 @@ if((isset($_COOKIE['galactae-account-username']) &&
 				$username = "";
 			}
 			$mintime = time() - (24*60*60);
+			
+			$data = $mongoDB->getCondContent("galactae","recoverpasses",
+				["passforgot_uid" => $uid]
+			);
 
-			$data = $sqlDB->getCondContent("user_passforgot",[
-				["passforgot_uid",$uid,"str"]
-			],0,1,"user_id");
-
-			if($data!=false && isset($data[0])) {
-				$data = $data[0];
+			if(size($data) > 0 && isset($data[0])) {
+				$data = (array) $data[0];
 			}
 
-			// Form
-			if($data!=false && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
+			if(size($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
 				echo '
 					<div id="login-section" class="login-onglet active-onglet" style="padding: 5px;">
 						<form method="post" action="https://galactae.eu/changepassword">

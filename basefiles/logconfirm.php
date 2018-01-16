@@ -10,35 +10,35 @@ foreach($_POST as $key => $value) {
 if(empty($_POST['username']) || empty($_POST['password']) ) {
 	$message = ERR_FIELD. ' '.CLICK_BACK;
 } else { // Check du couple pseudo/mdp
-    $data = $sqlDB->getCondContent("user_list",[
-    	["user_name",$variablesPost['username'],"str"],
-    	],0,1,"user_id");
+	$data = $mongoDB->getCondContent("galactae","users",
+		["user_name" => $variablesPost['username']],
+	);
 
-    if($data==false) { // Test avec le mail
-	    $data = $sqlDB->getCondContent("user_list",[
-	    	["user_mail",$variablesPost['username'],"str"],
-	    	],0,1,"user_id");
+    if(size($data)==0) { // Test avec le mail
+		$data = $mongoDB->getCondContent("galactae","users",
+			["user_mail" => $variablesPost['username']]
+		);
     }
     
-	if($data!=false&&isset($data[0])) {
-		$data = $data[0];
+	if(size($data) > 0 && isset($data[0])) {
+		$data = (array) $data[0];
 	}
 
     if(isset($data['activated']) && $data['activated']!=1) { // Compte non-activé
 		$message = ERR_NOT_ACTIVATED.' '.CLICK_BACK;
 	} else {
 		if(isset($data['user_passwd']) && $data['user_passwd']  == encrypt($_POST['password'])) { // Acces OK ! 	
-	        $sqlDB->removeContent('user_session',[
-				["user_id",$data['user_id'],"int"],
-				["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"]
+	        $mongoDB->removeContent('galactae','sessions',[
+				"user_id" => $data['user_id'],
+				"user_session_uid" => $_COOKIE['galactae-phpsessid']
 			]);
 
-	        $sqlDB->addContent('user_session',[
-				["user_id",$data['user_id'],"int"],
-				["user_session_uid",$_COOKIE['galactae-phpsessid'],"str"],
-				["user_session_expiration",time()+$expTime,"int"],
-				["user_session_lang",$lang->getLanguage(),"str"],
-				["user_agent",$_SERVER['HTTP_USER_AGENT'],"str"]
+	        $mongoDB->addContent('galactae','sessions',[
+				"user_id" => $data['user_id'],"int",
+				"user_session_uid" => $_COOKIE['galactae-phpsessid'],"str",
+				"user_session_expiration" => (time()+$expTime),"int",
+				"user_session_lang" => $lang->getLanguage(),"str",
+				"user_agent" => $_SERVER['HTTP_USER_AGENT'],"str"
 			]);
 	          
 	        $message = CONNECTED.' '.CLICK_GAME; 

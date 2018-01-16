@@ -136,17 +136,17 @@ if (/*$resp == null ||
 	$message = ERR_NOT_VALID_PASS.' '.CLICK_BACK;
 } else {
 	// Account exists ?
-	$data = $sqlDB->getCondContent("user_list",[
-	["user_name",$user_name,"str"],
-	],0,1,"user_id");
+	$data = $mongoDB->getCondContent("galactae","users",[
+	"user_name" => $user_name
+	]);
 
-	if($data==false) { //Test with mail
-		$data = $sqlDB->getCondContent("user_list",[
-		["user_mail",$user_mail,"str"],
-		],0,1,"user_id");
+	if(size($data) == 0) { //Test with mail
+		$data = $mongoDB->getCondContent("galactae","users",[
+		"user_mail" => $user_mail
+		]);
 	} 
 
-	if($data!=false) {
+	if(size($data) == 0) {
 		$message = ERR_ACCOUNT_EXISTS.' '.CLICK_BACK;
 	}
 }
@@ -155,28 +155,28 @@ if (/*$resp == null ||
 // Draw message
 if($message=="") {
 	// Add user
-	$sqlDB->addContent('user_list',[
-		["user_name",$user_name,"str"],
-		["user_mail",$user_mail,"str"],
-		["user_passwd",$user_encpasswd,"str"],
-		["newsletter_misc",$user_news_misc,"int"],
-		["newsletter_updates",$user_news_updates,"int"],
+	$mongoDB->addContent('user_list',[
+		"user_name" => $user_name,
+		"user_mail" => $user_mail,
+		"user_passwd" => $user_encpasswd,
+		"newsletter_misc" => $user_news_misc,
+		"newsletter_updates" => $user_news_updates
 	]);
 
-    $data = $sqlDB->getCondContent("user_list",[
-    	["user_name",$user_name,"str"],
-    ],0,1,"user_id");
+	$data = $mongoDB->getCondContent("galactae","users",[
+		"user_name" => $user_name
+	]);
 
-    if($data!=false && isset($data[0]) && isset($data[0]['user_id'])) {
-		$data = $data[0];
+    if(size($data) > 0 && isset($data[0]) && isset($data[0]['user_id'])) {
+		$data = (array) $data[0];
 	}
 
 	$conf_link = encrypt(time().$user_name);
 
-	$sqlDB->addContent('user_mailconfirm',[
-		["user_id",$data["user_id"],"int"],
-		["user_name",$data["user_name"],"str"],
-		["mailconfirm_uid",$conf_link,"str"],
+	$mongoDB->addContent('galactae','mailconfirmations',[
+		"user_id" => $data["user_id"],
+		"user_name" => $data["user_name"],
+		"mailconfirm_uid" => $conf_link
 	]);
 
 	$conf_link = "https://galactae.eu/mailconf?mid=".$conf_link."&username=".$user_name;
