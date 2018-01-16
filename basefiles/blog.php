@@ -4,9 +4,9 @@ include_once('./basefiles/menu.php');
 
 echo "<section class=\"devblog\">";
 
-$data = $sqlDB->getCondContent("announces",[
-    	["onBlog",1,"int"],
-    	],0,10,"blog_time DESC");
+$data = $mongoDB->getCondContent("galactae","announces",
+		["onBlog" => 1]
+);
 
 foreach ($data as $key => $value) {
  	echo "<article>
