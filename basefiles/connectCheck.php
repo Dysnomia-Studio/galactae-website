@@ -9,9 +9,13 @@ $sess_data = $mongoDB->getCondContent("galactae","sessions",
 	["user_session_uid" => $_COOKIE['galactae-phpsessid']]
 );
 
+var_dump($sess_data);
+
 if(count($sess_data) > 0 && isset($sess_data[0])) {
 	$sess_data = (array) $sess_data[0];
 }
+
+var_dump($sess_data);
 
 if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
 	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $_SERVER['HTTP_USER_AGENT']) {
