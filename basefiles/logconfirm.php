@@ -29,12 +29,12 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 	} else {
 		if(isset($data['user_passwd']) && $data['user_passwd']  == encrypt($_POST['password'])) { // Acces OK ! 	
 	        $mongoDB->removeContent('galactae','sessions',[
-				"_id" => $data['_id'],
+				"user_id" => $data['_id'],
 				"user_session_uid" => $_COOKIE['galactae-phpsessid']
 			]);
 
 	        $mongoDB->addContent('galactae','sessions',[
-				"_id" => $data['_id'],"int",
+				"user_id" => $data['_id'],"int",
 				"user_session_uid" => $_COOKIE['galactae-phpsessid'],
 				"user_session_expiration" => (time()+$expTime),
 				"user_session_lang" => $lang->getLanguage(),

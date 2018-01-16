@@ -12,7 +12,7 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 		$sess_data = (array) $sess_data[0];
 	}
 
-	if(isset($sess_data['_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
+	if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
 		if(isset($sess_data['user_agent']) && $sess_data['user_agent'] == $_SERVER['HTTP_USER_AGENT']) {
 				$mongoDB->updateContent("galactae","sessions",
 					["user_session_uid" => $_COOKIE['galactae-phpsessid']],
@@ -20,7 +20,7 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 				);
 
 				$userData = $mongoDB->getCondContent("galactae","users",[
-					"_id" => $sess_data['_id']
+					"_id" => $sess_data['user_id']
 				]);
 
 				if(count($userData) > 0 && isset($userData[0])) {
