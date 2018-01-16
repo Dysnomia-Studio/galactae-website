@@ -9,6 +9,7 @@ $data = $mongoDB->getCondContent("galactae","announces",
 );
 
 foreach ($data as $key => $value) {
+	$value = (array) $value;
  	echo "<article>
 			<h2>".$value['blog_title_'.$_SESSION['lang']]."</h2>
 			<i>".date("d/m/Y",$value['blog_time'])."</i>
