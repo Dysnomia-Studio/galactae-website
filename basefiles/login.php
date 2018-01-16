@@ -16,8 +16,8 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 		if(isset($sess_data['user_agent']) && $sess_data['user_agent'] == $_SERVER['HTTP_USER_AGENT']) {
 				$mongoDB->updateContent("galactae","sessions",
 					["user_session_uid" => $_COOKIE['galactae-phpsessid']],
-					["user_session_expiration" => time()+2678400],
-				]);
+					["user_session_expiration" => time()+2678400]
+				);
 
 				$userData = $mongoDB->getCondContent("galactae","users",[
 					"user_id" => $sess_data['user_id']
