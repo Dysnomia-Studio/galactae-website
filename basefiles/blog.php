@@ -8,7 +8,7 @@ $data = $mongoDB->getCondContent("galactae","announces",
 		["onBlog" => 1]
 );
 
-foreach ($data as $key => $value) {
+foreach (array_reverse($data) as $key => $value) {
 	$value = (array) $value;
  	echo "<article>
 			<h2>".$value['blog_title_'.$_SESSION['lang']]."</h2>
