@@ -14,13 +14,13 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 		["user_name" => $variablesPost['username']],
 	);
 
-    if(size($data)==0) { // Test avec le mail
+    if(count($data)==0) { // Test avec le mail
 		$data = $mongoDB->getCondContent("galactae","users",
 			["user_mail" => $variablesPost['username']]
 		);
     }
     
-	if(size($data) > 0 && isset($data[0])) {
+	if(count($data) > 0 && isset($data[0])) {
 		$data = (array) $data[0];
 	}
 

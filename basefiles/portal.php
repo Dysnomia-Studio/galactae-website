@@ -33,7 +33,7 @@ $gameData = $mongoDB->getCondContent("galactae","game_ids",
 		"server_name" => "galactae-00"
 	]);
 
-	if(size($devPrivileges) > 0 && isset($devPrivileges[0])) {
+	if(count($devPrivileges) > 0 && isset($devPrivileges[0])) {
 		$devPrivileges = (array) $devPrivileges[0];
 	}
 
@@ -63,7 +63,7 @@ $gameData = $mongoDB->getCondContent("galactae","game_ids",
 					"server_name" => $servers[$i]['server_name']
 				]);
 
-				if(size($srv_data) > 0 && isset($srv_data[0])) {
+				if(count($srv_data) > 0 && isset($srv_data[0])) {
 					$srv_data = (array) $srv_data[0];
 				}
 
@@ -72,7 +72,7 @@ $gameData = $mongoDB->getCondContent("galactae","game_ids",
 					"server_name" => $servers[$i]['server_name']
 				]);
 
-				if(size($userPrivileges) > 0 && isset($userPrivileges[0])) {
+				if(count($userPrivileges) > 0 && isset($userPrivileges[0])) {
 					$userPrivileges = (array) $userPrivileges[0];
 				}
 

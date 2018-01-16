@@ -140,13 +140,13 @@ if (/*$resp == null ||
 	"user_name" => $user_name
 	]);
 
-	if(size($data) == 0) { //Test with mail
+	if(count($data) == 0) { //Test with mail
 		$data = $mongoDB->getCondContent("galactae","users",[
 		"user_mail" => $user_mail
 		]);
 	} 
 
-	if(size($data) == 0) {
+	if(count($data) == 0) {
 		$message = ERR_ACCOUNT_EXISTS.' '.CLICK_BACK;
 	}
 }
@@ -167,7 +167,7 @@ if($message=="") {
 		"user_name" => $user_name
 	]);
 
-    if(size($data) > 0 && isset($data[0]) && isset($data[0]['user_id'])) {
+    if(count($data) > 0 && isset($data[0]) && isset($data[0]['user_id'])) {
 		$data = (array) $data[0];
 	}
 

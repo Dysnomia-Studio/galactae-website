@@ -45,11 +45,11 @@ if((isset($_COOKIE['galactae-account-username']) &&
 					["passforgot_uid" => $uid]
 				);
 
-				if(size($data) > 0 && isset($data[0])) {
+				if(count($data) > 0 && isset($data[0])) {
 					$data = (array) $data[0];
 				}
 
-				if(size($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
+				if(count($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
 					// Set db
 					$data = $mongoDB->removeContent("galactae","recoverpasses",
 						["user_id" => $data["user_id"]);
@@ -99,11 +99,11 @@ if((isset($_COOKIE['galactae-account-username']) &&
 				["passforgot_uid" => $uid]
 			);
 
-			if(size($data) > 0 && isset($data[0])) {
+			if(count($data) > 0 && isset($data[0])) {
 				$data = (array) $data[0];
 			}
 
-			if(size($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
+			if(count($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
 				echo '
 					<div id="login-section" class="login-onglet active-onglet" style="padding: 5px;">
 						<form method="post" action="https://galactae.eu/changepassword">

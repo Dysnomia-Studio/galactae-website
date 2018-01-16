@@ -34,11 +34,11 @@ if((isset($_COOKIE['galactae-account-username']) &&
 				"mailconfirm_uid" => $uid
 			]);
 
-			if(size($data) > 0 && isset($data[0])) {
+			if(count($data) > 0 && isset($data[0])) {
 				$data = (array) $data[0];
 			}
 
-			if(size($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username) {
+			if(count($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username) {
 				// Activate account
 				$mongoDB->removeContent("galactae","mailconfirmations",[
 					"user_id" => $data["user_id"]

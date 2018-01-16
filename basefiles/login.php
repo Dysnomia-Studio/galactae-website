@@ -8,7 +8,7 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 		"user_session_uid" => $_COOKIE['galactae-phpsessid']
 	]);
 
-	if(size($sess_data) > 0 && isset($sess_data[0])) {
+	if(count($sess_data) > 0 && isset($sess_data[0])) {
 		$sess_data = (array) $sess_data[0];
 	}
 
@@ -23,7 +23,7 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 					"user_id" => $sess_data['user_id']
 				]);
 
-				if(size($userData) > 0 && isset($userData[0])) {
+				if(count($userData) > 0 && isset($userData[0])) {
 					$userData = (array) $userData[0];
 				}
 
