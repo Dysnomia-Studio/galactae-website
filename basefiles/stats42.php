@@ -1,13 +1,13 @@
 <?php
 if(!(isset($_COOKIE['galactae-phpsessid']) &&
-	$_COOKIE['galactae-phpsessid'] != "")) { // Not Connected
+	$_COOKIE['galactae-phpsessid'] != '')) { // Not Connected
 	http_response_code(404);
 	include_once('errors/404.html');
 	die();
 }
 
-$sess_data = $mongoDB->getCondContent("galactae","sessions",
-	["user_session_uid" => $_COOKIE['galactae-phpsessid']]
+$sess_data = $mongoDB->getCondContent('galactae','sessions',
+	['user_session_uid' => $_COOKIE['galactae-phpsessid']]
 );
 
 if(count($sess_data) > 0 && isset($sess_data[0])) {
@@ -21,11 +21,11 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 		die();
 	}
 
-	$mongoDB->updateContent("galactae","sessions",
-		["user_session_uid" => $_COOKIE['galactae-phpsessid']],
-		["$set" => [
-			 	"user_session_expiration" => (time()+$expTime),
-				"user_session_lang" => $lang->getLanguage()
+	$mongoDB->updateContent('galactae','sessions',
+		['user_session_uid' => $_COOKIE['galactae-phpsessid']],
+		['$set' => [
+			 	'user_session_expiration' => (time()+$expTime),
+				'user_session_lang' => $lang->getLanguage()
 			]
 		]		
 	);
@@ -35,8 +35,8 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 	die();
 }
 
-$userData = $mongoDB->getCondContent("galactae","users",
-	["_id" => $sess_data['user_id']]
+$userData = $mongoDB->getCondContent('galactae','users',
+	['_id' => $sess_data['user_id']]
 );
 
 if(count($userData) > 0 && isset($userData[0])) {
@@ -62,7 +62,7 @@ if(!isset($_SESSION['lang'])) {
 /**
  * Query stats
  */
-$manager = new MongoDB\Driver\Manager("***REMOVED***");
+$manager = new MongoDB\Driver\Manager('***REMOVED***');
 
 $filter = array();
 $options = [
@@ -73,7 +73,7 @@ $options = [
 $query = new MongoDB\Driver\Query($filter, $options);
 
 $servers = [
-	"galactae-00"
+	'galactae-00'
 ];
 
 $results = [];
@@ -138,7 +138,7 @@ foreach ($servers as $key => $server) {
 		// Then generate full report
 		// @ADD: sum
 
-		var visitsChart = new Chartkick.AreaChart("stats", data4Charts);
+		var visitsChart = new Chartkick.AreaChart('stats', data4Charts);
 	}
 
 	genReport(7);

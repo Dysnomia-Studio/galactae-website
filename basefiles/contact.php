@@ -30,11 +30,11 @@ include_once('./basefiles/menu.php');
 			
 			<?php }
 			else {
-				$reCaptcha = new ReCaptcha("***REMOVED***");
+				$reCaptcha = new ReCaptcha('***REMOVED***');
 
 				$resp = $reCaptcha->verifyResponse(
-					$_SERVER["REMOTE_ADDR"],
-					$_POST["g-recaptcha-response"]
+					$_SERVER['REMOTE_ADDR'],
+					$_POST['g-recaptcha-response']
 					);
 				if ($resp != null && $resp->success) {
 					require_once './lib/swiftmailer/swift_required.php';
@@ -49,7 +49,7 @@ include_once('./basefiles/menu.php');
 					$mailer = Swift_Mailer::newInstance($transport);
 
 					// Create a message
-					$message = Swift_Message::newInstance("Galactae Contact")
+					$message = Swift_Message::newInstance('Galactae Contact')
 					  ->setFrom(array('***REMOVED***' => 'Galactae Contact'))
 					  ->setTo(array('***REMOVED***' => 'Elanis'))
 					  ->setBody($_POST['txt'].'<br/><br/>'.$_POST['mail'] , 'text/html')

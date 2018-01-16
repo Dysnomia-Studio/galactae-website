@@ -2,7 +2,7 @@
 
 	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
 
-	<ul <?php if($currentpage!="index") { echo "class=\"no-background\""; } ?> id="menu">
+	<ul <?php if($currentpage!='index') { echo 'class="no-background"'; } ?> id="menu">
 		<li class="menu-logo"><a href="index">GALACTAE: SPACE AGE DAWN</a></li>
 		<li class="hamSpace"></li> <!-- Necessaire uniquement sur le menu hamburger -->
 		<li><a href="login" class="menu-link menu-button"><?php echo MENU_PLAY_NOW; ?></a></li>
@@ -17,9 +17,9 @@
 		</li>
 	</ul>
 	<?php 
-	if($_SESSION['lang']=="en") { ?>
+	if($_SESSION['lang']=='en') { ?>
 	<script type="text/javascript">
-		window.addEventListener("load", function(){
+		window.addEventListener('load', function(){
 				changed--;
 				iconSelect.setSelectedIndex(1);
 		});

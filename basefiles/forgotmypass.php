@@ -72,13 +72,13 @@ $mail[3] = '		</td>
 $user_name = htmlentities(htmlspecialchars($_POST['username']));
 
 // Account exists ?
-$data = $mongoDB->getCondContent("galactae","users",
-	["user_name" => $user_name]
+$data = $mongoDB->getCondContent('galactae','users',
+	['user_name' => $user_name]
 );
 
 if(count($data)==0) { //Test with mail
-	$data = $mongoDB->getCondContent("galactae","users",
-		["user_mail" => $user_name]
+	$data = $mongoDB->getCondContent('galactae','users',
+		['user_mail' => $user_name]
 	);
 } 
 
@@ -86,18 +86,18 @@ if(count($data) > 0 && isset($data[0])) {
     $data = (array) $data[0];
 }
 
-if(count($data) > 0 && isset($data["user_name"])) {
+if(count($data) > 0 && isset($data['user_name'])) {
 	// Send mail
 	$passwd_link = encrypt(time().$user_name);
 
-	$mongoDB->addContent("galactae","recoverpasses",[
-		"_id" => $data["_id"],
-		"user_name" => $data["user_name"],
-		"passforgot_uid" => $passwd_link,
-		"passforgot_time" => time()
+	$mongoDB->addContent('galactae','recoverpasses',[
+		'_id' => $data['_id'],
+		'user_name' => $data['user_name'],
+		'passforgot_uid' => $passwd_link,
+		'passforgot_time' => time()
 	]);
 
-	$passwd_link = "https://galactae.eu/changepassword?pid=".$passwd_link."&username=".$data["user_name"];
+	$passwd_link = 'https://galactae.eu/changepassword?pid='.$passwd_link.'&username='.$data['user_name'];
 
 	require_once './lib/swiftmailer/swift_required.php';
 
@@ -113,7 +113,7 @@ if(count($data) > 0 && isset($data["user_name"])) {
 	// Create a message
 	$mail_content = Swift_Message::newInstance(LOGIN_PASS_RESET)
 	  ->setFrom(array('***REMOVED***' => 'Galactae: Space Age Dawn'))
-	  ->setTo(array($data["user_mail"] => $data["user_name"]))
+	  ->setTo(array($data['user_mail'] => $data['user_name']))
 	  ->setBody( $mail[0].LOGIN_PASS_RESET.$mail[1].PASS_MAIL_1.':
 	  	</td></tr><tr style="    overflow-wrap: break-word;
     word-wrap: break-word;

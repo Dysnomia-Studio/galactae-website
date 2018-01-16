@@ -1,13 +1,13 @@
 <?php
 if(!(isset($_COOKIE['galactae-phpsessid']) &&
-	$_COOKIE['galactae-phpsessid'] != "")) { // Not Connected
+	$_COOKIE['galactae-phpsessid'] != '')) { // Not Connected
 	http_response_code(404);
 	include_once('errors/404.html');
 	die();
 }
 
-$sess_data = $mongoDB->getCondContent("galactae","sessions",
-	["user_session_uid" => $_COOKIE['galactae-phpsessid']]
+$sess_data = $mongoDB->getCondContent('galactae','sessions',
+	['user_session_uid' => $_COOKIE['galactae-phpsessid']]
 );
 
 if(count($sess_data) > 0 && isset($sess_data[0])) {
@@ -21,11 +21,11 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 		die();
 	}
 
-	$mongoDB->updateContent("galactae","sessions",
-		["user_session_uid" => $_COOKIE['galactae-phpsessid']],
-		["$set" => [
-			 	"user_session_expiration" => (time()+$expTime),
-				"user_session_lang" => $lang->getLanguage()
+	$mongoDB->updateContent('galactae','sessions',
+		['user_session_uid' => $_COOKIE['galactae-phpsessid']],
+		['$set' => [
+			 	'user_session_expiration' => (time()+$expTime),
+				'user_session_lang' => $lang->getLanguage()
 			]
 		]		
 	);
@@ -35,8 +35,8 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 	die();
 }
 
-$userData = $mongoDB->getCondContent("galactae","users",
-	["_id" => $sess_data['user_id']]
+$userData = $mongoDB->getCondContent('galactae','users',
+	['_id' => $sess_data['user_id']]
 );
 
 if(count($userData) > 0 && isset($userData[0])) {
@@ -59,14 +59,14 @@ if(!isset($_SESSION['lang'])) {
 	$_SESSION['lang'] = $sess_data['user_session_lang'];
 }
 
-$admin_user = "***REMOVED***";
-$admin_passwd = "***REMOVED***";
+$admin_user = '***REMOVED***';
+$admin_passwd = '***REMOVED***';
 
 $serverList = [
-	["addr"=>"00-srv.galactae.eu", "port"=>42690, "name"=>DEV, "link"=>"https://00-dev.galactae.eu"]/*,
-	["addr"=>"01-srv.galactae.eu", "port"=>42691, "name"=>MILKYWAY, "link"=>"https://01-milkyway.galactae.eu"],
-	["addr"=>"02-srv.galactae.eu", "port"=>42692, "name"=>ANDROMEDA, "link"=>"https://02-andromeda.galactae.eu"],
-	["addr"=>"03-srv.galactae.eu", "port"=>42693, "name"=>PEGASUS, "link"=>"https://03-pegasus.galactae.eu"],*/
+	['addr'=>'00-srv.galactae.eu', 'port'=>42690, 'name'=>DEV, 'link'=>'https://00-dev.galactae.eu']/*,
+	['addr'=>'01-srv.galactae.eu', 'port'=>42691, 'name'=>MILKYWAY, 'link'=>'https://01-milkyway.galactae.eu'],
+	['addr'=>'02-srv.galactae.eu', 'port'=>42692, 'name'=>ANDROMEDA, 'link'=>'https://02-andromeda.galactae.eu'],
+	['addr'=>'03-srv.galactae.eu', 'port'=>42693, 'name'=>PEGASUS, 'link'=>'https://03-pegasus.galactae.eu'],*/
 ];
 ?>
 <script type="text/javascript" src="https://***REMOVED***/website/js/jquery.min.js"></script>
@@ -238,8 +238,8 @@ $serverList = [
 	var serverLogs = [];
 
 	var userData = { 
-		username: "<?php echo $admin_user; ?>",
-		password: "<?php echo $admin_passwd; ?>",
+		username: '<?php echo $admin_user; ?>',
+		password: '<?php echo $admin_passwd; ?>',
 	};
 
 	var currServer = 0;
@@ -248,7 +248,7 @@ $serverList = [
 		currServer = id;
 
 		// Load logs
-		$('#server-infos-logs').html("");
+		$('#server-infos-logs').html('');
 		for(var i=0; i<serverLogs[id].length; i++) {
 			$('#server-infos-logs').append('<li>' + serverLogs[id][i] + '</li>');
 		}
@@ -259,17 +259,17 @@ $serverList = [
 		$('#' + id + '-status').removeClass();
 
 		switch(status) {
-			case "on":
-				$('#' + id + '-status').addClass("server_on");
+			case 'on':
+				$('#' + id + '-status').addClass('server_on');
 				break;
-			case "off":
-				$('#' + id + '-status').addClass("server_off");
+			case 'off':
+				$('#' + id + '-status').addClass('server_off');
 				break;
-			case "maintenance":
-				$('#' + id + '-status').addClass("server_maintenance");
+			case 'maintenance':
+				$('#' + id + '-status').addClass('server_maintenance');
 				break;
 			default:
-				$('#' + id + '-status').addClass("server_unknown");
+				$('#' + id + '-status').addClass('server_unknown');
 		}
 	}
 
@@ -280,18 +280,18 @@ $serverList = [
 			socketList[id] = io.connect('https://'+serverList[id]['addr'], {secure: true, 'connect timeout': 10000 });
 
 			socketList[id].on('connect_failed', function() {
-				drawServerStatus(id,"off");
+				drawServerStatus(id,'off');
 			});
 			socketList[id].on('connect_error', function() {
-				drawServerStatus(id,"off");
+				drawServerStatus(id,'off');
 			});
 			socketList[id].on('connect', function() {
-				drawServerStatus(id,"on");
+				drawServerStatus(id,'on');
 				
 				socketList[id].emit('server-monitore-connect', userData);
 			});
 			socketList[id].on('server-maintenance', function() {
-				drawServerStatus(id,"maintenance");
+				drawServerStatus(id,'maintenance');
 			});	
 
 			socketList[id].on('server-log', function(msg) {
@@ -314,31 +314,31 @@ $serverList = [
 		});
 
 		setInterval(function() {
-			document.getElementById("tab-stats-iframe").contentDocument.location.reload(true);
+			document.getElementById('tab-stats-iframe').contentDocument.location.reload(true);
 		},1000000) // Refresh each 1000s (~16min)
 
 		$('#tool-list li').click(function() {
-			$(".tab").css('display','none');
-			$("#tab-" + $(this).attr('id').split('-')[1]).css('display','block');
+			$('.tab').css('display','none');
+			$('#tab-' + $(this).attr('id').split('-')[1]).css('display','block');
 		});
 
 		connectAllSockets();
 
 		// Server Admin Commands
-		$("#server-start").click(function() {
-			socketList[currServer].emit('admin-request-cmd', { cmd: "start" });
+		$('#server-start').click(function() {
+			socketList[currServer].emit('admin-request-cmd', { cmd: 'start' });
 		});
-		$("#server-stop").click(function() {
-			socketList[currServer].emit('admin-request-cmd', { cmd: "stop" });
+		$('#server-stop').click(function() {
+			socketList[currServer].emit('admin-request-cmd', { cmd: 'stop' });
 		});
-		$("#server-restart").click(function() {
-			socketList[currServer].emit('admin-request-cmd', { cmd: "restart" });
+		$('#server-restart').click(function() {
+			socketList[currServer].emit('admin-request-cmd', { cmd: 'restart' });
 		});
-		$("#server-maintenance").click(function() {
-			if($("#server-maintenance").is(':checked')) {
-				socketList[currServer].emit('admin-request-cmd', { cmd: "maintenanceOn" });
+		$('#server-maintenance').click(function() {
+			if($('#server-maintenance').is(':checked')) {
+				socketList[currServer].emit('admin-request-cmd', { cmd: 'maintenanceOn' });
 			} else {
-				socketList[currServer].emit('admin-request-cmd', { cmd: "maintenanceOff" });
+				socketList[currServer].emit('admin-request-cmd', { cmd: 'maintenanceOff' });
 			}
 		});
 	});

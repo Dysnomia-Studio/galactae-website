@@ -53,7 +53,7 @@ include_once('./basefiles/menu.php');
 				count++;
 				if(count>indexPunchlines.length - 1) { count = 0; }
 		}
-		window.addEventListener("load",function() {	setInterval(function() { changePunchline(); },5000); });
+		window.addEventListener('load',function() {	setInterval(function() { changePunchline(); },5000); });
 		changePunchline();
 	</script>
 <?php

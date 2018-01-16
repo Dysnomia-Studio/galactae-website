@@ -4,17 +4,17 @@ include_once('./basefiles/header.php');
 $config['pass-minsize'] = 8;
 
 if((isset($_COOKIE['galactae-account-username']) && 
-	$_COOKIE['galactae-account-username']!="" && 
+	$_COOKIE['galactae-account-username']!='' && 
 	isset($_COOKIE['galactae-account-bid']) && 
-	$_COOKIE['galactae-account-bid']!="" &&
+	$_COOKIE['galactae-account-bid']!='' &&
 	isset($_COOKIE['galactae-account-id']) && 
 	$_COOKIE['galactae-account-id']!=0) ||
 	(isset($_SESSION['username']) &&
-	$_SESSION['username'] != "" &&
+	$_SESSION['username'] != '' &&
 	isset($_SESSION['id']) &&
 	$_SESSION['id'] !=0 &&
 	isset($_SESSION['game_id']) &&
-	$_SESSION['game_id'] != "")) {
+	$_SESSION['game_id'] != '')) {
 
 	header('Location: portal');
 }
@@ -34,29 +34,29 @@ if((isset($_COOKIE['galactae-account-username']) &&
 			$uid = htmlentities(htmlspecialchars($_POST['pid']));
 			$username = htmlentities(htmlspecialchars($_POST['username']));
 			$mintime = time() - (24*60*60);
-			$error = "";
+			$error = '';
 
 			if(strlen($password)<$config['pass-minsize']) { // Password size
 				$error.= ERR_TOO_LONG_SHORT_PASS;
 			} elseif(preg_match('/[^a-zA-Z_\-0-9]/i', $password)) { // Password Format
 				$error.= ERR_NOT_VALID_PASS;
 			} elseif($password==$confpassword) {
-				$data = $mongoDB->getCondContent("galactae","recoverpasses",
-					["passforgot_uid" => $uid]
+				$data = $mongoDB->getCondContent('galactae','recoverpasses',
+					['passforgot_uid' => $uid]
 				);
 
 				if(count($data) > 0 && isset($data[0])) {
 					$data = (array) $data[0];
 				}
 
-				if(count($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
+				if(count($data) > 0 && isset($data['user_name']) && $data['user_name']==$username && $data['passforgot_time'] > $mintime) { 
 					// Set db
-					$data = $mongoDB->removeContent("galactae","recoverpasses",
-						["_id" => $data["_id"]);
+					$data = $mongoDB->removeContent('galactae','recoverpasses',
+						['_id' => $data['_id']);
 
-					$data = $mongoDB->updateContent("galactae","users",
-						["_id" => $data["_id"],
-						["$set" => ["user_passwd" => $encpassword]]
+					$data = $mongoDB->updateContent('galactae','users',
+						['_id' => $data['_id'],
+						['$set' => ['user_passwd' => $encpassword]]
 					);
 				} else { // Invalid data
 					$error.= PASS_INVALID_LINK.CLICK_HOME;
@@ -66,7 +66,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 				$error .= ERR_NOT_SAME_PASSWD;
 			}
 
-			if($error!="") {// Error message & form
+			if($error!='') {// Error message & form
 				echo '
 					<div id="login-section" class="login-onglet active-onglet" style="padding: 5px;">
 						<p style="text-align: center;">'.$error.'</p>
@@ -86,24 +86,24 @@ if((isset($_COOKIE['galactae-account-username']) &&
 			if(isset($_GET['pid'])) {
 				$uid = htmlentities(htmlspecialchars($_GET['pid']));
 			} else {
-				$uid = "";
+				$uid = '';
 			}
 			if(isset($_GET['username'])) {
 				$username = htmlentities(htmlspecialchars($_GET['username']));
 			} else {
-				$username = "";
+				$username = '';
 			}
 			$mintime = time() - (24*60*60);
 			
-			$data = $mongoDB->getCondContent("galactae","recoverpasses",
-				["passforgot_uid" => $uid]
+			$data = $mongoDB->getCondContent('galactae','recoverpasses',
+				['passforgot_uid' => $uid]
 			);
 
 			if(count($data) > 0 && isset($data[0])) {
 				$data = (array) $data[0];
 			}
 
-			if(count($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username && $data['passforgot_time'] > $mintime) { 
+			if(count($data) > 0 && isset($data['user_name']) && $data['user_name']==$username && $data['passforgot_time'] > $mintime) { 
 				echo '
 					<div id="login-section" class="login-onglet active-onglet" style="padding: 5px;">
 						<form method="post" action="https://galactae.eu/changepassword">

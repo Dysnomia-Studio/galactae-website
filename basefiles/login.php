@@ -2,10 +2,10 @@
 include_once('./basefiles/header.php');
 
 if(isset($_COOKIE['galactae-phpsessid']) &&
-	$_COOKIE['galactae-phpsessid'] != "") { // Connected ?
+	$_COOKIE['galactae-phpsessid'] != '') { // Connected ?
 
-	$sess_data = $mongoDB->getCondContent("galactae","sessions",[
-		"user_session_uid" => $_COOKIE['galactae-phpsessid']
+	$sess_data = $mongoDB->getCondContent('galactae','sessions',[
+		'user_session_uid' => $_COOKIE['galactae-phpsessid']
 	]);
 
 	if(count($sess_data) > 0 && isset($sess_data[0])) {
@@ -14,20 +14,20 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 
 	if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
 		if(isset($sess_data['user_agent']) && $sess_data['user_agent'] == $_SERVER['HTTP_USER_AGENT']) {
-				$mongoDB->updateContent("galactae","sessions",
-					["user_session_uid" => $_COOKIE['galactae-phpsessid']],
-					[ "$set" => ["user_session_expiration" => time()+2678400]]
+				$mongoDB->updateContent('galactae','sessions',
+					['user_session_uid' => $_COOKIE['galactae-phpsessid']],
+					[ '$set' => ['user_session_expiration' => time()+2678400]]
 				);
 
-				$userData = $mongoDB->getCondContent("galactae","users",[
-					"_id" => $sess_data['user_id']
+				$userData = $mongoDB->getCondContent('galactae','users',[
+					'_id' => $sess_data['user_id']
 				]);
 
 				if(count($userData) > 0 && isset($userData[0])) {
 					$userData = (array) $userData[0];
 				}
 
-				if(isset($userData["_id"])) {
+				if(isset($userData['_id'])) {
 					header('Location: portal');
 					exit();
 				}
@@ -43,47 +43,47 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 	<script type="text/javascript">
 		window.addEventListener('load',function() {
 			function active(div) {
-				document.getElementById(div+'-section').className = "login-onglet active-onglet";
+				document.getElementById(div+'-section').className = 'login-onglet active-onglet';
 
-				if(div=="forgot-pass") { div="login"; }
-				document.getElementById(div+'-td').className = "active";
+				if(div=='forgot-pass') { div='login'; }
+				document.getElementById(div+'-td').className = 'active';
 			}
 			function desactive(div) {
-				document.getElementById(div+'-section').className = "login-onglet";
+				document.getElementById(div+'-section').className = 'login-onglet';
 
-				if(div=="forgot-pass") { div="login"; }
-				document.getElementById(div+'-td').className = "";
+				if(div=='forgot-pass') { div='login'; }
+				document.getElementById(div+'-td').className = '';
 			}
 
 			document.getElementById('login-button').addEventListener('click', function() {
-				desactive("register");
-				desactive("forgot-pass");
+				desactive('register');
+				desactive('forgot-pass');
 
-				active("login");
+				active('login');
 			});
 
 			function register() {
-				desactive("login");
-				desactive("forgot-pass");
+				desactive('login');
+				desactive('forgot-pass');
 
-				active("register");
+				active('register');
 			}
 			document.getElementById('register-button').addEventListener('click', function() {
 				register();
 			});
-			if(window.location.hash=="#register"){
+			if(window.location.hash=='#register'){
 				register();
 			}
 
 			document.getElementById('forgot-pass-button').addEventListener('click', function() {
-				desactive("login");
-				desactive("register");
+				desactive('login');
+				desactive('register');
 
-				active("forgot-pass");
+				active('forgot-pass');
 			});
 
 
-			document.getElementById('rememberMe').addEventListener("change", function() {
+			document.getElementById('rememberMe').addEventListener('change', function() {
 				setCookie('rememberMe',document.getElementById('rememberMe').checked,30);
 			});
 		});
@@ -104,8 +104,8 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 				<span class="login-checkbox">
 					<input type="checkbox" name="rememberMe" id="rememberMe"
 					<?php
-					if(!isset($_COOKIE['rememberMe']) || ($_COOKIE['rememberMe'] != false && $_COOKIE['rememberMe'] != "false")) {
-						echo "checked";
+					if(!isset($_COOKIE['rememberMe']) || ($_COOKIE['rememberMe'] != false && $_COOKIE['rememberMe'] != 'false')) {
+						echo 'checked';
 					}
 					?>
 					>

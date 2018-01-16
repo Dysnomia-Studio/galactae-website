@@ -5,17 +5,17 @@ $config['pass-minsize'] = 8;
 $config['pass-maxsize'] = 20;
 
 if((isset($_COOKIE['galactae-account-username']) && 
-	$_COOKIE['galactae-account-username']!="" && 
+	$_COOKIE['galactae-account-username']!='' && 
 	isset($_COOKIE['galactae-account-bid']) && 
-	$_COOKIE['galactae-account-bid']!="" &&
+	$_COOKIE['galactae-account-bid']!='' &&
 	isset($_COOKIE['galactae-account-id']) && 
 	$_COOKIE['galactae-account-id']!=0) ||
 	(isset($_SESSION['username']) &&
-	$_SESSION['username'] != "" &&
+	$_SESSION['username'] != '' &&
 	isset($_SESSION['id']) &&
 	$_SESSION['id'] !=0 &&
 	isset($_SESSION['game_id']) &&
-	$_SESSION['game_id'] != "")) {
+	$_SESSION['game_id'] != '')) {
 
 	header('Location: portal');
 }
@@ -30,23 +30,23 @@ if((isset($_COOKIE['galactae-account-username']) &&
 			$uid = htmlentities(htmlspecialchars($_GET['mid']));
 			$username = htmlentities(htmlspecialchars($_GET['username']));
 
-			$data = $mongoDB->getCondContent("galactae","mailconfirmations",[
-				"mailconfirm_uid" => $uid
+			$data = $mongoDB->getCondContent('galactae','mailconfirmations',[
+				'mailconfirm_uid' => $uid
 			]);
 
 			if(count($data) > 0 && isset($data[0])) {
 				$data = (array) $data[0];
 			}
 
-			if(count($data) > 0 && isset($data["user_name"]) && $data["user_name"]==$username) {
+			if(count($data) > 0 && isset($data['user_name']) && $data['user_name']==$username) {
 				// Activate account
-				$mongoDB->removeContent("galactae","mailconfirmations",[
-					"_id" => $data["_id"]
+				$mongoDB->removeContent('galactae','mailconfirmations',[
+					'_id' => $data['_id']
 				]);
 
-				$mongoDB->updateContent("galactae","users",
-					["_id" => $data["_id"]],
-					["$set" => ["activated" => 1]],	
+				$mongoDB->updateContent('galactae','users',
+					['_id' => $data['_id']],
+					['$set' => ['activated' => 1]],	
 				);
 
 				// Draw message

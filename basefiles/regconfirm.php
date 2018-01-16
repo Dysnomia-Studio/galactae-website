@@ -71,27 +71,27 @@ $mail[3] = '		</td>
 
 include_once('./basefiles/header.php');
 
-$message = "";
+$message = '';
 
 $config['name-minsize'] = 3;
 $config['name-maxsize'] = 20;
 
 $config['pass-minsize'] = 8;
 
-$reCaptcha = new ReCaptcha("***REMOVED***");
+$reCaptcha = new ReCaptcha('***REMOVED***');
 
 $resp = $reCaptcha->verifyResponse(
-	$_SERVER["REMOTE_ADDR"],
-	$_POST["g-recaptcha-response"]
+	$_SERVER['REMOTE_ADDR'],
+	$_POST['g-recaptcha-response']
 	);
 
-if(!isset($_POST['newsletter_miscellaneous']) || $_POST['newsletter_miscellaneous']!="checked") {
+if(!isset($_POST['newsletter_miscellaneous']) || $_POST['newsletter_miscellaneous']!='checked') {
 	$user_news_misc = 0;
 } else {
 	$user_news_misc = 1;
 }
 
-if(!isset($_POST['newsletter_update']) || $_POST['newsletter_update']!="checked") {
+if(!isset($_POST['newsletter_update']) || $_POST['newsletter_update']!='checked') {
 	$user_news_updates = 0;
 } else {
 	$user_news_updates = 1;
@@ -119,11 +119,11 @@ if (/*$resp == null ||
 	empty($user_mail)) { // One of input empty
 
 	$message = ERR_FIELD.' '.CLICK_BACK;
-} elseif(!isset($_POST['cg']) || $_POST['cg']!="checked") {
+} elseif(!isset($_POST['cg']) || $_POST['cg']!='checked') {
 	$message = ERR_CG.' '.CLICK_BACK;
 } elseif($user_passwd!=$user_confpasswd) { // Same Passwords
 	$message = ERR_NOT_SAME_PASSWD.' '.CLICK_BACK;
-} elseif(!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $user_mail) || Mail::isBlacklisted($user_mail)) { // Mail Format
+} elseif(!preg_match('#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#', $user_mail) || Mail::isBlacklisted($user_mail)) { // Mail Format
 	$message = ERR_NOT_VALID_MAIL.' '.CLICK_BACK;
 } elseif(strlen($user_name)<$config['name-minsize'] || 
 	strlen($user_name)>$config['name-maxsize']) { // Username size
@@ -136,13 +136,13 @@ if (/*$resp == null ||
 	$message = ERR_NOT_VALID_PASS.' '.CLICK_BACK;
 } else {
 	// Account exists ?
-	$data = $mongoDB->getCondContent("galactae","users",[
-	"user_name" => $user_name
+	$data = $mongoDB->getCondContent('galactae','users',[
+	'user_name' => $user_name
 	]);
 
 	if(count($data) == 0) { //Test with mail
-		$data = $mongoDB->getCondContent("galactae","users",[
-		"user_mail" => $user_mail
+		$data = $mongoDB->getCondContent('galactae','users',[
+		'user_mail' => $user_mail
 		]);
 	} 
 
@@ -153,18 +153,18 @@ if (/*$resp == null ||
 
 
 // Draw message
-if($message=="") {
+if($message=='') {
 	// Add user
 	$mongoDB->addContent('user_list',[
-		"user_name" => $user_name,
-		"user_mail" => $user_mail,
-		"user_passwd" => $user_encpasswd,
-		"newsletter_misc" => $user_news_misc,
-		"newsletter_updates" => $user_news_updates
+		'user_name' => $user_name,
+		'user_mail' => $user_mail,
+		'user_passwd' => $user_encpasswd,
+		'newsletter_misc' => $user_news_misc,
+		'newsletter_updates' => $user_news_updates
 	]);
 
-	$data = $mongoDB->getCondContent("galactae","users",[
-		"user_name" => $user_name
+	$data = $mongoDB->getCondContent('galactae','users',[
+		'user_name' => $user_name
 	]);
 
     if(count($data) > 0 && isset($data[0]) && isset($data[0]['_id'])) {
@@ -174,12 +174,12 @@ if($message=="") {
 	$conf_link = encrypt(time().$user_name);
 
 	$mongoDB->addContent('galactae','mailconfirmations',[
-		"_id" => $data["_id"],
-		"user_name" => $data["user_name"],
-		"mailconfirm_uid" => $conf_link
+		'_id' => $data['_id'],
+		'user_name' => $data['user_name'],
+		'mailconfirm_uid' => $conf_link
 	]);
 
-	$conf_link = "https://galactae.eu/mailconf?mid=".$conf_link."&username=".$user_name;
+	$conf_link = 'https://galactae.eu/mailconf?mid='.$conf_link.'&username='.$user_name;
 
 	require_once './lib/swiftmailer/swift_required.php';
 

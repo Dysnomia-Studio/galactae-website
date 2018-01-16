@@ -13,7 +13,7 @@ include_once('./basefiles/header.php');
 	// Create the Mailer using your created Transport
 	$mailer = Swift_Mailer::newInstance($transport);
 
-    $msgTitle = "La mise à jour 0.3.0 de Galactae enfin dévoilée !";
+    $msgTitle = 'La mise à jour 0.3.0 de Galactae enfin dévoilée !';
 
 	$msg = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -256,8 +256,8 @@ include_once('./basefiles/header.php');
 	/*foreach ($data as $key => $value) {
         $dest[$value['user_mail']] = $value['user_name'];
     }*/
-    $dest["***REMOVED***"] = "elanis";
-    $dest["***REMOVED***"] = "elanis2";
+    $dest['***REMOVED***'] = 'elanis';
+    $dest['***REMOVED***'] = 'elanis2';
 
     var_dump($dest);
 
