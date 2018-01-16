@@ -52,7 +52,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 				if(count($data) > 0 && isset($data['user_name']) && $data['user_name']==$username && $data['passforgot_time'] > $mintime) { 
 					// Set db
 					$data = $mongoDB->removeContent('galactae','recoverpasses',
-						['_id' => $data['_id']);
+						['_id' => $data['_id']]);
 
 					$data = $mongoDB->updateContent('galactae','users',
 						['_id' => $data['_id'],
