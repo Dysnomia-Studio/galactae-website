@@ -55,7 +55,7 @@ if((isset($_COOKIE['galactae-account-username']) &&
 						['_id' => $data['_id']]);
 
 					$data = $mongoDB->updateContent('galactae','users',
-						['_id' => $data['_id'],
+						['_id' => $data['_id']],
 						['$set' => ['user_passwd' => $encpassword]]
 					);
 				} else { // Invalid data
