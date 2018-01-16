@@ -249,7 +249,7 @@ include_once('./basefiles/header.php');
 </body>
 </html>';
 
-	$data = $sqlDB->getContent('users',0,1000000,"user_id");
+	$data = $mongoDB->getContent('galactae','users',[]);
 
     $dest = array();
 
