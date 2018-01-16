@@ -6,7 +6,7 @@ if(!(isset($_COOKIE['galactae-phpsessid']) &&
 }
 
 $sess_data = $mongoDB->getCondContent("galactae","sessions",
-	["user_session_uid" => $_COOKIE['galactae-phpsessid']
+	["user_session_uid" => $_COOKIE['galactae-phpsessid']]
 );
 
 if(count($sess_data) > 0 && isset($sess_data[0])) {
