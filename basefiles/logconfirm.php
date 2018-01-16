@@ -35,10 +35,10 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 
 	        $mongoDB->addContent('galactae','sessions',[
 				"user_id" => $data['user_id'],"int",
-				"user_session_uid" => $_COOKIE['galactae-phpsessid'],"str",
-				"user_session_expiration" => (time()+$expTime),"int",
-				"user_session_lang" => $lang->getLanguage(),"str",
-				"user_agent" => $_SERVER['HTTP_USER_AGENT'],"str"
+				"user_session_uid" => $_COOKIE['galactae-phpsessid'],
+				"user_session_expiration" => (time()+$expTime),
+				"user_session_lang" => $lang->getLanguage(),
+				"user_agent" => $_SERVER['HTTP_USER_AGENT']
 			]);
 	          
 	        $message = CONNECTED.' '.CLICK_GAME; 
