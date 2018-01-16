@@ -11,7 +11,7 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 	$message = ERR_FIELD. ' '.CLICK_BACK;
 } else { // Check du couple pseudo/mdp
 	$data = $mongoDB->getCondContent("galactae","users",
-		["user_name" => $variablesPost['username']],
+		["user_name" => $variablesPost['username']]
 	);
 
     if(count($data)==0) { // Test avec le mail
