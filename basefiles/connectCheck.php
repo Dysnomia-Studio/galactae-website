@@ -17,6 +17,8 @@ if(count($sess_data) > 0 && isset($sess_data[0])) {
 
 var_dump($sess_data);
 
+die();
+
 if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
 	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $_SERVER['HTTP_USER_AGENT']) {
 		header('Location: index');
