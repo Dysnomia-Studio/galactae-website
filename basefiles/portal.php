@@ -3,7 +3,7 @@ include_once('./basefiles/connectCheck.php');
 include_once('./basefiles/header.php');
 
 $gameData = $mongoDB->getCondContent('galactae','game_ids',
-	['_id' => $userData['_id']]
+	['user_id' => $userData['_id']]
 );
 ?>
 <body class="portal-body login-page"">
