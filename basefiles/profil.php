@@ -53,7 +53,7 @@ function drawProfile($user,$isCurrentUser) {
 	</div>';
 }
 
-if($user == $userData['user_name']) { // Current user
+if($user == "" || $user == $userData['user_name']) { // Current user
 	drawProfile($userData,true);
 } else { // Other user
 	// Search
@@ -66,7 +66,7 @@ if($user == $userData['user_name']) { // Current user
 	if(isset($searchedUser[0])) { // Found ?
 		drawProfile($searchedUser[0],false);
 	} else { // Not Found ?
-
+		
 	}
 }
 ?>
