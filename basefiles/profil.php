@@ -5,8 +5,10 @@ include_once('./basefiles/header.php');
 $_GET['u'] = (isset($_GET['u']))?$_GET['u']:'';
 $user = htmlspecialchars(htmlentities($_GET['u']));
 ?>
-<body class="login-page"">
+<body class="login-page">
 <?php
+include_once('./basefiles/menuConnected.php');
+
 // Draw profile
 function drawProfile($user,$isCurrentUser) {
 	echo '	<div id="profil-main">';
