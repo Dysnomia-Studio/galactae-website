@@ -33,7 +33,7 @@ function drawProfile($user,$isCurrentUser) {
 	// Ranks
 	echo '
 		<br/><br/>
-		<h3>'.PROFIL_RANKS.'</h3>
+		<h3>'.PROFIL_RANK.'</h3>
 		<h4>'.PROFIL_GALAXY.'</h4>
 		<table>
 			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th></tr>';
@@ -63,7 +63,7 @@ if($user == "" || strtolower($user) == strtolower($userData['user_name'])) { // 
 
 	if(isset($searchedUser[0])) { // Found ?
 		$searchedUser = (array) $searchedUser[0];
-		drawProfile($searchedUser[0],false);
+		drawProfile($searchedUser,false);
 	} else { // Not Found ?
 		
 	}
