@@ -2,9 +2,6 @@
 include_once('./basefiles/connectCheck.php');
 include_once('./basefiles/header.php');
 
-$_GET['act'] = (isset($_GET['act']))?$_GET['act']:'';
-$act = htmlspecialchars(htmlentities($_GET['act']));
-
 $_GET['u'] = (isset($_GET['u']))?$_GET['u']:'';
 $user = htmlspecialchars(htmlentities($_GET['u']));
 
@@ -63,6 +60,8 @@ if($user == $userData['user_name']) { // Current user
 	$searchedUser = $mongoDB->getCondContent('galactae','users',
 		['user_name' => $user]
 	);
+
+	var_dump($searchedUser);
 
 	if(isset($searchedUser[0])) { // Found ?
 		drawProfile($searchedUser[0],false);
