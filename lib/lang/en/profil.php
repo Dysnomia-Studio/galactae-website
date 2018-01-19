@@ -2,7 +2,7 @@
 define('PROFIL_EDIT','Edit profil');
 
 define('PROFIL_INFO','Informations');
-define('PROFIL_RANKS','Ranks');
+define('PROFIL_RANK','Ranks');
 
 define('PROFIL_BORN','born on');
 define('PROFIL_YEAR','years old');

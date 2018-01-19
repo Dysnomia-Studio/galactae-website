@@ -62,6 +62,7 @@ if($user == "" || $user == $userData['user_name']) { // Current user
 	);
 
 	if(isset($searchedUser[0])) { // Found ?
+		$searchedUser = (array) $searchedUser[0];
 		drawProfile($searchedUser[0],false);
 	} else { // Not Found ?
 		
