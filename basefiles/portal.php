@@ -6,7 +6,7 @@ $gameData = $mongoDB->getCondContent('galactae','game_ids',
 	['user_id' => (string) $userData['_id']]
 );
 ?>
-<body class="portal-body login-page"">
+<body class="login-page">
 	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
 	<ul id="menu">
 		<li class="menu-logo">

@@ -4,7 +4,9 @@ include_once('./basefiles/header.php');
 
 $_GET['u'] = (isset($_GET['u']))?$_GET['u']:'';
 $user = htmlspecialchars(htmlentities($_GET['u']));
-
+?>
+<body class="login-page"">
+<?php
 // Draw profile
 function drawProfile($user,$isCurrentUser) {
 	echo '	<div id="profil-main">';
@@ -69,3 +71,4 @@ if($user == "" || strtolower($user) == strtolower($userData['user_name'])) { // 
 	}
 }
 ?>
+</body>
