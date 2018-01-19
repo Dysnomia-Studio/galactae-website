@@ -7,6 +7,7 @@ define('MENU_CONTACT',"Contact");
 define('MENU_BUGTRACKER',"Bug Tracker");
 
 define('SUPPORT','Support');
+define('PORTAL','Portail');
 define('FORUM','Forum');
 define('PROFIL','Profil');
 define('DISCONNECT','Déconnexion');
