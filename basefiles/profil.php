@@ -58,7 +58,7 @@ if($user == $userData['user_name']) { // Current user
 } else { // Other user
 	// Search
 	$searchedUser = $mongoDB->getCondContent('galactae','users',
-		['user_name' => $user]
+		['user_name' =>  new \MongoDB\BSON\Regex(preg_quote($user), 'i')]
 	);
 
 	var_dump($searchedUser);
