@@ -20,14 +20,14 @@ function drawProfile($user,$isCurrentUser) {
 	// Basic infos
 	// Username, mail, age
  	echo '
- 		<span id="profil-username">'.$userData['user_name'].'</span><br/>';
+ 		<span id="profil-username">'.$user['user_name'].'</span><br/>';
  	if($isCurrentUser) {
  		echo '
-		<span id="profil-mail">'.$userData['user_mail'].'</span><br/>';
+		<span id="profil-mail">'.$user['user_mail'].'</span><br/>';
 	}
-	if(isset($userData['birth'])) {
+	if(isset($user['birth'])) {
  		echo '
-		<span id="profil-birth">'.PROFIL_BORN.' '.date("d-m-Y", $userData['birth']).' ('.floor((time() - $userData['birth'])/3600/24/365).' '.PROFIL_YEAR.')</span><br/>';
+		<span id="profil-birth">'.PROFIL_BORN.' '.date("d-m-Y", $user['birth']).' ('.floor((time() - $user['birth'])/3600/24/365).' '.PROFIL_YEAR.')</span><br/>';
 	}
 
 	// Ranks
@@ -60,8 +60,6 @@ if($user == "" || $user == $userData['user_name']) { // Current user
 	$searchedUser = $mongoDB->getCondContent('galactae','users',
 		['user_name' =>  new \MongoDB\BSON\Regex(preg_quote($user), 'i')]
 	);
-
-	var_dump($searchedUser);
 
 	if(isset($searchedUser[0])) { // Found ?
 		drawProfile($searchedUser[0],false);
