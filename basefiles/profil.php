@@ -62,7 +62,7 @@ if($user == "" || strtolower($user) == strtolower($userData['user_name'])) { // 
 } else { // Other user
 	// Search
 	$searchedUser = $mongoDB->getCondContent('galactae','users',
-		['user_name' =>  new \MongoDB\BSON\Regex(preg_quote($user), 'i')]
+		['user_name' =>  new \MongoDB\BSON\Regex($user, 'i')]
 	);
 
 	if(isset($searchedUser[0])) { // Found ?

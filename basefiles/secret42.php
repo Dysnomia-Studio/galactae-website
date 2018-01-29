@@ -367,9 +367,9 @@ $serverList = [
 		</div>
 		<div id="server-panel">
 			<p style="text-align: center;">Status<br/>
-				<img id="server-start"	 alt="start"	 src="https://***REMOVED***/website/img/icons/start.png">
-				<img id="server-stop"		alt="stop"		src="https://***REMOVED***/website/img/icons/stop.png">
-				<img id="server-restart" alt="restart" src="https://***REMOVED***/website/img/icons/restart.png">
+				<img id="server-start"	 alt="start"	src="https://***REMOVED***/website/img/icons/start.png">
+				<img id="server-stop"	 alt="stop"		src="https://***REMOVED***/website/img/icons/stop.png">
+				<img id="server-restart" alt="restart"	src="https://***REMOVED***/website/img/icons/restart.png">
 			</p>
 			<p style="text-align: center;">Maintenance<br/><br/>
 				<label class="switch">
@@ -383,7 +383,13 @@ $serverList = [
 		<iframe id="tab-stats-iframe" src="stats42"></iframe>
 	</div>
 	<div id="tab-privileges" class="tab">
+		<input id="player-search">
+		<ul id="player-list">
 
+		</ul>
+		<table id="player-privileges">
+
+		</table>
 	</div>
 	<div id="tab-bans" class="tab">
 
