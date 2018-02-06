@@ -78,12 +78,12 @@ $config['name-maxsize'] = 20;
 
 $config['pass-minsize'] = 8;
 
-$reCaptcha = new ReCaptcha('***REMOVED***');
+/*$reCaptcha = new ReCaptcha('***REMOVED***');
 
 $resp = $reCaptcha->verifyResponse(
 	$_SERVER['REMOTE_ADDR'],
 	$_POST['g-recaptcha-response']
-	);
+);*/
 
 if(!isset($_POST['newsletter_miscellaneous']) || $_POST['newsletter_miscellaneous']!='checked') {
 	$user_news_misc = 0;
@@ -140,11 +140,15 @@ if (/*$resp == null ||
 	'user_name' => new \MongoDB\BSON\Regex('^'.preg_quote($user_name).'$', 'i')
 	]);
 
+	var_dump($data);
+
 	if(count($data) == 0) { //Test with mail
 		$data = $mongoDB->getCondContent('galactae','users',[
 		'user_name' => new \MongoDB\BSON\Regex('^'.preg_quote($user_mail).'$', 'i')
 		]);
 	} 
+
+	var_dump($data);
 
 	if(count($data) == 0) {
 		$message = ERR_ACCOUNT_EXISTS.' '.CLICK_BACK;
