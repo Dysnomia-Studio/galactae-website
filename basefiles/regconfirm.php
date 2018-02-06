@@ -140,15 +140,11 @@ if (/*$resp == null ||
 	'user_name' => new \MongoDB\BSON\Regex('^'.preg_quote($user_name).'$', 'i')
 	]);
 
-	var_dump($data);
-
-	if(count($data) > 0) { //Test with mail
+	if(count($data) == 0) { //Test with mail
 		$data = $mongoDB->getCondContent('galactae','users',[
 		'user_mail' => new \MongoDB\BSON\Regex('^'.preg_quote($user_mail).'$', 'i')
 		]);
 	} 
-
-	var_dump($data);
 
 	if(count($data) > 0) {
 		$message = ERR_ACCOUNT_EXISTS.' '.CLICK_BACK;
