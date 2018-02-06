@@ -151,11 +151,10 @@ if (/*$resp == null ||
 	}
 }
 
-
 // Draw message
 if($message=='') {
 	// Add user
-	$mongoDB->addContent('user_list',[
+	$mongoDB->addContent('galactae','users',[
 		'user_name' => $user_name,
 		'user_mail' => $user_mail,
 		'user_passwd' => $user_encpasswd,
