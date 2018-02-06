@@ -166,6 +166,8 @@ if($message=='') {
 		'user_name' => $user_name
 	]);
 
+	var_dump($data);
+
     if(count($data) > 0 && isset($data[0]) && isset($data[0]['_id'])) {
 		$data = (array) $data[0];
 	}
