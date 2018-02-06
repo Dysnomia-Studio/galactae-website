@@ -173,8 +173,8 @@ if($message=='') {
 	$conf_link = encrypt(time().$user_name);
 
 	$mongoDB->addContent('galactae','mailconfirmations',[
-		'_id' => $data->_id,
-		'user_name' => $data->user_name,
+		'_id' => $data['_id'],
+		'user_name' => $data['user_name'],
 		'mailconfirm_uid' => $conf_link
 	]);
 
