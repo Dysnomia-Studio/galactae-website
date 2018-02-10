@@ -1,7 +1,7 @@
 <?php
 
 // Top image
-define('ALPHA_TEST','Rejoignez notre alpha gratuitement !');
+define('BETA_TEST','Pre-inscrivez vous pour la bêta gratuitement dès maintenant !');
 
 // Index Bas
 define('INDEX_TITLE_1','Choisissez comment gouverner');

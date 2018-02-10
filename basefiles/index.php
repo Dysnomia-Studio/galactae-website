@@ -6,7 +6,7 @@ include_once('./basefiles/menu.php');
 		<div id="above-top-image">
 			<p id="top-images-punchlines"></p>
 			<div id="join">
-				<a href="login.html#register"><?php echo ALPHA_TEST; ?></a>
+				<a href="login.html#register"><?php echo BETA_TEST; ?></a>
 			</div>
 		</div>
 	</section>
