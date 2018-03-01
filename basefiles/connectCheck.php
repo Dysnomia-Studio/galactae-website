@@ -45,7 +45,7 @@ if(!isset($userData['_id'])) {
 	exit();
 }
 
-if(!isset($_SESSION['user_session_lang'])) {
+if(!isset($_SESSION['lang'])) {
 	$_SESSION['lang'] = $sess_data['user_session_lang'];
 }
 ?>
