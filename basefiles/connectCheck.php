@@ -20,7 +20,7 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 	}
 
 	if($lang->getLanguage() != $sess_data['user_session_lang']
-			&& !(isset($_POST['selected-language']) && !empty($_POST['selected-language'])) {
+			&& !(isset($_POST['selected-language']) && !empty($_POST['selected-language']))) {
 
 		$lang->setLanguage($sess_data['user_session_lang']);
 	}
