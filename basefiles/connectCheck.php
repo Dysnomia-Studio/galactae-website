@@ -19,6 +19,12 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 		exit();
 	}
 
+	if($lang->getLanguage() != $sess_data['user_session_lang']
+			&& !(isset($_POST['selected-language']) && !empty($_POST['selected-language'])) {
+
+		$lang->setLanguage($sess_data['user_session_lang']);
+	}
+
 	$mongoDB->updateContent('galactae','sessions',
 		['user_session_uid' => $_COOKIE['galactae-phpsessid']],
 		[ '$set' => [
@@ -45,7 +51,5 @@ if(!isset($userData['_id'])) {
 	exit();
 }
 
-if(!isset($_SESSION['lang'])) {
-	$_SESSION['lang'] = $sess_data['user_session_lang'];
-}
+
 ?>
