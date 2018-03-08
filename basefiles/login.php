@@ -13,7 +13,10 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 	}
 
 	if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
-		if(isset($sess_data['user_agent']) && $sess_data['user_agent'] == $_SERVER['HTTP_USER_AGENT']) {
+		require('Browser.php');
+		$browser = new Browser();
+
+		if(isset($sess_data['user_agent']) && $sess_data['user_agent'] == $browser->getPlatform().'-'.$browser->getBrowser()) {
 				$mongoDB->updateContent('galactae','sessions',
 					['user_session_uid' => $_COOKIE['galactae-phpsessid']],
 					[ '$set' => ['user_session_expiration' => time()+2678400]]

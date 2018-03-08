@@ -14,18 +14,14 @@ if(count($sess_data) > 0 && isset($sess_data[0])) {
 }
 
 if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
-	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $_SERVER['HTTP_USER_AGENT']) {
-		header('Location: index');
-		exit();
-	}
 
 	require('Browser.php');
 	$browser = new Browser();
 
-	echo "Browser: ".$browser->getBrowser();
-	echo "Platform: ".$browser->getPlatform();
-
-
+	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $browser->getPlatform().'-'.$browser->getBrowser()) {
+		header('Location: index');
+		exit();
+	}
 
 	if($lang->getLanguage() != $sess_data['user_session_lang']
 			&& !(isset($_POST['selected-language']) && !empty($_POST['selected-language']))) {

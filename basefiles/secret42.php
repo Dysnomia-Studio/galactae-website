@@ -15,7 +15,10 @@ if(count($sess_data) > 0 && isset($sess_data[0])) {
 }
 
 if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) && ((int) $sess_data['user_session_expiration'] > time())) {
-	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $_SERVER['HTTP_USER_AGENT']) {
+	require('Browser.php');
+	$browser = new Browser();
+
+	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $browser->getPlatform().'-'.$browser->getBrowser()) {
 		http_response_code(404);
 		include_once('errors/404.html');
 		die();

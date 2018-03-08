@@ -33,12 +33,15 @@ if(empty($_POST['username']) || empty($_POST['password']) ) {
 				'user_session_uid' => $_COOKIE['galactae-phpsessid']
 			]);
 
+	        require('Browser.php');
+			$browser = new Browser();
+
 	        $mongoDB->addContent('galactae','sessions',[
 				'user_id' => $data['_id'],
 				'user_session_uid' => $_COOKIE['galactae-phpsessid'],
 				'user_session_expiration' => (time()+$expTime),
 				'user_session_lang' => $lang->getLanguage(),
-				'user_agent' => $_SERVER['HTTP_USER_AGENT']
+				'user_agent' => $browser->getPlatform().'-'.$browser->getBrowser()
 			]);
 	          
 	        $message = CONNECTED.' '.CLICK_GAME; 
