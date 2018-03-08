@@ -22,8 +22,8 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 	require('Browser.php');
 	$browser = new Browser();
 
-	echo "Browser: "..$browser->getBrowser();
-	echo "Platform: "..$browser->getPlatform();
+	echo "Browser: ".$browser->getBrowser();
+	echo "Platform: ".$browser->getPlatform();
 
 
 
