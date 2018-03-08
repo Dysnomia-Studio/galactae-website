@@ -19,8 +19,13 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 		exit();
 	}
 
-	$browser = get_browser(null, true);
-	print_r($browser);
+	require('Browser.php');
+	$browser = new Browser();
+
+	echo "Browser: "..$browser->getBrowser();
+	echo "Platform: "..$browser->getPlatform();
+
+
 
 	if($lang->getLanguage() != $sess_data['user_session_lang']
 			&& !(isset($_POST['selected-language']) && !empty($_POST['selected-language']))) {
