@@ -69,7 +69,7 @@ if($user == "" || strtolower($user) == strtolower($userData['user_name'])) { // 
 		$searchedUser = (array) $searchedUser[0];
 		drawProfile($searchedUser,false);
 	} else { // Not Found ?
-		
+		echo "User not found";
 	}
 }
 ?>
