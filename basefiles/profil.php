@@ -90,7 +90,7 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_SECTOR.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th><th>'.PROFIL_PLANETS.'</th></tr>';
 
 	for($i=0; $i<count($sectorRanks); $i++) {
-		if(!isset($sectorRanks[$i]["rank"])) { $sectorRanks[$i]["rank"] = -1; } // temp
+		if(!isset($sectorRanks[$i]["rank"])) { $sectorRanks[$i]["rank"] = "?"; } // temp
 		echo '<tr><td>'.$sectorRanks[$i]["server_name"].'</td>
 			<td>'.$sectorRanks[$i]["sector"].'</td>
 			<td>'.$sectorRanks[$i]["rank"].'</td>
