@@ -76,6 +76,7 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 	for($i=0; $i<count($globalRanks); $i++) {
 		if(!isset($globalRanks[$i]["rank"])) { $globalRanks[$i]["rank"] = -1; } // temp
 		echo '<tr><td>'.$globalRanks[$i]["server_name"].'</td>
+			<td>'.$globalRanks[$i]["sector"].'</td>
 			<td>'.$globalRanks[$i]["rank"].'</td>
 			<td>'.$globalRanks[$i]["points"].'</td>
 			<td>'.$globalRanks[$i]["planets"].'</td>
