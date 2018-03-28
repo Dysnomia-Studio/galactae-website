@@ -60,7 +60,7 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 			]
 		);
 
-		for(var $i=0; $i<count($currSectorRanks); $i++) {
+		for($i=0; $i<count($currSectorRanks); $i++) {
 			array_push($sectorRanks, json_decode(json_encode($currSectorRanks[$i]), true));
 		}
 	}
