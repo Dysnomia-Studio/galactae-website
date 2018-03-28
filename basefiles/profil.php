@@ -38,6 +38,7 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 		['user_id' => $user['_id']]
 	);
 
+	var_dump($user);
 	var_dump($game_ids);
 
 	$globalRanks = array();
