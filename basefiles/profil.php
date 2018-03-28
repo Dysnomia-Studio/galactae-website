@@ -10,7 +10,7 @@ $user = htmlspecialchars(htmlentities($_GET['u']));
 include_once('./basefiles/menuConnected.php');
 
 // Draw profile
-function drawProfile($user,$isCurrentUser) {
+function drawProfile($user,$mongoDB,$isCurrentUser) {
 	echo '	<div id="profil-main">';
 	
 	// Edit button
@@ -79,7 +79,7 @@ function drawProfile($user,$isCurrentUser) {
 }
 
 if($user == "" || strtolower($user) == strtolower($userData['user_name'])) { // Current user
-	drawProfile($userData,true);
+	drawProfile($userData,$mongoDB,true);
 } else { // Other user
 	// Search
 	$searchedUser = $mongoDB->getCondContent('galactae','users',
@@ -88,7 +88,7 @@ if($user == "" || strtolower($user) == strtolower($userData['user_name'])) { // 
 
 	if(isset($searchedUser[0])) { // Found ?
 		$searchedUser = (array) $searchedUser[0];
-		drawProfile($searchedUser,false);
+		drawProfile($searchedUser,$mongoDB,false);
 	} else { // Not Found ?
 		echo "User not found";
 	}
