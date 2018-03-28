@@ -38,6 +38,8 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 		['user_id' => $user['_id']]
 	);
 
+	var_dump($game_ids);
+
 	$globalRanks = array();
 	foreach($game_ids as $userGameData) {
 		$currGlobalRank = $mongoDB->getCondContent('galactae','globalRanks',
