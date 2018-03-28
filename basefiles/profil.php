@@ -42,15 +42,16 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 	foreach($game_ids as $userGameData) {
 		$userGameData = json_decode(json_encode($userGameData), true);
 
-		echo $user['_id']."<br />";
-		echo $userGameData['server_name']."<br />";
-
 		$currGlobalRank = $mongoDB->getCondContent('galactae','globalranks',
-			['user_id' => $user['_id'],
-			 'server_name' => $userGameData['server_name']
+			['user_id' => $user['_id']
 			]
 		);
+		var_dump($currGlobalRank);
 
+		$currGlobalRank = $mongoDB->getCondContent('galactae','globalranks',
+			['server_name' => $userGameData['server_name']
+			]
+		);
 		var_dump($currGlobalRank);
 
 		array_push($globalRanks, $currGlobalRank);
