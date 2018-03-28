@@ -47,9 +47,9 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 			]
 		);
 
-		var_dump($currGlobalRank->toArray());
+		var_dump($currGlobalRank);
 
-		array_push($globalRanks, $currGlobalRank->toArray());
+		array_push($globalRanks, $currGlobalRank);
 	}
 
 	// Ranks
