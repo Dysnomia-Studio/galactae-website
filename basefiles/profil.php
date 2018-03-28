@@ -45,8 +45,8 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 		echo $user['_id']."<br/>";
 
 		$currGlobalRank = $mongoDB->getCondContent('galactae','globalranks',
-			['user_id' => $user['_id']
-			 //'server_name' => $userGameData['server_name']
+			['user_id' => $user['game_id']
+			 'server_name' => $userGameData['server_name']
 			]
 		);
 		var_dump($currGlobalRank);
