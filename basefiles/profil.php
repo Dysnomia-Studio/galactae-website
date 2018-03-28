@@ -92,7 +92,7 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 	for($i=0; $i<count($sectorRanks); $i++) {
 		if(!isset($sectorRanks[$i]["rank"])) { $sectorRanks[$i]["rank"] = -1; } // temp
 		echo '<tr><td>'.$sectorRanks[$i]["server_name"].'</td>
-			<td>'.$globalRanks[$i]["sector"].'</td>
+			<td>'.$sectorRanks[$i]["sector"].'</td>
 			<td>'.$sectorRanks[$i]["rank"].'</td>
 			<td>'.$sectorRanks[$i]["points"].'</td>
 			<td>'.$sectorRanks[$i]["planets"].'</td>
