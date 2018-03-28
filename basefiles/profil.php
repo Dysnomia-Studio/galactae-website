@@ -34,21 +34,42 @@ function drawProfile($user,$isCurrentUser) {
 		<span id="profil-birth">'.PROFIL_BORN.' '.date("d-m-Y", $user['birth']).' ('.floor((time() - $user['birth'])/3600/24/365).' '.PROFIL_YEAR.')</span><br/>';
 	}
 
+	$game_ids = $mongoDB->getCondContent('galactae','game_ids',
+		['user_id' => $userData['_id']]
+	);
+
+	$globalRanks = array();
+	for($game_ids as $key => $userGameData) {
+		$currGlobalRank = $mongoDB->getCondContent('galactae','globalRanks',
+			['user_id' => $userData['_id'],
+			 'server_name' => $userGameData['server_name']
+			]
+		);
+
+		array_push($globalRanks, $currGlobalRank);
+	}
+
 	// Ranks
 	echo '
 		<br/><br/>
 		<h3>'.PROFIL_RANK.'</h3>
 		<h4>'.PROFIL_GALAXY.'</h4>
 		<table>
-			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th></tr>';
+			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th>><th>'.PROFIL_PLANETS.'</th></tr>';
 
-	// @ADD: list global ranks
+	for($i=0; $i<length($globalRanks); $i++) {
+		echo '<tr><td>'.$globalRanks[$i]["server_name"].'</td>
+			<td>'.$globalRanks[$i]["rank"].'</td>
+			<td>'.$globalRanks[$i]["points"].'</td>
+			<td>'.$globalRanks[$i]["planets"].'</td>
+		';
+	}
 
 	echo '
 		</table>
 		<h4>Secteur</h4>
 		<table>
-			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_SECTOR.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th></tr>';
+			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_SECTOR.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th><th>'.PROFIL_PLANETS.'</th></tr>';
 
 	// @ADD: list sector ranks
 
