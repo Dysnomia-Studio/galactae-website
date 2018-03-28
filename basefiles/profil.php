@@ -62,6 +62,7 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 			<td>'.$globalRanks[$i]["rank"].'</td>
 			<td>'.$globalRanks[$i]["points"].'</td>
 			<td>'.$globalRanks[$i]["planets"].'</td>
+			</tr>
 		';
 	}
 
