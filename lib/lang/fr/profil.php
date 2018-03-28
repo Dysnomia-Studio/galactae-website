@@ -10,5 +10,6 @@ define('PROFIL_YEAR','ans');
 define('PROFIL_GALAXY','Galaxie');
 define('PROFIL_SECTOR','Secteur');
 define('PROFIL_POINTS','Points');
+define('PROFIL_PLANET','Planète');
 define('PROFIL_POINTS_ABV','pts');
 ?>

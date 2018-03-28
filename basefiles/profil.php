@@ -35,13 +35,13 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 	}
 
 	$game_ids = $mongoDB->getCondContent('galactae','game_ids',
-		['user_id' => $userData['_id']]
+		['user_id' => $user['_id']]
 	);
 
 	$globalRanks = array();
 	foreach($game_ids as $userGameData) {
 		$currGlobalRank = $mongoDB->getCondContent('galactae','globalRanks',
-			['user_id' => $userData['_id'],
+			['user_id' => $user['_id'],
 			 'server_name' => $userGameData['server_name']
 			]
 		);
