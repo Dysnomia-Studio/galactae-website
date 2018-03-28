@@ -50,6 +50,20 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 
 		array_push($globalRanks, json_decode(json_encode($currGlobalRank[0]), true));
 	}
+	$sectorRanks = array();
+	foreach($game_ids as $userGameData) {
+		$userGameData = json_decode(json_encode($userGameData), true);
+
+		$currSectorRanks = $mongoDB->getCondContent('galactae','sectorranks',
+			['user_id' => $userGameData['game_id'],
+			 'server_name' => $userGameData['server_name']
+			]
+		);
+
+		for(var $i=0; $i<count($currSectorRanks); $i++) {
+			array_push($sectorRanks, json_decode(json_encode($currSectorRanks[$i]), true));
+		}
+	}
 
 	// Ranks
 	echo '
@@ -75,7 +89,15 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 		<table>
 			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_SECTOR.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th><th>'.PROFIL_PLANETS.'</th></tr>';
 
-	// @ADD: list sector ranks
+	for($i=0; $i<count($sectorRanks); $i++) {
+		if(!isset($sectorRanks[$i]["rank"])) { $sectorRanks[$i]["rank"] = -1; } // temp
+		echo '<tr><td>'.$sectorRanks[$i]["server_name"].'</td>
+			<td>'.$sectorRanks[$i]["rank"].'</td>
+			<td>'.$sectorRanks[$i]["points"].'</td>
+			<td>'.$sectorRanks[$i]["planets"].'</td>
+			</tr>
+		';
+	}
 
 	echo '
 		</table>
