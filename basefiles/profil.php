@@ -55,7 +55,9 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 		<h3>'.PROFIL_RANK.'</h3>
 		<h4>'.PROFIL_GALAXY.'</h4>
 		<table>
-			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th>><th>'.PROFIL_PLANETS.'</th></tr>';
+			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th><th>'.PROFIL_PLANETS.'</th></tr>';
+
+	var_dump($globalRanks);
 
 	for($i=0; $i<count($globalRanks); $i++) {
 		echo '<tr><td>'.$globalRanks[$i]["server_name"].'</td>
