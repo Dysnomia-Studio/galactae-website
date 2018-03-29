@@ -9,6 +9,19 @@ $user = htmlspecialchars(htmlentities($_GET['u']));
 <?php
 include_once('./basefiles/menuConnected.php');
 
+function translateServerName($serverId) {
+	$servers = [
+		DEV,
+		MILKYWAY,
+		ANDROMEDA,
+		PEGASUS,
+		MAGELLAN
+	];
+
+	return $servers[(int) explode($serverId,"-")[1]];
+} 
+
+
 // Draw profile
 function drawProfile($user,$mongoDB,$isCurrentUser) {
 	echo '	<div id="profil-main">';
@@ -74,8 +87,8 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th><th>'.PROFIL_PLANETS.'</th></tr>';
 
 	for($i=0; $i<count($globalRanks); $i++) {
-		if(!isset($globalRanks[$i]["rank"])) { $globalRanks[$i]["rank"] = -1; } // temp
-		echo '<tr><td>'.$globalRanks[$i]["server_name"].'</td>	
+		if(!isset($globalRanks[$i]["rank"])) { $globalRanks[$i]["rank"] = "?"; } // temp
+		echo '<tr><td>'.translateServerName($globalRanks[$i]["server_name"]).'</td>	
 			<td>'.$globalRanks[$i]["rank"].'</td>
 			<td>'.$globalRanks[$i]["points"].'</td>
 			<td>'.$globalRanks[$i]["planets"].'</td>
@@ -91,7 +104,7 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 
 	for($i=0; $i<count($sectorRanks); $i++) {
 		if(!isset($sectorRanks[$i]["rank"])) { $sectorRanks[$i]["rank"] = "?"; } // temp
-		echo '<tr><td>'.$sectorRanks[$i]["server_name"].'</td>
+		echo '<tr><td>'.translateServerName($sectorRanks[$i]["server_name"]).'</td>
 			<td>'.$sectorRanks[$i]["sector"].'</td>
 			<td>'.$sectorRanks[$i]["rank"].'</td>
 			<td>'.$sectorRanks[$i]["points"].'</td>
