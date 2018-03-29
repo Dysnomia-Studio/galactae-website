@@ -18,7 +18,7 @@ function translateServerName($serverId) {
 		MAGELLAN
 	];
 
-	return $servers[(int) explode($serverId,"-")[1]];
+	return $servers[(int) explode("-",$serverId)[1]];
 } 
 
 
