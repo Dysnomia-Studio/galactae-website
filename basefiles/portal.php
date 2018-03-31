@@ -21,7 +21,7 @@ include_once('./basefiles/menuConnected.php');
 	];
 
 	$devPrivileges = $mongoDB->getCondContent('galactae','privileges',[
-		'_id' => $userData['_id'],
+		'user_id' => $userData['_id'],
 		'server_name' => 'galactae-00'
 	]);
 
@@ -60,7 +60,7 @@ include_once('./basefiles/menuConnected.php');
 				}
 
 				$userPrivileges = $mongoDB->getCondContent('galactae','privileges',[
-					'_id' => $userData['_id'],
+					'user_id' => $userData['_id'],
 					'server_name' => $servers[$i]['server_name']
 				]);
 
