@@ -369,6 +369,12 @@ for ($i=0; $i < count($serversDbData); $i++) {
 				socketList[currServer].emit('admin-request-cmd', { cmd: 'maintenanceOff' });
 			}
 		});
+
+		if(serverList[id].server_maintenance == 1) {
+			$('#server-maintenance').prop('checked', true);
+		} else {
+			$('#server-maintenance').prop('checked', false);
+		}
 	});
 </script>
 <section>
