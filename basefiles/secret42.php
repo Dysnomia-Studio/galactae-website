@@ -268,6 +268,12 @@ for ($i=0; $i < count($serversDbData); $i++) {
 			$('#server-infos-logs').append('<li>' + serverLogs[id][i] + '</li>');
 		}
 		$('#server-infos-logs').scrollTop($('#server-infos-logs').height());
+
+		if(serverList[id].server_maintenance == 1) {
+			$('#server-maintenance').prop('checked', true);
+		} else {
+			$('#server-maintenance').prop('checked', false);
+		}
 	}
 
 	function drawServerStatus(id,status) {
