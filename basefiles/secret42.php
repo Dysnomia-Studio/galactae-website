@@ -66,11 +66,23 @@ $admin_user = '***REMOVED***';
 $admin_passwd = '***REMOVED***';
 
 $serverList = [
-	['addr'=>'00-srv.galactae.eu', 'port'=>42690, 'name'=>DEV, 'link'=>'https://00-dev.galactae.eu']/*,
+	['addr'=>'00-srv.galactae.eu', 'port'=>42690, 'name'=>DEV, 'link'=>'https://00-dev.galactae.eu'],
 	['addr'=>'01-srv.galactae.eu', 'port'=>42691, 'name'=>MILKYWAY, 'link'=>'https://01-milkyway.galactae.eu'],
 	['addr'=>'02-srv.galactae.eu', 'port'=>42692, 'name'=>ANDROMEDA, 'link'=>'https://02-andromeda.galactae.eu'],
-	['addr'=>'03-srv.galactae.eu', 'port'=>42693, 'name'=>PEGASUS, 'link'=>'https://03-pegasus.galactae.eu'],*/
+	['addr'=>'03-srv.galactae.eu', 'port'=>42693, 'name'=>PEGASUS, 'link'=>'https://03-pegasus.galactae.eu']
 ];
+
+/**
+ * Get Server data
+ */
+$serversDbData = $mongoDB->getCondContent('galactae','servers', []);
+for ($i=0; $i < count($serversDbData); $i++) { 
+	$server = json_decode(json_encode($serversDbData[$i]), true);
+
+	foreach ($server as $key => $value) {
+		$serverList[$i][$key] = [$value];
+	}
+}
 ?>
 <script type="text/javascript" src="https://***REMOVED***/website/js/jquery.min.js"></script>
 <script type="text/javascript" src="https://***REMOVED***/game/js/socket.min.js"></script>
@@ -261,15 +273,17 @@ $serverList = [
 	function drawServerStatus(id,status) {
 		$('#' + id + '-status').removeClass();
 
+		if(serverList[id].server_maintenance == 1) {
+			$('#' + id + '-status').addClass('server_maintenance');
+			return;
+		}
+
 		switch(status) {
 			case 'on':
 				$('#' + id + '-status').addClass('server_on');
 				break;
 			case 'off':
 				$('#' + id + '-status').addClass('server_off');
-				break;
-			case 'maintenance':
-				$('#' + id + '-status').addClass('server_maintenance');
 				break;
 			default:
 				$('#' + id + '-status').addClass('server_unknown');
@@ -294,8 +308,13 @@ $serverList = [
 				socketList[id].emit('server-monitore-connect', userData);
 			});
 			socketList[id].on('server-maintenance', function() {
-				drawServerStatus(id,'maintenance');
-			});	
+				serverList[id].server_maintenance = 1,
+				drawServerStatus(id);
+			});
+			socketList[id].on('server-maintenance-off', function() {
+				serverList[id].server_maintenance = 0,
+				drawServerStatus(id,'on'); // Fallback
+			});
 
 			socketList[id].on('server-log', function(msg) {
 				if(id==currServer) {
