@@ -80,7 +80,7 @@ for ($i=0; $i < count($serversDbData); $i++) {
 	$server = json_decode(json_encode($serversDbData[$i]), true);
 
 	foreach ($server as $key => $value) {
-		$serverList[$i][$key] = [$value];
+		$serverList[$i][$key] = $value;
 	}
 }
 ?>
@@ -269,17 +269,13 @@ for ($i=0; $i < count($serversDbData); $i++) {
 		}
 		$('#server-infos-logs').scrollTop($('#server-infos-logs').height());
 
-		if(serverList[id].server_maintenance == 1) {
-			$('#server-maintenance').prop('checked', true);
-		} else {
-			$('#server-maintenance').prop('checked', false);
-		}
+		$('#server-maintenance').prop('checked', serverList[id].server_maintenance);
 	}
 
 	function drawServerStatus(id,status) {
 		$('#' + id + '-status').removeClass();
 
-		if(serverList[id].server_maintenance == 1) {
+		if(serverList[id].server_maintenance) {
 			$('#' + id + '-status').addClass('server_maintenance');
 			return;
 		}
@@ -314,11 +310,11 @@ for ($i=0; $i < count($serversDbData); $i++) {
 				socketList[id].emit('server-monitore-connect', userData);
 			});
 			socketList[id].on('server-maintenance', function() {
-				serverList[id].server_maintenance = 1,
+				serverList[id].server_maintenance = true,
 				drawServerStatus(id);
 			});
 			socketList[id].on('server-maintenance-off', function() {
-				serverList[id].server_maintenance = 0,
+				serverList[id].server_maintenance = false,
 				drawServerStatus(id,'on'); // Fallback
 			});
 
@@ -370,11 +366,7 @@ for ($i=0; $i < count($serversDbData); $i++) {
 			}
 		});
 
-		if(serverList[id].server_maintenance == 1) {
-			$('#server-maintenance').prop('checked', true);
-		} else {
-			$('#server-maintenance').prop('checked', false);
-		}
+		$('#server-maintenance').prop('checked', serverList[currServer].server_maintenance);
 	});
 </script>
 <section>
