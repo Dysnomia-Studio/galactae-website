@@ -1,3 +1,10 @@
+<?php
+if($currentpage == "menu") {
+	http_response_code(404);
+	include_once('errors/404.html');
+	die();
+}
+?>
 	<img id="logo" alt="logo" style="display: none;" src="https://***REMOVED***/website/img/bannersAndLogos/galactae-logo-512.jpg">
 
 	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">

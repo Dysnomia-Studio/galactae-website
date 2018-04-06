@@ -1,10 +1,25 @@
 <?php
+/**
+ * Do not call it directly
+ */
+if($currentpage == "connectCheck") {
+	http_response_code(404);
+	include_once('errors/404.html');
+	die();
+}
+
+/**
+ * Have session cookie ?
+ */
 if(!(isset($_COOKIE['galactae-phpsessid']) &&
 	$_COOKIE['galactae-phpsessid'] != '')) { // Not Connected
 
 	header('Location: index');
 }
 
+/**
+ * Is Connected ?
+ */
 $sess_data = $mongoDB->getCondContent('galactae','sessions',
 	['user_session_uid' => $_COOKIE['galactae-phpsessid']]
 );
@@ -18,11 +33,18 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 	require('Browser.php');
 	$browser = new Browser();
 
+	/**
+	 * Check user Agent
+	 */
 	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $browser->getPlatform().'-'.$browser->getBrowser()) {
-		header('Location: index');
-		exit();
+		http_response_code(404);
+		include_once('errors/404.html');
+		die();
 	}
 
+	/**
+	 * Get Language
+	 */
 	if($lang->getLanguage() != $sess_data['user_session_lang']
 			&& !(isset($_POST['selected-language']) && !empty($_POST['selected-language']))) {
 
@@ -36,12 +58,14 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 				'user_session_lang' => $lang->getLanguage()
 			]
 		]		
-	);
-} else {
+	); {
 	header('Location: index');
 	exit();
 }
 
+/**
+ * Get user Data
+ */
 $userData = $mongoDB->getCondContent('galactae','users',
 	['_id' => $sess_data['user_id']]
 );
@@ -54,6 +78,4 @@ if(!isset($userData['_id'])) {
 	header('Location: index');
 	exit();
 }
-
-
 ?>

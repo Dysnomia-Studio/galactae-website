@@ -1,3 +1,11 @@
+<?php
+if($currentpage == "header") {
+	http_response_code(404);
+	include_once('errors/404.html');
+	die();
+}
+?>
+
 <!-- JAVASCRIPT INCLUDE -->
 <?php if($currentpage!='login' && $currentpage!='portal') { ?>
 <script type="text/javascript" src="https://***REMOVED***/website/js/iconselect/control/iconselect.js"></script>

@@ -1,3 +1,11 @@
+<?php
+if($currentpage == "adminCheck") {
+	http_response_code(404);
+	include_once('errors/404.html');
+	die();
+}
+?>
+
 	<footer>
 		<table>
 			<tr class="first-footer">

@@ -1,3 +1,10 @@
+<?php
+if($currentpage == "menuConnected") {
+	http_response_code(404);
+	include_once('errors/404.html');
+	die();
+}
+?>
 	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
 	<ul id="menu">
 		<li class="menu-logo">
