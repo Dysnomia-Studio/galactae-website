@@ -364,7 +364,7 @@ for ($i=0; $i < count($serversDbData); $i++) {
 		<iframe id="player-search-frame" src="adminsearchuser" style="display: none;"></iframe>
 	</div>
 	<script type="text/javascript">
-			$('#player-search').keypress(function() {
+			$('#player-search').keyup(function() {
 				var url = "adminsearchuser?u=" + $('#player-search').val();
 
 				if($('#player-search-frame').attr("src") != url) {
@@ -383,7 +383,7 @@ for ($i=0; $i < count($serversDbData); $i++) {
 					content += "<li>" + users[i].text() + "</li>";
 				}
 
-				if(date < lastDate) { // Prevent writing on most recent content
+				if(date <= lastDate) { // Prevent writing on most recent content
 					$('#player-list').html(content);
 				}				
 			});
