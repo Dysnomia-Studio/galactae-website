@@ -358,10 +358,10 @@ for ($i=0; $i < count($serversDbData); $i++) {
 		<table id="player-privileges">
 
 		</table>
-		<iframe id="player-search-frame" src="#"></iframe>
+		<iframe id="player-search-frame" src="adminsearchuser" style="display: none;"></iframe>
 	</div>
 	<script type="text/javascript">
-			$('#player-search').keydown(function() {
+			$('#player-search').keypress(function() {
 				var url = "adminsearchuser?u=" + $('#player-search').val();
 
 				if($('#player-search-frame').attr("src") != url) {
