@@ -1,5 +1,5 @@
 <?php
-if($currentpage == "adminCheck") {
+if($currentpage == "footer") {
 	http_response_code(404);
 	include_once('errors/404.html');
 	die();
