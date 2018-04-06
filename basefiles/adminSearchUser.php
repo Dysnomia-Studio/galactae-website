@@ -17,10 +17,7 @@ if(strlen($user) > 2) { // Don't query small words
 
 			// Draw informations
 			echo '
-			<p class="user">
-				<span class="username">'.$user['user_name'].'</span>
-				<span class="id">'.(string) $user['_id'].'</span>
-			</p>';
+			<p class="user">'.$user['user_name'].'</p>';
 		}
 	} else { // Not Found ?
 		echo "User not found";
