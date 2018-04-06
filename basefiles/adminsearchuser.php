@@ -19,8 +19,6 @@ if(strlen($user) > 2) { // Don't query small words
 			echo '
 			<p class="user">'.$user['user_name'].'</p>';
 		}
-	} else { // Not Found ?
-		echo "User not found";
 	}
 }
 ?>

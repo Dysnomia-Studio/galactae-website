@@ -358,7 +358,28 @@ for ($i=0; $i < count($serversDbData); $i++) {
 		<table id="player-privileges">
 
 		</table>
+		<iframe id="player-search-frame" src="#"></iframe>
 	</div>
+	<script type="text/javascript">
+			$('#player-search').keydown(function() {
+				var url = "adminsearchuser?u=" + $('#player-search').val();
+
+				if($('#player-search-frame').attr("src") != url) {
+					$('#player-search-frame').attr("src", url);
+				}
+			});
+
+			$('#player-search-frame').load(function() {
+				var content = "";
+				var users = $('#player-search-frame .user');
+
+				for(var u=0; u<users.length; u++) {
+					content += "<li>" + users[i].text() + "</li>";
+				}
+
+				$('#player-list').html(content);
+			});
+	</script>
 	<div id="tab-bans" class="tab">
 
 	</div>
