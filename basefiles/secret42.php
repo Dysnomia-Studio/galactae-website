@@ -355,9 +355,12 @@ for ($i=0; $i < count($serversDbData); $i++) {
 		<ul id="player-list">
 
 		</ul>
-		<table id="player-privileges">
+		<ul id="player-privileges">
 
-		</table>
+		</ul>
+		<ul id="player-bans">
+
+		</ul>
 		<iframe id="player-search-frame" src="adminsearchuser" style="display: none;"></iframe>
 	</div>
 	<script type="text/javascript">
@@ -369,20 +372,22 @@ for ($i=0; $i < count($serversDbData); $i++) {
 				}
 			});
 
+			var lastDate = 0;
 			$('#player-search-frame').load(function() {
 				var content = "";
-				var users = $('#player-search-frame .user');
+				var users = $('#player-search-frame').contents().find('.user');
+				let date = Date.now();
+				lastDate = date;
 
 				for(var u=0; u<users.length; u++) {
 					content += "<li>" + users[i].text() + "</li>";
 				}
 
-				$('#player-list').html(content);
+				if(date < lastDate) { // Prevent writing on most recent content
+					$('#player-list').html(content);
+				}				
 			});
 	</script>
-	<div id="tab-bans" class="tab">
-
-	</div>
 	<div id="tab-news" class="tab">
 
 	</div>
