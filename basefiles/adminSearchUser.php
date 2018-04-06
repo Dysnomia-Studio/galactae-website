@@ -15,13 +15,11 @@ if(strlen($user) > 2) { // Don't query small words
 			// Transform to array
 			$user = json_decode(json_encode($user), true);
 
-			var_dump($user);
-
 			// Draw informations
 			echo '
 			<p class="user">
-				<span class="username">'.$user['name'].'</span>
-				<span class="id">'.(string) $user['id'].'</span>
+				<span class="username">'.$user['user_name'].'</span>
+				<span class="id">'.(string) $user['_id'].'</span>
 			</p>';
 		}
 	} else { // Not Found ?
