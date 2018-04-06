@@ -15,6 +15,8 @@ if(strlen($user) > 2) { // Don't query small words
 			// Transform to array
 			$user = json_decode(json_encode($user), true);
 
+			var_dump($user);
+
 			// Draw informations
 			echo '
 			<p class="user">
