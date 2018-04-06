@@ -16,13 +16,11 @@ if(strlen($user) > 2) { // Don't query small words
 			$user = json_decode(json_encode($user), true);
 
 			// Draw informations
-			echo '<p class="user">';
-
-			foreach ($user as $key => $value) {
-				echo '<span key="'.$key.'">'.$value.'</span>';
-			}
-
-			echo '</p>';
+			echo '
+			<p class="user">
+				<span class="username">'.$user['name'].'</span>
+				<span class="id">'.(string) $user['id'].'</span>
+			</p>';
 		}
 	} else { // Not Found ?
 		echo "User not found";
