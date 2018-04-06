@@ -58,7 +58,9 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 				'user_session_lang' => $lang->getLanguage()
 			]
 		]		
-	); {
+	); 
+	
+} else {
 	header('Location: index');
 	exit();
 }

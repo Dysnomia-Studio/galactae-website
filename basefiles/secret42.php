@@ -369,6 +369,7 @@ for ($i=0; $i < count($serversDbData); $i++) {
 		<iframe id="player-search-frame" src="adminsearchuser" style="display: none;"></iframe>
 	</div>
 	<script type="text/javascript">
+		$(document).ready(function() {
 			$('#player-search').keyup(function() {
 				var url = "adminsearchuser?u=" + $('#player-search').val();
 
@@ -392,6 +393,7 @@ for ($i=0; $i < count($serversDbData); $i++) {
 					$('#player-list').html(content);
 				}				
 			});
+		});
 	</script>
 	<div id="tab-news" class="tab">
 
