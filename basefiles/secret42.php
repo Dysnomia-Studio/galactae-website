@@ -189,6 +189,11 @@ for ($i=0; $i < count($serversDbData); $i++) {
 	.slider.round:before {
 		border-radius: 50%;
 	}
+	/* Privileges */
+	#player-list {
+		width: 20%;
+		color: white;
+	}
 </style>
 <script type="text/javascript">
 	var serverList = <?php echo json_encode($serverList); ?>;
@@ -376,14 +381,14 @@ for ($i=0; $i < count($serversDbData); $i++) {
 			$('#player-search-frame').load(function() {
 				var content = "";
 				var users = $('#player-search-frame').contents().find('.user');
-				let date = Date.now();
-				lastDate = date;
+				let currDate = Date.now();
+				lastDate = currDate;
 
 				for(var u=0; u<users.length; u++) {
-					content += "<li>" + users[i].text() + "</li>";
+					content += "<li>" + users[u].innerText + "</li>";
 				}
 
-				if(date <= lastDate) { // Prevent writing on most recent content
+				if(currDate <= lastDate) { // Prevent writing on most recent content
 					$('#player-list').html(content);
 				}				
 			});
