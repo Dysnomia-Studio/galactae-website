@@ -199,10 +199,10 @@ for ($i=0; $i < count($serverList); $i++) {
 		height: 100%;
 		overflow-y: scroll;
 		overflow-x: hidden;
+
+		display: inline-block;
 	}
 	#player-list {
-		display: inline-block;
-
 		color: white;
 
 		margin: 0;
@@ -214,6 +214,7 @@ for ($i=0; $i < count($serverList); $i++) {
 	#player-list li:hover {
 		text-decoration: underline;
 		font-weight: bold;
+		cursor: pointer;
 	}
 	#player-search-input {
 		width: calc(100% - 4px);
