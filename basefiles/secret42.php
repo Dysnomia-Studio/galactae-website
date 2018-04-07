@@ -196,8 +196,9 @@ for ($i=0; $i < count($serverList); $i++) {
 		margin: 0;
 		padding: 0.5em;
 
-		max-height: 100%;
+		height: 100%;
 		overflow-y: scroll;
+		overflow-x: hidden;
 	}
 	#player-list {
 		display: inline-block;
@@ -206,7 +207,7 @@ for ($i=0; $i < count($serverList); $i++) {
 
 		margin: 0;
 		margin-top: 1em;
-		padding: 0;
+		padding: 0 0.2em;
 
 		list-style: none;
 	}
