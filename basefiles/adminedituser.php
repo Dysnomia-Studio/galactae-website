@@ -48,15 +48,14 @@ foreach ($privilegesList as $serverPrivileges) {
 /**
  * Bans
  */
-$bansList = $mongoDB->getCondContent('galactae','privileges',[
+$bansList = $mongoDB->getCondContent('galactae','bans',[
 	'user_id' => $searchedUser['_id']
 ]);
 
 $bansDOM = ""; // @ADD: entete
 foreach ($bansList as $serverBan) {
 	$serverBan = json_decode(json_encode($serverBan), true);
-	$bansDOM .= '<tr><td>'.$serverBan["server_name"].'</td><td>'.$ban_type["user_privilege_lvl"].'</td><td>'.date('d/m/Y à H:i:s', $ban_type["ban_end"]/1000).'</td><td>'.$ban_type["ban_reason"].'</td><td>By '.$ban_type["admin"].'</td></tr>';
-
+	$bansDOM .= '<tr><td>'.$serverBan["server_name"].'</td><td>'.$serverBan["ban_type"].'</td><td>'.date('d/m/Y à H:i:s', $serverBan["ban_end"]/1000).'</td><td>'.$serverBan["ban_reason"].'</td><td>By '.$serverBan["admin"].'</td></tr>';
 
 	// @ADD: edition de ban
 	// @ADD: annulation de ban
