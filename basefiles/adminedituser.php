@@ -17,7 +17,7 @@ $searchedUser = $mongoDB->getCondContent('galactae','users',
 	['user_name' =>  new \MongoDB\BSON\Regex('^'.preg_quote($user).'$', 'i')]
 );
 
-if(count($searchedUser) == 0 || (!isset($searchedUser[0]))) {
+if((count($searchedUser) == 0) || (!isset($searchedUser[0]))) {
 	echo '<p style="text-align: center;">User not found</p>';
 	die();
 }
@@ -62,6 +62,9 @@ foreach ($bansList as $serverBan) {
 	$bansDOM .= '</td></tr>';
 }
 
+/**
+ * Draw UI
+ */
 echo '
 	<div id="main-informations">
 		<p id="main-username">'.$searchedUser["user_name"].'</p>
