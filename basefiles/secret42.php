@@ -18,7 +18,7 @@ $serverList = [
  * Get Server data
  */
 $serversDbData = $mongoDB->getCondContent('galactae','servers', []);
-for ($i=0; $i < count($serversDbData); $i++) { 
+for ($i=0; $i < count($serverList); $i++) { 
 	$server = json_decode(json_encode($serversDbData[$i]), true);
 
 	foreach ($server as $key => $value) {
@@ -191,8 +191,25 @@ for ($i=0; $i < count($serversDbData); $i++) {
 	}
 	/* Privileges */
 	#player-list {
-		width: 20%;
+		display: inline-block;
+
 		color: white;
+
+		width: calc(20% - 0.5em);
+		
+		margin: 0;
+		padding: 0.5em;
+
+		list-style: none;
+	}
+	#player-search {
+		width: calc(100% - 4px);
+
+		background-color: rgba(0,0,0,0);
+		border: 1px solid #0ec6c6;
+		color: #DDDDDD;
+		height: 15px;
+		padding: 2px;
 	}
 </style>
 <script type="text/javascript">
@@ -356,9 +373,8 @@ for ($i=0; $i < count($serversDbData); $i++) {
 		<iframe id="tab-stats-iframe" src="stats42"></iframe>
 	</div>
 	<div id="tab-privileges" class="tab">
-		<input id="player-search">
 		<ul id="player-list">
-
+			<li><input id="player-search"></li>
 		</ul>
 		<ul id="player-privileges">
 
@@ -380,7 +396,7 @@ for ($i=0; $i < count($serversDbData); $i++) {
 
 			var lastDate = 0;
 			$('#player-search-frame').on("load", function() {
-				var content = "";
+				var content = '<li><input id="player-search"></li>';
 				var users = $('#player-search-frame').contents().find('.user');
 				let currDate = Date.now();
 				lastDate = currDate;
