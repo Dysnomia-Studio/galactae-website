@@ -1,6 +1,14 @@
 <?php
 include_once('adminCheck.php');
+?>
+<style type="text/css">
+	html, body {
+		background: none;
+		color: white;
+	}
 
+</style>
+<?php
 $_GET['u'] = (isset($_GET['u']))?$_GET['u']:'';
 $user = htmlspecialchars(htmlentities($_GET['u']));
 
@@ -19,6 +27,7 @@ $privilegesList = $mongoDB->getCondContent('galactae','users',
 	['user_id' =>  (string) $searchedUser["_id"]]
 );
 
+$privilegeDOM = "";
 foreach ($privilegesList as $serverPrivileges) {
 	$privilegeDOM .= '<tr><td>'.$serverPrivileges["server_name"].'</td><td>'.$serverPrivileges["user_privilege_lvl"].'</td><td>';
 
