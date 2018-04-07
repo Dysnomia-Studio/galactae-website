@@ -190,19 +190,23 @@ for ($i=0; $i < count($serverList); $i++) {
 		border-radius: 50%;
 	}
 	/* Privileges */
+	#player-search {
+		width: calc(20% - 1em);
+		
+		margin: 0;
+		padding: 0.5em;
+	}
 	#player-list {
 		display: inline-block;
 
 		color: white;
 
-		width: calc(20% - 0.5em);
-		
 		margin: 0;
-		padding: 0.5em;
+		padding: 0;
 
 		list-style: none;
 	}
-	#player-search {
+	#player-search-input {
 		width: calc(100% - 4px);
 
 		background-color: rgba(0,0,0,0);
@@ -373,9 +377,11 @@ for ($i=0; $i < count($serverList); $i++) {
 		<iframe id="tab-stats-iframe" src="stats42"></iframe>
 	</div>
 	<div id="tab-privileges" class="tab">
-		<ul id="player-list">
-			<li><input id="player-search"></li>
-		</ul>
+		<div id="player-search">
+			<input id="player-search-input">
+			<ul id="player-list">
+			</ul>
+		</div>
 		<ul id="player-privileges">
 
 		</ul>
@@ -386,8 +392,8 @@ for ($i=0; $i < count($serverList); $i++) {
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#player-search').keyup(function() {
-				var url = "adminsearchuser?u=" + $('#player-search').val();
+			$('#player-search-input').keyup(function() {
+				var url = "adminsearchuser?u=" + $('#player-search-input').val();
 
 				if($('#player-search-frame').attr("src") != url) {
 					$('#player-search-frame').attr("src", url);
@@ -396,7 +402,7 @@ for ($i=0; $i < count($serverList); $i++) {
 
 			var lastDate = 0;
 			$('#player-search-frame').on("load", function() {
-				var content = '<li><input id="player-search"></li>';
+				var content = "";
 				var users = $('#player-search-frame').contents().find('.user');
 				let currDate = Date.now();
 				lastDate = currDate;
