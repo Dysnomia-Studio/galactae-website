@@ -17,27 +17,49 @@ $searchedUser = $mongoDB->getCondContent('galactae','users',
 	['user_name' =>  new \MongoDB\BSON\Regex('^'.preg_quote($user).'$', 'i')]
 );
 
-if(!isset($searchedUser[0])) {
+if(count($userData) == 0 || !isset($searchedUser[0])) {
 	echo '<p style="text-align: center;">User not found</p>';
 	die();
 }
 $searchedUser = (array) $searchedUser[0];
 
-$privilegesList = $mongoDB->getCondContent('galactae','users',
-	['user_id' =>  (string) $searchedUser["_id"]]
-);
+/**
+ * Privileges
+ */
+$privilegesList = $mongoDB->getCondContent('galactae','privileges',[
+	'user_id' => $searchedUser['_id']
+]);
 
-$privilegeDOM = "";
+$privilegeDOM = ""; // @ADD: entete
 foreach ($privilegesList as $serverPrivileges) {
 	$privilegeDOM .= '<tr><td>'.$serverPrivileges["server_name"].'</td><td>'.$serverPrivileges["user_privilege_lvl"].'</td><td>';
 
-	if($serverPrivileges["user_privilege_lvl"]) {
+	if($serverPrivileges["user_whitelist"]) {
 		$privilegeDOM .= '<input type="checkbox" checked>';
 	} else {
 		$privilegeDOM .= '<input type="checkbox">';
 	}
+	// @ADD: auto form submit when edit a field
 
 	$privilegeDOM .= '</td></tr>';
+}
+
+/**
+ * Bans
+ */
+$bansList = $mongoDB->getCondContent('galactae','privileges',[
+	'user_id' => $searchedUser['_id']
+]);
+
+$bansDOM = ""; // @ADD: entete
+foreach ($bansList as $serverBan) {
+	$bansDOM .= '<tr><td>'.$serverBan["server_name"].'</td><td>'.$ban_type["user_privilege_lvl"].'</td><td>'.date('d/m/Y à H:i:s', $ban_type["ban_end"]/1000).'</td><td>'.$ban_type["ban_reason"].'</td><td>By '.$ban_type["admin"].'</td></tr>';
+
+
+	// @ADD: edition de ban
+	// @ADD: annulation de ban
+
+	$bansDOM .= '</td></tr>';
 }
 
 echo '
@@ -63,7 +85,7 @@ echo '
 
 	<div id="ban-tab">
 		<table id="ban-list">
-
+			'.$bansDOM.'
 		</table>
 		<form method="post" action="admineditprivileges">
 			<select id="ban-server-list">
