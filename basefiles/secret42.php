@@ -211,6 +211,10 @@ for ($i=0; $i < count($serverList); $i++) {
 
 		list-style: none;
 	}
+	#player-list li:hover {
+		text-decoration: underline;
+		font-weight: bold;
+	}
 	#player-search-input {
 		width: calc(100% - 4px);
 
@@ -219,6 +223,15 @@ for ($i=0; $i < count($serverList); $i++) {
 		color: #DDDDDD;
 		height: 15px;
 		padding: 2px;
+	}
+	#player-edit-frame {
+		display: inline-block;
+
+		width: calc(80% - 1.5em);
+		height: 100%;
+
+		padding: 0.5em;
+		border: 0;
 	}
 </style>
 <script type="text/javascript">
@@ -387,12 +400,7 @@ for ($i=0; $i < count($serverList); $i++) {
 			<ul id="player-list">
 			</ul>
 		</div>
-		<ul id="player-privileges">
-
-		</ul>
-		<ul id="player-bans">
-
-		</ul>
+		<iframe id="player-edit-frame" src="adminedituser"></iframe>
 		<iframe id="player-search-frame" src="adminsearchuser" style="display: none;"></iframe>
 	</div>
 	<script type="text/javascript">
@@ -418,7 +426,15 @@ for ($i=0; $i < count($serverList); $i++) {
 
 				if(currDate <= lastDate) { // Prevent writing on most recent content
 					$('#player-list').html(content);
-				}				
+				
+					$('#player-list li').click(function() {
+						var url = "adminedituser?u=" + $(this).text();
+
+						if($('#player-edit-frame').attr("src") != url) {
+							$('#player-edit-frame').attr("src", url);
+						}
+					});
+				}			
 			});
 		});
 	</script>
