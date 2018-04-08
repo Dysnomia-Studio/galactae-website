@@ -64,13 +64,14 @@ for ($i=0; $i < count($serverList); $i++) {
 		bottom: 0;
 		padding: 0;
 
-		width: 13vw;
-		/* 100% (Window) - 3.5em (Top) - 1em (Padding) - 2px (Border) */
-		height: calc(100vh - 4.5em - 2px) !important;
-		max-height: calc(100vh - 4.5em - 2px) !important;
+		width: 14vw;
+		/* 100% (Window) - 3.5em (Top) - 2px (Border) */
+		height: calc(100vh - 3.5em - 2px) !important;
+		max-height: calc(100vh - 3.5em - 2px) !important;
 	}
 	#server-list li {
 		cursor: pointer;
+		padding: 0.4em 0.8em;
 	}
 	#server-list li:hover {
 		background-color: #161e21;
@@ -257,6 +258,9 @@ for ($i=0; $i < count($serverList); $i++) {
 
 	function loadServerUI(id) {
 		currServer = id;
+
+		$('#server-list .active').addClass("active");
+		$('#server-list #'+id).addClass("active");
 
 		// Load logs
 		$('#server-infos-logs').html('');
