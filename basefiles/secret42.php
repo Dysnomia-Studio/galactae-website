@@ -259,7 +259,7 @@ for ($i=0; $i < count($serverList); $i++) {
 	function loadServerUI(id) {
 		currServer = id;
 
-		$('#server-list .active').addClass("active");
+		$('#server-list .active').removeClass("active");
 		$('#server-list #'+id).addClass("active");
 
 		// Load logs
@@ -367,6 +367,7 @@ for ($i=0; $i < count($serverList); $i++) {
 		});
 
 		$('#server-maintenance').prop('checked', serverList[currServer].server_maintenance);
+		$('#server-list #0').addClass("active");
 	});
 </script>
 <section>
