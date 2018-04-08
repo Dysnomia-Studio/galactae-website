@@ -62,13 +62,22 @@ for ($i=0; $i < count($serverList); $i++) {
 		position: fixed;
 		left: 0;
 		bottom: 0;
+		padding: 0;
 
 		width: 13vw;
 		/* 100% (Window) - 3.5em (Top) - 1em (Padding) - 2px (Border) */
 		height: calc(100vh - 4.5em - 2px) !important;
 		max-height: calc(100vh - 4.5em - 2px) !important;
 	}
-
+	#server-list li {
+		cursor: pointer;
+	}
+	#server-list li:hover {
+		background-color: #161e21;
+	}
+	#server-list li.active {
+		background-color: #1b282d;
+	}
 	#server-infos {
 		position: fixed;
 		top: 3em;
@@ -217,7 +226,7 @@ for ($i=0; $i < count($serverList); $i++) {
 		cursor: pointer;
 	}
 	#player-search-input {
-		width: calc(100% - 4px);
+		width: calc(100% - 4px); /* Width - Border */
 
 		background-color: rgba(0,0,0,0);
 		border: 1px solid #0ec6c6;
@@ -397,7 +406,7 @@ for ($i=0; $i < count($serverList); $i++) {
 	</div>
 	<div id="tab-privileges" class="tab">
 		<div id="player-search">
-			<input id="player-search-input">
+			<input id="player-search-input" placeholder="Nom de l'utilisateur">
 			<ul id="player-list">
 			</ul>
 		</div>
