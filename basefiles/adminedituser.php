@@ -8,7 +8,7 @@ include_once('adminCheck.php');
 	}
 
 	.tab {
-		width: calc(100% - 1em);
+		width: calc(32% - 1em);
 		height: calc(100% - 1.5em);
 		overflow-y: auto;
 		overflow-x: hidden;
@@ -30,7 +30,7 @@ include_once('adminCheck.php');
 		width: calc(32% - 1em);
 	}
 	.tab table {
-		width: calc(32% - 1em);
+		width: calc(100% - 1em);
 	}
 	.tab form input[type=submit] {
 		width: 80%;
