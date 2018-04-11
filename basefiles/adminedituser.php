@@ -7,6 +7,13 @@ include_once('adminCheck.php');
 		color: white;
 	}
 
+	.tab {
+		width: calc((100% / 3) - 1em);
+		height: calc(100% - 1em);
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding: 0.5em;
+	}
 </style>
 <?php
 $_GET['u'] = (isset($_GET['u']))?$_GET['u']:'';
@@ -67,11 +74,11 @@ foreach ($bansList as $serverBan) {
  * Draw UI
  */
 echo '
-	<div id="main-informations">
-		<p id="main-username"><a target="_blank" href="profil.php?u='.$searchedUser["user_name"].'>'.$searchedUser["user_name"].'</a></p>
+	<div id="main-informations" class="tab">
+		<p id="main-username"><a target="_blank" href="profil.php?u='.$searchedUser["user_name"].'">'.$searchedUser["user_name"].'</a></p>
 	</div>
 
-	<div id="privileges-tab">
+	<div id="privileges-tab" class="tab">
 		<table id="privileges-list">
 			'.$privilegeDOM.'
 		</table>
@@ -87,7 +94,7 @@ echo '
 		</form>
 	</div>
 
-	<div id="ban-tab">
+	<div id="ban-tab" class="tab">
 		<table id="ban-list">
 			'.$bansDOM.'
 		</table>
