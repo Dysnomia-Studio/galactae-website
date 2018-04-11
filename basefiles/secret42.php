@@ -238,10 +238,9 @@ for ($i=0; $i < count($serverList); $i++) {
 	#player-edit-frame {
 		display: inline-block;
 
-		width: calc(80% - 1.5em);
-		height: calc(100% - 1em);
+		width: calc(80% - 0.5em);
+		height: 100%;
 
-		padding: 0.5em;
 		border: 0;
 	}
 </style>
