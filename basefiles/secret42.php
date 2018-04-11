@@ -206,7 +206,7 @@ for ($i=0; $i < count($serverList); $i++) {
 		margin: 0;
 		padding: 0.5em;
 
-		height: 100%;
+		height: calc(100% - 1em);
 		overflow-y: scroll;
 		overflow-x: hidden;
 
@@ -239,7 +239,7 @@ for ($i=0; $i < count($serverList); $i++) {
 		display: inline-block;
 
 		width: calc(80% - 1.5em);
-		height: 100%;
+		height: calc(100% - 1em);
 
 		padding: 0.5em;
 		border: 0;

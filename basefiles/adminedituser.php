@@ -8,11 +8,30 @@ include_once('adminCheck.php');
 	}
 
 	.tab {
-		width: calc((100% / 3) - 1em);
-		height: calc(100% - 1em);
-		overflow-y: scroll;
+		width: calc(32% - 1em);
+		height: calc(100% - 1.5em);
+		overflow-y: auto;
 		overflow-x: hidden;
 		padding: 0.5em;
+		border-right: 1px solid #0EC6C6;
+		display: inline-block;
+	}
+	.tab a {
+		color: white;
+		text-decoration: none;
+	}
+	.tab a:hover {
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	.tab form {
+		position: absolute;
+		bottom: 0.5em;
+	}
+	.tab form input[type=submit] {
+		width: 80%;
+		margin: 0.3em auto;
+		display: inherit;
 	}
 </style>
 <?php
