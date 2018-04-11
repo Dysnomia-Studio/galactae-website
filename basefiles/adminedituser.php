@@ -27,6 +27,10 @@ include_once('adminCheck.php');
 	.tab form {
 		position: absolute;
 		bottom: 0.5em;
+		width: calc(32% - 1em);
+	}
+	.tab table {
+		width: calc(32% - 1em);
 	}
 	.tab form input[type=submit] {
 		width: 80%;
