@@ -374,8 +374,7 @@ for ($i=0; $i < count($serverList); $i++) {
 	<ul id="tool-list">
 		<li id="tool-console"><img alt="console" src="https://***REMOVED***/website/img/icons/console.png"></li>
 		<li id="tool-stats"><img alt="stats" src="https://***REMOVED***/website/img/icons/stats.png"></li>
-		<li id="tool-privileges"><img alt="privileges" src="https://***REMOVED***/website/img/icons/privileges.png"></li>
-		<li id="tool-bans"><img alt="bans" src="https://***REMOVED***/website/img/icons/bans.png"></li>
+		<li id="tool-users"><img alt="users" src="https://***REMOVED***/website/img/icons/users.png"></li>
 		<li id="tool-news"><img alt="news" src="https://***REMOVED***/website/img/icons/news.png"></li>
 	</ul>
 	<div id="tab-console" class="tab">

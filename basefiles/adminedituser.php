@@ -95,10 +95,13 @@ echo '
 			<select id="ban-server-list">
 
 			</select>
+			<select id="ban-type">
+
+			</select>
 			<select id="ban-duration-unit">
 
 			</select>
-			<input type="checkbox" id="ban-duration-value">
+			<input type="number" id="ban-duration-value">
 			<input type="submit" value="Bannir">
 		</form>
 	</div>
