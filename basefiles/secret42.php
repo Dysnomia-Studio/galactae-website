@@ -408,7 +408,7 @@ for ($i=0; $i < count($serverList); $i++) {
 	<div id="tab-stats" class="tab">
 		<iframe id="tab-stats-iframe" src="stats42"></iframe>
 	</div>
-	<div id="tab-privileges" class="tab">
+	<div id="tab-users" class="tab">
 		<div id="player-search">
 			<input id="player-search-input" placeholder="Nom de l'utilisateur">
 			<ul id="player-list">

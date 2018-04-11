@@ -68,7 +68,7 @@ foreach ($bansList as $serverBan) {
  */
 echo '
 	<div id="main-informations">
-		<p id="main-username">'.$searchedUser["user_name"].'</p>
+		<p id="main-username"><a target="_blank" href="profil.php?u='.$searchedUser["user_name"].'>'.$searchedUser["user_name"].'</a></p>
 	</div>
 
 	<div id="privileges-tab">
