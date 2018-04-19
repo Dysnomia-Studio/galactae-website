@@ -1,9 +1,9 @@
 <?php
-	define('DEV','Alpha-test server');
+	define('DEV','[DEV] Alpha-test server');
 	define('MILKYWAY','[FR-1] Milky Way');
-	define('ANDROMEDA','[US-1] Andromeda');	
-	define('PEGASUS','[GB-1] Pegasus');
-	define('MAGELLAN','[RU-1] Magellan');
+	define('ANDROMEDA','[EN-1] Andromeda');	
+	define('PEGASUS','[**-*] Pegasus');
+	define('MAGELLAN','[**-*] Magellan');
 
 	// Liste des serveurs
 	define('NO_PLAYING_SERVERS','You don\'t lead a nation yet.');

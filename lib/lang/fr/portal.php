@@ -1,9 +1,9 @@
 <?php
-	define('DEV','Serveur Alpha-test');
+	define('DEV','[DEV] Serveur Alpha-test');
 	define('MILKYWAY','[FR-1] Voie Lactée');
-	define('ANDROMEDA','[US-1] Andromède');
-	define('PEGASUS','[GB-1] Pegase');
-	define('MAGELLAN','[RU-1] Magellan');
+	define('ANDROMEDA','[EN-1] Andromède');
+	define('PEGASUS','[**-*] Pegase');
+	define('MAGELLAN','[**-*] Magellan');
 
 	// Liste des serveurs
 	define('NO_PLAYING_SERVERS','Vous n\'êtes pas encore implanté dans une galaxie');

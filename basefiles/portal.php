@@ -16,7 +16,7 @@ include_once('./basefiles/menuConnected.php');
 		['addr'=>'00-srv.galactae.eu', 'port'=>42690, 'name'=>DEV, 'link'=>'https://00-dev.galactae.eu', 'playing'=>false, 'server_name' => 'galactae-00'],
 		['addr'=>'01-srv.galactae.eu', 'port'=>42691, 'name'=>MILKYWAY, 'link'=>'https://01-milkyway.galactae.eu', 'playing'=>false, 'server_name' => 'galactae-01'],
 		['addr'=>'02-srv.galactae.eu', 'port'=>42692, 'name'=>ANDROMEDA, 'link'=>'https://02-andromeda.galactae.eu', 'playing'=>false, 'server_name' => 'galactae-02'],
-		['addr'=>'03-srv.galactae.eu', 'port'=>42693, 'name'=>PEGASUS, 'link'=>'https://03-pegasus.galactae.eu', 'playing'=>false, 'server_name' => 'galactae-03'],
+		//['addr'=>'03-srv.galactae.eu', 'port'=>42693, 'name'=>PEGASUS, 'link'=>'https://03-pegasus.galactae.eu', 'playing'=>false, 'server_name' => 'galactae-03'],
 		//['addr'=>'04-srv.galactae.eu', 'port'=>42694, 'name'=>MAGELLAN, 'link'=>'https://04-magellan.galactae.eu', 'playing'=>false, 'server_name' => 'galactae-04']
 	];
 
