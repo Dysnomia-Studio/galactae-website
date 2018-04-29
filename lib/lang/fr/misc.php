@@ -3,7 +3,7 @@
 define('THE_GAME','Le jeu');
 define('SOCIAL_NETWORKS','Reseaux Sociaux');
 
-define('COPYRIGHT_NOTICE_01','Crée par Elanis');
+define('COPYRIGHT_NOTICE_01','Crée par');
 define('COPYRIGHT_NOTICE_02','Tout droits reservés');
 
 define('OTHER_LINKS','Autres Liens');

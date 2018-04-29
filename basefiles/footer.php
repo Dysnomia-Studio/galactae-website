@@ -39,7 +39,6 @@ if($currentpage == "footer") {
 				<td>
 					<ul>
 						<li><h3><?php echo OTHER_LINKS; ?></h3></li>
-						<li><a href="https://elanis.eu">Elanis</a></li>
 						<li><a href="partners"><?php echo OTHER_LINKS_PARTNERS; ?></a></li>
 						<li><a href="theteam"><?php echo OTHER_LINKS_THETEAM; ?></a></li>
 					</ul>
@@ -48,7 +47,7 @@ if($currentpage == "footer") {
 		</table>
 		<table>
 			<tr class="second-footer">
-				<td>Galactae: Space Age Dawn - <?php echo COPYRIGHT_NOTICE_01; ?> - Copyright 2016-<?php echo date('Y'); ?> - <?php echo COPYRIGHT_NOTICE_02; ?></td>
+				<td>Galactae: Space Age Dawn - <?php echo COPYRIGHT_NOTICE_01; ?> <a href="https://dysnomia.studio">Dysnomia</a> - Copyright 2016-<?php echo date('Y'); ?> - <?php echo COPYRIGHT_NOTICE_02; ?></td>
 			</tr>
 		</table>
 	</footer>
