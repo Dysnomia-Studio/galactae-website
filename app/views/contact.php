@@ -17,7 +17,8 @@
 				<form method="post" action="contact.php">
 					<input type ="text" id="mail" name="mail" placeholder="<?php echo CONTACT_MAIL; ?> " required><br/>
 					<textarea cols="40" rows="6" id="txt" name="txt" placeholder="<?php echo CONTACT_TXT; ?>" required></textarea><br/>
-						
+					
+					<script src='https://www.google.com/recaptcha/api.js'></script>
 					<div class="g-recaptcha" data-sitekey="***REMOVED***"></div>
 					<input type="submit" value="<?php echo CONTACT_SEND; ?>" />
 				</form>
