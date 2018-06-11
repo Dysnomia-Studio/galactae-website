@@ -1,3 +1,3 @@
 <?php
-header('Location: http://www.youtube.com/ElanisGaming');
+header('Location: https://www.youtube.com/channel/UCRvjwfwFAX3qXbGhLgi5NPg');
 ?>

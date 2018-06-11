@@ -14,7 +14,7 @@ if($pageData['pageName'] == "footer.php") {
 						<li><a href="medias#gameEvolution"><?php echo MEDIAS_EVOLUTION; ?></a></li>
 						<li><a href="medias#backgrounds"><?php echo MEDIAS_BACKGROUNDS; ?></a></li>
 						<li><a href="blog"><?php echo MENU_BLOG; ?></a></li>
-						<li><a href="http://bugs.dysnomia.studio"><?php echo MENU_BUGTRACKER; ?></a></li>
+						<li><a href="https://bugs.dysnomia.studio/projects/galactae"><?php echo MENU_BUGTRACKER; ?></a></li>
 						<li><a href="https://forum.galactae.eu/"><?php echo MENU_FORUM; ?></a></li>
 					</ul>
 				</td>
