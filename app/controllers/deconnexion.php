@@ -6,5 +6,5 @@ $userMngr->removeSessionByIds(
 
 session_destroy();
 
-header('Location: index');
+$pageData['pageName'] = "index.php";
 ?>
