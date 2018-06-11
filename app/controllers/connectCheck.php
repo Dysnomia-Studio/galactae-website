@@ -17,6 +17,8 @@ if(!(isset($_COOKIE['galactae-phpsessid']) &&
 	header('Location: index');
 }
 
+$userMngr = new UserManager();
+
 /**
  * Is Connected ?
  */
