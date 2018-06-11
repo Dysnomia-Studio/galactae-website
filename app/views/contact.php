@@ -14,7 +14,7 @@
 			</div>
 			<div class="contact-part">
 				<h4>Par le formulaire</h4>
-				<form method="post" action="contact.php">
+				<form method="post" action="contact">
 					<input type ="text" id="mail" name="mail" placeholder="<?php echo CONTACT_MAIL; ?> " required><br/>
 					<textarea cols="40" rows="6" id="txt" name="txt" placeholder="<?php echo CONTACT_TXT; ?>" required></textarea><br/>
 					

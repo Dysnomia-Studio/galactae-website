@@ -33,7 +33,7 @@ if(isset($_SESSION['ip']) &&
 				);
 		          
 		        $message = CONNECTED.' '.CLICK_GAME; 
-		        header('Location: portal.php'); 
+		        header('Location: portal'); 
 			} else { // Acces pas OK ! 
 		        $message = ERR_BAD_LOGIN. ' '.CLICK_BACK;
 		    }
