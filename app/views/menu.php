@@ -9,6 +9,10 @@ if($pageData['pageName'] == "menu.php") {
 
 	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
 
+	<script type="text/javascript" src="https://***REMOVED***/website/js/iconselect/control/iconselect.js"></script>
+	<script type="text/javascript" src="https://***REMOVED***/website/js/iconselect/iscroll.js"></script>
+	<script type="text/javascript" src="https://***REMOVED***/website/js/language-list.js"></script>
+
 	<ul <?php if($pageData['pageName'] != 'index.php') { echo 'class="no-background"'; } ?> id="menu">
 		<li class="menu-logo"><a href="index">GALACTAE: SPACE AGE DAWN</a></li>
 		<li><a href="login" class="menu-link menu-button"><?php echo MENU_PLAY_NOW; ?></a></li>
@@ -32,6 +36,3 @@ if($pageData['pageName'] == "menu.php") {
 	</script>
 	<?php } ?>
 
-	<script type="text/javascript" src="https://***REMOVED***/website/js/iconselect/control/iconselect.js"></script>
-	<script type="text/javascript" src="https://***REMOVED***/website/js/iconselect/iscroll.js"></script>
-	<script type="text/javascript" src="https://***REMOVED***/website/js/language-list.js"></script>
