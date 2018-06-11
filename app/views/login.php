@@ -18,7 +18,7 @@
 		</table>
 
 		<div id="login-section" class="login-onglet active-onglet">
-			<form method="post">
+			<form method="post" action="login">
 				<input type="text" name="username" id="username" placeholder="<?php echo LOGIN_USERMAIL; ?>">
 				<input type="password" name="password" id="password" placeholder="<?php echo LOGIN_PASSWORD; ?>">
 				<span class="login-checkbox">
@@ -45,7 +45,7 @@
 		</div>
 
 		<div id="register-section" class="login-onglet">
-			<form method="post" action="regconfirm">
+			<form method="post" action="register">
 				<input type="text" name="username" id="username" placeholder="<?php echo LOGIN_USERNAME; ?>" required>
 				<input type="text" name="mail" id="mail" placeholder="<?php echo LOGIN_MAIL; ?>" required>
 				<input type="password" name="password" id="password" placeholder="<?php echo LOGIN_PASSWORD; ?>" required>

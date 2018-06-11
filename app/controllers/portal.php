@@ -1,7 +1,7 @@
 <?php
-$gameData = $mongoDB->getCondContent('galactae','game_ids',
-	['user_id' => (string) $userData['_id']]
-);
+$gameData = $userMngr->getAllUserGameData($userData['_id']);
+
+$privMngr = new PrivilegesManager();
 
 $servers = [
 	['addr'=>'00-srv.galactae.eu', 'port'=>42690, 'name'=>DEV, 'link'=>'https://00-dev.galactae.eu', 'playing'=>false, 'server_name' => 'galactae-00'],
@@ -11,14 +11,10 @@ $servers = [
 	//['addr'=>'04-srv.galactae.eu', 'port'=>42694, 'name'=>MAGELLAN, 'link'=>'https://04-magellan.galactae.eu', 'playing'=>false, 'server_name' => 'galactae-04']
 ];
 
-$devPrivileges = $mongoDB->getCondContent('galactae','privileges',[
-	'user_id' => $userData['_id'],
-	'server_name' => 'galactae-00'
-]);
-
-if(count($devPrivileges) > 0 && isset($devPrivileges[0])) {
-	$devPrivileges = (array) $devPrivileges[0];
-}
+$devPrivileges = $privMngr->getUserPrivilegesOnServer(
+	'galactae-00',
+	$userData['_id']
+);
 
 if(isset($devPrivileges['user_whitelist']) && ((int) $devPrivileges['user_whitelist']==1)) {
 	$firstServer=0;
@@ -42,22 +38,13 @@ for($i=$firstServer; $i<count($servers); $i++) {
 	$server_status = ($servers[$i]['status'])?'server_on':'server_off';
 
 	if($servers[$i]['status']) {
-			$srv_data = $mongoDB->getCondContent('galactae','servers',[
-				'server_name' => $servers[$i]['server_name']
-			]);
+			$srvMngr = new ServerListManager();
+			$srv_data = $srvMngr->getServerByName($servers[$i]['server_name']);
 
-			if(count($srv_data) > 0 && isset($srv_data[0])) {
-				$srv_data = (array) $srv_data[0];
-			}
-
-			$userPrivileges = $mongoDB->getCondContent('galactae','privileges',[
-				'user_id' => $userData['_id'],
-				'server_name' => $servers[$i]['server_name']
-			]);
-
-			if(count($userPrivileges) > 0 && isset($userPrivileges[0])) {
-				$userPrivileges = (array) $userPrivileges[0];
-			}
+			$userPrivileges = $privMngr->getUserPrivilegesOnServer(
+				$servers[$i]['server_name'],
+				$userData['_id']
+			);
 
 			if((!isset($srv_data['server_maintenance']) || $srv_data['server_maintenance']==1) && (!isset($userPrivileges['user_whitelist']) || ((int) $userPrivileges['user_whitelist']!=1))) {
 				$server_status = 'server_maintenance';
@@ -71,7 +58,6 @@ for($i=$firstServer; $i<count($servers); $i++) {
 		$server_status = 'server_off';
 		$server_connect = '<span class="connect">'.OFFLINE.'</span>';
 	}
-
 
 	if($servers[$i]['playing']) {
 		$content_playing .= '<li id="'.$i.'"><span id="'.$i.'-status" class="'.$server_status.'">•</span> '.$servers[$i]['name'].' '.$server_connect;
