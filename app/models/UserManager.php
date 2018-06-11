@@ -109,10 +109,6 @@ class UserManager extends MongoInterface {
 			"user_id" => (string) $id
 		]);
 
-		if(isset($data[0])) {
-			$data = (array) $data[0];
-		}
-
 		return $data;
 	}
 
