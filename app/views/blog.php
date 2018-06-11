@@ -1,0 +1,17 @@
+<?php
+echo '<section class="devblog">';
+
+foreach (array_reverse($pageData['blogArticles']) as $key => $value) {
+	$value = (array) $value;
+ 	echo '<article>
+			<h2>'.$value['blog_title_'.$_SESSION['lang']].'</h2>
+			<i>'.date('d/m/Y',$value['blog_time']).'</i>
+			<br/>
+			<br/>
+			<div class="devblog-description">
+				'.$value['blog_desc_'.$_SESSION['lang']].'
+			</div>
+		</article>';
+}
+
+echo '</section>';
