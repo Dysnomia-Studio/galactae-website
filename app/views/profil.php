@@ -11,11 +11,9 @@ function translateServerName($serverId) {
 	];
 
 	return $servers[(int) explode("-",$serverId)[1]];
-} 
+}
 
-
-// Draw profile
-function drawProfile($user,$mongoDB,$isCurrentUser) {
+if($found) { // Found ?
 	echo '	<div id="profil-main">';
 	
 	// Edit button
@@ -81,10 +79,6 @@ function drawProfile($user,$mongoDB,$isCurrentUser) {
 	echo '
 		</table>
 	</div>';
-}
-
-if($found) { // Found ?
-	drawProfile($searchedUser,$mongoDB,$currentUser);
 } else { // Not Found ?
 	echo "User not found";
 }

@@ -80,15 +80,12 @@ class UserManager extends MongoInterface {
 
 		$conf_link = Security::hashPassword(time().$name);
 
-		$mongoDB->addContent('galactae','mailconfirmations',[
+		$this->addContent('galactae','mailconfirmations',[
 			'user_name' => $data['user_name'],
 			'mailconfirm_uid' => $conf_link
 		]);
 
-		$conf_link = 'https://galactae.eu/mailconf?mid='.$conf_link.'&username='.$user_name;
-
-		
-		return $conf_link;
+		return 'https://galactae.eu/mailconf?mid='.$conf_link.'&username='.$data['user_name'];
 	}
 
 	public function getUserPrivileges($id, $servName) {
@@ -108,6 +105,10 @@ class UserManager extends MongoInterface {
 		$data = $this->getCondContent('galactae','game_ids',[
 			"user_id" => (string) $id
 		]);
+
+		if(isset($data[0])) {
+			$data = (array) $data[0];
+		}
 
 		return $data;
 	}

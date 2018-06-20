@@ -72,24 +72,14 @@ $mail[3] = '		</td>
 $user_name = htmlentities(htmlspecialchars($_POST['username']));
 
 // Account exists ?
-$data = $mongoDB->getCondContent('galactae','users',
-	['user_name' => $user_name]
-);
+$userMngr = new UserManager();
+$data = $userMngr->getGlobalUserByCaseInsensitiveName($variablesPost['username']);
 
-if(count($data)==0) { //Test with mail
-	$data = $mongoDB->getCondContent('galactae','users',
-		['user_mail' => $user_name]
-	);
-} 
-
-if(count($data) > 0 && isset($data[0])) {
-    $data = (array) $data[0];
-}
-
-if(count($data) > 0 && isset($data['user_name'])) {
+if(isset($data['user_name'])) {
 	// Send mail
 	$passwd_link = encrypt(time().$user_name);
 
+	$mongoDB = new MongoInterface();
 	$mongoDB->addContent('galactae','recoverpasses',[
 		'_id' => $data['_id'],
 		'user_name' => $data['user_name'],

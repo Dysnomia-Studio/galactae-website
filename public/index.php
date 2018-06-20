@@ -12,8 +12,6 @@ ini_set('session.cookie_domain', '.galactae.eu' );
 ini_set('session.cookie_lifetime ', $expTime); // Set expiration to 1 month
 ini_set('session.gc_maxlifetime', $expTime); // Set expiration to 1 month
 
-include('./lib/init.php');
-
 if(isset($_COOKIE['galactae-phpsessid']) && $_COOKIE['galactae-phpsessid'] != "") {
     session_id($_COOKIE['galactae-phpsessid']);
 }
