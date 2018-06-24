@@ -17,7 +17,7 @@ if($found) { // Found ?
 	echo '	<div id="profil-main">';
 	
 	// Edit button
-	if($isCurrentUser) {
+	if($currentUser) {
 		echo '<a id="edit-button">'.PROFIL_EDIT.'</a><br/>';
 		// JS Script to switch to edit
 	}
@@ -27,14 +27,14 @@ if($found) { // Found ?
 	// Basic infos
 	// Username, mail, age
  	echo '
- 		<span id="profil-username">'.$user['user_name'].'</span><br/>';
- 	if($isCurrentUser) {
+ 		<span id="profil-username">'.$searchedUser['user_name'].'</span><br/>';
+ 	if($currentUser) {
  		echo '
-		<span id="profil-mail">'.$user['user_mail'].'</span><br/>';
+		<span id="profil-mail">'.$searchedUser['user_mail'].'</span><br/>';
 	}
-	if(isset($user['birth'])) {
+	if(isset($searchedUser['birth'])) {
  		echo '
-		<span id="profil-birth">'.PROFIL_BORN.' '.date("d-m-Y", $user['birth']).' ('.floor((time() - $user['birth'])/3600/24/365).' '.PROFIL_YEAR.')</span><br/>';
+		<span id="profil-birth">'.PROFIL_BORN.' '.date("d-m-Y", $searchedUser['birth']).' ('.floor((time() - $searchedUser['birth'])/3600/24/365).' '.PROFIL_YEAR.')</span><br/>';
 	}
 
 	// Ranks
