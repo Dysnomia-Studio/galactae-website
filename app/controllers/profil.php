@@ -31,7 +31,6 @@ if($user == "" || strtolower($user) == strtolower($userData['user_name'])) { // 
  */
 if($found) {
 	$game_ids = $userMngr->getAllUserGameData($searchedUser['_id']);
-	var_dump($game_ids);
 
 	$mongoDB = new MongoInterface();
 	$globalRanks = array();

@@ -105,11 +105,7 @@ class UserManager extends MongoInterface {
 		$data = $this->getCondContent('galactae','game_ids',[
 			"user_id" => (string) $id
 		]);
-
-		if(isset($data[0])) {
-			$data = (array) $data[0];
-		}
-
+		
 		return $data;
 	}
 
