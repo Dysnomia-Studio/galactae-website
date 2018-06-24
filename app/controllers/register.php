@@ -147,7 +147,7 @@ if (/*$resp == null ||
 // Draw message
 if($message=='') {
 	// Add user
-	$conf_link = $this->addGlobalUser(
+	$conf_link = $userMngr->addGlobalUser(
 		$user_name,
 		$user_mail,
 		$user_encpasswd,

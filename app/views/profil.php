@@ -37,10 +37,6 @@ if($found) { // Found ?
 		<span id="profil-birth">'.PROFIL_BORN.' '.date("d-m-Y", $user['birth']).' ('.floor((time() - $user['birth'])/3600/24/365).' '.PROFIL_YEAR.')</span><br/>';
 	}
 
-
-	global $globalRanks;
-	global $sectorRanks;
-
 	// Ranks
 	echo '
 		<br/><br/>

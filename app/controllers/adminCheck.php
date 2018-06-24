@@ -37,15 +37,6 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 		die();
 	}
 
-	/**
-	 * Get Language
-	 */
-	if($lang->getLanguage() != $sess_data['user_session_lang']
-			&& !(isset($_POST['selected-language']) && !empty($_POST['selected-language']))) {
-
-		$lang->setLanguage($sess_data['user_session_lang']);
-	}
-
 	$userMngr->updateUserSession();
 } else {
 	http_response_code(404);
@@ -57,6 +48,15 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
  * Get user Data
  */
 $userData = $userMngr->getGlobalUserById($sess_data['user_id']);
+
+/**
+ * Get Language
+ */
+if(isset($userData['user_session_lang']) && $lang->getLanguage() != $userData['user_session_lang']
+		&& !(isset($_POST['selected-language']) && !empty($_POST['selected-language']))) {
+
+	$lang->setLanguage($userData['user_session_lang']);
+}
 
 if(!isset($userData['user_name']) || !isset($userData['_id'])) {
 	http_response_code(404);
