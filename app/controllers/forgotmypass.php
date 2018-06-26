@@ -81,7 +81,7 @@ if(isset($data['user_name'])) {
 
 	$mongoDB = new MongoInterface();
 	$mongoDB->addContent('galactae','recoverpasses',[
-		'_id' => $data['_id'],
+		'user_id' => $data['_id'],
 		'user_name' => $data['user_name'],
 		'passforgot_uid' => $passwd_link,
 		'passforgot_time' => time()
