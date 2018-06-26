@@ -229,7 +229,7 @@ include_once('./basefiles/header.php');
                             <tr>
                                 <td class="w640"  width="640" height="60"></td>
                             </tr>
-                            <td align="center" class="w640"  width="640" height="20" style="font-size:13px; color: #dddddd;">Galactae: Space Age Dawn - Crée par <a href="https://elanis.eu/">Elanis</a> - Copyright 2016-2017 - Tout droits reservés</td>
+                            <td align="center" class="w640"  width="640" height="20" style="font-size:13px; color: #dddddd;">Galactae: Space Age Dawn - Crée par <a href="https://elanis.eu/">Elanis</a> - Copyright 2016-'.date('Y').' - Tout droits reservés</td>
                             </tr>
                             <tr>
                                 <td class="w640"  width="640" height="10"></td>

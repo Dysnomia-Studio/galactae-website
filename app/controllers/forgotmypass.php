@@ -58,7 +58,7 @@ $mail[3] = '		</td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>
 					<tr style="color: white; font-size: 0.8em;" align="center">
-						<td>Galactae: Space Age Dawn - Copyright 2016-2017</td>
+						<td>Galactae: Space Age Dawn - Copyright 2016-'.date('Y').'</td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>
 				</table>
