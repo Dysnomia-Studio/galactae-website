@@ -10,7 +10,7 @@
 
 		$password = htmlentities(htmlspecialchars($_POST['password']));
 		$confpassword = htmlentities(htmlspecialchars($_POST['confpassword']));
-		$encpassword = encrypt($password);
+		$encpassword = Security::hashV1($password);
 		$uid = htmlentities(htmlspecialchars($_POST['pid']));
 		$username = htmlentities(htmlspecialchars($_POST['username']));
 		
