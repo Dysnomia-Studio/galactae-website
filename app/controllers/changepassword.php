@@ -35,7 +35,7 @@
 					['user_id' => $data['_id']]);
 
 				$data = $mongoDB->updateContent('galactae','users',
-					['_id' => $data['_id']],
+					['_id' => $data['user_id']],
 					['$set' => ['user_passwd' => $encpassword]]
 				);
 			} else { // Invalid data

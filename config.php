@@ -21,5 +21,10 @@ $config = array(
 		"profil",
 		"adminsearchuser",
 		"adminedituser"
-	]
+	],
+
+	"pass-minsize" => 8,
+
+	"name-minsize" => 3,
+	"name-maxsize" => 20,
 );

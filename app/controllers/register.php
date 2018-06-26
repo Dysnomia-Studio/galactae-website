@@ -73,11 +73,6 @@ $userMngr = new UserManager();
 
 $message = '';
 
-$config['name-minsize'] = 3;
-$config['name-maxsize'] = 20;
-
-$config['pass-minsize'] = 8;
-
 /*$reCaptcha = new ReCaptcha('***REMOVED***');
 
 $resp = $reCaptcha->verifyResponse(
