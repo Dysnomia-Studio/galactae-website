@@ -73,7 +73,7 @@ $user_name = htmlentities(htmlspecialchars($_POST['username']));
 
 // Account exists ?
 $userMngr = new UserManager();
-$data = $userMngr->getGlobalUserByCaseInsensitiveName($variablesPost['username']);
+$data = $userMngr->getGlobalUserByCaseInsensitiveName($user_name);
 
 if(isset($data['user_name'])) {
 	// Send mail
