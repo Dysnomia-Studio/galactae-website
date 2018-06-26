@@ -9,11 +9,11 @@
 				echo '<p style="text-align: center;">'.$message.'</p>';
 			} ?>
 			<form method="post" action="https://galactae.eu/changepassword">
-				<input type="password" name="password" id="password" placeholder="'.LOGIN_PASSWORD.'">
-				<input type="password" name="confpassword" id="confpassword" placeholder="'.LOGIN_CPASSWORD.'">
-				<input type="hidden" name="pid" id="pid" value="'.$uid.'">
-				<input type="hidden" name="username" id="username" value="'.$username.'">
-				<input type="submit" value="'.PASS_SUBMIT.'">
+				<input type="password" name="password" id="password" placeholder="<?= LOGIN_PASSWORD ?>">
+				<input type="password" name="confpassword" id="confpassword" placeholder="<?= LOGIN_CPASSWORD ?>">
+				<input type="hidden" name="pid" id="pid" value="<?= $uid ?>">
+				<input type="hidden" name="username" id="username" value="<?= $username ?>">
+				<input type="submit" value="<?= PASS_SUBMIT ?>">
 			</form>
 		</div>
 	</section>
