@@ -25,14 +25,14 @@
 				['passforgot_uid' => $uid]
 			);
 
-			if(count($data) > 0 && isset($data[0])) {
+			if(count($data) > 0) {
 				$data = (array) $data[0];
 			}
 
-			if(count($data) > 0 && isset($data['user_name']) && $data['user_name']==$username && $data['passforgot_time'] > $mintime) { 
+			if(isset($data['user_name']) && $data['user_name']==$username && $data['passforgot_time'] > $mintime) { 
 				// Set db
 				$data = $mongoDB->removeContent('galactae','recoverpasses',
-					['user_id' => $data['_id']]);
+					['user_id' => $data['user_id']]);
 
 				$data = $mongoDB->updateContent('galactae','users',
 					['_id' => $data['user_id']],
