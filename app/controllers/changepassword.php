@@ -34,7 +34,7 @@
 				$data = $mongoDB->removeContent('galactae','recoverpasses',
 					['user_id' => $data['user_id']]);
 
-				$data = $mongoDB->updateContent('galactae','users',
+				$mongoDB->updateContent('galactae','users',
 					['_id' => $data['user_id']],
 					['$set' => ['user_passwd' => $encpassword]]
 				);

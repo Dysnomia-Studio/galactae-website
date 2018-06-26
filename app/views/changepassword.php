@@ -8,7 +8,7 @@
 			<?php if(isset($message) && !empty($message)) {
 				echo '<p style="text-align: center;">'.$message.'</p>';
 			} ?>
-			<form method="post" action="https://galactae.eu/changepassword">
+			<form method="post" action="changepassword">
 				<input type="password" name="password" id="password" placeholder="<?= LOGIN_PASSWORD ?>">
 				<input type="password" name="confpassword" id="confpassword" placeholder="<?= LOGIN_CPASSWORD ?>">
 				<input type="hidden" name="pid" id="pid" value="<?= $uid ?>">
