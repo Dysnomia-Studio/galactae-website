@@ -77,7 +77,7 @@ $data = $userMngr->getGlobalUserByCaseInsensitiveName($user_name);
 
 if(isset($data['user_name'])) {
 	// Send mail
-	$passwd_link = encrypt(time().$user_name);
+	$passwd_link = Security::encrypt(time().$user_name);
 
 	$mongoDB = new MongoInterface();
 	$mongoDB->addContent('galactae','recoverpasses',[
