@@ -89,7 +89,7 @@ if(isset($data['user_name'])) {
 
 	$passwd_link = 'https://galactae.eu/changepassword?pid='.$passwd_link.'&username='.$data['user_name'];
 
-	require_once './lib/swiftmailer/swift_required.php';
+	require_once '../lib/swiftmailer/swift_required.php';
 
 	// Create the Transport
 	$mail_transport = Swift_SmtpTransport::newInstance('***REMOVED***', 465, 'ssl')
