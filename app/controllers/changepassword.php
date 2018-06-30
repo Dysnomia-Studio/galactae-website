@@ -31,7 +31,7 @@
 
 			if(isset($data['user_name']) && $data['user_name']==$username && $data['passforgot_time'] > $mintime) { 
 				// Set db
-				$data = $mongoDB->removeContent('galactae','recoverpasses',
+				$mongoDB->removeContent('galactae','recoverpasses',
 					['user_id' => $data['user_id']]);
 
 				$mongoDB->updateContent('galactae','users',
