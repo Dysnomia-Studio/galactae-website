@@ -68,6 +68,12 @@ class UserManager extends MongoInterface {
 		return $data;
 	}
 
+	public function getAllGlobalUsersByCaseInsensitiveName($name) {
+		return $this->getCondContent('galactae','users',
+			['user_name' => new \MongoDB\BSON\Regex('^'.preg_quote($name).'$', 'i')]
+		);
+	}
+
 	public function addGlobalUser($name, $mail, $passwd, $misc, $updates) {
 
 		$this->addContent('galactae','users',[

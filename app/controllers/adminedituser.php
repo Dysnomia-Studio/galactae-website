@@ -7,7 +7,7 @@ $privilegesMngr = new PrivilegesManager();
 $banMngr = new BansManager();
 
 // Search
-$searchedUser = $userMngr->getGlobalUserByCaseInsensitiveName($user);
+$searchedUser = $userMngr->getAllGlobalUsersByCaseInsensitiveName($user);
 
 /**
  * Privileges
