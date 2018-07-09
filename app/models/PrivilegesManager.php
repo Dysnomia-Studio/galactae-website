@@ -10,5 +10,13 @@ class PrivilegesManager extends MongoInterface {
 			$data = (array) $data[0];
 		}
 
-		return $data;	}
+		return $data;	
+	}
+	public function getUserPrivileges($uid) {
+		$data = $this->getCondContent('galactae','privileges',[
+			'user_id' => $uid
+		]);
+		
+		return $data;	
+	}
 }
