@@ -4,7 +4,7 @@
  */
 if($pageData['pageName'] == "adminCheck.php") {
 	http_response_code(404);
-	include_once('errors/404.html');
+	include_once('../errors/404.html');
 	die();
 }
 /**
@@ -13,7 +13,7 @@ if($pageData['pageName'] == "adminCheck.php") {
 if(!(isset($_COOKIE['galactae-phpsessid']) &&
 	$_COOKIE['galactae-phpsessid'] != '')) { // Not Connected
 	http_response_code(404);
-	include_once('errors/404.html');
+	include_once('../errors/404.html');
 	die();
 }
 
@@ -33,14 +33,14 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 	 */
 	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $browser->getPlatform().'-'.$browser->getBrowser()) {
 		http_response_code(404);
-		include_once('errors/404.html');
+		include_once('../errors/404.html');
 		die();
 	}
 
 	$userMngr->updateUserSession();
 } else {
 	http_response_code(404);
-	include_once('errors/404.html');
+	include_once('../errors/404.html');
 	die();
 }
 
@@ -60,7 +60,7 @@ if(isset($userData['user_session_lang']) && $lang->getLanguage() != $userData['u
 
 if(!isset($userData['user_name']) || !isset($userData['_id'])) {
 	http_response_code(404);
-	include_once('errors/404.html');
+	include_once('../errors/404.html');
 	die();
 }
 
@@ -69,7 +69,7 @@ if(!isset($userData['user_name']) || !isset($userData['_id'])) {
  */
 if(!isset($userData['user_adminPanelAccess']) || $userData['user_adminPanelAccess']!=1) {
 	http_response_code(404);
-	include_once('errors/404.html');
+	include_once('../errors/404.html');
 	die();
 }
 ?>
