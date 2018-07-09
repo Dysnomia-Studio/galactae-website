@@ -6,5 +6,5 @@ $searchedUser = [];
 if(strlen($user) > 2) { // Don't query small words
 	// Search
 	$userMngr = new UserManager();
-	$searchedUser = $userMngr->getGlobalUsersByCaseInsensitiveName($user);
+	$searchedUser = $userMngr->getAllGlobalUsersByCaseInsensitiveName($user);
 }
