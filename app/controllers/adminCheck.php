@@ -1,20 +1,20 @@
 <?php
+function error404() {
+	error404();
+}
+
 /**
  * Do not call it directly
  */
 if($pageData['pageName'] == "adminCheck.php") {
-	http_response_code(404);
-	include_once('../errors/404.html');
-	die();
+	error404();
 }
 /**
  * Have session cookie ?
  */
 if(!(isset($_COOKIE['galactae-phpsessid']) &&
 	$_COOKIE['galactae-phpsessid'] != '')) { // Not Connected
-	http_response_code(404);
-	include_once('../errors/404.html');
-	die();
+	error404();
 }
 
 $userMngr = new UserManager();
@@ -32,16 +32,12 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 	 * Check user Agent
 	 */
 	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $browser->getPlatform().'-'.$browser->getBrowser()) {
-		http_response_code(404);
-		include_once('../errors/404.html');
-		die();
+		error404();
 	}
 
 	$userMngr->updateUserSession();
 } else {
-	http_response_code(404);
-	include_once('../errors/404.html');
-	die();
+	error404();
 }
 
 /**
@@ -59,17 +55,13 @@ if(isset($userData['user_session_lang']) && $lang->getLanguage() != $userData['u
 }
 
 if(!isset($userData['user_name']) || !isset($userData['_id'])) {
-	http_response_code(404);
-	include_once('../errors/404.html');
-	die();
+	error404();
 }
 
 /**
  * Check admin panel access
  */
 if(!isset($userData['user_adminPanelAccess']) || $userData['user_adminPanelAccess']!=1) {
-	http_response_code(404);
-	include_once('../errors/404.html');
-	die();
+	error404();
 }
 ?>
