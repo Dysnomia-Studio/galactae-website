@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 // Cookies
 if(!isset($_COOKIE['rememberMe']) || ($_COOKIE['rememberMe'] != false && $_COOKIE['rememberMe'] != "false")) {
     $expTime = 2678400; // One month
@@ -11,6 +9,8 @@ if(!isset($_COOKIE['rememberMe']) || ($_COOKIE['rememberMe'] != false && $_COOKI
 ini_set('session.cookie_domain', '.galactae.eu' );
 ini_set('session.cookie_lifetime ', $expTime); // Set expiration to 1 month
 ini_set('session.gc_maxlifetime', $expTime); // Set expiration to 1 month
+
+session_start();
 
 if(isset($_COOKIE['galactae-phpsessid']) && $_COOKIE['galactae-phpsessid'] != "") {
     session_id($_COOKIE['galactae-phpsessid']);
