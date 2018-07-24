@@ -1,6 +1,8 @@
 <?php
 function error404() {
-	error404();
+	http_response_code(404);
+	include_once('../errors/404.html');
+	die();
 }
 
 /**
