@@ -75,7 +75,6 @@ class UserManager extends MongoInterface {
 	}
 
 	public function addGlobalUser($name, $mail, $passwd, $misc, $updates) {
-
 		$this->addContent('galactae','users',[
 			'user_name' => $name,
 			'user_mail' => $mail,
@@ -87,7 +86,7 @@ class UserManager extends MongoInterface {
 		$conf_link = Security::hashPassword(time().$name);
 
 		$this->addContent('galactae','mailconfirmations',[
-			'user_name' => $data['user_name'],
+			'user_name' => $name,
 			'mailconfirm_uid' => $conf_link
 		]);
 

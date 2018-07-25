@@ -7,10 +7,10 @@ foreach($_POST as $key => $value) {
 
 if(isset($_SESSION['ip']) && 
 	$_SESSION['ip'] == Web::get_client_ip() && 
-	isset($_POST['username']) && 
-	isset($_POST['password'])) {
+	isset($variablesPost['username']) && 
+	isset($variablesPost['password'])) {
 
-	if(empty($_POST['username']) || empty($_POST['password']) ) {
+	if(empty($variablesPost['username']) || empty($variablesPost['password']) ) {
 		$message = ERR_FIELD. ' '.CLICK_BACK;
 	} else { // Check du couple pseudo/mdp
 		$data = $userMngr->getGlobalUserByCaseInsensitiveName($variablesPost['username']);
@@ -18,7 +18,7 @@ if(isset($_SESSION['ip']) &&
 	    if(isset($data['activated']) && $data['activated']!=1) { // Compte non-activé
 			$message = ERR_NOT_ACTIVATED.' '.CLICK_BACK;
 		} else {
-			if(isset($data['user_passwd']) && $data['user_passwd']  == Security::hashPassword($_POST['password'], 1)) { // Acces OK ! 	
+			if(isset($data['user_passwd']) && $data['user_passwd']  == Security::hashPassword($variablesPost['password'], 1)) { // Acces OK ! 	
 				$userMngr->removeSessionByIds(
 					$data['_id'], 
 					$_COOKIE['galactae-phpsessid']
