@@ -90,7 +90,7 @@ class UserManager extends MongoInterface {
 			'mailconfirm_uid' => $conf_link
 		]);
 
-		return 'https://galactae.eu/mailconf?mid='.$conf_link.'&username='.$data['user_name'];
+		return 'https://galactae.eu/mailconf?mid='.$conf_link.'&username='.$name;
 	}
 
 	public function getUserPrivileges($id, $servName) {
@@ -107,11 +107,9 @@ class UserManager extends MongoInterface {
 	}
 
 	public function getAllUserGameData($id) {
-		$data = $this->getCondContent('galactae','game_ids',[
+		return $this->getCondContent('galactae','game_ids',[
 			"user_id" => (string) $id
 		]);
-		
-		return $data;
 	}
 
 	public function getUserGameData($id, $servName) {
