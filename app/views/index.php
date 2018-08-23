@@ -7,6 +7,10 @@
 		</div>
 	</section>
 	
+	<div id="image-full-div">
+		<img src="?" id="image-full">
+	</div>
+
 	<section class="index-desc">
 		<table class="computer-table">
 			<tr>
@@ -15,9 +19,9 @@
 				<td><h2><?= INDEX_TITLE_3 ?></h2></td>
 			</tr>
 			<tr>
-				<td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="how to govern"></td>
-				<td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="create your own fleet"></td>
-				<td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="beat for galaxy control"></td>
+				<td><img src="https://***REMOVED***/website/img/officialPosts/gvt-choice-min.jpg"  onclick="FullPictureShow(this.src)" alt="how to govern"></td>
+				<td><img src="https://***REMOVED***/website/img/officialPosts/ship-create-min.jpg" onclick="FullPictureShow(this.src)" alt="create your own fleet"></td>
+				<td><img src="https://***REMOVED***/website/img/officialPosts/galaxy-map-min.jpg"  onclick="FullPictureShow(this.src)" alt="beat for galaxy control"></td>
 			</tr>
 			<tr>
 				<td><p><?= INDEX_DESC_1 ?></p></td>
@@ -54,3 +58,4 @@
 		window.addEventListener('load',function() {	setInterval(function() { changePunchline(); },5000); });
 		changePunchline();
 	</script>
+	<script type="text/javascript" src="https://***REMOVED***/website/js/medias-pictureShow.js"></script>
