@@ -127,8 +127,6 @@ if (/*$resp == null ||
 	$message = ERR_NOT_VALID_USERNAME.' '.CLICK_BACK;
 } elseif(strlen($user_passwd)<$config['pass-minsize']) { // Password size
 	$message = ERR_TOO_LONG_SHORT_PASS.' '.CLICK_BACK;
-} elseif(preg_match('/[^a-zA-Z_\-0-9&@$%!=+]/i', $user_passwd)) { // Password Format
-	$message = ERR_NOT_VALID_PASS.' '.CLICK_BACK;
 } else {
 	// Account exists ?
 	$data = $userMngr->getGlobalUserByCaseInsensitiveName($variablesPost['username']);

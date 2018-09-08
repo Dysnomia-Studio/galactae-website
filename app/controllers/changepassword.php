@@ -18,8 +18,6 @@
 
 		if(strlen($password)<$config['pass-minsize']) { // Password size
 			$message = ERR_TOO_LONG_SHORT_PASS;
-		} elseif(preg_match('/[^a-zA-Z_\-0-9]/i', $password)) { // Password Format
-			$message = ERR_NOT_VALID_PASS;
 		} elseif($password==$confpassword) {
 			$data = $mongoDB->getCondContent('galactae','recoverpasses',
 				['passforgot_uid' => $uid]
