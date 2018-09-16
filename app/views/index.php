@@ -1,3 +1,4 @@
+	<?php echo INDEX_PUNCHLINES; ?>
 	<section class="top-image" id="top-image">
 		<div id="above-top-image">
 			<p id="top-images-punchlines"></p>
