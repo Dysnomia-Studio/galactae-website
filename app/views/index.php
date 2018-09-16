@@ -32,17 +32,17 @@
 
 		<table class="mobile-table">
 			<tr><td><h2><?= INDEX_TITLE_1 ?></h2></td></tr>
-			<tr><td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="how to govern"></td></tr>
+			<tr><td><img src="https://***REMOVED***/website/img/officialPosts/gvt-choice-min.jpg" alt="how to govern"></td></tr>
 			<tr><td><p><?= INDEX_DESC_1 ?></p></td></tr>
 		</table>
 		<table class="mobile-table">
 			<tr><td><h2><?= INDEX_TITLE_2 ?></h2></td></tr>
-			<tr><td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="create your own fleet"></td></tr>
+			<tr><td><img src="https://***REMOVED***/website/img/officialPosts/ship-create-min.jpg" alt="create your own fleet"></td></tr>
 			<tr><td><p><?= INDEX_DESC_2 ?></p></td></tr>
 		</table>
 		<table class="mobile-table">
 			<tr><td><h2><?= INDEX_TITLE_3 ?></h2></td></tr>
-			<tr><td><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=355×200&w=355&h=200" alt="beat for galaxy control"></td></tr>
+			<tr><td><img src="https://***REMOVED***/website/img/officialPosts/galaxy-map-min.jpg" alt="beat for galaxy control"></td></tr>
 			<tr><td><p><?= INDEX_DESC_3 ?></p></td></tr>
 		</table>
 	</section>
