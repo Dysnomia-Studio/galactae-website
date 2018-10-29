@@ -129,7 +129,9 @@ if (/*$resp == null ||
 	$message = ERR_TOO_LONG_SHORT_PASS.' '.CLICK_BACK;
 } else {
 	// Account exists ?
-	$data = $userMngr->getGlobalUserByCaseInsensitiveName($variablesPost['username']);
+	$data = $userMngr->getGlobalUserByCaseInsensitiveName($user_name);
+
+	var_dump($data);
 
 	if(isset($data) && isset($data['user_name'])) {
 		$message = ERR_ACCOUNT_EXISTS.' '.CLICK_BACK;
@@ -147,7 +149,7 @@ if($message=='') {
 		$user_news_updates
 	);
 
-	require_once './lib/swiftmailer/swift_required.php';
+	require_once '../lib/swiftmailer/swift_required.php';
 
 	// Create the Transport
 	$mail_transport = Swift_SmtpTransport::newInstance('***REMOVED***', 465, 'ssl')
