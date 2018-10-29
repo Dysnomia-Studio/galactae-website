@@ -131,8 +131,8 @@ if (/*$resp == null ||
 	// Account exists ?
 	$data = $userMngr->getGlobalUserByCaseInsensitiveName($variablesPost['username']);
 
-	if(!isset($data) || 
-		!isset($data['user_name'])) {
+	if(isset($data) || 
+		isset($data['user_name'])) {
 		$message = ERR_ACCOUNT_EXISTS.' '.CLICK_BACK;
 	}
 }

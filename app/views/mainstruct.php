@@ -8,7 +8,8 @@ $debut = round(microtime(true) * 1000);
 	Don't copy this without permission
 	I hope this code is readable.
 -->
-<html lang="<?= $lang->getLanguage(); ?>"><head>
+<html lang="<?= $lang->getLanguage(); ?>">
+	<head>
 		<title>Galactae: Space Age Dawn</title>
 		<meta name="theme-color" content="#0b1012">
 		<meta charset="UTF-8">
@@ -20,7 +21,10 @@ $debut = round(microtime(true) * 1000);
 		<link rel="shortcut icon" type="image/png" href="https://***REMOVED***/website/img/favicon.png"/>
 		<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
 		<link rel="stylesheet" media="screen" type="text/css" title="Design" href="https://***REMOVED***/website/css/style.css"/>
-	</head><body>
+
+		<?php $lang->drawCached(); ?>
+	</head>
+	<body>
 		<?php
 			$menuPages = [
 				"blog.php",
