@@ -1,5 +1,13 @@
 <?php
 class BansManager extends MongoInterface {
+	/**
+	 * Gets all bans of an user on a specific server
+	 *
+	 * @param      <string>  $server  Server name
+	 * @param      <string>  $uid     User id
+	 *
+	 * @return     <array>  User Bans data
+	 */
 	public function getUserBansOnServer($server, $uid) {
 		$data = $this->getCondContent('galactae','bans',[
 			'user_id' => $uid,
@@ -12,6 +20,14 @@ class BansManager extends MongoInterface {
 
 		return $data;	
 	}
+	
+	/**
+	 * Get all bans of an user
+	 *
+	 * @param      <string>  $uid    User id
+	 *
+	 * @return     <array>  User bans data
+	 */
 	public function getUserBans($uid) {
 		$data = $this->getCondContent('galactae','bans',[
 			'user_id' => $uid
