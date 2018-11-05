@@ -1,5 +1,14 @@
 <?php
 class ServerListManager extends MongoInterface {
+
+
+	/**
+	 * Gets the server informations by its name.
+	 *
+	 * @param      <string>  $name   The server name
+	 *
+	 * @return     <array>  Server informations
+	 */
 	public function getServerByName($name) {
 		$data = $this->getCondContent('galactae','servers',
 			["server_name" => $name]
@@ -12,6 +21,11 @@ class ServerListManager extends MongoInterface {
 		return $data;
 	}
 
+	/**
+	 * Gets all servers data
+	 *
+	 * @return     <type>  All servers data
+	 */
 	public function getAllServers() {
 		return $this->getCondContent('galactae','servers', []);
 	}
