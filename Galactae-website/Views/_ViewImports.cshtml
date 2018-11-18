@@ -5,3 +5,8 @@
 @using Microsoft.AspNetCore.Localization
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+
+@{
+	var culture = Context.Features.Get<IRequestCultureFeature>
+		().RequestCulture.Culture.TwoLetterISOLanguageName;
+}

@@ -11,12 +11,15 @@ namespace Galactae_website.Controllers {
 		}
 
 		[Route("/")]
+		[Route("{culture}/")]
 		[Route("index")]
+		[Route("{culture}/index")]
 		public IActionResult Index() {
 			return View();
 		}
 
 		[Route("contact")]
+		[Route("{culture}/contact")]
 		public IActionResult Contact() {
 			return View();
 		}

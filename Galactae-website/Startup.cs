@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Galactae_website.Controllers;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
@@ -46,6 +48,7 @@ namespace Galactae_website {
 				SupportedUICultures = supportedCultures
 			};
 			app.UseRequestLocalization(localizationOptions);
+			localizationOptions.RequestCultureProviders.Insert(0, new UrlRequestCultureProvider());
 
 			if (env.IsDevelopment()) {
 				app.UseDeveloperExceptionPage();
@@ -59,6 +62,14 @@ namespace Galactae_website {
 			app.UseCookiePolicy();
 
 			app.UseMvc(routes => {
+				routes.MapRoute(
+					name: "cultureRoute",
+					template: "{culture}/{controller}/{action}/{id?}",
+					defaults: new { controller = "Home", action = "Index" },
+					constraints: new {
+						culture = new RegexRouteConstraint("^[a-z]{2}(?:-[A-Z]{2})?$")
+					});
+
 				routes.MapRoute(
 					name: "defaultHome",
 					template: "{controller=Home}/{action=Index}/{id?}");

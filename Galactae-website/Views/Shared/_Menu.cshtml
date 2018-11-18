@@ -1,10 +1,19 @@
-﻿<ul id="menu">
-	<li class="menu-logo"><a href="/">GALACTAE: SPACE AGE DAWN</a></li>
-	<li><a href="login" class="menu-link menu-button">Jouer !</a></li>
-	<li><a href="medias" class="menu-link">Images</a></li>
-	<li><a href="blog" class="menu-link">Dev Blog</a></li>
-	<li><a href="forum/" class="menu-link">Forum</a></li>
-	<li><a href="contact" class="menu-link">Contact</a></li>
+﻿<img id="logo" alt="logo" style="display: none;" src="https://***REMOVED***/website/img/bannersAndLogos/galactae-logo-512.jpg">
+
+<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
+
+<script type="text/javascript" src="https://***REMOVED***/website/js/iconselect/control/iconselect.js"></script>
+<script type="text/javascript" src="https://***REMOVED***/website/js/iconselect/iscroll.js"></script>
+<script type="text/javascript" src="https://***REMOVED***/website/js/language-list.js"></script>
+<script type="text/javascript" src="https://***REMOVED***/website/js/hamburger.js"></script>
+
+<ul class="@ViewData["background"]" id="menu">
+	<li class="menu-logo"><a href="index">GALACTAE: SPACE AGE DAWN</a></li>
+	<li><a href="login" class="menu-link menu-button">@Localizer["MENU_PLAY_NOW"]</a></li>
+	<li><a href="medias" class="menu-link">@Localizer["MENU_PICS"]</a></li>
+	<li><a href="blog" class="menu-link">@Localizer["MENU_BLOG"]</a></li>
+	<li><a href="forum/" class="menu-link">@Localizer["MENU_FORUM"]</a></li>
+	<li><a href="contact" class="menu-link">@Localizer["MENU_CONTACT"]</a></li>
 	<li>
 		<form method="post" id="language-form">
 			<div id="language-list"></div>
