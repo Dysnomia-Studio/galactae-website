@@ -737,3 +737,29 @@ footer a {
 	text-decoration: underline;
 	cursor: pointer;
 }
+
+/* Cookie Prevent */
+#cookie-prevent {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #222222;
+	color: white;
+	margin: 0;
+	line-height: 1.1em;
+}
+#cookie-prevent.hidden {
+	display: none;
+}
+#cookie-prevent p {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+#cookie-prevent-close {
+	position: absolute;
+	left: 5px;
+	bottom: calc(50% - 0.5em);
+	cursor: pointer;
+}
