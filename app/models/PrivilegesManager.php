@@ -31,10 +31,8 @@ class PrivilegesManager extends MongoInterface {
 	 * @return     <array>  User privileges on all server
 	 */
 	public function getUserPrivileges($uid) {
-		$data = $this->getCondContent('galactae','privileges',[
+		return $this->getCondContent('galactae','privileges',[
 			'user_id' => $uid
 		]);
-		
-		return $data;	
 	}
 }

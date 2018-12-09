@@ -24,7 +24,7 @@
 				<span class="login-checkbox">
 					<input type="checkbox" name="rememberMe" id="rememberMe"
 					<?php
-					if(!isset($_COOKIE['rememberMe']) || ($_COOKIE['rememberMe'] != false && $_COOKIE['rememberMe'] != 'false')) {
+					if(!isset($_COOKIE['rememberMe']) || (!$_COOKIE['rememberMe'] && $_COOKIE['rememberMe'] != 'false')) {
 						echo 'checked';
 					}
 					?>

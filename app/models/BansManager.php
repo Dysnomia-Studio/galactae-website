@@ -29,10 +29,8 @@ class BansManager extends MongoInterface {
 	 * @return     <array>  User bans data
 	 */
 	public function getUserBans($uid) {
-		$data = $this->getCondContent('galactae','bans',[
+		return $this->getCondContent('galactae','bans',[
 			'user_id' => $uid
-		]);
-		
-		return $data;	
+		]);	
 	}
 }

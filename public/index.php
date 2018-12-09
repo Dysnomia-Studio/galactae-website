@@ -1,6 +1,6 @@
 <?php
 // Cookies
-if(!isset($_COOKIE['rememberMe']) || ($_COOKIE['rememberMe'] != false && $_COOKIE['rememberMe'] != "false")) {
+if(!isset($_COOKIE['rememberMe']) || (!$_COOKIE['rememberMe'] && $_COOKIE['rememberMe'] != "false")) {
     $expTime = 2678400; // One month
 } else {
     $expTime = 1800; // 30 min
