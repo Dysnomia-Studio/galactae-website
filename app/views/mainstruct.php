@@ -17,6 +17,7 @@ $debut = round(microtime(true) * 1000);
 		<meta name="keywords" content="<?= META_KEYS ?>">
 		<meta name="description" content="<?= META_DESC ?>" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="manifest" href="/manifest.json">
 
 		<link rel="shortcut icon" type="image/png" href="https://***REMOVED***/website/img/favicon.png"/>
 		<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">

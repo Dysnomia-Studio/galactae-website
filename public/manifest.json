@@ -1,0 +1,31 @@
+{
+  "lang": "fr",
+  "name": "Galactae",
+  "scope": "/",
+  "display": "fullscreen",
+  "start_url": "https://galactae.eu/",
+  "short_name": "Galactae",
+  "theme_color": "#0b1012",
+  "description": "Controlez et formez vos flottes afin de defendre vos planetes et attaquer les autres empires !",
+  "orientation": "landscape",
+  "background_color": "transparent",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "https://***REMOVED***/website/img/favicon.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "https://***REMOVED***/website/img/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://***REMOVED***/website/img/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
