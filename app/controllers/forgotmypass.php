@@ -69,6 +69,7 @@ $mail[3] = '		</td>
 </body>
 </html>';
 
+$_POST['username'] = (isset($_POST['username'])) ? $_POST['username'] : '';
 $user_name = htmlentities(htmlspecialchars($_POST['username']));
 
 // Account exists ?
