@@ -11,8 +11,9 @@ if($pageData['pageName'] == "connectCheck.php") {
 /**
  * Have session cookie ?
  */
-if(!(isset($_COOKIE['galactae-phpsessid']) &&
-	$_COOKIE['galactae-phpsessid'] != '')) { // Not Connected
+if(!isset($_COOKIE['galactae-phpsessid']) ||
+	empty($_COOKIE['galactae-phpsessid']) ||
+	$_COOKIE['galactae-phpsessid'] == '') { // Not Connected
 
 	header('Location: index');
 }
