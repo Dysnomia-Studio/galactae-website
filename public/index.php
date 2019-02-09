@@ -10,13 +10,13 @@ ini_set('session.cookie_domain', '.galactae.eu' );
 ini_set('session.cookie_lifetime ', $expTime); // Set expiration to 1 month
 ini_set('session.gc_maxlifetime', $expTime); // Set expiration to 1 month
 
-session_start();
-
 if(isset($_COOKIE['galactae-phpsessid']) && $_COOKIE['galactae-phpsessid'] != "") {
     session_id($_COOKIE['galactae-phpsessid']);
 }
 setcookie ( "galactae-phpsessid", session_id(), time()+$expTime,"/", ".galactae.eu");
 setcookie ( "galactae-phpsessid", session_id(), time()+$expTime,"/", "galactae.eu");
+
+session_start();
 
 // Directories
 define('DIR_CTRL', '..'.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'controllers'.DIRECTORY_SEPARATOR);
