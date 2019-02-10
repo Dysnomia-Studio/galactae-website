@@ -3,12 +3,25 @@
 		!empty($_POST['txt']) &&
 		!empty($_POST['mail'])) {
 
-		$reCaptcha = new ReCaptcha('***REMOVED***');
+		foreach($_POST as $key => $value) {
+			$variablesPost[htmlspecialchars(trim($key), ENT_QUOTES | ENT_HTML5, 'UTF-8')] = htmlspecialchars(trim($value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+		}
 
-		$resp = $reCaptcha->verifyResponse(
-			$_SERVER['REMOTE_ADDR'],
-			$_POST['g-recaptcha-response']
-			);
+		$url = 'https://www.google.com/recaptcha/api/siteverify';
+		$data = array(
+			'secret' => '***REMOVED***',
+			'response' => $variablesPost["g-recaptcha-response"]
+		);
+		$options = array(
+			'http' => array (
+				'method' => 'POST',
+				'content' => http_build_query($data)
+			)
+		);
+		$context  = stream_context_create($options);
+		$verify = file_get_contents($url, false, $context);
+		$resp=json_decode($verify);
+
 		if ($resp != null && $resp->success) {
 			require_once './lib/swiftmailer/swift_required.php';
 
@@ -26,7 +39,7 @@
 			$message = Swift_Message::newInstance('Galactae Contact')
 			  ->setFrom(array('***REMOVED***' => 'Galactae Contact'))
 			  ->setTo(array('***REMOVED***' => 'Elanis'))
-			  ->setBody($_POST['txt'].'<br/><br/>'.$_POST['mail'] , 'text/html')
+			  ->setBody($variablesPost['txt'].'<br/><br/>'.$variablesPost['mail'] , 'text/html')
 			  ;
 
 			// Send the message
