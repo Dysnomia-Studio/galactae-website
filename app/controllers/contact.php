@@ -25,7 +25,7 @@
 		$verify = file_get_contents($url, false, $context);
 		$resp=json_decode($verify);
 
-		if (true || $resp != null && $resp->success) {
+		if ($resp != null && $resp->success) {
 			require_once '../lib/swiftmailer/swift_required.php';
 
 			// Create the Transport
