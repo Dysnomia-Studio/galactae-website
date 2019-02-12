@@ -4,7 +4,7 @@
  */
 if($pageData['pageName'] == "connectCheck.php") {
 	http_response_code(404);
-	include_once('../../errors/404.html');
+	include_once('../errors/404.html');
 	die();
 }
 
@@ -34,7 +34,7 @@ if(isset($sess_data['user_id']) && isset($sess_data['user_session_expiration']) 
 	 */
 	if(!isset($sess_data['user_agent']) || $sess_data['user_agent'] != $browser->getPlatform().'-'.$browser->getBrowser()) {
 		http_response_code(404);
-		include_once('../../errors/404.html');
+		include_once('../errors/404.html');
 		die();
 	}
 
