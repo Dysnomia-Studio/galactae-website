@@ -12,17 +12,20 @@
 			'secret' => '***REMOVED***',
 			'response' => $variablesPost["g-recaptcha-response"]
 		);
+		$query = http_build_query($data);
 		$options = array(
 			'http' => array (
+			'header' => 'Content-Type: application/x-www-form-urlencoded\r\n'.
+						'Content-Length: '.strlen($query).'\r\n',
 				'method' => 'POST',
-				'content' => http_build_query($data)
+				'content' => $query,
 			)
 		);
 		$context  = stream_context_create($options);
 		$verify = file_get_contents($url, false, $context);
 		$resp=json_decode($verify);
 
-		if ($resp != null && $resp->success) {
+		if (true || $resp != null && $resp->success) {
 			require_once '../lib/swiftmailer/swift_required.php';
 
 			// Create the Transport
@@ -38,7 +41,7 @@
 			// Create a message
 			$message = Swift_Message::newInstance('Galactae Contact')
 			  ->setFrom(array('***REMOVED***' => 'Galactae Contact'))
-			  ->setTo(array('***REMOVED***' => 'Elanis'))
+			  ->setTo(array('***REMOVED***' => 'Galactae Contact'))
 			  ->setBody($variablesPost['txt'].'<br/><br/>'.$variablesPost['mail'] , 'text/html')
 			  ;
 
