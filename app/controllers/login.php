@@ -8,7 +8,9 @@ foreach($_POST as $key => $value) {
 if(isset($_SESSION['ip']) && 
 	$_SESSION['ip'] == Web::get_client_ip() && 
 	isset($variablesPost['username']) && 
-	isset($variablesPost['password'])) {
+	isset($variablesPost['password']) &&
+	isset($_COOKIE['galactae-phpsessid']) &&
+	!empty($_COOKIE['galactae-phpsessid'])) {
 
 	if(empty($variablesPost['username']) || empty($variablesPost['password']) ) {
 		$message = ERR_FIELD. ' '.CLICK_BACK;
