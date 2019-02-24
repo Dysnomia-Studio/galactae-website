@@ -25,7 +25,7 @@
 		$verify = file_get_contents($url, false, $context);
 		$resp=json_decode($verify);
 
-		if (true || $resp != null && $resp->success) {
+		if ($resp != null && $resp->success) {
 			require_once '../lib/swiftmailer/swift_required.php';
 
 			// Create the Transport
@@ -37,6 +37,8 @@
 
 			// Create the Mailer using your created Transport
 			$mailer = new Swift_Mailer($transport);
+
+			$variablesPost['txt'] = nl2br($variablesPost['txt']);
 
 			// Create a message
 			$message = (new Swift_Message('Galactae Contact'))
