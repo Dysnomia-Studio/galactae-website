@@ -54,7 +54,7 @@
 				<span class="login-checkbox"><input type="checkbox" name="newsletter_update" id="newsletter_update" value="checked" checked><?php echo LOGIN_NEWS_UPDATE; ?></span>
 				<span class="login-checkbox"><input type="checkbox" name="newsletter_miscellaneous" id="newsletter_miscellaneous" value="checked"><?php echo LOGIN_NEWS_MISC; ?></span>
 				<br />
-				<!--<div class="g-recaptcha" data-sitekey="***REMOVED***"></div>-->
+				<div class="g-recaptcha" data-sitekey="***REMOVED***"></div>
 				<input type="submit" value="<?php echo LOGIN_REG; ?>">
 			</form>
 		</div>

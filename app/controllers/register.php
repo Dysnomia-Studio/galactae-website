@@ -73,12 +73,23 @@ $userMngr = new UserManager();
 
 $message = '';
 
-/*$reCaptcha = new ReCaptcha('***REMOVED***');
-
-$resp = $reCaptcha->verifyResponse(
-	$_SERVER['REMOTE_ADDR'],
-	$_POST['g-recaptcha-response']
-);*/
+$url = 'https://www.google.com/recaptcha/api/siteverify';
+$data = array(
+	'secret' => '***REMOVED***',
+	'response' => $variablesPost["g-recaptcha-response"]
+);
+$query = http_build_query($data);
+$options = array(
+	'http' => array (
+	'header' => 'Content-Type: application/x-www-form-urlencoded\r\n'.
+				'Content-Length: '.strlen($query).'\r\n',
+		'method' => 'POST',
+		'content' => $query,
+	)
+);
+$context  = stream_context_create($options);
+$verify = file_get_contents($url, false, $context);
+$resp=json_decode($verify);
 
 if(!isset($_POST['newsletter_miscellaneous']) || $_POST['newsletter_miscellaneous']!='checked') {
 	$user_news_misc = 0;
@@ -106,8 +117,8 @@ $user_encpasswd = Security::hashPassword($user_passwd, 1);
 	$message = ERR_FIELD.' '.CLICK_BACK;
 }
 
-if (/*$resp == null || 
-	!$resp->success || */
+if ($resp == null || 
+	!$resp->success ||
 	!isset($user_name) || 
 	empty($user_name) ||
 	empty($user_passwd) ||
