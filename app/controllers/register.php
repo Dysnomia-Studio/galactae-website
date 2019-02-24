@@ -1,4 +1,8 @@
 <?php
+foreach($_POST as $key => $value) {
+	$variablesPost[htmlspecialchars(trim($key), ENT_QUOTES | ENT_HTML5, 'UTF-8')] = htmlspecialchars(trim($value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+}
+
 $mail = array();
 $mail[0] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -91,27 +95,27 @@ $context  = stream_context_create($options);
 $verify = file_get_contents($url, false, $context);
 $resp=json_decode($verify);
 
-if(!isset($_POST['newsletter_miscellaneous']) || $_POST['newsletter_miscellaneous']!='checked') {
+if(!isset($variablesPost['newsletter_miscellaneous']) || $variablesPost['newsletter_miscellaneous']!='checked') {
 	$user_news_misc = 0;
 } else {
 	$user_news_misc = 1;
 }
 
-if(!isset($_POST['newsletter_update']) || $_POST['newsletter_update']!='checked') {
+if(!isset($variablesPost['newsletter_update']) || $variablesPost['newsletter_update']!='checked') {
 	$user_news_updates = 0;
 } else {
 	$user_news_updates = 1;
 }
 
 /* Verifications */
-if(isset($_POST['username']) &&
-	isset($_POST['mail']) &&
-	isset($_POST['password']) &&
-	isset($_POST['confpassword'])) {
-$user_name = htmlentities(htmlspecialchars($_POST['username']));
-$user_mail = htmlentities(htmlspecialchars($_POST['mail']));
-$user_passwd = htmlentities(htmlspecialchars($_POST['password']));
-$user_confpasswd = htmlentities(htmlspecialchars($_POST['confpassword']));
+if(isset($variablesPost['username']) &&
+	isset($variablesPost['mail']) &&
+	isset($variablesPost['password']) &&
+	isset($variablesPost['confpassword'])) {
+$user_name = htmlentities(htmlspecialchars($variablesPost['username']));
+$user_mail = htmlentities(htmlspecialchars($variablesPost['mail']));
+$user_passwd = htmlentities(htmlspecialchars($variablesPost['password']));
+$user_confpasswd = htmlentities(htmlspecialchars($variablesPost['confpassword']));
 $user_encpasswd = Security::hashPassword($user_passwd, 1);
 } else {
 	$message = ERR_FIELD.' '.CLICK_BACK;
@@ -119,13 +123,10 @@ $user_encpasswd = Security::hashPassword($user_passwd, 1);
 
 if ($resp == null || 
 	!$resp->success ||
-	!isset($user_name) || 
-	empty($user_name) ||
-	empty($user_passwd) ||
-	empty($user_mail)) { // One of input empty
+	$message != '') { // One of input empty
 
 	$message = ERR_FIELD.' '.CLICK_BACK;
-} elseif(!isset($_POST['cg']) || $_POST['cg']!='checked') {
+} elseif(!isset($variablesPost['cg']) || $variablesPost['cg']!='checked') {
 	$message = ERR_CG.' '.CLICK_BACK;
 } elseif($user_passwd!=$user_confpasswd) { // Same Passwords
 	$message = ERR_NOT_SAME_PASSWD.' '.CLICK_BACK;
