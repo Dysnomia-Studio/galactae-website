@@ -3,7 +3,7 @@
 		<div id="above-top-image">
 			<p id="top-images-punchlines"></p>
 			<div id="join">
-				<a href="login.html#register"><?= BETA_TEST ?></a>
+				<a href="login#register"><?= BETA_TEST ?></a>
 			</div>
 		</div>
 	</section>
