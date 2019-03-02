@@ -377,7 +377,7 @@
 		</div>
 	</div>
 	<div id="tab-stats" class="tab">
-		<iframe id="tab-stats-iframe" src="stats42"></iframe>
+		<iframe id="tab-stats-iframe" src="stats42" title="stats"></iframe>
 	</div>
 	<div id="tab-users" class="tab">
 		<div id="player-search">
@@ -385,8 +385,8 @@
 			<ul id="player-list">
 			</ul>
 		</div>
-		<iframe id="player-edit-frame" src="adminedituser"></iframe>
-		<iframe id="player-search-frame" src="adminsearchuser" style="display: none;"></iframe>
+		<iframe id="player-edit-frame" src="adminedituser" title="player edit"></iframe>
+		<iframe id="player-search-frame" src="adminsearchuser" title="player search" style="display: none;"></iframe>
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {

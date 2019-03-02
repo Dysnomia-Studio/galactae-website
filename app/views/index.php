@@ -9,7 +9,7 @@
 	</section>
 	
 	<div id="image-full-div">
-		<img src="?" id="image-full">
+		<img src="?" id="image-full" alt="fullscreen picture">
 	</div>
 
 	<section class="index-desc">
