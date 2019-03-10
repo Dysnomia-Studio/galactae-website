@@ -33,7 +33,8 @@ $content_playing = '';
 $content_not_playing = '';
 
 for($i=$firstServer; $i<count($servers); $i++) {
-	$servers[$i]['status'] = @fsockopen('localhost', $servers[$i]['port'], $errno, $errstr, 0.1);
+	//$servers[$i]['status'] = @fsockopen('localhost', $servers[$i]['port'], $errno, $errstr, 0.1);
+	$servers[$i]['status'] = true;
 
 	$server_status = ($servers[$i]['status'])?'server_on':'server_off';
 
