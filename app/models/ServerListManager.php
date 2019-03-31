@@ -1,5 +1,5 @@
 <?php
-class ServerListManager extends MongoInterface {
+class ServerListManager extends SQLInterface {
 
 
 	/**
@@ -10,7 +10,7 @@ class ServerListManager extends MongoInterface {
 	 * @return     <array>  Server informations
 	 */
 	public function getServerByName($name) {
-		$data = $this->getCondContent('galactae','servers',
+		$data = $this->getCondContent('servers',
 			["server_name" => $name]
 		);
 
@@ -27,6 +27,6 @@ class ServerListManager extends MongoInterface {
 	 * @return     <type>  All servers data
 	 */
 	public function getAllServers() {
-		return $this->getCondContent('galactae','servers', []);
+		return $this->getContent('servers');
 	}
 }

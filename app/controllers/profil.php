@@ -11,7 +11,7 @@ $searchedUser = [];
 
 $userMngr = new UserManager();
 
-if($user == "" || strtolower($user) == strtolower($userData['user_name'])) { // Current user
+if($user == '' || strtolower($user) == strtolower($userData['user_name'])) { // Current user
 	$currentUser = true;
 	$searchedUser = $userData;
 } else { // Other user
@@ -21,7 +21,7 @@ if($user == "" || strtolower($user) == strtolower($userData['user_name'])) { // 
 	if(isset($searchedUser[0])) { // Found ?
 		$searchedUser = (array) $searchedUser[0];
 	} else { // Not Found ?
-		echo "User not found";
+		echo 'User not found';
 		$found = false;
 	}
 }
@@ -30,16 +30,17 @@ if($user == "" || strtolower($user) == strtolower($userData['user_name'])) { // 
  * Db get
  */
 if($found) {
-	$game_ids = $userMngr->getAllUserGameData($searchedUser['_id']);
+	$game_ids = $userMngr->getAllUserGameData($searchedUser['id']);
 
-	$mongoDB = new MongoInterface();
+	$sqlDB = new SQLInterface();
 	$globalRanks = array();
 	foreach($game_ids as $userGameData) {
 		$userGameData = json_decode(json_encode($userGameData), true);
 
-		$currGlobalRank = $mongoDB->getCondContent('galactae','globalranks',
-			['user_id' => $userGameData['game_id'],
-			 'server_name' => $userGameData['server_name']
+		$currGlobalRank = $sqlDB->getCondContent('globalRanks',
+			[
+				'game_id' => $userGameData['game_id'],
+				'server_name' => $userGameData['server_name']
 			]
 		);
 
@@ -49,9 +50,10 @@ if($found) {
 	foreach($game_ids as $userGameData) {
 		$userGameData = json_decode(json_encode($userGameData), true);
 
-		$currSectorRanks = $mongoDB->getCondContent('galactae','sectorranks',
-			['user_id' => $userGameData['game_id'],
-			 'server_name' => $userGameData['server_name']
+		$currSectorRanks = $sqlDB->getCondContent('sectorRanks',
+			[
+				'game_id' => $userGameData['game_id'],
+				'server_name' => $userGameData['server_name']
 			]
 		);
 

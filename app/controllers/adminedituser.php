@@ -12,9 +12,9 @@ $searchedUser = $userMngr->getGlobalUserByCaseInsensitiveName($user);
 /**
  * Privileges
  */
-$privilegesList = $privilegesMngr->getUserPrivileges($searchedUser['_id']);
+$privilegesList = $privilegesMngr->getUserPrivileges($searchedUser['id']);
 
 /**
  * Bans
  */
-$bansList = $banMngr->getUserBans($searchedUser['_id']);
+$bansList = $banMngr->getUserBans($searchedUser['id']);

@@ -59,7 +59,7 @@ if(isset($userData['user_session_lang']) && $lang->getLanguage() != $userData['u
 	$lang->setLanguage($userData['user_session_lang']);
 }
 
-if(!isset($userData['_id'])) {
+if(!isset($userData['id'])) {
 	header('Location: index');
 	exit();
 }

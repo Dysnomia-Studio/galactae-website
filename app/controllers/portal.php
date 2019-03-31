@@ -1,5 +1,5 @@
 <?php
-$gameData = $userMngr->getAllUserGameData($userData['_id']);
+$gameData = $userMngr->getAllUserGameData($userData['id']);
 
 $privMngr = new PrivilegesManager();
 
@@ -13,7 +13,7 @@ $servers = [
 
 $devPrivileges = $privMngr->getUserPrivilegesOnServer(
 	'galactae-00',
-	$userData['_id']
+	$userData['id']
 );
 
 if(isset($devPrivileges['user_whitelist']) && ((int) $devPrivileges['user_whitelist']==1)) {
@@ -44,7 +44,7 @@ for($i=$firstServer; $i<count($servers); $i++) {
 
 			$userPrivileges = $privMngr->getUserPrivilegesOnServer(
 				$servers[$i]['server_name'],
-				$userData['_id']
+				$userData['id']
 			);
 
 			if((!isset($srv_data['server_maintenance']) || $srv_data['server_maintenance']==1) && (!isset($userPrivileges['user_whitelist']) || ((int) $userPrivileges['user_whitelist']!=1))) {

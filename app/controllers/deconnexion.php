@@ -1,6 +1,6 @@
 <?php
 $userMngr->removeSessionByIds(
-	$userData['_id'], 
+	$userData['id'], 
 	$_COOKIE['galactae-phpsessid']
 );
 

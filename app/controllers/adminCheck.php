@@ -56,7 +56,7 @@ if(isset($userData['user_session_lang']) && $lang->getLanguage() != $userData['u
 	$lang->setLanguage($userData['user_session_lang']);
 }
 
-if(!isset($userData['user_name']) || !isset($userData['_id'])) {
+if(!isset($userData['user_name']) || !isset($userData['id'])) {
 	error404();
 }
 

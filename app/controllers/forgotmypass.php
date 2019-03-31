@@ -80,13 +80,13 @@ if(isset($data['user_name'])) {
 	// Send mail
 	$passwd_link = Security::hashV1(time().$user_name);
 
-	$mongoDB = new MongoInterface();
-	$mongoDB->addContent('galactae','recoverpasses',[
-		'user_id' => $data['_id'],
-		'user_name' => $data['user_name'],
-		'passforgot_uid' => $passwd_link,
-		'passforgot_time' => time()
-	]);
+	$sqlDB = new SQLInterface();
+	$sqlDB->addContent('recoverpasses',[[
+			'user_id' => $data['id'],
+			'user_name' => $data['user_name'],
+			'passforgot_uid' => $passwd_link,
+			'passforgot_time' => time()
+		]]);
 
 	$passwd_link = 'https://galactae.eu/changepassword?pid='.$passwd_link.'&username='.$data['user_name'];
 

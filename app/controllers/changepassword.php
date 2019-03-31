@@ -1,6 +1,6 @@
 <?php
 	$mintime = time() - (24*60*60);
-	$mongoDB = new MongoInterface();
+	$sqlDB = new SQLInterface();
 
 	// Set password
 	if(isset($_POST['password'], 
@@ -19,7 +19,7 @@
 		if(strlen($password)<$config['pass-minsize']) { // Password size
 			$message = ERR_TOO_LONG_SHORT_PASS;
 		} elseif($password==$confpassword) {
-			$data = $mongoDB->getCondContent('galactae','recoverpasses',
+			$data = $sqlDB->getCondContent('recoverpasses',
 				['passforgot_uid' => $uid]
 			);
 
@@ -29,12 +29,12 @@
 
 			if(isset($data['user_name']) && $data['user_name']==$username && $data['passforgot_time'] > $mintime) { 
 				// Set db
-				$mongoDB->removeContent('galactae','recoverpasses',
+				$sqlDB->removeContent('recoverpasses',
 					['user_id' => $data['user_id']]);
 
-				$mongoDB->updateContent('galactae','users',
-					['_id' => $data['user_id']],
-					['$set' => ['user_passwd' => $encpassword]]
+				$sqlDB->updateContent('users',
+					['user_passwd' => $encpassword],
+					['id' => $data['user_id']]
 				);
 			} else { // Invalid data
 				$pageData['pageName'] = "login.php";
@@ -53,7 +53,7 @@
 		$uid = (isset($_GET['pid']))?htmlentities(htmlspecialchars($_GET['pid'])):'';
 		$username = (isset($_GET['username']))?htmlentities(htmlspecialchars($_GET['username'])):'';
 		
-		$data = $mongoDB->getCondContent('galactae','recoverpasses',
+		$data = $sqlDB->getCondContent('recoverpasses',
 			['passforgot_uid' => $uid]
 		);
 

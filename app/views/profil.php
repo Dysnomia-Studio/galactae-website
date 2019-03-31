@@ -43,12 +43,10 @@ if($found) { // Found ?
 		<h3>'.PROFIL_RANK.'</h3>
 		<h4>'.PROFIL_GALAXY.'</h4>
 		<table>
-			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th><th>'.PROFIL_PLANETS.'</th></tr>';
+			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_POINTS.'</th><th>'.PROFIL_PLANETS.'</th></tr>';
 
 	for($i=0; $i<count($globalRanks); $i++) {
-		if(!isset($globalRanks[$i]["rank"])) { $globalRanks[$i]["rank"] = "?"; } // temp
 		echo '<tr><td>'.translateServerName($globalRanks[$i]["server_name"]).'</td>	
-			<td>'.$globalRanks[$i]["rank"].'</td>
 			<td>'.$globalRanks[$i]["points"].'</td>
 			<td>'.$globalRanks[$i]["planets"].'</td>
 			</tr>
@@ -59,13 +57,11 @@ if($found) { // Found ?
 		</table>
 		<h4>Secteur</h4>
 		<table>
-			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_SECTOR.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th><th>'.PROFIL_PLANETS.'</th></tr>';
+			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_SECTOR.'</th><th>'.PROFIL_POINTS.'</th><th>'.PROFIL_PLANETS.'</th></tr>';
 
 	for($i=0; $i<count($sectorRanks); $i++) {
-		if(!isset($sectorRanks[$i]["rank"])) { $sectorRanks[$i]["rank"] = "?"; } // temp
 		echo '<tr><td>'.translateServerName($sectorRanks[$i]["server_name"]).'</td>
 			<td>'.$sectorRanks[$i]["sector"].'</td>
-			<td>'.$sectorRanks[$i]["rank"].'</td>
 			<td>'.$sectorRanks[$i]["points"].'</td>
 			<td>'.$sectorRanks[$i]["planets"].'</td>
 			</tr>

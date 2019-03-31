@@ -2,9 +2,9 @@
 	$uid = htmlentities(htmlspecialchars($_GET['mid']));
 	$username = htmlentities(htmlspecialchars($_GET['username']));
 
-	$mongoDB = new MongoInterface();
+	$sqlDB = new SQLInterface();
 
-	$data = $mongoDB->getCondContent('galactae','mailconfirmations',[
+	$data = $sqlDB->getCondContent('mailconfirmations',[
 		'mailconfirm_uid' => $uid
 	]);
 
@@ -16,12 +16,12 @@
 
 	if($activated) {
 		// Activate account
-		$mongoDB->removeContent('galactae','mailconfirmations',[
-			'_id' => $data['_id']
+		$sqlDB->removeContent('mailconfirmations',[
+			'mailconfirm_uid' => $data['mailconfirm_uid']
 		]);
 
-		$mongoDB->updateContent('galactae','users',
-			['_id' => $data['_id']],
-			['$set' => ['activated' => 1]]
+		$sqlDB->updateContent('users',
+			['activated' => 1],
+			['user_name' => $data['user_name']]
 		);
 	}

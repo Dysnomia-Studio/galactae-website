@@ -14,7 +14,7 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 			$userMngr->updateUserSession();
 			$userData = $userMngr->getGlobalUserById($sess_data['user_id']);
 
-			if(isset($userData['_id'])) {
+			if(isset($userData['id'])) {
 				header('Location: portal');
 				exit();
 			}

@@ -22,14 +22,14 @@ if(isset($_SESSION['ip']) &&
 		} else {
 			if(isset($data['user_passwd']) && $data['user_passwd']  == Security::hashPassword($variablesPost['password'], 1)) { // Acces OK ! 	
 				$userMngr->removeSessionByIds(
-					$data['_id'], 
+					$data['id'], 
 					$_COOKIE['galactae-phpsessid']
 				);
 
 				$browser = new Browser();
 
 				$userMngr->addSession(
-					$data['_id'],
+					$data['id'],
 					$_COOKIE['galactae-phpsessid'],
 					($browser->getPlatform().'-'.$browser->getBrowser())
 				);

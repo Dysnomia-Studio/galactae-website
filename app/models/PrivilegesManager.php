@@ -1,5 +1,5 @@
 <?php
-class PrivilegesManager extends MongoInterface {
+class PrivilegesManager extends SQLInterface {
 
 	/**
 	 * Gets the user privileges on a specific server
@@ -10,7 +10,7 @@ class PrivilegesManager extends MongoInterface {
 	 * @return     <array>  User privileges on this server
 	 */
 	public function getUserPrivilegesOnServer($server, $uid) {
-		$data = $this->getCondContent('galactae','privileges',[
+		$data = $this->getCondContent('privileges',[
 			'user_id' => $uid,
 			'server_name' => $server
 		]);
@@ -31,7 +31,7 @@ class PrivilegesManager extends MongoInterface {
 	 * @return     <array>  User privileges on all server
 	 */
 	public function getUserPrivileges($uid) {
-		return $this->getCondContent('galactae','privileges',[
+		return $this->getCondContent('privileges',[
 			'user_id' => $uid
 		]);
 	}

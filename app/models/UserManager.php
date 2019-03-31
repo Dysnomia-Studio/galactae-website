@@ -1,7 +1,5 @@
 <?php
-class UserManager extends MongoInterface {
-
-
+class UserManager extends SQLInterface {
 	/**
 	 * Gets the user by session id
 	 *
@@ -10,7 +8,7 @@ class UserManager extends MongoInterface {
 	 * @return     <array>  User session data
 	 */
 	public function getUserBySession($id) {
-		$data = $this->getCondContent('galactae','sessions',
+		$data = $this->getCondContent('sessions',
 			['user_session_uid' => $id]
 		);
 
@@ -25,12 +23,9 @@ class UserManager extends MongoInterface {
 	 * Updates user session data
 	 */
 	public function updateUserSession() {
-		$this->updateContent('galactae','sessions',
-			['user_session_uid' => $_COOKIE['galactae-phpsessid']],
-			[ '$set' => [
-				 	'user_session_expiration' => (time()+2678400)
-				]
-			]
+		$this->updateContent('sessions',
+			['user_session_expiration' => (time()+2678400)],
+            ['user_session_uid' => $_COOKIE['galactae-phpsessid']]
 		);
 	}
 
@@ -42,12 +37,12 @@ class UserManager extends MongoInterface {
 	 * @param      <string>  $browser  Browser simplified user agent
 	 */
 	public function addSession($uid, $sessid, $browser) {
-		$this->addContent('galactae','sessions',[
+		$this->addContent('sessions',[[
 			'user_id' => $uid,
 			'user_session_uid' => $sessid,
 			'user_session_expiration' => (time()+2678400),
 			'user_agent' => $browser
-		]);
+		]]);
 	}
 
 	/**
@@ -57,7 +52,7 @@ class UserManager extends MongoInterface {
 	 * @param      <string>  $sessid   Session Id
 	 */
 	public function removeSessionByIds($uid, $sessid) {
-		$this->removeContent('galactae','sessions',[
+		$this->removeContent('sessions',[
 			'user_id' => $uid,
 			'user_session_uid' => $sessid
 		]);
@@ -71,8 +66,8 @@ class UserManager extends MongoInterface {
 	 * @return     <array>  User data
 	 */
 	public function getGlobalUserById($id) {
-		$data = $this->getCondContent('galactae','users',
-			['_id' => $id]
+		$data = $this->getCondContent('users',
+			['id' => $id]
 		);
 
 		if(isset($data[0])) {
@@ -90,13 +85,13 @@ class UserManager extends MongoInterface {
 	 * @return     <array>  User data
 	 */
 	public function getGlobalUserByCaseInsensitiveName($name) {
-		$data = $this->getCondContent('galactae','users',
-			['user_name' => new \MongoDB\BSON\Regex('^'.preg_quote($name).'$', 'i')]
+		$data = $this->getILIKECondContent('users',
+			['user_name' => preg_quote($name)]
 		);
 
 	    if(count($data)==0) { // Test avec le mail
-			$data = $this->getCondContent('galactae','users',
-				['user_mail' => new \MongoDB\BSON\Regex('^'.preg_quote($name).'$', 'i')]
+			$data = $this->getILIKECondContent('users',
+				['user_mail' => preg_quote($name)]
 			);
 	    }
 
@@ -115,8 +110,8 @@ class UserManager extends MongoInterface {
 	 * @return     <array>  User data
 	 */
 	public function getAllGlobalUsersByCaseInsensitiveName($name) {
-		return $this->getCondContent('galactae','users',
-			['user_name' => new \MongoDB\BSON\Regex('^'.preg_quote($name).'$', 'i')]
+		return $this->getILIKECondContent('users',
+			['user_name' => preg_quote($name)]
 		);
 	}
 
@@ -132,20 +127,20 @@ class UserManager extends MongoInterface {
 	 * @return     string    Confirmation URL
 	 */
 	public function addGlobalUser($name, $mail, $passwd, $misc, $updates) {
-		$this->addContent('galactae','users',[
+		$this->addContent('users',[[
 			'user_name' => $name,
 			'user_mail' => $mail,
 			'user_passwd' => $passwd,
 			'newsletter_misc' => $misc,
 			'newsletter_updates' => $updates
-		]);
+		]]);
 
 		$conf_link = Security::hashPassword(time().$name);
 
-		$this->addContent('galactae','mailconfirmations',[
+		$this->addContent('mailconfirmations',[[
 			'user_name' => $name,
 			'mailconfirm_uid' => $conf_link
-		]);
+		]]);
 
 		return 'https://galactae.eu/mailconf?mid='.$conf_link.'&username='.$name;
 	}
@@ -159,7 +154,7 @@ class UserManager extends MongoInterface {
 	 * @return     <array>   The user privileges.
 	 */
 	public function getUserPrivileges($id, $servName) {
-		$data = $this->getCondContent('galactae','privileges',[
+		$data = $this->getCondContent('privileges',[
 			'user_id' => $id,
 			'server_name' => $servName
 		]);
@@ -179,8 +174,8 @@ class UserManager extends MongoInterface {
 	 * @return     <array>   All user game data.
 	 */
 	public function getAllUserGameData($id) {
-		return $this->getCondContent('galactae','game_ids',[
-			'user_id' => (string) $id
+		return $this->getCondContent('userGameIds',[
+			'user_id' => $id
 		]);
 	}
 
@@ -193,7 +188,7 @@ class UserManager extends MongoInterface {
 	 * @return     <array>  The user game data.
 	 */
 	public function getUserGameData($id, $servName) {
-		$data = $this->getCondContent('galactae','game_ids',[
+		$data = $this->getCondContent('userGameIds',[
 			'user_id' => (string) $id,
 			'server_name' => $servName
 		]);
@@ -213,12 +208,12 @@ class UserManager extends MongoInterface {
 	 * @param      <string>  $servName  Server name
 	 */
 	public function updateUserGameData($uid, $gid, $servName) {
-		$this->updateContent('galactae','game_ids',
+		$this->updateContent('userGameIds',
+            [ 'game_id' => $gid ],
 			[
 				'user_id' => $uid,
 				'server_name' => $servName
-			],
-			[ '$set' => [ 'game_id' => $gid] ]);
+			]);
 	}
 
 	/**
@@ -229,11 +224,11 @@ class UserManager extends MongoInterface {
 	 * @param      <string>  $servName  Server name
 	 */
 	public function addUserGameData($uid, $gid, $dbname) {
-		$this->addContent('galactae','game_ids',[
+		$this->addContent('userGameIds',[[
 			'user_id' => (string) $uid,
 			'game_id' => (string) $gid,
 			'server_name' => $dbname
-		]);
+		]]);
 	}
 
 	/**
@@ -243,9 +238,9 @@ class UserManager extends MongoInterface {
 	 * @param      <int>  $newsId  The news identifier
 	 */
 	public function updateUserLastNews($uid, $newsId) {
-		$this->updateContent('galactae','users',
-			['_id' => $uid],
-			[ '$set' => [ 'lastViewedNews' => $newsId ] ]
+		$this->updateContent('users',
+            [ 'lastViewedNews' => $newsId ],
+			['id' => $uid],
 		);
 	}
 }
