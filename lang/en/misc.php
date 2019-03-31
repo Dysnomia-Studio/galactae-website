@@ -10,6 +10,7 @@ define('OTHER_LINKS','Other Links');
 define('OTHER_LINKS_PARTNERS','Partners');
 define('OTHER_LINKS_THETEAM','The team');
 
+define('NOT_TRANSLATED_YET', 'That blog hasn\'t been translated yet.');
 
 define('LEGAL_NOTICES','Legal Notices');
 define('LEGAL_NOTICES_CGU','CGU');

@@ -70,7 +70,7 @@ class SQLInterface {
 
 	private function bindValues($query, $bindValue, $suffixe='') {
 		foreach($bindValue as $name => $value) {
-			if(is_int($value) || is_bool($value)) {
+			if(is_int($value)) {
 				$pdoType = PDO::PARAM_INT;
 			} else {
 				$pdoType = PDO::PARAM_STR;
@@ -328,7 +328,7 @@ class SQLInterface {
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
 	public function selectQuery($query,$bindValue,$oneResult=false) {
-		if(is_string($query)&&is_array($bindValue)&&is_bool($oneResult)) {
+		if(is_string($query) && is_array($bindValue) && is_bool($oneResult)) {
 			$query = $this->bd->prepare($query);
 
 			$this->bindValues($query, $bindValue);
@@ -358,7 +358,7 @@ class SQLInterface {
 	 * @param      <type>  $bindValue  The binded value
 	 */
 	public function updateQuery($query,$bindValue) {
-		if(is_string($query)&&is_array($bindValue)) {
+		if(is_string($query) && is_array($bindValue)) {
 
 			$query = $this->bd->prepare($query);
 

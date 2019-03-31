@@ -10,6 +10,7 @@ define('OTHER_LINKS','Autres Liens');
 define('OTHER_LINKS_PARTNERS','Partenaires');
 define('OTHER_LINKS_THETEAM','L\'équipe');
 
+define('NOT_TRANSLATED_YET', 'Ce devblog n\'a pas encore été traduis en francais.');
 
 define('LEGAL_NOTICES','Mentions Légales');
 define('LEGAL_NOTICES_CGU','CGU');
