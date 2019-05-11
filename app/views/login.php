@@ -3,6 +3,23 @@
 		<li style="text-align: center;"><a href="index" style="color: white; text-decoration: none; font-weight: bold;"><img src="https://***REMOVED***/website/img/bannersAndLogos/logo-large-white.png" alt="logo" style="max-height: 6em;"></a></li>
 	</ul>
 
+	<script src="https://www.google.com/recaptcha/api.js?render=***REMOVED***"></script>
+	</script>
+	<script>
+		grecaptcha.ready(function() {
+			grecaptcha.execute('***REMOVED***', {action: 'login'}).then(function(token) {
+				Array.from(document.querySelectorAll('form')).forEach((formElt) => {
+					const inputElt = document.createElement('input');
+						inputElt.setAttribute('type', 'hidden');
+						inputElt.setAttribute('name', 'g-recaptcha-response');
+						inputElt.value = token;
+
+					formElt.appendChild(inputElt);
+				});
+			});
+		});
+	</script>
+
 	<section class="login">
 		<?php
 		if(isset($message) && !empty($message)) {
@@ -55,8 +72,6 @@
 				<span class="login-checkbox"><input type="checkbox" name="newsletter_miscellaneous" id="newsletter_miscellaneous" value="checked"><?php echo LOGIN_NEWS_MISC; ?></span>
 				<br />
 				<br />
-				<script src='https://www.google.com/recaptcha/api.js'></script>
-				<div class="g-recaptcha" data-sitekey="***REMOVED***"></div>
 				<input type="submit" value="<?php echo LOGIN_REG; ?>">
 			</form>
 		</div>
