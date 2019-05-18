@@ -10,6 +10,10 @@ $debut = round(microtime(true) * 1000);
 -->
 <html lang="<?= $lang->getLanguage(); ?>">
 	<head>
+		<?php
+		include_once(DIR_CTRL.'lang.php');
+		?>
+
 		<title>Galactae: Space Age Dawn</title>
 		<meta name="theme-color" content="#0b1012">
 		<meta charset="UTF-8">
