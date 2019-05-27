@@ -19,7 +19,6 @@ if($pageData['pageName'] == "menu.php") {
 		<li><a href="login" class="menu-link menu-button"><?php echo MENU_PLAY_NOW; ?></a></li>
 		<li><a href="medias" class="menu-link"><?php echo MENU_PICS; ?></a></li>
 		<li><a href="blog" class="menu-link"><?php echo MENU_BLOG; ?></a></li>
-		<li><a href="forum/" class="menu-link"><?php echo MENU_FORUM; ?></a></li>
 		<li><a href="contact" class="menu-link"><?php echo MENU_CONTACT; ?></a></li>
 		<li><form method="post" id="language-form">
 	        <div id="language-list"></div>
