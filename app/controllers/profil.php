@@ -18,9 +18,7 @@ if($user == '' || strtolower($user) == strtolower($userData['user_name'])) { // 
 	// Search
 	$searchedUser = $userMngr->getGlobalUserByCaseInsensitiveName($user);
 
-	if(isset($searchedUser[0])) { // Found ?
-		$searchedUser = (array) $searchedUser[0];
-	} else { // Not Found ?
+	if(!isset($searchedUser)) { // Not Found ?
 		$found = false;
 	}
 }
