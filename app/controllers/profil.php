@@ -29,29 +29,24 @@ if($user == '' || strtolower($user) == strtolower($userData['user_name'])) { // 
 if($found) {
 	$game_ids = $userMngr->getAllUserGameData($searchedUser['id']);
 
-	$sqlDB = new SQLInterface();
+	$rkMngr = new RanksManager();
 	$globalRanks = array();
 	foreach($game_ids as $userGameData) {
-		$userGameData = json_decode(json_encode($userGameData), true);
-
-		$currGlobalRank = $sqlDB->getCondContent('globalRanks',
-			[
-				'game_id' => $userGameData['game_id'],
-				'server_name' => $userGameData['server_name']
-			]
+		$currGlobalRank = $rkMngr->getGlobalListByGameIdAndServer(
+			$userGameData['game_id'],
+			$userGameData['server_name']
 		);
 
-		array_push($globalRanks, json_decode(json_encode($currGlobalRank[0]), true));
+		if(isset($currGlobalRank[0])) {
+			array_push($globalRanks, $currGlobalRank[0]);
+		}
 	}
+
 	$sectorRanks = array();
 	foreach($game_ids as $userGameData) {
-		$userGameData = json_decode(json_encode($userGameData), true);
-
-		$currSectorRanks = $sqlDB->getCondContent('sectorRanks',
-			[
-				'game_id' => $userGameData['game_id'],
-				'server_name' => $userGameData['server_name']
-			]
+		$currSectorRanks = $rkMngr->getSectorListByGameIdAndServer(
+			$userGameData['game_id'],
+			$userGameData['server_name']
 		);
 
 		for($i=0; $i<count($currSectorRanks); $i++) {
