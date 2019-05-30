@@ -72,7 +72,7 @@ if($found) { // Found ?
 		</table>
 	</div>';
 } else { // Not Found ?
-	echo "User not found";
+	echo '<section class="login-page"><div id="profil-main">User not found</div></section>';
 }
 ?>
 </body>

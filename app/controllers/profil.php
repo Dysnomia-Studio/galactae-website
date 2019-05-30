@@ -21,7 +21,6 @@ if($user == '' || strtolower($user) == strtolower($userData['user_name'])) { // 
 	if(isset($searchedUser[0])) { // Found ?
 		$searchedUser = (array) $searchedUser[0];
 	} else { // Not Found ?
-		echo 'User not found';
 		$found = false;
 	}
 }
