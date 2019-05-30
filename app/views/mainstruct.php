@@ -42,6 +42,7 @@ $debut = round(microtime(true) * 1000);
 			];
 
 			$menuConnectedPages = [
+				"editprofil.php",
 				"portal.php",
 				"profil.php",
 				"support.php",
@@ -56,6 +57,7 @@ $debut = round(microtime(true) * 1000);
 
 			$connectCheckPages = [
 				"deconnexion.php",
+				"editprofil.php",
 				"portal.php",
 				"profil.php",
 				"support.php",

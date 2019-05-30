@@ -49,13 +49,13 @@ define('ERR_TOO_LONG_SHORT_USERNAME','Error: Your username is too short/long.');
 define('ERR_TOO_LONG_SHORT_PASS','Error: Your password is too short (8 char min.).');
 define('ERR_NOT_VALID_MAIL','Error: Your mail is invalid.');
 define('ERR_NOT_VALID_USERNAME','Error: Your username is invalid.');
-define('ERR_NOT_VALID_PASS','Error: Your password is invalid.');
 define('ERR_NOT_SAME_PASSWD','Error: Your password and its confirmation are not the same.');
 define('ERR_ACCOUNT_EXISTS','Error: An account with this mail and/or username already exists.');
 define('ERR_ACCOUNT_NOT_EXISTS','Error: No account was found with this mail or username.');
 define('ERR_CG','Error: You need accept terms of use and sale.');
 define('ERR_NOT_ACTIVATED','Error: Your account isn\'t activated yet.');
 define('ERR_NOT_WHITELISTED','Error: Your account hasn\'t access to the alpha.');
+define('ERR_INCORRECT_PASSWD','Erreur: Incorrect password');
 
 define('CONNECTED','You\'re now connected.');
 define('ACTIVATION','You\'re now registered. Please activate your account by confirming your mail.');

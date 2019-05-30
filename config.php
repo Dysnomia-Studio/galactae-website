@@ -27,6 +27,7 @@ $config = array(
 		"forgotmypass",
 		"changepassword",
 		"profil",
+		"editprofil",
 		"adminsearchuser",
 		"adminedituser"
 	],

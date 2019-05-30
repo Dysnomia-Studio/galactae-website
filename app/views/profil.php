@@ -16,12 +16,6 @@ function translateServerName($serverId) {
 if($found) { // Found ?
 	echo '	<div id="profil-main">';
 	
-	// Edit button
-	if($currentUser) {
-		echo '<a id="edit-button">'.PROFIL_EDIT.'</a><br/>';
-		// JS Script to switch to edit
-	}
-
 	echo '		<h3>'.PROFIL_INFO.'</h3>';
 
 	// Basic infos
@@ -29,8 +23,31 @@ if($found) { // Found ?
  	echo '
  		<span id="profil-username">'.$searchedUser['user_name'].'</span><br/>';
  	if($currentUser) {
- 		echo '
-		<span id="profil-mail">'.$searchedUser['user_mail'].'</span><br/>';
+ 		?>
+		<span id="profil-mail"><?= $searchedUser['user_mail'] ?></span><br/>
+
+		<form action="editprofil" method="post" class="login-onglet" id="editprofil">
+			<h4><?= PROFIL_NEWSLETTER ?></h4>
+
+			<label for="newsletter_misc"><?= LOGIN_NEWS_MISC ?></label>
+			<input id="profil-newsletter_misc" name="newsletter_misc" type="checkbox" <?= ($searchedUser['newsletter_misc']) ? 'checked' : ''; ?>>
+
+			<label for="newsletter_misc"><?= LOGIN_NEWS_UPDATE ?></label>
+			<input id="profil-newsletter_updates" name="newsletter_updates" type="checkbox" <?= ($searchedUser['newsletter_updates']) ? 'checked' : ''; ?>>
+
+			<h4><?= LOGIN_PASSWORD ?></h4>
+
+			<p><?= PROFIL_PASSWORD_TEXT ?></p>
+
+			<input type="password" name="oldpassword" id="oldpassword" placeholder="<?php echo PROFIL_OLD_PASSWORD; ?>">
+			<input type="password" name="newpassword" id="newpassword" placeholder="<?php echo PROFIL_NEW_PASSWORD; ?>">
+			<input type="password" name="confpassword" id="confpassword" placeholder="<?php echo LOGIN_CPASSWORD; ?>">
+
+			<br/>
+
+			<input type="submit" value="<?= PROFIL_EDIT ?>">
+		</form>
+		<?php
 	}
 	if(isset($searchedUser['birth'])) {
  		echo '

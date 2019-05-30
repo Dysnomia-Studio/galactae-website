@@ -49,13 +49,13 @@ define('ERR_TOO_LONG_SHORT_USERNAME','Erreur: Votre nom d\'utilisateur est trop 
 define('ERR_TOO_LONG_SHORT_PASS','Erreur: Votre mot de passe est trop court (8 caracteres minimum).');
 define('ERR_NOT_VALID_MAIL','Erreur: Votre mail est invalide');
 define('ERR_NOT_VALID_USERNAME','Erreur: Votre nom d\'utilisateur est invalide');
-define('ERR_NOT_VALID_PASS','Erreur: Votre mot de passe est invalide');
 define('ERR_NOT_SAME_PASSWD','Erreur: Le mot de passe et sa confirmation ne sont pas les mêmes.');
 define('ERR_ACCOUNT_EXISTS','Erreur: Un compte avec ce mail et/ou nom d\'utilisateur existe déjà !');
 define('ERR_ACCOUNT_NOT_EXISTS','Erreur: Aucun compte n\'est lié à ce pseudo/mail.');
 define('ERR_CG','Erreur: Vous devez accepter les conditions generales du jeu.');
 define('ERR_NOT_ACTIVATED','Erreur: Votre compte n\'est pas activé.');
 define('ERR_NOT_WHITELISTED','Erreur: Votre compte n\'a pas accès à l\'alpha.');
+define('ERR_INCORRECT_PASSWD','Erreur: Mot de passe incorrect');
 
 define('CONNECTED','Vous êtes bien connecté.');
 define('ACTIVATION','Vous êtes bien inscrit. Veuillez activer votre compte en confirmant votre mail.');
