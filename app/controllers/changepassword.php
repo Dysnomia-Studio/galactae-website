@@ -46,7 +46,7 @@
 
 		if($message=='') {
 			$pageData['pageName'] = "login.php";
-			$message = PASS_CHANGED;
+			$message = PASS_CHANGED.CLICK_LOGIN;
 		}
 		
 	} else {
