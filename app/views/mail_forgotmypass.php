@@ -30,7 +30,7 @@ $mail[1] = '</title>
 					<tr style="line-height: 0.5em;"><td>&nbsp;</td></tr>
 					<tr style="color: #93fcfb;">
 						<td style="padding: 0.2em 0.8em 0.2em 0.8em;">
-							<table style="max-width: 600px;"><tr><td>';
+							<table style="max-width: 600px; color: #93fcfb;"><tr><td>';
 // Mail text
 $mail[2] = '		</td>
 					</tr>
