@@ -8,14 +8,14 @@
 	<option value="100000">Toute la periode</option>
 </select>
 
-<div id="stats" class="graphs"></div>
+<div id="stats" class="graphs" style="height: 95vh;"></div>
 
 <script src="https://***REMOVED***/website/js/chartkick.js"></script>
 <script src="https://***REMOVED***/website/js/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 <script type="text/javascript">
 	var rawStats = <?= json_encode($results); ?>;
-	var outStats = [];
+	var outStats = {};
 
 	function convertDate(inputFormat) {
 		function pad(s) { return (s < 10) ? '0' + s : s; }
@@ -27,7 +27,7 @@
 	function genReport(dTime) {
 		var minDate = Date.now() - (dTime * 24 * 60 * 60 * 1000);
 
-		for(var server in rawStats) {
+		for(const server in rawStats) {
 			outStats[server] = [];
 			for(var i=0; i<rawStats[server].length; i++) {
 				if(rawStats[server][i].time < minDate) { continue; } // Keep only what we need
@@ -43,10 +43,10 @@
 			}
 		}
 
-		var data4Charts = [];
+		const data4Charts = [];
 
 		// Each server
-		for(var i in outStats) {
+		for(const i in outStats) {
 			data4Charts.push({name: i, data: outStats[i]});
 		}
 
