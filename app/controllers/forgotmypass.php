@@ -12,8 +12,12 @@ require_once(DIR_VIEW.'mail_forgotmypass.php');
 require_once(DIR_CTRL.'recaptcha.php');
 
 // Account exists ?
-$userMngr = new UserManager();
-$data = $userMngr->getGlobalUserByCaseInsensitiveName($variablesPost['username']);
+$data = [];
+
+if(!empty($variablesPost['username'])) {
+	$userMngr = new UserManager();
+	$data = $userMngr->getGlobalUserByCaseInsensitiveName($variablesPost['username']);
+}
 
 if(isset($data['user_name'])) {
 	// Send mail

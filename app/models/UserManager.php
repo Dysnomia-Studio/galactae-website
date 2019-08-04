@@ -97,6 +97,11 @@ class UserManager extends SQLInterface {
 
 		if(isset($data[0])) {
 			$data = (array) $data[0];
+
+			if(strtolower($data['user_name']) !== strtolower($name) &&
+				strtolower($data['user_mail']) !== strtolower($name)) {
+				$data = [];
+			}
 		}
 
 		return $data;
