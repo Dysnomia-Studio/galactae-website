@@ -66,4 +66,3 @@ if(!isset($userData['user_name']) || !isset($userData['id'])) {
 if(!isset($userData['user_adminPanelAccess']) || $userData['user_adminPanelAccess']!=1) {
 	error404();
 }
-?>

@@ -48,4 +48,3 @@ define('PARTNERS_TITLE','Partenaires');
 define('PARTNERS_LIST','<i>Aucun partenaire actuellement</i>');
 define('PARTNERS_BECOME_TITLE','Devenir partenaire');
 define('PARTNERS_BECOME_DESC','Vous pouvez faire une demande de partenariat ainsi que certaines conditions de partenariat ( publicité, entraide, etc ) via notre formulaire de contact.');
-?>

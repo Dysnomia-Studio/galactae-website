@@ -13,7 +13,7 @@
 	</div>
 
 	<section class="index-desc">
-		<table class="computer-table">
+		<table class="computer-table" aria-describedby="Game descriptions">
 			<tr>
 				<td><h2><?= INDEX_TITLE_1 ?></h2></td>
 				<td><h2><?= INDEX_TITLE_2 ?></h2></td>
@@ -31,17 +31,17 @@
 			</tr>
 		</table>
 
-		<table class="mobile-table">
+		<table class="mobile-table" aria-describedby="Game descriptions">
 			<tr><td><h2><?= INDEX_TITLE_1 ?></h2></td></tr>
 			<tr><td><img src="https://***REMOVED***/website/img/officialPosts/gvt-choice-min.jpg" onclick="FullPictureShow(this.src)" alt="how to govern"></td></tr>
 			<tr><td><p><?= INDEX_DESC_1 ?></p></td></tr>
 		</table>
-		<table class="mobile-table">
+		<table class="mobile-table" aria-describedby="Game descriptions">
 			<tr><td><h2><?= INDEX_TITLE_2 ?></h2></td></tr>
 			<tr><td><img src="https://***REMOVED***/website/img/officialPosts/ship-create-min.jpg" onclick="FullPictureShow(this.src)" alt="create your own fleet"></td></tr>
 			<tr><td><p><?= INDEX_DESC_2 ?></p></td></tr>
 		</table>
-		<table class="mobile-table">
+		<table class="mobile-table" aria-describedby="Game descriptions">
 			<tr><td><h2><?= INDEX_TITLE_3 ?></h2></td></tr>
 			<tr><td><img src="https://***REMOVED***/website/img/officialPosts/galaxy-map-min.jpg" onclick="FullPictureShow(this.src)" alt="beat for galaxy control"></td></tr>
 			<tr><td><p><?= INDEX_DESC_3 ?></p></td></tr>

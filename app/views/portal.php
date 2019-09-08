@@ -27,7 +27,7 @@
 				$('#kickmsg').fadeIn(1000);
 				setTimeout(function() {
 					$('#kickmsg').fadeOut(1000);
-				}, 1000 + 100*$('#kickmsg').text().length);	
+				}, 1000 + 100*$('#kickmsg').text().length);
 			});
 		</script>
 		<?php

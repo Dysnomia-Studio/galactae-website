@@ -19,7 +19,7 @@ class PrivilegesManager extends SQLInterface {
 			$data = (array) $data[0];
 		}
 
-		return $data;	
+		return $data;
 	}
 
 

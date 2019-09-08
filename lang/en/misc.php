@@ -48,4 +48,3 @@ define('PARTNERS_TITLE','Partners');
 define('PARTNERS_LIST','<i>No partner yet</i>');
 define('PARTNERS_BECOME_TITLE','How to become a partner ?');
 define('PARTNERS_BECOME_DESC','You can ask to be a partner like ads, help, etc with our contact page.');
-?>

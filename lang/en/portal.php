@@ -1,7 +1,7 @@
 <?php
 	define('DEV','[DEV] Alpha-test server');
 	define('MILKYWAY','[FR-1] Milky Way');
-	define('ANDROMEDA','[EN-1] Andromeda');	
+	define('ANDROMEDA','[EN-1] Andromeda');
 	define('PEGASUS','[**-*] Pegasus');
 	define('MAGELLAN','[**-*] Magellan');
 
@@ -14,4 +14,3 @@
 	define('OFFLINE','Offline');
 	define('CONNECT','Connect');
 	define('MAINTENANCE','Under maintenance');
-?>

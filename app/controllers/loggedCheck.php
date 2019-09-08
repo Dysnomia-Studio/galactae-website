@@ -20,4 +20,4 @@ if(isset($_COOKIE['galactae-phpsessid']) &&
 			}
 		}
 	}
-} 
+}

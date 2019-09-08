@@ -59,7 +59,7 @@ if(isset($data['user_name'])) {
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
-    display: inline-block; 
+    display: inline-block;
     max-width: 600px; "><td><a style="color: white;" href="'.$passwd_link.'">'.$passwd_link.'</a></td></tr><tr><td>'.PASS_MAIL_2.$mail[2].MAIL_NOREPLY.$mail[3], 'text/html')
 	  ->addPart(LOGIN_PASS_RESET.'
 '.PASS_MAIL_1.'

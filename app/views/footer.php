@@ -6,9 +6,9 @@ if($pageData['pageName'] == "footer.php") {
 }
 ?>
 	<footer>
-		<table>
+		<table aria-describedby="First footer">
 			<tr class="first-footer">
-				<td>		
+				<td>
 					<ul>
 						<li><h3><?php echo THE_GAME; ?></h3></li>
 						<li><a href="medias#gameEvolution"><?php echo MEDIAS_EVOLUTION; ?></a></li>
@@ -46,7 +46,7 @@ if($pageData['pageName'] == "footer.php") {
 				</td>
 			</tr>
 		</table>
-		<table>
+		<table aria-describedby="Second footer">
 			<tr class="second-footer">
 				<td>Galactae: Space Age Dawn - <?php echo COPYRIGHT_NOTICE_01; ?> <a href="https://dysnomia.studio">Dysnomia</a> - Copyright 2016-<?php echo date('Y'); ?> - <?php echo COPYRIGHT_NOTICE_02; ?></td>
 			</tr>

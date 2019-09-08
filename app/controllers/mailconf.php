@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$uid = htmlentities(htmlspecialchars($_GET['mid']));
 	$username = htmlentities(htmlspecialchars($_GET['username']));
 

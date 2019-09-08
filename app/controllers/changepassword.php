@@ -3,7 +3,7 @@
 	$sqlDB = new SQLInterface();
 
 	// Set password
-	if(isset($_POST['password'], 
+	if(isset($_POST['password'],
 		$_POST['confpassword'],
 		$_POST['pid'],
 		$_POST['username'])) {
@@ -27,7 +27,7 @@
 				$data = (array) $data[0];
 			}
 
-			if(isset($data['user_name']) && $data['user_name']==$username && $data['passforgot_time'] > $mintime) { 
+			if(isset($data['user_name']) && $data['user_name']==$username && $data['passforgot_time'] > $mintime) {
 				// Set db
 				$sqlDB->removeContent('recoverpasses',
 					['user_id' => $data['user_id']]);
@@ -61,7 +61,7 @@
 			$data = (array) $data[0];
 		}
 
-		if(count($data) == 0 || !isset($data['user_name']) || $data['user_name']!=$username || $data['passforgot_time'] < $mintime) { 
+		if(count($data) == 0 || !isset($data['user_name']) || $data['user_name']!=$username || $data['passforgot_time'] < $mintime) {
 			$pageData['pageName'] = "login.php";
 			$message = PASS_INVALID_LINK;
 		}

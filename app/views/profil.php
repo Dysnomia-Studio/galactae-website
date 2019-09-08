@@ -63,7 +63,7 @@ if($found) { // Found ?
 			<tr><th>'.PROFIL_GALAXY.'</th><th>'.PROFIL_RANK.'</th><th>'.PROFIL_POINTS.'</th><th>'.PROFIL_PLANETS.'</th></tr>';
 
 	for($i=0; $i<count($globalRanks); $i++) {
-		echo '<tr><td>'.translateServerName($globalRanks[$i]["server_name"]).'</td>	
+		echo '<tr><td>'.translateServerName($globalRanks[$i]["server_name"]).'</td>
 			<td>'.$globalRanks[$i]["rank"].'</td>
 			<td>'.$globalRanks[$i]["points"].'</td>
 			<td>'.$globalRanks[$i]["planets"].'</td>

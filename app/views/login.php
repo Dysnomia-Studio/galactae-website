@@ -26,7 +26,7 @@
 		} else {
 		?>
 		<script type="text/javascript" src="https://***REMOVED***/website/js/login.js"></script>
-		<table>
+		<table aria-describedby="Login menu">
 			<tr>
 				<td class="active" id="login-td"><a href="#login" id="login-button"><?php echo LOGIN_LOGIN; ?></a></td>
 				<td id="register-td"><a href="#register" id="register-button"><?php echo LOGIN_REG; ?></a></td>

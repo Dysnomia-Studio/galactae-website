@@ -93,7 +93,7 @@
 
 		padding: 0.5em;
 
-		width: calc(22% - 1.5em);	
+		width: calc(22% - 1.5em);
 		/* 100% (Window) - 3.5em (Top) - 1em (Padding) - 2px (Border) */
 		height: calc(100vh - 4.5em - 2px) !important;
 		max-height: calc(100vh - 4.5em - 2px) !important;
@@ -220,7 +220,7 @@
 	var serverList = <?= json_encode($serverList); ?>;
 	var serverLogs = [];
 
-	var userData = { 
+	var userData = {
 		username: '<?= $admin_user; ?>',
 		password: '<?= $admin_passwd; ?>',
 	};
@@ -350,7 +350,7 @@
 	</ul>
 	<div id="tab-console" class="tab">
 		<ul id="server-list">
-			<?php 
+			<?php
 			for($i=0; $i<count($serverList); $i++) {
 				echo '<li id="'.$i.'"><span  id="'.$i.'-status" class="server_unknown">•</span> '.$serverList[$i]['name'].'</li>';
 			}
@@ -419,7 +419,7 @@
 							$('#player-edit-frame').attr("src", url);
 						}
 					});
-				}			
+				}
 			});
 		});
 	</script>

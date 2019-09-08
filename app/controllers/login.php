@@ -5,9 +5,9 @@ foreach($_POST as $key => $value) {
 	$variablesPost[htmlspecialchars(trim($key), ENT_QUOTES | ENT_HTML5, 'UTF-8')] = htmlspecialchars(trim($value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
 }
 
-if(isset($_SESSION['ip']) && 
-	$_SESSION['ip'] == Web::get_client_ip() && 
-	isset($variablesPost['username']) && 
+if(isset($_SESSION['ip']) &&
+	$_SESSION['ip'] == Web::get_client_ip() &&
+	isset($variablesPost['username']) &&
 	isset($variablesPost['password']) &&
 	isset($_COOKIE['galactae-phpsessid']) &&
 	!empty($_COOKIE['galactae-phpsessid'])) {
@@ -23,9 +23,9 @@ if(isset($_SESSION['ip']) &&
 	    if(isset($data['activated']) && $data['activated']!=1) { // Compte non-activé
 			$message = ERR_NOT_ACTIVATED.' '.CLICK_BACK;
 		} else {
-			if(isset($data['user_passwd']) && $data['user_passwd']  == Security::hashPassword($variablesPost['password'], 1)) { // Acces OK ! 	
+			if(isset($data['user_passwd']) && $data['user_passwd']  == Security::hashPassword($variablesPost['password'], 1)) { // Acces OK !
 				$userMngr->removeSessionByIds(
-					$data['id'], 
+					$data['id'],
 					$_COOKIE['galactae-phpsessid']
 				);
 
@@ -37,9 +37,9 @@ if(isset($_SESSION['ip']) &&
 					($browser->getPlatform().'-'.$browser->getBrowser())
 				);
 		          
-		        $message = CONNECTED.' '.CLICK_GAME; 
-		        header('Location: portal'); 
-			} else { // Acces pas OK ! 
+		        $message = CONNECTED.' '.CLICK_GAME;
+		        header('Location: portal');
+			} else { // Acces pas OK !
 		        $message = ERR_BAD_LOGIN. ' '.CLICK_BACK;
 		    }
 		}

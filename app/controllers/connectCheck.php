@@ -64,4 +64,3 @@ if(!isset($userData['id'])) {
 	header('Location: index');
 	exit();
 }
-?>

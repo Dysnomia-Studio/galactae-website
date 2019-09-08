@@ -15,4 +15,3 @@ define('PROFIL_SECTOR','Secteur');
 define('PROFIL_POINTS','Points');
 define('PROFIL_PLANETS','Planètes');
 define('PROFIL_POINTS_ABV','pts');
-?>

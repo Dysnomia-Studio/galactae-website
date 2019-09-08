@@ -4,10 +4,10 @@ echo '<section class="devblog">';
 foreach (array_reverse($pageData['blogArticles']) as $key => $value) {
 	$value = (array) $value;
 
-	if($value['blog_title'] == NULL) {
+	if($value['blog_title'] == null) {
 		$value['blog_title'] = NOT_TRANSLATED_YET;
 	}
-	if($value['blog_desc'] == NULL) {
+	if($value['blog_desc'] == null) {
 		$value['blog_desc'] = NOT_TRANSLATED_YET;
 	}
 

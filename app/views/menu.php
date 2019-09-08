@@ -26,7 +26,7 @@ if($pageData['pageName'] == "menu.php") {
 	    </form>
 		</li>
 	</ul>
-	<?php 
+	<?php
 	if($lang->getLanguage()=='en') { ?>
 	<script type="text/javascript">
 		window.addEventListener('load', function(){
@@ -34,5 +34,4 @@ if($pageData['pageName'] == "menu.php") {
 				iconSelect.setSelectedIndex(1);
 		});
 	</script>
-	<?php } ?>
-
+	<?php }

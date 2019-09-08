@@ -18,7 +18,7 @@ $serverList = [
  */
 $serverMngr = new ServerListManager();
 $serversDbData = $serverMngr->getAllServers();
-for ($i=0; $i < count($serverList); $i++) { 
+for ($i=0; $i < count($serverList); $i++) {
 	$server = json_decode(json_encode($serversDbData[$i]), true);
 
 	foreach ($server as $key => $value) {

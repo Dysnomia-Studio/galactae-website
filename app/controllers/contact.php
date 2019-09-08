@@ -1,5 +1,5 @@
 <?php
-	if(isset($_POST['txt'],$_POST['mail']) && 
+	if(isset($_POST['txt'],$_POST['mail']) &&
 		!empty($_POST['txt']) &&
 		!empty($_POST['mail'])) {
 
@@ -40,4 +40,3 @@
 			$message = CONTACT_PAS_OK;
 		}
 	}
-	?>

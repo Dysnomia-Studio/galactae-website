@@ -70,4 +70,3 @@ define('CLICK_LOGIN','<a href="login">Cliquez ici pour accéder à la page de co
 
 define('CONTACT_OK','Le message a bien été envoyé.');
 define('CONTACT_PAS_OK','Le message n\'a pas été envoyé.');
-?>

@@ -4,7 +4,7 @@ $mail[0] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>'; 
+<title>';
 // Title
 $mail[1] = '</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -47,7 +47,7 @@ $mail[3] = '		</td>
 						<td>
 						<a href="https://galactae.eu/redir/facebook.php">
 							<img src="https://***REMOVED***/website/img/logos/facebook.png" alt="Facebook">
-						</a> 
+						</a>
 						<a href="https://galactae.eu/redir/twitter.php">
 							<img src="https://***REMOVED***/website/img/logos/twitter.png" alt="Twitter">
 						</a>

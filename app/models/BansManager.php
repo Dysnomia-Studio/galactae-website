@@ -18,7 +18,7 @@ class BansManager extends SQLInterface {
 			$data = (array) $data[0];
 		}
 
-		return $data;	
+		return $data;
 	}
 	
 	/**
@@ -31,6 +31,6 @@ class BansManager extends SQLInterface {
 	public function getUserBans($uid) {
 		return $this->getCondContent('bans',[
 			'user_id' => $uid
-		]);	
+		]);
 	}
 }

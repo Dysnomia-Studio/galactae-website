@@ -1,4 +1,4 @@
-<?php 
+<?php
 define('MENU_PLAY_NOW',"Jouer !");
 define('MENU_PICS',"Images");
 define('MENU_BLOG',"Dev Blog");
@@ -11,4 +11,3 @@ define('PORTAL','Portail');
 define('FORUM','Forum');
 define('PROFIL','Profil');
 define('DISCONNECT','Déconnexion');
-?>

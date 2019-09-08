@@ -49,7 +49,7 @@ if (!$recaptchaOK ||
 	$message = ERR_NOT_SAME_PASSWD.' '.CLICK_BACK;
 } elseif(!preg_match('#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#', $user_mail) || Mail::isBlacklisted($user_mail)) { // Mail Format
 	$message = ERR_NOT_VALID_MAIL.' '.CLICK_BACK;
-} elseif(strlen($user_name)<$config['name-minsize'] || 
+} elseif(strlen($user_name)<$config['name-minsize'] ||
 	strlen($user_name)>$config['name-maxsize']) { // Username size
 	$message = ERR_TOO_LONG_SHORT_USERNAME.' '.CLICK_BACK;
 } elseif(preg_match('/[^a-zA-Z_\-0-9]/i', $user_name)) { // Username Format
@@ -102,7 +102,7 @@ if($message=='') {
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
-    display: inline-block; 
+    display: inline-block;
     max-width: 600px; "><td><a style="color: white;" href="'.$conf_link.'">'.$conf_link.'</a></td></tr><tr><td>'.REGISTER_MAIL_TEXT_2.$mail[2].MAIL_NOREPLY.$mail[3], 'text/html')
 	  ->addPart(REGISTER_MAIL_TEXT_1.'
 '.$conf_link.'
@@ -115,4 +115,3 @@ if($message=='') {
 
 	$message = ACTIVATION.' '.CLICK_HOME;
 }
-?>

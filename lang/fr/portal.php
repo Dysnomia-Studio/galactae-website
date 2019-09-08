@@ -14,4 +14,3 @@
 	define('OFFLINE','Hors Ligne');
 	define('CONNECT','Se connecter');
 	define('MAINTENANCE','En maintenance');
-?>

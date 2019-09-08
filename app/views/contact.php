@@ -1,14 +1,14 @@
 <section class="contact">
 	<article>
 		<?php
-			if(!isset($message)) { 
+			if(!isset($message)) {
 			?>
 			<h1>Contact</h1>
 			<p>Vous pouvez nous contacter ...</p>
 			<div class="contact-part">
 				<h4>Par les reseaux sociaux</h4>
-				<a href="https://www.facebook.com/galactaeSAD/">Facebook</a> - 
-				<a href="https://twitter.com/GalactaeSAD">Twitter</a> - 
+				<a href="https://www.facebook.com/galactaeSAD/">Facebook</a> -
+				<a href="https://twitter.com/GalactaeSAD">Twitter</a> -
 				<a href="https://www.youtube.com/user/ElanisGaming">Youtube</a>
 				<br /><br />
 			</div>
