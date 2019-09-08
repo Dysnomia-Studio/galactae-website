@@ -16,6 +16,7 @@ if(!isset($_COOKIE['galactae-phpsessid']) ||
 	$_COOKIE['galactae-phpsessid'] == '') { // Not Connected
 
 	header('Location: index');
+	die();
 }
 
 $userMngr = new UserManager();
