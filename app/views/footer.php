@@ -15,7 +15,7 @@ if($pageData['pageName'] == "footer.php") {
 						<li><a href="medias#backgrounds"><?php echo MEDIAS_BACKGROUNDS; ?></a></li>
 						<li><a href="blog"><?php echo MENU_BLOG; ?></a></li>
 						<li><a href="https://bugs.dysnomia.studio/projects/galactae"><?php echo MENU_BUGTRACKER; ?></a></li>
-						<li><a href="https://play.google.com/store/apps/details?id=eu.elanis.galactae">Android</a></li>
+						<li><a href="https://play.google.com/store/apps/details?id=com.dysnomia.galactae">Android</a></li>
 					</ul>
 				</td>
 				<td>
