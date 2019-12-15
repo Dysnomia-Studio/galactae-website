@@ -9,7 +9,7 @@ define('LOGIN_REMEMBER','Remember me');
 define('LOGIN_USERNAME','Username');
 define('LOGIN_MAIL','Mail');
 define('LOGIN_CPASSWORD','Confirm Password');
-define('LOGIN_CG','I agree to <a target="_blank" rel="noopener noreferrer" href="https://***REMOVED***/website/pdf/cgu.pdf">Terms of use</a> and <a target="_blank" rel="noopener noreferrer" href="#">Terms of sale</a>.');
+define('LOGIN_CG','I agree to <a target="_blank" rel="noopener noreferrer" href="https://***REMOVED***/website/pdf/cgu.pdf">Terms of use</a> and <a target="_blank" rel="noopener noreferrer" href="v">Terms of sale</a>.');
 define('LOGIN_NEWS_UPDATE','I accept to recieve mails about major updates ( Approximately every two months )');
 define('LOGIN_NEWS_MISC','I accept to recieve mails about minor updates, events and marketing mails.');
 
