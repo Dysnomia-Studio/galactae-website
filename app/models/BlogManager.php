@@ -14,8 +14,8 @@ class BlogManager extends SQLInterface {
 		if(isset($lastNews[0])) {
 			foreach($lastNews as $value) {
 				$value = (array) $value;
-				if($value['blog_id'] > $lastNewsNumber) {
-					$lastNewsNumber = $value['blog_id'];
+				if($value['id'] > $lastNewsNumber) {
+					$lastNewsNumber = $value['id'];
 				}
 			}
 		}

@@ -137,7 +137,8 @@ class UserManager extends SQLInterface {
 			'user_mail' => $mail,
 			'user_passwd' => $passwd,
 			'newsletter_misc' => $misc,
-			'newsletter_updates' => $updates
+			'newsletter_updates' => $updates,
+			'lastViewedNews' => (new BlogManager())->getLastNewsNumber()
 		]]);
 
 		$conf_link = Security::hashPassword(time().$name);
