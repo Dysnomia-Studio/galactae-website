@@ -52,3 +52,8 @@ steps:
     - changed
     - failure
     - success
+
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
