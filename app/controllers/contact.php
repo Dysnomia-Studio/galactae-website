@@ -25,11 +25,19 @@
 
 			$variablesPost['txt'] = nl2br($variablesPost['txt']);
 
+			$userMngr = new UserManager();
+			$sess_data = $userMngr->getUserBySession($_COOKIE['galactae-phpsessid']);
+			$user = 'N/A';
+			if(isset($sess_data) && isset($sess_data['user_id'])) {
+				$userData = $userMngr->getGlobalUserById($sess_data['user_id']);
+				$user = $userData['user_name'];
+			}
+
 			// Create a message
 			$message = (new Swift_Message('Galactae Contact'))
 			  ->setFrom(array('***REMOVED***' => 'Galactae Contact'))
 			  ->setTo(array('***REMOVED***' => 'Galactae Contact'))
-			  ->setBody($variablesPost['txt'].'<br/><br/>'.$variablesPost['mail'] , 'text/html')
+			  ->setBody($variablesPost['txt'].'<br/><br/>'.$variablesPost['mail'].' - Username: '.$user, 'text/html')
 			  ;
 
 			// Send the message
