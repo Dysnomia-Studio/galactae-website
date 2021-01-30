@@ -41,9 +41,9 @@ steps:
       from_secret: WEBHOOK_TOKEN
     message: >
       {{#success build.status}}
-        Build **{{repo.name}}** on branch **{{build.branch}}** ({{truncate build.commit 8}}) succeeded.
+        Build **{{repo.name}}** on branch **${DRONE_BRANCH}** succeeded.
       {{else}}
-        Build **{{repo.name}}** on branch **{{build.branch}}** ({{truncate build.commit 8}}) failed.
+        Build **{{repo.name}}** on branch **${DRONE_BRANCH}** failed.
       {{/success}}
   when:
     branch:
