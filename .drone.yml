@@ -5,10 +5,10 @@ steps:
 - name: sonarqube
   image: aosapps/drone-sonar-plugin
   settings:
-    sonar_host: ***REMOVED***
-    sonar_token: ***REMOVED***
-    level: TRACE
-    showProfiling: true
+    sonar_host: 
+      from_secret: SONAR_HOST
+    sonar_token: 
+      from_secret: SONAR_TOKEN
   when:
     branch:
     - master
@@ -35,8 +35,10 @@ steps:
   pull: default
   image: appleboy/drone-discord
   settings:
-    webhook_id: ***REMOVED***
-    webhook_token: ***REMOVED***
+    webhook_id:
+      from_secret: WEBHOOK_ID
+    webhook_token:
+      from_secret: WEBHOOK_TOKEN
     message: >
       {{#success build.status}}
         Build **{{repo.name}}** on branch **{{build.branch}}** ({{truncate build.commit 8}}) succeeded.
