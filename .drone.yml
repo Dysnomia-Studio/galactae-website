@@ -9,6 +9,7 @@ steps:
       from_secret: SONAR_HOST
     sonar_token: 
       from_secret: SONAR_TOKEN
+    branchAnalysis: true
   when:
     branch:
     - master
