@@ -2,6 +2,8 @@
 	<article>
 		<?php
 			if(!isset($message)) {
+
+			require_once(DIR_CTRL.'generateCaptcha.php');
 			?>
 			<h1>Contact</h1>
 			<p>Vous pouvez nous contacter ...</p>
@@ -15,8 +17,14 @@
 			<div class="contact-part">
 				<h4>Par le formulaire</h4>
 				<form method="post" action="contact">
-					<input type ="text" id="mail" name="mail" placeholder="<?php echo CONTACT_MAIL; ?> " required><br/>
+					<input type="text" id="mail" name="mail" placeholder="<?php echo CONTACT_MAIL; ?> " required><br/>
 					<textarea cols="40" rows="6" id="txt" name="txt" placeholder="<?php echo CONTACT_TXT; ?>" required></textarea><br/>
+					<input
+						type="text"
+						id="additionAnswer"
+						name="additionAnswer"
+						placeholder="<?php echo $_SESSION['firstCaptchaItem'].' + '.$_SESSION['secondCaptchaItem'].' ?'?>"
+					/>
 
 					<input type="submit" value="<?php echo CONTACT_SEND; ?>" />
 				</form>
