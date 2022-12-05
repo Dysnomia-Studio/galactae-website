@@ -10,10 +10,7 @@
 			$variablesPost[htmlspecialchars(trim($key), ENT_QUOTES | ENT_HTML5, 'UTF-8')] = htmlspecialchars(trim($value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
 		}
 
-		// Recaptcha check
-		require_once(DIR_CTRL.'recaptcha.php');
-
-		if ($recaptchaOK) {
+		if (true) {
 			require_once '../lib/swiftmailer/swift_required.php';
 
 			// Create the Transport

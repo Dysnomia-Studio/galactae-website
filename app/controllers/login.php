@@ -12,10 +12,7 @@ if(isset($_SESSION['ip']) &&
 	isset($_COOKIE['galactae-phpsessid']) &&
 	!empty($_COOKIE['galactae-phpsessid'])) {
 
-	// Recaptcha check
-	require_once(DIR_CTRL.'recaptcha.php');
-
-	if(!$recaptchaOK || empty($variablesPost['username']) || empty($variablesPost['password']) ) {
+	if(empty($variablesPost['username']) || empty($variablesPost['password']) ) {
 		$message = ERR_FIELD. ' '.CLICK_BACK;
 	} else { // Check du couple pseudo/mdp
 		$data = $userMngr->getGlobalUserByCaseInsensitiveName($variablesPost['username']);

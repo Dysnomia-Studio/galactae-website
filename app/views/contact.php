@@ -17,22 +17,6 @@
 				<form method="post" action="contact">
 					<input type ="text" id="mail" name="mail" placeholder="<?php echo CONTACT_MAIL; ?> " required><br/>
 					<textarea cols="40" rows="6" id="txt" name="txt" placeholder="<?php echo CONTACT_TXT; ?>" required></textarea><br/>
-					
-					<script src="https://www.google.com/recaptcha/api.js?render=***REMOVED***"></script>
-					<script>
-						grecaptcha.ready(function() {
-							grecaptcha.execute('***REMOVED***', {action: 'login'}).then(function(token) {
-								Array.from(document.querySelectorAll('form')).forEach((formElt) => {
-									const inputElt = document.createElement('input');
-										inputElt.setAttribute('type', 'hidden');
-										inputElt.setAttribute('name', 'g-recaptcha-response');
-										inputElt.value = token;
-
-									formElt.appendChild(inputElt);
-								});
-							});
-						});
-					</script>
 
 					<input type="submit" value="<?php echo CONTACT_SEND; ?>" />
 				</form>

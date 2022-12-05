@@ -8,9 +8,6 @@ foreach($_POST as $key => $value) {
 // Mail template
 require_once(DIR_VIEW.'mail_forgotmypass.php');
 
-// Recaptcha check
-require_once(DIR_CTRL.'recaptcha.php');
-
 // Account exists ?
 $data = [];
 

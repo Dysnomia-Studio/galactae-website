@@ -6,9 +6,6 @@ foreach($_POST as $key => $value) {
 // Mail template
 require_once(DIR_VIEW.'mail_register.php');
 
-// Recaptcha check
-require_once(DIR_CTRL.'recaptcha.php');
-
 $userMngr = new UserManager();
 
 $message = '';
@@ -39,9 +36,7 @@ $user_encpasswd = Security::hashPassword($user_passwd, 1);
 	$message = ERR_FIELD.' '.CLICK_BACK;
 }
 
-if (!$recaptchaOK ||
-	$message != '') { // One of input empty
-
+if ($message != '') { // One of input empty
 	$message = ERR_FIELD.' '.CLICK_BACK;
 } elseif(!isset($variablesPost['cg']) || $variablesPost['cg']!='checked') {
 	$message = ERR_CG.' '.CLICK_BACK;
