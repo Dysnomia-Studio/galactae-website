@@ -8,6 +8,7 @@
 		if(isset($message) && !empty($message)) {
 			echo $message;
 		} else {
+			require_once(DIR_CTRL.'generateCaptcha.php');
 		?>
 		<script type="text/javascript" src="https://***REMOVED***/website/js/login.js"></script>
 		<table aria-describedby="Login menu">
