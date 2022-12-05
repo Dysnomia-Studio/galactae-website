@@ -25,6 +25,20 @@
 						name="additionAnswer"
 						placeholder="<?php echo $_SESSION['firstCaptchaItem'].' + '.$_SESSION['secondCaptchaItem'].' ?'?>"
 					/>
+					<div id="contact-other-field">
+						<input
+							type="text"
+							id="otherField"
+							name="otherField"
+							placeholder="<?php echo (9-$_SESSION['firstCaptchaItem']).' + '.$_SESSION['firstCaptchaItem'].' ?'?>"
+						/>
+
+						<style>
+							#contact-other-field {
+								display: none;
+							}
+						</style>
+					</div>
 
 					<input type="submit" value="<?php echo CONTACT_SEND; ?>" />
 				</form>

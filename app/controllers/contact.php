@@ -13,7 +13,7 @@
 		// Captcha check
 		require_once(DIR_CTRL.'checkCaptcha.php');
 
-		if ($captchaOK) {
+		if ($captchaOK && (!isset($_POST['otherField']) || empty($_POST['otherField']))) {
 			require_once '../lib/swiftmailer/swift_required.php';
 
 			// Create the Transport
