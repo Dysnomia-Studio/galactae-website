@@ -63,6 +63,12 @@ if (!$recaptchaOK ||
 	if(isset($data) && isset($data['user_name'])) {
 		$message = ERR_ACCOUNT_EXISTS.' '.CLICK_BACK;
 	}
+
+	$data = $userMngr->getGlobalUserByCaseInsensitiveName($user_mail);
+
+	if(isset($data) && isset($data['user_mail'])) {
+		$message = ERR_ACCOUNT_EXISTS.' '.CLICK_BACK;
+	}
 }
 
 // Draw message
