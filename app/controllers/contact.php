@@ -1,7 +1,10 @@
 <?php
 	if(isset($_POST['txt'],$_POST['mail']) &&
 		!empty($_POST['txt']) &&
-		!empty($_POST['mail'])) {
+		!empty($_POST['mail']) &&
+		strlen(trim($_POST['txt'])) > 0 &&
+		strlen(trim($_POST['mail'])) > 0
+	) {
 
 		foreach($_POST as $key => $value) {
 			$variablesPost[htmlspecialchars(trim($key), ENT_QUOTES | ENT_HTML5, 'UTF-8')] = htmlspecialchars(trim($value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
