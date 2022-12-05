@@ -24,7 +24,6 @@ $debut = round(microtime(true) * 1000);
 		<link rel="manifest" href="/manifest.json">
 
 		<link rel="shortcut icon" type="image/png" href="https://***REMOVED***/website/img/favicon.png"/>
-		<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
 		<link rel="stylesheet" media="screen" type="text/css" title="Design" href="https://***REMOVED***/website/css/style.css"/>
 
 		<?php $lang->drawCached(); ?>

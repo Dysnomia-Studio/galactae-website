@@ -9,7 +9,6 @@ $mail[0] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http
 $mail[1] = '</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
-	@import url(\'https://fonts.googleapis.com/css?family=Titillium+Web\');
 	@media all and (max-width: 600px) {
 		table, img[class="banner"] {
 			width: 100%;
@@ -18,7 +17,7 @@ $mail[1] = '</title>
 </style>
 </head>
 <body style="margin: 0; padding: 0;" bgcolor="#0b1012">
-	<table align="center" style="margin: 0; padding: 0; width: 100%; font-family: \'Titillium Web\', sans-serif;" cellpadding="0" cellspacing="0" bgcolor="#0b1012">
+	<table align="center" style="margin: 0; padding: 0; width: 100%; font-family: sans-serif;" cellpadding="0" cellspacing="0" bgcolor="#0b1012">
 		<tr>
 			<td align="center">
 				<table width="600" style="border-collapse: collapse;">
