@@ -57,6 +57,20 @@
 					name="additionAnswer"
 					placeholder="<?php echo $_SESSION['firstCaptchaItem'].' + '.$_SESSION['secondCaptchaItem'].' ?'?>"
 				/>
+				<div id="contact-other-field">
+					<input
+						type="text"
+						id="otherField"
+						name="otherField"
+						placeholder="<?php echo (9-$_SESSION['firstCaptchaItem']).' + '.$_SESSION['firstCaptchaItem'].' ?'?>"
+					/>
+
+					<style>
+						#contact-other-field {
+							display: none;
+						}
+					</style>
+				</div>
 				<span class="login-checkbox" style="display: inherit;"><input type="checkbox" name="cg" id="cg" value="checked" required><?php echo LOGIN_CG; ?></span>
 				<span class="login-checkbox"><input type="checkbox" name="newsletter_update" id="newsletter_update" value="checked"><?php echo LOGIN_NEWS_UPDATE; ?></span>
 				<span class="login-checkbox"><input type="checkbox" name="newsletter_miscellaneous" id="newsletter_miscellaneous" value="checked"><?php echo LOGIN_NEWS_MISC; ?></span>
