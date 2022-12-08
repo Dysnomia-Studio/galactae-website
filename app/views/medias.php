@@ -12,7 +12,7 @@
 				$name = str_replace('.png', '', $files['files'][0][$i]);
 
 				echo '<li><h3>'.$name.'</h3>
-					<img src="https://***REMOVED***/website/img/backgrounds/'.$name.'-min.jpg" onclick="FullPictureShow(this.src)" alt="backgrounds '.$name.'">
+					<img src="https://cdn.galactae.eu/website/img/backgrounds/'.$name.'-min.jpg" onclick="FullPictureShow(this.src)" alt="backgrounds '.$name.'">
 					</li>';
 			}
 			?>
@@ -27,7 +27,7 @@
 				$name = str_replace('.png', '', $files['files'][0][$i]);
 
 				echo '<li><h3>'.$name.'</h3>
-					<img src="https://***REMOVED***/website/img/archives/planet/'.$name.'-min.jpg" onclick="FullPictureShow(this.src)" alt="planet '.$name.'">
+					<img src="https://cdn.galactae.eu/website/img/archives/planet/'.$name.'-min.jpg" onclick="FullPictureShow(this.src)" alt="planet '.$name.'">
 					</li>';
 			}
 			?>
@@ -41,7 +41,7 @@
 				$name = str_replace('.png', '', $files['files'][0][$i]);
 				
 				echo '<li><h3>'.$name.'</h3>
-					<img src="https://***REMOVED***/website/img/archives/solar-system/'.$name.'-min.jpg" onclick="FullPictureShow(this.src)" alt="solar-system '.$name.'">
+					<img src="https://cdn.galactae.eu/website/img/archives/solar-system/'.$name.'-min.jpg" onclick="FullPictureShow(this.src)" alt="solar-system '.$name.'">
 					</li>';
 			}
 			?>
@@ -55,7 +55,7 @@
 				$name = str_replace('.png', '', $files['files'][0][$i]);
 				
 				echo '<li><h3>'.$name.'</h3>
-					<img src="https://***REMOVED***/website/img/archives/connectedScreen/'.$name.'-min.jpg" onclick="FullPictureShow(this.src)" alt="connectedScreen '.$name.'">
+					<img src="https://cdn.galactae.eu/website/img/archives/connectedScreen/'.$name.'-min.jpg" onclick="FullPictureShow(this.src)" alt="connectedScreen '.$name.'">
 					</li>';
 			}
 			?>
@@ -69,11 +69,11 @@
 				$name = str_replace('.png', '', $files['files'][0][$i]);
 				
 				echo '<li><h3>'.$name.'</h3>
-					<img src="https://***REMOVED***/website/img/archives/index/'.$name.'-min.jpg" onclick="FullPictureShow(this.src)" alt="index '.$name.'">
+					<img src="https://cdn.galactae.eu/website/img/archives/index/'.$name.'-min.jpg" onclick="FullPictureShow(this.src)" alt="index '.$name.'">
 					</li>';
 			}
 			?>
 	</ul>
 </section>
 
-<script type="text/javascript" src="https://***REMOVED***/website/js/medias-pictureShow.js"></script>
+<script type="text/javascript" src="https://cdn.galactae.eu/website/js/medias-pictureShow.js"></script>

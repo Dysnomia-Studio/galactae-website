@@ -21,7 +21,7 @@
 		echo '<div class="system-message" id="kickmsg">'.htmlentities(htmlspecialchars($_GET['kickmsg'])).'</div>';
 		?>
 
-		<script type="text/javascript" src="https://***REMOVED***/website/js/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdn.galactae.eu/website/js/jquery.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready( function() {
 				$('#kickmsg').fadeIn(1000);

@@ -1,6 +1,6 @@
 <section class="login-page">
 	<ul style="list-style: none;">
-		<li style="text-align: center;"><a href="index" style="color: white; text-decoration: none; font-weight: bold;"><img src="https://***REMOVED***/website/img/bannersAndLogos/logo-large-white.png" alt="logo" style="max-height: 6em;"></a></li>
+		<li style="text-align: center;"><a href="index" style="color: white; text-decoration: none; font-weight: bold;"><img src="https://cdn.galactae.eu/website/img/bannersAndLogos/logo-large-white.png" alt="logo" style="max-height: 6em;"></a></li>
 	</ul>
 
 	<section class="login">
@@ -10,7 +10,7 @@
 		} else {
 			require_once(DIR_CTRL.'generateCaptcha.php');
 		?>
-		<script type="text/javascript" src="https://***REMOVED***/website/js/login.js"></script>
+		<script type="text/javascript" src="https://cdn.galactae.eu/website/js/login.js"></script>
 		<table aria-describedby="Login menu">
 			<tr>
 				<td class="active" id="login-td"><a href="#login" id="login-button"><?php echo LOGIN_LOGIN; ?></a></td>

@@ -23,7 +23,7 @@ $mail[1] = '</title>
 				<table width="600" style="border-collapse: collapse;">
 					<tr height="134">
 						<td>
-							<img alt="logo" class="banner" src="https://***REMOVED***/website/img/bannersAndLogos/banner.jpg" width="600"  alt="Galactae: Space Age Dawn">
+							<img alt="logo" class="banner" src="https://cdn.galactae.eu/website/img/bannersAndLogos/banner.jpg" width="600"  alt="Galactae: Space Age Dawn">
 						</td>
 					</tr>
 					<tr style="line-height: 0.5em;"><td>&nbsp;</td></tr>
@@ -45,13 +45,13 @@ $mail[3] = '		</td>
 					<tr align="center">
 						<td>
 						<a href="https://galactae.eu/redir/facebook.php">
-							<img src="https://***REMOVED***/website/img/logos/facebook.png" alt="Facebook">
+							<img src="https://cdn.galactae.eu/website/img/logos/facebook.png" alt="Facebook">
 						</a>
 						<a href="https://galactae.eu/redir/twitter.php">
-							<img src="https://***REMOVED***/website/img/logos/twitter.png" alt="Twitter">
+							<img src="https://cdn.galactae.eu/website/img/logos/twitter.png" alt="Twitter">
 						</a>
 						<a href="https://galactae.eu/redir/youtube.php">
-							<img src="https://***REMOVED***/website/img/logos/youtube.png" alt="Youtube">
+							<img src="https://cdn.galactae.eu/website/img/logos/youtube.png" alt="Youtube">
 						</a>
 						</td>
 					</tr>

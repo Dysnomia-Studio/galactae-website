@@ -23,8 +23,8 @@ $debut = round(microtime(true) * 1000);
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="manifest" href="/manifest.json">
 
-		<link rel="shortcut icon" type="image/png" href="https://***REMOVED***/website/img/favicon.png"/>
-		<link rel="stylesheet" media="screen" type="text/css" title="Design" href="https://***REMOVED***/website/css/style.css"/>
+		<link rel="shortcut icon" type="image/png" href="https://cdn.galactae.eu/website/img/favicon.png"/>
+		<link rel="stylesheet" media="screen" type="text/css" title="Design" href="https://cdn.galactae.eu/website/css/style.css"/>
 
 		<?php $lang->drawCached(); ?>
 	</head>

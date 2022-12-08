@@ -21,8 +21,8 @@ if($pageData['pageName'] == "footer.php") {
 				<td>
 					<ul>
 						<li><h3><?php echo LEGAL_NOTICES; ?></h3></li>
-						<li><a href="https://***REMOVED***/website/pdf/cgu.pdf"><?php echo LEGAL_NOTICES_CGU; ?></a></li>
-						<li><a href="https://***REMOVED***/website/pdf/cgv.pdf"><?php echo LEGAL_NOTICES_CGV; ?></a></li>
+						<li><a href="https://cdn.galactae.eu/website/pdf/cgu.pdf"><?php echo LEGAL_NOTICES_CGU; ?></a></li>
+						<li><a href="https://cdn.galactae.eu/website/pdf/cgv.pdf"><?php echo LEGAL_NOTICES_CGV; ?></a></li>
 						<li><a href="faq"><?php echo LEGAL_NOTICES_FAQ; ?></a></li>
 						<li><a href="contact"><?php echo LEGAL_NOTICES_CONTACT; ?></a></li>
 					</ul>

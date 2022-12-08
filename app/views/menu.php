@@ -5,14 +5,14 @@ if($pageData['pageName'] == "menu.php") {
 	die();
 }
 ?>
-	<img id="logo" alt="logo" style="display: none;" src="https://***REMOVED***/website/img/bannersAndLogos/galactae-logo-512.jpg">
+	<img id="logo" alt="logo" style="display: none;" src="https://cdn.galactae.eu/website/img/bannersAndLogos/galactae-logo-512.jpg">
 
-	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
+	<img id="hamburger" src="https://cdn.galactae.eu/website/img/hamburger.png" alt="menu">
 
-	<script type="text/javascript" src="https://***REMOVED***/website/js/iconselect/control/iconselect.js"></script>
-	<script type="text/javascript" src="https://***REMOVED***/website/js/iconselect/iscroll.js"></script>
-	<script type="text/javascript" src="https://***REMOVED***/website/js/language-list.js"></script>
-	<script type="text/javascript" src="https://***REMOVED***/website/js/hamburger.js"></script>
+	<script type="text/javascript" src="https://cdn.galactae.eu/website/js/iconselect/control/iconselect.js"></script>
+	<script type="text/javascript" src="https://cdn.galactae.eu/website/js/iconselect/iscroll.js"></script>
+	<script type="text/javascript" src="https://cdn.galactae.eu/website/js/language-list.js"></script>
+	<script type="text/javascript" src="https://cdn.galactae.eu/website/js/hamburger.js"></script>
 
 	<ul <?php if($pageData['pageName'] != 'index.php') { echo 'class="no-background"'; } ?> id="menu">
 		<li class="menu-logo"><a href="index">GALACTAE: SPACE AGE DAWN</a></li>

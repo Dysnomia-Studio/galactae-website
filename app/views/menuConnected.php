@@ -5,7 +5,7 @@ if($pageData['pageName'] == "menuConnected.php") {
 	die();
 }
 ?>
-	<img id="hamburger" src="https://***REMOVED***/website/img/hamburger.png" alt="menu">
+	<img id="hamburger" src="https://cdn.galactae.eu/website/img/hamburger.png" alt="menu">
 	<ul id="menu">
 		<li class="menu-logo">
 			<a href="index">GALACTAE: SPACE AGE DAWN</a>

@@ -20,9 +20,9 @@
 				<td><h2><?= INDEX_TITLE_3 ?></h2></td>
 			</tr>
 			<tr>
-				<td><img src="https://***REMOVED***/website/img/officialPosts/gvt-choice-min.jpg"  onclick="FullPictureShow(this.src)" alt="how to govern"></td>
-				<td><img src="https://***REMOVED***/website/img/officialPosts/ship-create-min.jpg" onclick="FullPictureShow(this.src)" alt="create your own fleet"></td>
-				<td><img src="https://***REMOVED***/website/img/officialPosts/galaxy-map-min.jpg"  onclick="FullPictureShow(this.src)" alt="beat for galaxy control"></td>
+				<td><img src="https://cdn.galactae.eu/website/img/officialPosts/gvt-choice-min.jpg"  onclick="FullPictureShow(this.src)" alt="how to govern"></td>
+				<td><img src="https://cdn.galactae.eu/website/img/officialPosts/ship-create-min.jpg" onclick="FullPictureShow(this.src)" alt="create your own fleet"></td>
+				<td><img src="https://cdn.galactae.eu/website/img/officialPosts/galaxy-map-min.jpg"  onclick="FullPictureShow(this.src)" alt="beat for galaxy control"></td>
 			</tr>
 			<tr>
 				<td><p><?= INDEX_DESC_1 ?></p></td>
@@ -33,17 +33,17 @@
 
 		<table class="mobile-table" aria-describedby="Game descriptions">
 			<tr><td><h2><?= INDEX_TITLE_1 ?></h2></td></tr>
-			<tr><td><img src="https://***REMOVED***/website/img/officialPosts/gvt-choice-min.jpg" onclick="FullPictureShow(this.src)" alt="how to govern"></td></tr>
+			<tr><td><img src="https://cdn.galactae.eu/website/img/officialPosts/gvt-choice-min.jpg" onclick="FullPictureShow(this.src)" alt="how to govern"></td></tr>
 			<tr><td><p><?= INDEX_DESC_1 ?></p></td></tr>
 		</table>
 		<table class="mobile-table" aria-describedby="Game descriptions">
 			<tr><td><h2><?= INDEX_TITLE_2 ?></h2></td></tr>
-			<tr><td><img src="https://***REMOVED***/website/img/officialPosts/ship-create-min.jpg" onclick="FullPictureShow(this.src)" alt="create your own fleet"></td></tr>
+			<tr><td><img src="https://cdn.galactae.eu/website/img/officialPosts/ship-create-min.jpg" onclick="FullPictureShow(this.src)" alt="create your own fleet"></td></tr>
 			<tr><td><p><?= INDEX_DESC_2 ?></p></td></tr>
 		</table>
 		<table class="mobile-table" aria-describedby="Game descriptions">
 			<tr><td><h2><?= INDEX_TITLE_3 ?></h2></td></tr>
-			<tr><td><img src="https://***REMOVED***/website/img/officialPosts/galaxy-map-min.jpg" onclick="FullPictureShow(this.src)" alt="beat for galaxy control"></td></tr>
+			<tr><td><img src="https://cdn.galactae.eu/website/img/officialPosts/galaxy-map-min.jpg" onclick="FullPictureShow(this.src)" alt="beat for galaxy control"></td></tr>
 			<tr><td><p><?= INDEX_DESC_3 ?></p></td></tr>
 		</table>
 	</section>
@@ -59,4 +59,4 @@
 		window.addEventListener('load',function() {	setInterval(function() { changePunchline(); },5000); });
 		changePunchline();
 	</script>
-	<script type="text/javascript" src="https://***REMOVED***/website/js/medias-pictureShow.js"></script>
+	<script type="text/javascript" src="https://cdn.galactae.eu/website/js/medias-pictureShow.js"></script>

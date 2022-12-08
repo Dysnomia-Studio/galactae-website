@@ -1,5 +1,5 @@
-<script type="text/javascript" src="https://***REMOVED***/website/js/jquery.min.js"></script>
-<script type="text/javascript" src="https://***REMOVED***/game/js/socket.min.js"></script>
+<script type="text/javascript" src="https://cdn.galactae.eu/website/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.galactae.eu/game/js/socket.min.js"></script>
 <style type="text/css">
 	body {
 		background-color: #0b1012;
@@ -343,10 +343,10 @@
 </script>
 <section>
 	<ul id="tool-list">
-		<li id="tool-console"><img alt="console" src="https://***REMOVED***/website/img/icons/console.png"></li>
-		<li id="tool-stats"><img alt="stats" src="https://***REMOVED***/website/img/icons/stats.png"></li>
-		<li id="tool-users"><img alt="users" src="https://***REMOVED***/website/img/icons/users.png"></li>
-		<li id="tool-news"><img alt="news" src="https://***REMOVED***/website/img/icons/news.png"></li>
+		<li id="tool-console"><img alt="console" src="https://cdn.galactae.eu/website/img/icons/console.png"></li>
+		<li id="tool-stats"><img alt="stats" src="https://cdn.galactae.eu/website/img/icons/stats.png"></li>
+		<li id="tool-users"><img alt="users" src="https://cdn.galactae.eu/website/img/icons/users.png"></li>
+		<li id="tool-news"><img alt="news" src="https://cdn.galactae.eu/website/img/icons/news.png"></li>
 	</ul>
 	<div id="tab-console" class="tab">
 		<ul id="server-list">
@@ -364,9 +364,9 @@
 		</div>
 		<div id="server-panel">
 			<p style="text-align: center;">Status<br/>
-				<img id="server-start"	 alt="start"	src="https://***REMOVED***/website/img/icons/start.png">
-				<img id="server-stop"	 alt="stop"		src="https://***REMOVED***/website/img/icons/stop.png">
-				<img id="server-restart" alt="restart"	src="https://***REMOVED***/website/img/icons/restart.png">
+				<img id="server-start"	 alt="start"	src="https://cdn.galactae.eu/website/img/icons/start.png">
+				<img id="server-stop"	 alt="stop"		src="https://cdn.galactae.eu/website/img/icons/stop.png">
+				<img id="server-restart" alt="restart"	src="https://cdn.galactae.eu/website/img/icons/restart.png">
 			</p>
 			<p style="text-align: center;">Maintenance<br/><br/>
 				<label class="switch">
