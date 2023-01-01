@@ -346,6 +346,9 @@ footer a {
 	 	display: block;
 	 }
 }
+.computer-table img {
+	cursor: pointer;
+}
 .index-desc img {
 	width: 95%;
 	margin: 0 auto;
