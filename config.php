@@ -21,15 +21,11 @@ $config = array(
 		"portal",
 		"contact",
 		"deconnexion",
-		"secret42",
-		"stats42",
 		"mailconf",
 		"forgotmypass",
 		"changepassword",
 		"profil",
-		"editprofil",
-		"adminsearchuser",
-		"adminedituser"
+		"editprofil"
 	],
 
 	"pass-minsize" => 8,

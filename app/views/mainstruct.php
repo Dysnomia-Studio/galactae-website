@@ -47,13 +47,6 @@ $debut = round(microtime(true) * 1000);
 				"support.php",
 			];
 
-			$adminCheckPages = [
-				"adminedituser.php",
-				"adminsearchuser.php",
-				"secret42.php",
-				"stats42.php",
-			];
-
 			$connectCheckPages = [
 				"deconnexion.php",
 				"editprofil.php",
@@ -69,9 +62,7 @@ $debut = round(microtime(true) * 1000);
 			];
 
 
-			if(in_array($pageData['pageName'], $adminCheckPages)) {
-				include(DIR_CTRL.'adminCheck.php');
-			} elseif(in_array($pageData['pageName'], $connectCheckPages)) {
+			if(in_array($pageData['pageName'], $connectCheckPages)) {
 				include(DIR_CTRL.'connectCheck.php');
 			} elseif(in_array($pageData['pageName'], $loggedCheckPages)) {
 				include(DIR_CTRL.'loggedCheck.php');
