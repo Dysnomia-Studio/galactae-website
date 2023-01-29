@@ -20,10 +20,10 @@ abstract class Security {
 	}
 
 	public static function hashV1($data) {
-		$token = ***REMOVED***;
-		$part1 = ***REMOVED***;
-		$part2 = ***REMOVED***;
-		$part3 = ***REMOVED***;
-		return ***REMOVED***;
+		$token = md5("Elanis42");
+		$part1 = sha1($data);
+		$part2 = $token."42".$part1;
+		$part3 = hash('ripemd160', $part2);
+		return hash('whirlpool', $part3."69");
 	}
 }

@@ -2,10 +2,10 @@
 $config = array(
 	'mongoURL' => '',
 	'SQLCredentials' => [
-		'host' => '***REMOVED***',
-		'db' => 'galactae',
-		'id' => '***REMOVED***',
-		'password' => '***REMOVED***',
+		'host' => 'HOST',
+		'db' => 'DATABASE',
+		'id' => 'USERNAME',
+		'password' => 'PASSWORD',
 		'driver' => 'pgsql',
 		'port' => 5432
 	],
@@ -27,6 +27,13 @@ $config = array(
 		"profil",
 		"editprofil"
 	],
+	"stats" => [
+		'host' => 'HOST',
+		'db' => 'DATABASE',
+		'id' => 'USERNAME',
+		'password' => 'PASSWORD',
+	],
+	"mail_password" => 'PASSWORD',
 
 	"pass-minsize" => 8,
 

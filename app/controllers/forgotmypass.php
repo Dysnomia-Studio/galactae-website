@@ -33,9 +33,9 @@ if(isset($data['user_name'])) {
 	require_once '../lib/swiftmailer/swift_required.php';
 
 	// Create the Transport
-    $mail_transport = Swift_SmtpTransport::newInstance('***REMOVED***', 587, 'tls')
-      ->setUsername('***REMOVED***')
-      ->setPassword('***REMOVED***')
+    $mail_transport = Swift_SmtpTransport::newInstance('mail.elanis.eu', 587, 'tls')
+      ->setUsername('noreply@galactae.eu')
+      ->setPassword($config['mail_password'])
       ->setStreamOptions(array('ssl' => array('allow_self_signed' => true, 'verify_peer_name' => false, 'verify_peer' => false)))
       ;
 
@@ -44,7 +44,7 @@ if(isset($data['user_name'])) {
 
 	// Create a message
 	$mail_content = Swift_Message::newInstance(LOGIN_PASS_RESET)
-	  ->setFrom(array('***REMOVED***' => 'Galactae: Space Age Dawn'))
+	  ->setFrom(array('noreply@galactae.eu' => 'Galactae: Space Age Dawn'))
 	  ->setTo(array($data['user_mail'] => $data['user_name']))
 	  ->setBody( $mail[0].LOGIN_PASS_RESET.$mail[1].PASS_MAIL_1.':
 	  	</td></tr><tr style="    overflow-wrap: break-word;

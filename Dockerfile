@@ -1,4 +1,4 @@
-FROM dysnomia/apache-server
+FROM ghcr.io/dysnomia-studio/apache-server:main
 WORKDIR /var/www/
 
 # Build Project

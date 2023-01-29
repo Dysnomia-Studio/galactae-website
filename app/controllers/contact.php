@@ -17,9 +17,9 @@
 			require_once '../lib/swiftmailer/swift_required.php';
 
 			// Create the Transport
-		    $transport = (new Swift_SmtpTransport('***REMOVED***', 587, 'tls'))
-		      ->setUsername('***REMOVED***')
-		      ->setPassword('***REMOVED***')
+		    $transport = (new Swift_SmtpTransport('mail.elanis.eu', 587, 'tls'))
+		      ->setUsername('noreply@galactae.eu')
+		      ->setPassword($config['mail_password'])
 		      ->setStreamOptions(array('ssl' => array('allow_self_signed' => true, 'verify_peer_name' => false, 'verify_peer' => false)))
 		      ;
 
@@ -38,8 +38,8 @@
 
 			// Create a message
 			$message = (new Swift_Message('Galactae Contact'))
-			  ->setFrom(array('***REMOVED***' => 'Galactae Contact'))
-			  ->setTo(array('***REMOVED***' => 'Galactae Contact'))
+			  ->setFrom(array('noreply@galactae.eu' => 'Galactae Contact'))
+			  ->setTo(array('contact@galactae.eu' => 'Galactae Contact'))
 			  ->setBody($variablesPost['txt'].'<br/><br/>'.$variablesPost['mail'].' - Username: '.$user, 'text/html')
 			  ;
 
