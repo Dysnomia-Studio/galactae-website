@@ -2,6 +2,6 @@
 *.bat
 .scannerwork/*
 Galactae-website/
-config.php
+config/config.php
 
 \.vs/
