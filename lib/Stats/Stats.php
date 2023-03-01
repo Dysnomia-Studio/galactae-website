@@ -1,6 +1,8 @@
 <?php
 class Stats extends SQLInterface {
     public function __construct() {
+        global $config;
+        
         SQLInterface::__construct(
             $config['stats']['host'],
             $config['stats']['db'],
