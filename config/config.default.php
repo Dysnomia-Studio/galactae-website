@@ -33,6 +33,8 @@ $config = array(
 		'id' => 'USERNAME',
 		'password' => 'PASSWORD',
 	],
+	"mail_server" => 'SERVER',
+	"mail_username" => 'USERNAME',
 	"mail_password" => 'PASSWORD',
 
 	"pass-minsize" => 8,

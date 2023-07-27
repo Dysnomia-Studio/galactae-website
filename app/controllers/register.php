@@ -83,11 +83,10 @@ if($message=='') {
 	require_once '../lib/swiftmailer/swift_required.php';
 
 	// Create the Transport
-    $mail_transport = Swift_SmtpTransport::newInstance('mail.dysnomia.studio', 587, 'tls')
-      ->setUsername('noreply@galactae.eu')
-      ->setPassword($config['mail_password'])
-      ->setStreamOptions(array('ssl' => array('allow_self_signed' => true, 'verify_peer_name' => false, 'verify_peer' => false)))
-      ;
+    $mail_transport = (new Swift_SmtpTransport($config['mail_server'], 587, 'tls'))
+		      ->setUsername($config['mail_username'])
+		      ->setPassword($config['mail_password'])
+		      ;
 
 	// Create the Mailer using your created Transport
 	$mail_mailer = Swift_Mailer::newInstance($mail_transport);
