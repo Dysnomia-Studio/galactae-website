@@ -1,4 +1,10 @@
 <?php
+// Redirect business card
+if(str_contains($_SERVER['QUERY_STRING'], 'business_card')) {
+    header('Location: https://store.steampowered.com/developer/dysnomia?utm_source=business_card');
+    exit();
+}
+
 // Cookies
 if(!isset($_COOKIE['rememberMe']) || (!$_COOKIE['rememberMe'] && $_COOKIE['rememberMe'] != "false")) {
     $expTime = 2678400; // One month
