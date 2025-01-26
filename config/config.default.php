@@ -27,12 +27,6 @@ $config = array(
 		"profil",
 		"editprofil"
 	],
-	"stats" => [
-		'host' => 'HOST',
-		'db' => 'DATABASE',
-		'id' => 'USERNAME',
-		'password' => 'PASSWORD',
-	],
 	"mail_server" => 'SERVER',
 	"mail_username" => 'USERNAME',
 	"mail_password" => 'PASSWORD',

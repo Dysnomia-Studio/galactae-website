@@ -15,8 +15,6 @@ class Router {
 			$pagename = 'index';
 		}
 
-		Stats::newVisit(); // Save to analytics
-
 		// Default values
 		$data = array();
 		$data['writeCache'] = false;

@@ -7,9 +7,5 @@ sed -i "s/getenv('GALACTAE_SQL_PASSWORD')/\"$GALACTAE_SQL_PASSWORD\"/" config.ph
 sed -i "s/getenv('MAIL_SERVER')/\'$MAIL_SERVER\'/" config.php
 sed -i "s/getenv('MAIL_USERNAME')/\'$MAIL_USERNAME\'/" config.php
 sed -i "s/getenv('MAIL_PASSWORD')/\'$MAIL_PASSWORD\'/" config.php
-sed -i "s/getenv('STATS_SQL_SERVER')/\"$STATS_SQL_SERVER\"/" config.php
-sed -i "s/getenv('STATS_SQL_DATABASE')/\"$STATS_SQL_DATABASE\"/" config.php
-sed -i "s/getenv('STATS_SQL_USERNAME')/\"$STATS_SQL_USERNAME\"/" config.php
-sed -i "s/getenv('STATS_SQL_PASSWORD')/\"$STATS_SQL_PASSWORD\"/" config.php
 
 chown www-data:www-data config.php
