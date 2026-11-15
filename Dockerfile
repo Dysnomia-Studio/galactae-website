@@ -1,4 +1,5 @@
 FROM ghcr.io/dysnomia-studio/apache-server:main
+
 WORKDIR /var/www/
 
 COPY . /var/www/
